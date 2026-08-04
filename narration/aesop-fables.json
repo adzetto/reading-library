@@ -1,0 +1,332 @@
+{
+ "id": "aesop-fables",
+ "title": "Aesop's Fables — Twelve Fables",
+ "title_tr": "Ezop Masalları — On İki Masal",
+ "voice_hint": "storytelling, warm, expressive",
+ "items": [
+  {
+   "id": "aesop-fables-0000-0",
+   "node": 0,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Lion And The Mouse",
+   "chars": 22
+  },
+  {
+   "id": "aesop-fables-0001-0",
+   "node": 1,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A LION was awakened from sleep by a Mouse running over his face. Rising up angrily, he caught him and was about to kill him, when the Mouse piteously entreated, saying: “If you would only spare my life, I would be sure to repay your kindness.” The Lion laughed and let him go. It happened shortly after this that the Lion was caught by some hunters, who bound him by strong ropes to the ground.",
+   "chars": 394
+  },
+  {
+   "id": "aesop-fables-0001-1",
+   "node": 1,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The Mouse, recognizing his roar, came and gnawed the rope with his teeth, and set him free, exclaiming:",
+   "chars": 103
+  },
+  {
+   "id": "aesop-fables-0002-0",
+   "node": 2,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "“You ridiculed the idea of my ever being able to help you, not expecting to receive from me any repayment of your favour; now you know that it is possible for even a Mouse to confer benefits on a Lion.”",
+   "chars": 202
+  },
+  {
+   "id": "aesop-fables-0003-0",
+   "node": 3,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Wolf and the Crane",
+   "chars": 22
+  },
+  {
+   "id": "aesop-fables-0004-0",
+   "node": 4,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "A WOLF who had a bone stuck in his throat hired a Crane, for a large sum, to put her head into his mouth and draw out the bone. When the Crane had extracted the bone and demanded the promised payment, the Wolf, grinning and grinding his teeth, exclaimed: “Why, you have surely already had a sufficient recompense, in having been permitted to draw out your head in safety from the mouth and jaws of a wolf.”",
+   "chars": 406
+  },
+  {
+   "id": "aesop-fables-0005-0",
+   "node": 5,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "In serving the wicked, expect no reward, and be thankful if you escape injury for your pains.",
+   "chars": 93
+  },
+  {
+   "id": "aesop-fables-0006-0",
+   "node": 6,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Father And His Sons",
+   "chars": 23
+  },
+  {
+   "id": "aesop-fables-0007-0",
+   "node": 7,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A FATHER had a family of sons who were perpetually quarreling among themselves. When he failed to heal their disputes by his exhortations, he determined to give them a practical illustration of the evils of disunion; and for this purpose he one day told them to bring him a bundle of sticks. When they had done so, he placed the faggot into the hands of each of them in succession, and ordered them to break it in pieces.",
+   "chars": 421
+  },
+  {
+   "id": "aesop-fables-0007-1",
+   "node": 7,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "They tried with all their strength, and were not able to do it. He next opened the faggot, took the sticks separately, one by one, and again put them into his sons’ hands, upon which they broke them easily. He then addressed them in these words: “My sons, if you are of one mind, and unite to assist each other, you will be as this faggot, uninjured by all the attempts of your enemies; but if you are divided among yourselves, you will be broken as easily as these sticks.”",
+   "chars": 474
+  },
+  {
+   "id": "aesop-fables-0008-0",
+   "node": 8,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Ants and the Grasshopper",
+   "chars": 28
+  },
+  {
+   "id": "aesop-fables-0009-0",
+   "node": 9,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "THE ANTS were spending a fine winter’s day drying grain collected in the summertime. A Grasshopper, perishing with famine, passed by and earnestly begged for a little food. The Ants inquired of him, “Why did you not treasure up food during the summer?” He replied, “I had not leisure enough. I passed the days in singing.” They then said in derision: “If you were foolish enough to sing all the summer, you must dance supperless to bed in the winter.”",
+   "chars": 451
+  },
+  {
+   "id": "aesop-fables-0010-0",
+   "node": 10,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Hare and the Tortoise",
+   "chars": 25
+  },
+  {
+   "id": "aesop-fables-0011-0",
+   "node": 11,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A HARE one day ridiculed the short feet and slow pace of the Tortoise, who replied, laughing: “Though you be swift as the wind, I will beat you in a race.” The Hare, believing her assertion to be simply impossible, assented to the proposal; and they agreed that the Fox should choose the course and fix the goal. On the day appointed for the race the two started together.",
+   "chars": 372
+  },
+  {
+   "id": "aesop-fables-0011-1",
+   "node": 11,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The Tortoise never for a moment stopped, but went on with a slow but steady pace straight to the end of the course. The Hare, lying down by the wayside, fell fast asleep. At last waking up, and moving as fast as he could, he saw the Tortoise had reached the goal, and was comfortably dozing after her fatigue.",
+   "chars": 309
+  },
+  {
+   "id": "aesop-fables-0012-0",
+   "node": 12,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Slow but steady wins the race.",
+   "chars": 30
+  },
+  {
+   "id": "aesop-fables-0013-0",
+   "node": 13,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Dog and the Shadow",
+   "chars": 22
+  },
+  {
+   "id": "aesop-fables-0014-0",
+   "node": 14,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "A DOG, crossing a bridge over a stream with a piece of flesh in his mouth, saw his own shadow in the water and took it for that of another Dog, with a piece of meat double his own in size. He immediately let go of his own, and fiercely attacked the other Dog to get his larger piece from him. He thus lost both: that which he grasped at in the water, because it was a shadow; and his own, because the stream swept it away.",
+   "chars": 422
+  },
+  {
+   "id": "aesop-fables-0015-0",
+   "node": 15,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Fox and the Crow",
+   "chars": 20
+  },
+  {
+   "id": "aesop-fables-0016-0",
+   "node": 16,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A CROW having stolen a bit of meat, perched in a tree and held it in her beak. A Fox, seeing this, longed to possess the meat himself, and by a wily stratagem succeeded. “How handsome is the Crow,” he exclaimed, “in the beauty of her shape and in the fairness of her complexion!",
+   "chars": 278
+  },
+  {
+   "id": "aesop-fables-0016-1",
+   "node": 16,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Oh, if her voice were only equal to her beauty, she would deservedly be considered the Queen of Birds!” This he said deceitfully; but the Crow, anxious to refute the reflection cast upon her voice, set up a loud caw and dropped the flesh. The Fox quickly picked it up, and thus addressed the Crow: “My good Crow, your voice is right enough, but your wit is wanting.”",
+   "chars": 366
+  },
+  {
+   "id": "aesop-fables-0017-0",
+   "node": 17,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Milk-Woman and Her Pail",
+   "chars": 27
+  },
+  {
+   "id": "aesop-fables-0018-0",
+   "node": 18,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A FARMER’S daughter was carrying her Pail of milk from the field to the farmhouse, when she fell a-musing. “The money for which this milk will be sold, will buy at least three hundred eggs. The eggs, allowing for all mishaps, will produce two hundred and fifty chickens. The chickens will become ready for the market when poultry will fetch the highest price, so that by the end of the year I shall have money enough from my share to buy a new gown.",
+   "chars": 449
+  },
+  {
+   "id": "aesop-fables-0018-1",
+   "node": 18,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "In this dress I will go to the Christmas parties, where all the young fellows will propose to me, but I will toss my head and refuse them every one.” At this moment she tossed her head in unison with her thoughts, when down fell the milk pail to the ground, and all her imaginary schemes perished in a moment.",
+   "chars": 309
+  },
+  {
+   "id": "aesop-fables-0019-0",
+   "node": 19,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Hen and the Golden Eggs",
+   "chars": 27
+  },
+  {
+   "id": "aesop-fables-0020-0",
+   "node": 20,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "A COTTAGER and his wife had a Hen that laid a golden egg every day. They supposed that the Hen must contain a great lump of gold in its inside, and in order to get the gold they killed it. Having done so, they found to their surprise that the Hen differed in no respect from their other hens. The foolish pair, thus hoping to become rich all at once, deprived themselves of the gain of which they were assured day by day.",
+   "chars": 421
+  },
+  {
+   "id": "aesop-fables-0021-0",
+   "node": 21,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Crow and the Pitcher",
+   "chars": 24
+  },
+  {
+   "id": "aesop-fables-0022-0",
+   "node": 22,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "A CROW perishing with thirst saw a pitcher, and hoping to find water, flew to it with delight. When he reached it, he discovered to his grief that it contained so little water that he could not possibly get at it. He tried everything he could think of to reach the water, but all his efforts were in vain.",
+   "chars": 305
+  },
+  {
+   "id": "aesop-fables-0022-1",
+   "node": 22,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "At last he collected as many stones as he could carry and dropped them one by one with his beak into the pitcher, until he brought the water within his reach and thus saved his life.",
+   "chars": 182
+  },
+  {
+   "id": "aesop-fables-0023-0",
+   "node": 23,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Necessity is the mother of invention.",
+   "chars": 37
+  },
+  {
+   "id": "aesop-fables-0024-0",
+   "node": 24,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The Fox and the Grapes",
+   "chars": 22
+  },
+  {
+   "id": "aesop-fables-0025-0",
+   "node": 25,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "A FAMISHED FOX saw some clusters of ripe black grapes hanging from a trellised vine. She resorted to all her tricks to get at them, but wearied herself in vain, for she could not reach them. At last she turned away, hiding her disappointment and saying: “The Grapes are sour, and not ripe as I thought.”",
+   "chars": 303
+  },
+  {
+   "id": "aesop-fables-0026-0",
+   "node": 26,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "The North Wind and the Sun",
+   "chars": 26
+  },
+  {
+   "id": "aesop-fables-0027-0",
+   "node": 27,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "THE NORTH WIND and the Sun disputed as to which was the most powerful, and agreed that he should be declared the victor who could first strip a wayfaring man of his clothes. The North Wind first tried his power and blew with all his might, but the keener his blasts, the closer the Traveler wrapped his cloak around him, until at last, resigning all hope of victory, the Wind called upon the Sun to see what he could do. The Sun suddenly shone out with all his warmth.",
+   "chars": 468
+  },
+  {
+   "id": "aesop-fables-0027-1",
+   "node": 27,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The Traveler no sooner felt his genial rays than he took off one garment after another, and at last, fairly overcome with heat, undressed and bathed in a stream that lay in his path.",
+   "chars": 182
+  },
+  {
+   "id": "aesop-fables-0028-0",
+   "node": 28,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Persuasion is better than Force.",
+   "chars": 32
+  }
+ ]
+}

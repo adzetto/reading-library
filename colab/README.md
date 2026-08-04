@@ -29,16 +29,23 @@ paragraf vurgusu ve iki dilli transkript aynen çalışır.
 
 | Belge | Parça | Karakter | Tahmini ses | T4'te süre |
 |---|---|---|---|---|
+| `aesop-fables` | 36 | 7.297 | ~8 dk | ~5 dk |
+| `selfish-giant` | 40 | 8.542 | ~9 dk | ~6 dk |
+| `tell-tale-heart` | 35 | 11.113 | ~12 dk | ~7 dk |
+| `alice-rabbit-hole` | 41 | 11.193 | ~12 dk | ~7 dk |
+| `happy-prince` | 95 | 18.154 | ~19 dk | ~12 dk |
+| `ugly-duckling` | 71 | 19.772 | ~21 dk | ~13 dk |
 | `net-feasibility` | 201 | 40.118 | ~42 dk | ~25 dk |
 | `jadr-2022` | 182 | 55.189 | ~58 dk | ~35 dk |
 | `doc-b89f` | 183 | 55.967 | ~59 dk | ~35 dk |
 | `doc-net-tr` | 482 | 137.823 | ~145 dk | ~85 dk |
-| kitaplar (6) | ~180 | ~85.000 | ~90 dk | ~55 dk |
+| **toplam** | **1.366** | **365.168** | **~6.4 saat** | |
 
 Süreler Higgs-Audio v2 3B, T4 GPU, bfloat16 içindir. A100'de 3-4 kat hızlı.
 
-**Öneri:** önce `net-feasibility` ile deneyin (en kısası). Sesi beğenirseniz
-kalanları sırayla üretin.
+**Öneri:** önce `aesop-fables` ile deneyin — 5 dakikada biter, sesi
+beğenirseniz uzunlara geçin. Akademik metinler için sakin ton, öyküler için
+daha canlı ton kullanılıyor (defter bunu `voice_hint` alanından otomatik seçer).
 
 ---
 

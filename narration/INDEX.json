@@ -1,5 +1,21 @@
 [
  {
+  "id": "aesop-fables",
+  "title": "Aesop's Fables — Twelve Fables",
+  "kind": "book",
+  "items": 36,
+  "chars": 7297,
+  "minutes_est": 8
+ },
+ {
+  "id": "alice-rabbit-hole",
+  "title": "Alice's Adventures in Wonderland — Chapter I: Down the Rabbit-Hole",
+  "kind": "book",
+  "items": 41,
+  "chars": 11193,
+  "minutes_est": 12
+ },
+ {
   "id": "doc-b89f",
   "title": "An Autoethnographic Study of Experiencing Secondary Trauma While Working With War-Affected Children",
   "kind": "article",
@@ -16,6 +32,14 @@
   "minutes_est": 145
  },
  {
+  "id": "happy-prince",
+  "title": "The Happy Prince",
+  "kind": "book",
+  "items": 95,
+  "chars": 18154,
+  "minutes_est": 19
+ },
+ {
   "id": "jadr-2022",
   "title": "A Systematic Review of Prevalence and Correlates of Post-Traumatic Stress Disorder, Depression and Anxiety in Displaced Syrian Population",
   "kind": "article",
@@ -30,5 +54,29 @@
   "items": 201,
   "chars": 40118,
   "minutes_est": 42
+ },
+ {
+  "id": "selfish-giant",
+  "title": "The Selfish Giant",
+  "kind": "book",
+  "items": 40,
+  "chars": 8542,
+  "minutes_est": 9
+ },
+ {
+  "id": "tell-tale-heart",
+  "title": "The Tell-Tale Heart",
+  "kind": "book",
+  "items": 35,
+  "chars": 11113,
+  "minutes_est": 12
+ },
+ {
+  "id": "ugly-duckling",
+  "title": "The Ugly Duckling",
+  "kind": "book",
+  "items": 71,
+  "chars": 19772,
+  "minutes_est": 21
  }
 ]
