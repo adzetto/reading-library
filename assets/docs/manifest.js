@@ -21,4 +21,6 @@ window.MANIFEST = [
   "group": "Makaleler"
  }
 ];
+// Sıra: makaleler → tam kitaplar → kısa metinler.
+if (window.MANIFEST_FULL) window.MANIFEST = window.MANIFEST.concat(window.MANIFEST_FULL);
 if (window.MANIFEST_BOOKS) window.MANIFEST = window.MANIFEST.concat(window.MANIFEST_BOOKS);

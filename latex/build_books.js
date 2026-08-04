@@ -922,7 +922,7 @@ function main() {
     console.log("  " + b.id.padEnd(20) + String(words).padStart(6) + " sözcük  " +
       String(doc.minutes).padStart(3) + " dk  " + String(doc.toc.length).padStart(3) +
       " başlık  " + doc.quiz.length + " soru  " + b.level + "  " + kb + " KB");
-    entries.push({ id: b.id, file: b.id + ".js", group: "Kitaplar" });
+    entries.push({ id: b.id, file: b.id + ".js", group: "Kısa metinler" });
   }
 
   fs.writeFileSync(path.join(DOCS, "manifest-books.js"),

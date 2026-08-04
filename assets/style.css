@@ -449,6 +449,13 @@ table.data .muted{color:var(--ink-2)}
   border-top-color:var(--accent);border-radius:50%;animation:sp .7s linear infinite;
   vertical-align:-.12em}
 @keyframes sp{to{transform:rotate(360deg)}}
+/* Gövdesi istendiğinde yüklenen belge için ara ekran (app.js ensureDoc).
+   Kısa metinlerde göz bile kırpmıyor; tam bir roman birkaç yüz KB. */
+.doc-loading{display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:.9rem;min-height:60svh;
+  font-family:var(--sans);font-size:var(--ui);color:var(--ink-2)}
+.doc-loading .spin{width:1.6rem;height:1.6rem;border-width:2px}
+.doc-loading p{margin:0}
 
 /* =============================== İKONLAR ===============================
    Lucide (ISC), assets/icons.js içine gömülü. Çizgi kalınlığı ve boyut

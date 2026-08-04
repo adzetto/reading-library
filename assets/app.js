@@ -84,14 +84,58 @@
     return { name: "library" };
   }
 
+  /* ---------------- belge gövdesini istendiğinde yükle ----------------
+     Açılışta yalnızca üstveri dizini (docs/meta.js) var; gövdeler
+     ağırdır ve ancak o belge açılınca gelir. Yükleme <script> ETİKETİ
+     ENJEKTE EDEREK yapılıyor, fetch ile değil: sözleşme §0 file://
+     altında da çalışmayı şart koşuyor ve orada fetch bloklanır, script
+     etiketi çalışır.
+     Gövde dosyası window.DOCS[id]'yi tamamen ezdiği için __stub kalkar. */
+  var yukleniyor = {};
+  function ensureDoc(id, cb) {
+    var d = window.DOCS && window.DOCS[id];
+    if (!d) return cb(null);                       // böyle bir belge yok
+    if (!d.__stub) return cb(d);                   // gövde zaten burada
+    if (yukleniyor[id]) { yukleniyor[id].push(cb); return; }
+    yukleniyor[id] = [cb];
+    var bitir = function () {
+      var list = yukleniyor[id]; yukleniyor[id] = null;
+      var doc = window.DOCS[id];
+      list.forEach(function (f) { f(doc && !doc.__stub ? doc : null); });
+    };
+    var s = document.createElement("script");
+    s.src = "assets/docs/" + (d.__file || (id + ".js"));
+    s.onload = bitir;
+    s.onerror = bitir;
+    document.head.appendChild(s);
+  }
+
+  function yuklemeEkrani(baslik) {
+    view.innerHTML = '<div class="doc-loading"><span class="spin"></span>' +
+      '<p>' + esc(baslik || "Metin yükleniyor") + '…</p></div>';
+  }
+
   function route() {
     var r = parseHash();
     teardown();
     view.innerHTML = "";
     document.body.classList.toggle("reading", r.name === "reader");
-    if (r.name === "reader" && window.DOCS && window.DOCS[r.id]) renderReader(window.DOCS[r.id]);
-    else if (r.name === "quiz" && window.DOCS && window.DOCS[r.id]) renderQuiz(window.DOCS[r.id]);
-    else if (r.name === "stats") renderStats();
+    if (r.name === "reader" || r.name === "quiz") {
+      var meta = window.DOCS && window.DOCS[r.id];
+      if (!meta) { renderLibrary(); scrollTo(0, 0); return; }
+      var tur = r.name;
+      if (meta.__stub) yuklemeEkrani(meta.title && meta.title.tr);
+      ensureDoc(r.id, function (doc) {
+        // Yükleme sürerken kullanıcı başka yere gitmiş olabilir.
+        if (parseHash().id !== r.id) return;
+        view.innerHTML = "";
+        if (!doc) { renderLibrary(); return; }
+        if (tur === "reader") renderReader(doc); else renderQuiz(doc);
+        scrollTo(0, 0);
+      });
+      return;
+    }
+    if (r.name === "stats") renderStats();
     else renderLibrary();
     scrollTo(0, 0);
   }

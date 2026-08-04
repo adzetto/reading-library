@@ -5,8 +5,12 @@ const fs = require("fs");
 const path = require("path");
 
 const DOCS = path.join(__dirname, "..", "assets", "docs");
+/* meta.js atlanır: gövdesiz taslak yazıyor ve alfabetik sırada
+   kendinden önceki belgelerin tam hâlini ezerdi (bkz. build_wordgraph). */
 for (const f of fs.readdirSync(DOCS)) {
-  if (f.endsWith(".js")) eval(fs.readFileSync(path.join(DOCS, f), "utf8"));
+  if (f.endsWith(".js") && f !== "meta.js") {
+    eval(fs.readFileSync(path.join(DOCS, f), "utf8"));
+  }
 }
 
 // manifest.js sonunda MANIFEST_BOOKS'u kendisi ekliyor; ikinci kez

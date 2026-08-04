@@ -62,10 +62,16 @@ const SB = makeSandbox();
   .forEach((f) => run(SB, path.join(ASSETS, f)));
 
 const DOCDIR = path.join(ASSETS, "docs");
+/* meta.js DIŞARIDA: üstveri dizini window.DOCS[id]'ye gövdesiz bir taslak
+   yazıyor. Alfabetik sırada çalıştırılırsa kendinden önce gelen belgelerin
+   (alice, doc-*, jadr-…) tam gövdesini eziyor ve o belgeler sözcük
+   grafiğine sıfır katkıyla giriyordu. */
 fs.readdirSync(DOCDIR)
-  .filter((f) => f.endsWith(".js") && !/^manifest/.test(f))
+  .filter((f) => f.endsWith(".js") && !/^manifest/.test(f) && f !== "meta.js")
   .forEach((f) => run(SB, path.join(DOCDIR, f)));
-["manifest-books.js", "manifest.js"].forEach((f) => run(SB, path.join(DOCDIR, f)));
+["manifest-full.js", "manifest-books.js", "manifest.js"]
+  .filter((f) => fs.existsSync(path.join(DOCDIR, f)))
+  .forEach((f) => run(SB, path.join(DOCDIR, f)));
 
 const Lookup = SB.Lookup;
 const DOCS = SB.window.DOCS || {};

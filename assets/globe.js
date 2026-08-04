@@ -230,7 +230,7 @@
        kenardan taşacak biçimde kırpılıyor; ortada duran küçük bir daire
        yerine büyük bir küre yayı görünüyor. 1 = eski davranış. */
     var FILL = clamp(+opts.fill || 1, 0.55, 1.6);
-    var camZ = 5, unit = 0.004, wordK = 1;
+    var camZ = 5, unit = 0.004, wordK = 1, RADPX = 0.004;
     function fit() {
       var tan = Math.tan(FOV * Math.PI / 360);
       // Dar ekranda küre genişlikten sınırlanır; payı biraz kısarak
@@ -244,6 +244,9 @@
       // Küre ekranda küçüldükçe sözcükler küreye oranla büyüsün, yoksa
       // telefonda okunmaz hâle gelirler. (1/unit = küre yarıçapı, piksel)
       wordK = clamp(320 * unit, 1, 1.7);
+      // Tuval genişliği kadar sürükleme ≈ 1.2 tur. Ekrandan bağımsız
+      // sabit bir katsayı dar ekranda küreyi neredeyse hiç döndürmüyor.
+      RADPX = (2 * Math.PI * 1.2) / Math.max(240, W);
     }
     fit();
 
@@ -648,13 +651,15 @@
     function setHover(i) {
       if (i === hover) return;
       hover = i;
-      canvas.style.cursor = i >= 0 ? "pointer" : "";
+      canvas.style.cursor = dragOn ? "grabbing" : (i >= 0 ? "pointer" : "grab");
       if (i >= 0) showTip(i); else hideTip();
       inst.dirty = true;
     }
 
     function onClick(e) {
       if (e.target && e.target.closest && e.target.closest("a,button")) return;
+      // Sürükleyip bıraktıysa bu bir tıklama değil, çevirmedir.
+      if (dgMoved > 8) { dgMoved = 0; return; }
       if (needPick) pick();
       if (hover < 0) return;
       // dokunmatikte ilk dokunuş seçer, ikincisi açar
@@ -671,8 +676,58 @@
       inCanvas = true; pick();
     }
 
+    /* ------------------ sürükleyerek döndürme ------------------
+       Küre kendiliğinden dönüyordu ama tutulup çevrilemiyordu; "mouse ile
+       dokununca dönmüyor" şikâyeti buydu. Piksel → açı katsayısı tuval
+       genişliğine bağlı (RADPX, fit() içinde): dar ekranda kısa bir
+       sürükleme de bir tam tur döndürsün.
+       Bırakınca atalet devam eder (τ = 0.75 s). Sürükleme sırasında
+       tıklama iptal edilir, yoksa her çevirme bir metne gidiyor. */
+    var dragOn = false, dragId = -1, dgX = 0, dgY = 0, dgMoved = 0, dgT = 0;
+    var spinV = 0, tiltV = 0, manTilt = 0;
+
+    function onDragDown(e) {
+      if (e.button != null && e.button > 0) return;      // yalnız sol tuş
+      dragOn = true; dragId = e.pointerId;
+      dgX = e.clientX; dgY = e.clientY; dgMoved = 0;
+      dgT = e.timeStamp || performance.now();
+      spinV = 0; tiltV = 0;
+      try { canvas.setPointerCapture(e.pointerId); } catch (err) {}
+      canvas.style.cursor = "grabbing";
+      inst.dirty = true;
+    }
+    function onDragMove(e) {
+      if (!dragOn || e.pointerId !== dragId) return;
+      var now = e.timeStamp || performance.now();
+      var sdt = Math.max(8, now - dgT) / 1000;
+      var dx = e.clientX - dgX, dy = e.clientY - dgY;
+      dgX = e.clientX; dgY = e.clientY; dgT = now;
+      dgMoved += Math.abs(dx) + Math.abs(dy);
+      root.rotation.y += dx * RADPX;
+      manTilt = clamp(manTilt + dy * RADPX * 0.75, -1.05, 1.05);
+      // hız: bırakıldığında atalet bundan başlar
+      spinV = clamp(dx * RADPX / sdt, -8, 8);
+      tiltV = clamp(dy * RADPX * 0.75 / sdt, -6, 6);
+      inst.dirty = true;
+    }
+    function onDragUp(e) {
+      if (!dragOn) return;
+      if (e && e.pointerId != null && e.pointerId !== dragId &&
+          e.type !== "pointercancel") return;
+      dragOn = false;
+      try { canvas.releasePointerCapture(dragId); } catch (err) {}
+      dragId = -1;
+      canvas.style.cursor = hover >= 0 ? "pointer" : "grab";
+      inst.dirty = true;
+    }
+
+    canvas.style.cursor = "grab";                  // tutulabilirliği belli et
     canvas.addEventListener("click", onClick);
     canvas.addEventListener("pointerdown", onDown, { passive: true });
+    canvas.addEventListener("pointerdown", onDragDown);
+    canvas.addEventListener("pointermove", onDragMove);
+    canvas.addEventListener("pointerup", onDragUp);
+    canvas.addEventListener("pointercancel", onDragUp);
     canvas.addEventListener("pointerleave", onLeave, { passive: true });
     global.addEventListener("pointermove", onMove, { passive: true });
     global.addEventListener("scroll", stale, { passive: true });
@@ -737,17 +792,29 @@
       /* Yumuşatma katsayısı kare süresinden türer: 0.05 sabiti 120 Hz'de
          iki kat hızlı, 30 Hz'de yarı hızlı davranıyordu. τ = 0.16 s. */
       var kd = 1 - Math.exp(-dt / 0.16);
+      /* Sürükleme kullanıcının kendi hareketi: hareket azaltma ayarı onu
+         engellemez, yalnızca kendiliğinden dönmeyi ve ataleti kapatır. */
+      if (!dragOn) {
+        if (!reduced) {
+          root.rotation.y += dt * (0.05 + spinV);
+          manTilt = clamp(manTilt + tiltV * dt, -1.05, 1.05);
+          // atalet sönümü: bırakınca birkaç saniye savrulup durur
+          var kf = Math.exp(-dt / 0.75);
+          spinV *= kf; tiltV *= kf;
+          if (Math.abs(spinV) > 0.002 || Math.abs(tiltV) > 0.002) inst.dirty = true;
+        } else { spinV = tiltV = 0; }
+      }
       if (!reduced) {
         tsec += dt;
-        root.rotation.y += dt * 0.05;
         tiltX += (tgY - tiltX) * kd;
         tiltY += (tgX - tiltY) * kd;
-        root.rotation.x = tiltX * 0.85;
         cam.position.x = tiltY * 1.1;
         cam.position.y = -tiltX * 0.7;
         cam.position.z = camZ;
         cam.lookAt(0, 0, 0);
       }
+      // eğim: fare paralaksı + sürüklemeyle biriken açı
+      root.rotation.x = tiltX * 0.85 + manTilt;
       inst.dirty = false;
       camDir.copy(cam.position).normalize();
       var cdist = cam.position.length();
@@ -896,7 +963,10 @@
       info: function () {
         return { sprites: sprites.length, links: links.length, nodes: nodes.length,
                  theme: inst.theme, reduced: reduced, built: built, w: W, h: H,
-                 focus: focusDocIdx };
+                 focus: focusDocIdx,
+                 // sürükleme sınaması için: dönüş açısı, eğim ve atalet
+                 rotY: root.rotation.y, tilt: manTilt, spin: spinV,
+                 dragging: dragOn };
       },
       /** Bir belgeyi öne çıkar; null her şeyi geri getirir. */
       focusDoc: function (i) {
@@ -922,6 +992,10 @@
         global.removeEventListener("scroll", stale);
         canvas.removeEventListener("click", onClick);
         canvas.removeEventListener("pointerdown", onDown);
+        canvas.removeEventListener("pointerdown", onDragDown);
+        canvas.removeEventListener("pointermove", onDragMove);
+        canvas.removeEventListener("pointerup", onDragUp);
+        canvas.removeEventListener("pointercancel", onDragUp);
         canvas.removeEventListener("pointerleave", onLeave);
         if (tip && tip.parentNode) tip.parentNode.removeChild(tip);
         sprites.forEach(function (sp) {
