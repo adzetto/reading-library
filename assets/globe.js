@@ -226,13 +226,17 @@
     root.rotation.z = -0.14;
     scene.add(root);
 
+    /* fill < 1: küre kabını daha çok doldurur. Hero'da küre artık sağ
+       kenardan taşacak biçimde kırpılıyor; ortada duran küçük bir daire
+       yerine büyük bir küre yayı görünüyor. 1 = eski davranış. */
+    var FILL = clamp(+opts.fill || 1, 0.55, 1.6);
     var camZ = 5, unit = 0.004, wordK = 1;
     function fit() {
       var tan = Math.tan(FOV * Math.PI / 360);
       // Dar ekranda küre genişlikten sınırlanır; payı biraz kısarak
       // kürenin hero içinde kaybolmasını engelliyoruz.
       // Küre hero'nun üst/alt kenarına değmesin: nefes payı bırakılıyor.
-      var margin = W / H < 0.85 ? 1.24 : 1.42;
+      var margin = (W / H < 0.85 ? 1.24 : 1.42) * FILL;
       camZ = Math.max(margin / tan, margin / (tan * Math.max(0.3, W / H)));
       cam.position.set(0, 0, camZ);
       cam.lookAt(0, 0, 0);
@@ -789,6 +793,18 @@
       ballMat.uniforms.uTime.value = tsec;
       ballMat.uniforms.uPointer.value.set(lon ? lx : 0, lon ? ly : 0);
 
+      /* --- imleç merceği --------------------------------------------
+         Işığın imleçle kayması ölçülebilir ama GÖRÜLEMEZ kadar ince
+         kalıyordu: kullanıcı "interaktif bile değil" dedi ve haklıydı.
+         Mercek bunu tersine çevirir — imlecin çevresindeki sözcükler
+         büyüyüp öne çıkar. Aynı zamanda ürünün vaadini anlatır:
+         "sözcüğe dokun, karşılığı gelsin".
+         Yarıçap tuvale oranlı: telefonda küçük kürede kocaman bir
+         mercek her şeyi birden büyütürdü. */
+      var lensR = clamp(W * 0.24, 96, 260);
+      var lensOn = ptrOn && !reduced && built;
+      var lensR2 = lensR * lensR;
+
       /* sözcükler: derinliğe göre soluklaşsın, üstüne gelinen öne çıksın */
       if (built) {
         var near = hover >= 0 ? adj[hover] : null;
@@ -806,11 +822,23 @@
             var inDoc = focusDocIdx != null && nodes[i].docs.indexOf(focusDocIdx) >= 0;
             o *= 1 + focusStr * ((inDoc ? 1 : 0.18) - 1);
           }
-          sp.material.opacity = on ? 1 : clamp(o, 0, 1);
-          var k = (0.86 + 0.14 * a) * (on ? 1.32 : 1);
+          /* Mercek kazancı: yalnızca ön yüzdeki sözcükler için hesaplanır,
+             arkadakiler zaten görünmüyor — 110 projeksiyonun yarısı boşa
+             gitmesin. */
+          var g = 0;
+          if (lensOn && f > horizon - 0.02) {
+            pv.copy(sp.position).applyQuaternion(root.quaternion).project(cam);
+            var dx = (pv.x * 0.5 + 0.5) * W - mx;
+            var dy = (-pv.y * 0.5 + 0.5) * H - my;
+            var dd = (dx * dx + dy * dy) / lensR2;
+            if (dd < 3.2) g = Math.exp(-dd * 2.1);
+          }
+          sp.material.opacity = on ? 1 : clamp(o + 0.5 * g * (1 - o), 0, 1);
+          var k = (0.86 + 0.14 * a) * (on ? 1.32 : 1) * (1 + 0.62 * g);
           sp.scale.set(size[i].h * sp.userData.ar * k, size[i].h * k, 1);
         }
         if (hover >= 0) placeTip(hover);
+        if (lensOn) inst.dirty = true;
       }
 
       /* --- yaylar ---

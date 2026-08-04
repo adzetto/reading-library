@@ -898,7 +898,11 @@
     }
     var ok = false;
     try {
-      ok = WordGlobe.mount(cv, { theme: S.theme, reduced: REDUCED });
+      // fill<1: küre kabını doldurur ve sağ kenardan taşar (bkz. hero.css).
+      // Dar ekranda küre akışa dönüyor, orada kırpılmamalı.
+      var dar = matchMedia("(max-width:1080px)").matches;
+      ok = WordGlobe.mount(cv, { theme: S.theme, reduced: REDUCED,
+                                 fill: dar ? 1 : 0.72 });
     } catch (e) { ok = false; }
     if (!ok) { cv.style.display = "none"; return; }
     // tema düğmesi bunu çağırıyor

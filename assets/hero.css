@@ -11,16 +11,32 @@
 /* max-width + dolgu .lib ile BİREBİR aynı kutuda (library.css): ikisi ayrı
    ögelere bölünürse sol kenarlar 5vw kayıyor ve hero metni kartların
    hizasını tutturamıyor. */
-.hero{max-width:76rem;margin:0 auto;padding:2.5rem 5vw 3rem}
+/* Simetrik iki sütun (solda metin / sağda daire) en çok kullanılan
+   şablon: düzgün ama bayat. Bunun yerine asimetrik ve KIRPILMIŞ bir
+   kompozisyon — küre kabından ve ekranın sağ kenarından taşıyor, yani
+   tam daire değil bir küre yayı görünüyor. Metin yine kürenin görünen
+   diskine hiç girmiyor; taşan şey tuvalin boş kenarı.
+   .hero artık genişliği sınırlamıyor: sınır metin kabında (.hero-grid),
+   böylece tuval ekran kenarına kadar uzanabiliyor. */
+.hero{position:relative;overflow:hidden;padding:0}
 /* minmax(0,…) ŞART: düz 1fr sütunun min-content genişliğine uyar ve
    sayfayı yatay kaydırır — bu hata bu projede daha önce iki kez çıktı.
    Yükseklik ~72svh: küre rahat nefes alsın ama kütüphane kartları
    kaydırmadan görünmeye başlasın — eski 88svh'de kartlar ekranın
    tamamen altında kalıyordu. */
-.hero-grid{display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
-  gap:clamp(1.5rem,4vw,3.5rem);align-items:center;
-  min-height:min(72svh,620px)}
+/* Metin kabı .lib ile aynı kutuda kalır (76rem + 5vw) ki manşetin sol
+   kenarı aşağıdaki kartlarla hizalansın. Tek sütun: küre artık bu
+   akışın parçası değil, arkasına serilmiş bir katman. */
+/* Metin kabı .lib ile aynı kutuda (76rem + 5vw) — manşetin sol kenarı
+   aşağıdaki kartlarla hizalı. İkinci sütun kürenin ÇIKIŞ NOKTASI: küre
+   o hücreden taşarak ekranın sağ kenarına kadar gidiyor. Mutlak
+   konumlandırma denendi ve bırakıldı — 1440'ta boşluk 0 px'e, 768'de
+   -52 px'e düşüyordu; hücreye bağlayınca aralık her ölçüde korunuyor. */
+.hero-grid{position:relative;z-index:1;
+  max-width:76rem;margin:0 auto;padding:3rem 5vw 3.25rem;
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);
+  gap:clamp(1.5rem,3vw,3rem);align-items:center;
+  min-height:min(74svh,660px)}
 
 /* Küre kabı: position:relative iki işi birden görür — globe.js kendi
    .wg-tip balonunu canvas.parentNode'a ekleyip canvas piksel
@@ -28,8 +44,15 @@
    aspect-ratio:1 ise canvas'ı kare tutar; globe.js'in fit()'i kamera
    payını W/H üzerinden hesapladığı için kare olmayan kapta küre
    kırpılıyor. */
-.hero-orb{position:relative;aspect-ratio:1;width:100%;
-  max-width:min(38rem,42vw);justify-self:end;align-self:center}
+/* Küre hücresinden %170 taşıyor: .hero'nun overflow:hidden'ı onu ekranın
+   sağ kenarında kesiyor, yani ortada duran düzgün bir daire değil kırpılmış
+   bir küre yayı görünüyor. Taşma oranı hücreye bağlı olduğu için metinle
+   arasındaki koridor her ölçüde aynı oranda kalıyor. */
+/* Yükseklik satırdan gelir, aspect-ratio'dan DEĞİL: kare kap %170
+   genişlikte satırı ~940 px'e çıkarıyor ve kartları ekranın altına
+   itiyordu. Yükseklik sabitlenince kap yatayda uzayıp kırpılıyor. */
+.hero-orb{position:relative;z-index:0;justify-self:start;align-self:stretch;
+  width:170%;margin-left:-6%;height:100%;min-height:22rem}
 #globe{position:absolute;inset:0;width:100%;height:100%;display:block;
   touch-action:pan-y}
 /* Kürenin kenarı sert bitmesin diye çok yumuşak bir kâğıt vinyeti.
@@ -42,6 +65,7 @@
 /* ------------------------------ metin ------------------------------ */
 /* Metin artık canvas'ın üstünde durmadığı için eski pointer-events:none
    kaldırıldı; sütun kendi fare olaylarını alabilir. */
+/* Genişliği sütun veriyor; ayrıca max-width koymak koridoru bozuyor. */
 .hero-in{text-align:left;min-width:0}
 
 /* Manşet Mona Sans'a (--display) geçti; gövde ve arayüz Geist'te kalır.
@@ -173,28 +197,22 @@
 /* ----------------------------- responsive -----------------------------
    Kırılma noktaları site geneliyle aynı: 1080 / 760 / 560 / 380.      */
 
-/* ---- dar masaüstü: küre sütunu biraz daralır ---- */
+/* ---- tablet ve telefon ----
+   Kırpılmış kompozisyon dar ekranda çalışmaz: iki sütuna bölünce metin
+   kürenin diskine giriyor (768 px'te ölçülen aralık -52 px). Bu ölçüde
+   küre akışa geri döner — metin üstte, küre altta, taşma yok. */
 @media (max-width:1080px){
-  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);
-    gap:clamp(1.2rem,3vw,2.4rem)}
-}
-
-/* ---- tablet ve telefon: tek sütun, metin üstte küre altta ---- */
-@media (max-width:760px){
   /* .lib bu ölçüde 6vw dolgu kullanıyor; sol kenar onunla hizalı kalsın. */
-  .hero{padding:2rem 6vw 2.5rem}
-  /* Kaynak sırası zaten metin → küre; tek sütuna düşünce doğal olarak
-     metin üstte kalır. min-height kalkar, yükseklik içerikten gelir. */
-  .hero-grid{grid-template-columns:minmax(0,1fr);min-height:auto}
-  /* Kare kapta çizilen küre kutunun ancak ~%62'sini dolduruyor; tek
-     sütuna düşünce bu, metinle küre arasında koca bir boşluk bırakıyordu.
-     Kabı biraz basıklaştırmak boşluğu alır, küreyi kırpmaz: fit()
-     kamera payını W/H > 0.85 dalında hesaplamayı sürdürür. */
-  .hero-orb{max-width:min(24rem,78vw);justify-self:center;
-    aspect-ratio:1/.84;margin-top:-.5rem}
+  .hero-grid{padding:2rem 6vw 2.5rem;min-height:auto;
+    grid-template-columns:minmax(0,1fr);gap:0}
+  /* Küre akışa döner: taşma yok, ortalanmış. Kabı biraz basıklaştırmak
+     metinle küre arasındaki ölü boşluğu alır ama küreyi kırpmaz — fit()
+     kamera payını W/H > 0.85 dalında hesaplamayı sürdürüyor. */
+  .hero-orb{width:min(26rem,74vw);height:auto;min-height:0;margin:0 auto;
+    justify-self:center;aspect-ratio:1/.84}
 }
 @media (max-width:560px){
-  .hero-orb{max-width:min(20rem,86vw)}
+  .hero-orb{width:min(20rem,86vw)}
   /* clamp'in alt sınırı (2.4rem) telefonda manşeti üç satıra bölüyor;
      dar sütunda 2.05rem hem iri kalıyor hem iki satırda duruyor. */
   .hero-h1{font-size:clamp(2.05rem,8.4vw,2.6rem);letter-spacing:-.03em}

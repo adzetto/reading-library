@@ -30,6 +30,24 @@ function watch(page, errs) {
   });
 }
 
+/* Kürenin EKRANDA çizilen diskinin sol kenarı ile metnin sağ kenarı
+   arasındaki koridor. Kap (canvas) bilerek ekrandan taşıyor, o yüzden
+   kutu kenarı yanıltıcı: disk yarıçapı globe.js'teki fit() ile aynı
+   biçimde kamera payından hesaplanır.
+     margin = (en/boy < 0.85 ? 1.24 : 1.42) * fill
+     camZ   = max(margin/tan, margin/(tan*en_boy))
+     r_px   = (1 / (camZ*tan)) * (H/2) */
+const FOV_TAN = Math.tan(40 * Math.PI / 360);
+function diskBosluk(geo, fill) {
+  if (!geo.orb || !geo.txt) return -1;
+  const W = geo.orb.w, H = geo.orb.h, ar = W / H;
+  const margin = (ar < 0.85 ? 1.24 : 1.42) * (fill == null ? 0.72 : fill);
+  const camZ = Math.max(margin / FOV_TAN,
+                        margin / (FOV_TAN * Math.max(0.3, ar)));
+  const r = (1 / (camZ * FOV_TAN)) * (H / 2);
+  return Math.round(geo.orb.l + W / 2 - r - geo.txt.r);
+}
+
 /* Sitenin belge ton bandı: mürekkep mavisi → sıcak kahve.
    globe.js bandHue() ve app.js docHue() ile birebir aynı olmalı. */
 function docHue(i, n) {
@@ -95,13 +113,15 @@ const COLORS = (sel) => {
   if (geo.txt && geo.orb) {
     const kesisme = !(geo.txt.r <= geo.orb.l || geo.orb.r <= geo.txt.l ||
                       geo.txt.b <= geo.orb.t || geo.orb.b <= geo.txt.t);
-    check("(1) metin ile küre KESİŞMİYOR", !kesisme,
-      "metin sağ kenar " + geo.txt.r + " · küre sol kenar " + geo.orb.l);
+    check("(1) metin ile küre kabı kesişmiyor", !kesisme,
+      "metin sağ kenar " + geo.txt.r + " · kap sol kenar " + geo.orb.l);
     check("(1) küre metnin SAĞINDA", geo.orb.l >= geo.txt.r,
       geo.orb.l + " >= " + geo.txt.r);
-    check("(1) canvas kare (±%4)",
-      geo.cv && Math.abs(geo.cv.w - geo.cv.h) / Math.max(1, geo.cv.w) < 0.04,
-      geo.cv ? geo.cv.w + "×" + geo.cv.h : "canvas yok");
+    /* Asıl ölçüt kap değil GÖRÜNEN DİSK: kap bilerek ekrandan taşıyor ve
+       kare değil, o yüzden kutu karşılaştırması artık yeterli değil.
+       Disk yarıçapı fit()'in kamera payından türetilir. */
+    check("(1) metin ile kürenin DİSKİ arasında koridor var",
+      diskBosluk(geo) >= 32, diskBosluk(geo) + " px");
   }
   check("(1) konsol temiz", errs.length === 0, errs.slice(0, 3).join(" | "));
   await page.screenshot({ path: path.join(SHOT, "hero-1440.png") });
@@ -225,22 +245,27 @@ const COLORS = (sel) => {
         if (!el) return null;
         const b = el.getBoundingClientRect();
         return { t: Math.round(b.top), b: Math.round(b.bottom),
-                 l: Math.round(b.left), r: Math.round(b.right) };
+                 l: Math.round(b.left), r: Math.round(b.right),
+                 w: Math.round(b.width), h: Math.round(b.height) };
       };
       return {
         tas: document.documentElement.scrollWidth - document.documentElement.clientWidth,
         txt: box(".hero-in"), orb: box("#heroOrb")
       };
     });
-    const dar = w <= 760;
+    /* Kırpılmış iki sütunlu kompozisyon yalnızca ≥1081 px'te; altında
+       küre akışa dönüp metnin altına geçiyor (768'de yan yana dizilim
+       metni kürenin diskine sokuyordu). */
+    const dar = w <= 1080;
     let yerlesim = true, aciklama = "";
     if (r.txt && r.orb) {
       if (dar) {
         yerlesim = r.txt.b <= r.orb.t + 2;              // metin üstte
         aciklama = "metin alt " + r.txt.b + " ≤ küre üst " + r.orb.t;
       } else {
-        yerlesim = r.orb.l >= r.txt.r - 2;              // küre sağda
-        aciklama = "küre sol " + r.orb.l + " ≥ metin sağ " + r.txt.r;
+        const bos = diskBosluk({ orb: r.orb, txt: r.txt });
+        yerlesim = bos >= 32;                           // disk koridoru
+        aciklama = "disk koridoru " + bos + " px";
       }
     } else { yerlesim = false; aciklama = "öge yok"; }
     check(w + " px taşma 0", r.tas === 0, "taşma " + r.tas);
