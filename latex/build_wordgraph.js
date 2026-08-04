@@ -99,7 +99,39 @@ any some none nothing something anything everything nobody somebody anybody ever
 part parts kind sort thing things way ways time times day days year years
 `.trim().split(/\s+/);
 
-const STOP = new Set(CORE.concat(EXTRA_STOP));
+/* Sözlükte olsa da hero'da anlam taşımayan renksiz sözcükler. */
+const BLAND = `
+down back away last quite else next really cannot whole half course right
+past close long high full hard clear later early likely able sure true real
+main own several various certain given order form point state fact thing kind
+sort side top end begin above below thereby whereby hereby wherein herein
+onto amongst likewise namely indeed perhaps maybe rather quite somewhat
+higher highest lower lowest greater greatest larger largest smaller
+inde gene inte diffe rese pres expe cont
+`.trim().split(/\s+/);
+
+const STOP = new Set(CORE.concat(EXTRA_STOP).concat(BLAND));
+
+/* Sözlüğün çözemediği düzensiz biçimler. */
+const IRR2 = {
+  flew: "fly", flown: "fly", hung: "hang", wept: "weep", slept: "sleep",
+  crept: "creep", swept: "sweep", sang: "sing", sung: "sing",
+  rang: "ring", rung: "ring", sprang: "spring", flung: "fling", clung: "cling",
+  stung: "sting", swung: "swing", struck: "strike", stuck: "stick",
+  shone: "shine", shook: "shake", shaken: "shake", threw: "throw",
+  thrown: "throw", grew: "grow", grown: "grow", blew: "blow", blown: "blow",
+  knelt: "kneel", leapt: "leap", dwelt: "dwell", bore: "bear",
+  borne: "bear", broke: "break", broken: "break", spoke: "speak",
+  spoken: "speak", stole: "steal", stolen: "steal", froze: "freeze",
+  frozen: "freeze", woke: "wake", woken: "wake", wore: "wear", worn: "wear",
+  tore: "tear", torn: "tear", drank: "drink", drunk: "drink", sank: "sink",
+  sunk: "sink", lain: "lie", fed: "feed",
+  bled: "bleed", bred: "breed", dug: "dig", hid: "hide",
+  hidden: "hide", rode: "ride", ridden: "ride", rose: "rise", risen: "rise",
+  drove: "drive", driven: "drive", ate: "eat", eaten: "eat",
+  fought: "fight", caught: "catch", taught: "teach", bought: "buy",
+  sent: "send", bent: "bend", lent: "lend",
+};
 
 /* Sözlükteki tanıma göre işlev sözcüğü olanları da at. */
 const FUNC_POS = /^(det|pron|prep|conj|aux|art|num|interj)/;
@@ -123,8 +155,25 @@ function unent(s) {
   });
 }
 
-function plainText(html) {
-  return unent(String(html || "").replace(/<[^>]*>/g, " ")).replace(/\s+/g, " ");
+/* Blok düzeyindeki etiketleri satır sınırına çevirir, kalan etiketleri atar. */
+const BLOCK = /<\/?(p|h1|h2|h3|h4|li|ul|ol|div|figure|figcaption|tr|td|th|table|thead|tbody|tfoot|aside|blockquote|br)\b[^>]*>/gi;
+function blocks(html) {
+  return unent(String(html || "").replace(BLOCK, "\n").replace(/<[^>]*>/g, " "))
+    .split("\n").map((s) => s.replace(/\s+/g, " ").trim()).filter(Boolean);
+}
+
+/* doc-net-tr iki dilli: Türkçe gövde İngilizce sözcük ağına karışmamalı. */
+const TR_STOP = new Set(("ve bir bu için ile olarak daha gibi olan ancak ise " +
+  "ya da de ki ama çok her ne kadar sonra göre üzerine olduğu bunun şekilde " +
+  "tarafından değil var yok en o şu bu bir çünkü yani ayrıca")
+  .split(/\s+/));
+const TRCH = /[çğıöşüÇĞİÖŞÜ]/;
+function isTurkish(line) {
+  const toks = line.match(/[A-Za-zçğıöşüÇĞİÖŞÜ]{2,}/g);
+  if (!toks || toks.length < 3) return false;
+  let hit = 0;
+  toks.forEach((t) => { if (TRCH.test(t) || TR_STOP.has(t.toLowerCase())) hit++; });
+  return hit / toks.length > 0.12;
 }
 
 /* Cümle başı mı? — özel ad sezgisi için gerekli. */
@@ -144,56 +193,93 @@ function sentenceStart(text, i) {
 const D = MANIFEST.map((m) => DOCS[m.id]).filter(Boolean);
 const NDOC = D.length;
 
-/** lemma → {n, per:[], capMid, midTotal, tr, pos, surface} */
-const W = new Map();
+/* --- birinci geçiş: ham yüzey biçimlerini topla --- */
+/** yüzey → {n, per:[], capMid, midTotal, allCaps} */
+const RAW = new Map();
 const docTokens = new Array(NDOC).fill(0);
+const TOK = /[A-Za-z][A-Za-z'’-]*/g;
 
-/** Kelimeyi sözlük köküne indirger; sözlükte yoksa yüzey biçimini döner. */
+let trDropped = 0;
+D.forEach((doc, di) => {
+  blocks(doc.html).forEach((text) => {
+    if (isTurkish(text)) { trDropped++; return; }
+    TOK.lastIndex = 0;
+    let m;
+    while ((m = TOK.exec(text))) {
+      // sahiplik eki ve baştaki/sondaki kesme, tire
+      const raw = m[0].replace(/['’]s$/i, "").replace(/^[-'’]+|[-'’]+$/g, "");
+      if (raw.length < 2) continue;
+      const low = raw.toLowerCase();
+
+      docTokens[di]++;
+      let e = RAW.get(low);
+      if (!e) {
+        e = { n: 0, per: new Array(NDOC).fill(0), capMid: 0, midTotal: 0, allCaps: 0 };
+        RAW.set(low, e);
+      }
+      e.n++; e.per[di]++;
+
+      if (raw.length > 1 && raw === raw.toUpperCase()) { e.allCaps++; continue; }
+      if (sentenceStart(text, m.index)) continue;      // cümle başı kanıt sayılmaz
+      e.midTotal++;
+      if (raw[0] === raw[0].toUpperCase()) e.capMid++;
+    }
+  });
+});
+
+/* --- kök çözümü ---
+   1. yerel sözlük (Lookup.peek)  → sözlük anahtarı + Türkçesi
+   2. düzensiz biçim çizelgesi
+   3. Lookup.candidates: korpusta gerçekten geçen bir taban varsa ona indir
+      (words→word, eyes→eye, waited→wait) */
 const lemCache = new Map();
 function lemma(w) {
   if (lemCache.has(w)) return lemCache.get(w);
   let out = { key: w, tr: "", pos: "" };
-  try {
-    const hit = Lookup.peek(w);
-    if (hit && hit.key) out = { key: hit.key, tr: hit.tr || "", pos: hit.pos || "" };
-  } catch (e) { /* sözlük hatası düğümü engellemesin */ }
+  let hit = null;
+  try { hit = Lookup.peek(w); } catch (e) { hit = null; }
+  if (hit && hit.key) {
+    out = { key: hit.key, tr: hit.tr || "", pos: hit.pos || "" };
+  } else if (IRR2[w] && RAW.has(IRR2[w])) {
+    out = { key: IRR2[w], tr: "", pos: "" };
+  } else {
+    let cands = [];
+    try { cands = Lookup.candidates(w) || []; } catch (e) { cands = []; }
+    const self = RAW.get(w);
+    for (const c of cands) {
+      if (c === w || c.length < 3) continue;
+      const other = RAW.get(c);
+      // taban biçim korpusta yeterince geçiyorsa birleştir
+      if (other && other.n >= Math.max(2, self.n * 0.18)) { out.key = c; break; }
+    }
+  }
   lemCache.set(w, out);
   return out;
 }
 
-D.forEach((doc, di) => {
-  const text = plainText(doc.html);
-  const re = /[A-Za-z][A-Za-z'’-]*/g;
-  let m;
-  while ((m = re.exec(text))) {
-    let raw = m[0];
-    // sahiplik eki ve baştaki/sondaki kesme, tire
-    raw = raw.replace(/['’]s$/i, "").replace(/^[-'’]+|[-'’]+$/g, "");
-    if (raw.length < 2) continue;
-    const low = raw.toLowerCase();
-    if (low.length < 2) continue;
-
-    docTokens[di]++;
-
-    const lm = lemma(low);
-    const key = lm.key;
-    let e = W.get(key);
-    if (!e) {
-      e = { n: 0, per: new Array(NDOC).fill(0), capMid: 0, midTotal: 0,
-            tr: lm.tr, pos: lm.pos, allCaps: 0 };
-      W.set(key, e);
-    }
-    if (!e.tr && lm.tr) { e.tr = lm.tr; e.pos = lm.pos; }
-    e.n++;
-    e.per[di]++;
-
-    const isAllCaps = raw.length > 1 && raw === raw.toUpperCase();
-    if (isAllCaps) { e.allCaps++; continue; }          // <span class="sc"> ve büyük harfli başlıklar
-    if (sentenceStart(text, m.index)) continue;        // cümle başı kanıt sayılmaz
-    e.midTotal++;
-    if (raw[0] === raw[0].toUpperCase()) e.capMid++;
+/* --- ikinci geçiş: kök altında topla --- */
+/** lemma → {n, per:[], capMid, midTotal, tr, pos, allCaps} */
+const W = new Map();
+for (const [low, r] of RAW) {
+  const lm = lemma(low);
+  let e = W.get(lm.key);
+  if (!e) {
+    e = { n: 0, per: new Array(NDOC).fill(0), capMid: 0, midTotal: 0,
+          tr: "", pos: "", allCaps: 0 };
+    W.set(lm.key, e);
   }
-});
+  if (!e.tr && lm.tr) { e.tr = lm.tr; e.pos = lm.pos; }
+  e.n += r.n;
+  e.capMid += r.capMid; e.midTotal += r.midTotal; e.allCaps += r.allCaps;
+  for (let i = 0; i < NDOC; i++) e.per[i] += r.per[i];
+}
+/* kökün kendisi metinde hiç geçmemişse (eyes→eye) Türkçesini yine de ara */
+for (const [key, e] of W) {
+  if (e.tr) continue;
+  let hit = null;
+  try { hit = Lookup.peek(key); } catch (x) { hit = null; }
+  if (hit && hit.tr) { e.tr = hit.tr; e.pos = hit.pos || ""; }
+}
 
 /* ================================================================
    5. düğüm seçimi
@@ -220,7 +306,7 @@ for (const [w, e] of W) {
   // kendi karakteristik sözcüklerini alsın)
   let best = docIdx[0], bestV = -1;
   docIdx.forEach((i) => {
-    const v = e.per[i] / Math.max(1, docTokens[i]);
+    const v = e.per[i] / Math.sqrt(Math.max(1, docTokens[i]));
     if (v > bestV) { bestV = v; best = i; }
   });
 
@@ -229,11 +315,13 @@ for (const [w, e] of W) {
 
   docIdx.sort((a, b) => e.per[b] - e.per[a]);
 
+  // Puan: bağ kurabilirlik (kaç belge) + makale⇄kitap köprüsü + sıklık +
+  // Türkçe karşılığı olması + belgesine özgülük.
   cand.push({
     w, n: e.n, docs: docIdx, p: best,
     tr: shortTr(e.tr),
-    score: docIdx.length * 3 + crossKind * 4.5 + Math.log2(e.n) +
-           (e.tr ? 2 : 0) + Math.min(2, docIdx.length * bestV * 900),
+    score: docIdx.length * 2.2 + crossKind * 4.5 + Math.log2(e.n) * 2 +
+           (e.tr ? 2.5 : 0) + Math.min(3, bestV * 12),
   });
 }
 
@@ -247,22 +335,42 @@ function shortTr(tr) {
 
 cand.sort((a, b) => b.score - a.score);
 
+/* Aynı sözcüğün çekimi zaten seçildiyse ikincisini alma (experience /
+   experienced, flower / flowers). */
+const SUFF = ["s", "es", "d", "ed", "ing", "ings", "ly", "er", "ers"];
+function inflectionOf(w, taken) {
+  for (const s of SUFF) {
+    if (!w.endsWith(s)) continue;
+    const base = w.slice(0, -s.length);
+    if (base.length >= 3 && taken.has(base)) return true;
+    if (s === "ed" || s === "ing") {
+      if (taken.has(base + "e")) return true;                    // loved → love
+      if (/(.)\1$/.test(base) && taken.has(base.slice(0, -1))) return true;
+    }
+    if (s === "es" && taken.has(base + "y")) return true;
+  }
+  if (w.endsWith("ies") && taken.has(w.slice(0, -3) + "y")) return true;
+  return false;
+}
+
 /* Belge başına kota — takımyıldız tek bir metne yığılmasın. */
 const perDoc = new Array(NDOC).fill(0);
 const nodes = [];
+const taken = new Set();
+function add(c) { taken.add(c.w); perDoc[c.p]++; nodes.push(c); }
+
 for (const c of cand) {
   if (nodes.length >= MAX_NODES) break;
   if (perDoc[c.p] >= MAX_PER_DOC) continue;
-  perDoc[c.p]++;
-  nodes.push(c);
+  if (taken.has(c.w) || inflectionOf(c.w, taken)) continue;
+  add(c);
 }
 // kota yüzünden yer kaldıysa sırayla doldur
 if (nodes.length < MAX_NODES) {
-  const have = new Set(nodes.map((n) => n.w));
   for (const c of cand) {
     if (nodes.length >= MAX_NODES) break;
-    if (have.has(c.w)) continue;
-    have.add(c.w); nodes.push(c);
+    if (taken.has(c.w) || inflectionOf(c.w, taken)) continue;
+    add(c);
   }
 }
 
@@ -282,9 +390,12 @@ for (let i = 0; i < nodes.length; i++) {
     for (const d of nodes[i].docs) if (sets[j].has(d)) { shared.push(d); wsum += docW[d]; }
     if (!shared.length) continue;
     const uni = nodes[i].docs.length + nodes[j].docs.length - shared.length;
-    // örtüşme oranı × ayırt edicilik × ortak birincil belge ödülü
+    // Örtüşme oranı × ayırt edicilik. Farklı "kıtalarda" duran sözcükler
+    // ödüllendirilir: kürede uzun yaylar çizilsin, okur "bu sözcük hem şu
+    // makalede hem şu öyküde geçiyor" bağını görsün.
     const sim = (wsum * shared.length) / uni +
-                (nodes[i].p === nodes[j].p ? 0.55 : 0);
+                (nodes[i].p !== nodes[j].p ? 0.40 : 0) +
+                (D[nodes[i].p].kind !== D[nodes[j].p].kind ? 0.30 : 0);
     // bağ rengi: paylaşılan belgelerin en ayırt edici olanı
     shared.sort((a, b) => docW[b] - docW[a]);
     pairs.push({ a: i, b: j, d: shared[0], sim });
@@ -347,6 +458,7 @@ console.log("  3+ belgede : " + multi + " · makale⇄kitap köprüsü: " + cros
 console.log("  boyut      : " + kb + " KB");
 console.log("  belge başına düğüm: " +
   docsOut.map((d, i) => d.id + "=" + perDoc[i]).join(", "));
+console.log("  atılan Türkçe blok: " + trDropped);
 const degs = deg.slice().sort((a, b) => a - b);
 console.log("  derece     : min " + degs[0] + " · ortanca " +
   degs[Math.floor(degs.length / 2)] + " · azami " + degs[degs.length - 1] +
