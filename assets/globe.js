@@ -31,26 +31,26 @@
     light: {
       wordS: 40, wordL: 25,               // sözcük: hsl(ton, S%, L%)
       lineS: 48, lineL: 38, lineA: 0.32,  // yay — ince ve sakin
-      grat: "#9fb3ad", gratA: 0.30,       // enlem/boylam ağı
-      ball: "#ffffff", ballA: 0.66,       // küre gövdesi
-      rim:  "#0E8F76",                    // kenar parlaması (teal)
+      grat: "#c6bfae", gratA: 0.32,       // enlem/boylam ağı
+      ball: "#fdfcf9", ballA: 0.68,       // küre gövdesi
+      rim:  "#1f5f96",                    // kenar parlaması (mürekkep mavisi)
       dimA: 0.028                         // en arkadaki sözcüğün opaklığı
     },
     dark: {
       wordS: 38, wordL: 74,
       lineS: 52, lineL: 56, lineA: 0.30,
-      grat: "#3B4A45", gratA: 0.46,
-      ball: "#141A17", ballA: 0.74,
-      rim:  "#3FCCAC",
+      grat: "#39424f", gratA: 0.48,
+      ball: "#0a0c11", ballA: 0.78,
+      rim:  "#7db4e6",
       dimA: 0.04
     }
   };
 
-  /* Belgeleri teal→ember bandına eşit aralıklarla dağıtır.
+  /* Belgeleri sitenin vurgu ailesine eşit aralıklarla dağıtır.
      Ham `hue` değerleri gökkuşağı veriyordu; ham değeri ölçeklemek ise
-     tonları rastgele kümeliyor ve her şey yeşile düşüyordu. Belge SIRASINI
-     kullanmak her metne ayrı ama akraba bir ton veriyor. */
-  var HUE0 = 172, HUE1 = 26;                   // teal → ember
+     tonları rastgele kümeliyor. Belge SIRASINI kullanmak her metne ayrı
+     ama akraba bir ton veriyor. Aralık site paletiyle aynı. */
+  var HUE0 = 209, HUE1 = 30;                   // mürekkep mavisi → sıcak kahve
   function bandHue(docIndex, total) {
     var n = Math.max(1, (total || 1) - 1);
     var t = clamp((docIndex || 0) / n, 0, 1);

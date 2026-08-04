@@ -74,46 +74,67 @@
   --ui-track-caps:0.04em;
 
   /* ---- palet ------------------------------------------------------
-     Teal + ember (turuncu-kahve) karşıtlığı; ink yeşilimsi siyah, paper
-     kırık beyaz. Kâğıt ve mürekkep aynı sıcaklıkta olduğu için uzun
-     okumada göz yormuyor.                                            */
-  --paper:#FBFBF9;
-  --paper-2:#F2F3EF;
-  --ink:#1E2622;
-  --ink-2:#4C5852;
-  --ink-3:#7E8A84;
-  --rule:#D3D8D3;
-  --rule-2:#E6E9E4;
-  --accent:#0E8F76;          /* teal — ana vurgu */
-  --accent-2:#0A6A58;        /* koyu teal — metin üstünde okunur */
-  --accent-soft:#E2F1ED;
-  --warm:#C1670E;            /* ember — ikincil vurgu */
-  --warm-soft:#FBEEE0;
-  --mark:#FDF0C4;
-  --good:#0E8F76;
-  --bad:#B03A2E;
-  --shadow:0 1px 2px rgba(30,38,34,.05),0 8px 28px rgba(30,38,34,.09);
-  --shadow-lg:0 2px 6px rgba(30,38,34,.07),0 24px 64px rgba(30,38,34,.16);
+     Sıcak kâğıt + mürekkep mavisi. Site geneli bu paletle kalır;
+     teal/ember üçlüsü yalnızca ilerleme sayfasının grafik ve metin
+     renkleri için kullanılır (aşağıdaki --sv-* değişkenleri).        */
+  --paper:#fbfaf7;
+  --paper-2:#f4f2ec;
+  --ink:#16150f;
+  --ink-2:#4a4740;
+  --ink-3:#7d7a70;
+  --rule:#d9d5c9;
+  --rule-2:#eae6dc;
+  --accent:#1f5f96;
+  --accent-2:#0d3f6b;
+  --accent-soft:#e6eef6;
+  --warm:#9a5a1e;
+  --warm-soft:#f6ecdd;
+  --mark:#fdf0c4;
+  --good:#2f7d55;
+  --bad:#b03a2e;
+  --shadow:0 1px 2px rgba(20,18,10,.05),0 8px 28px rgba(20,18,10,.09);
+  --shadow-lg:0 2px 6px rgba(20,18,10,.07),0 24px 64px rgba(20,18,10,.16);
+
+  /* ---- ilerleme sayfası paleti (yalnızca #/stats) ----
+     Kullanıcının seçtiği üçlü: teal vurgu, ember ikincil, yeşilimsi
+     mürekkep. Grafiklerin ve bölüm metinlerinin rengi buradan gelir. */
+  --sv-accent:#0E8F76;
+  --sv-accent-2:#0A6A58;
+  --sv-accent-soft:#E2F1ED;
+  --sv-ember:#C1670E;
+  --sv-ember-soft:#FBEEE0;
+  --sv-ink:#1E2622;
+  --sv-ink-2:#4C5852;
+  --sv-paper:#FBFBF9;
 }
 :root[data-theme="dark"]{
-  /* Aynı palet, ink zemine taşınmış: teal ve ember koyu üstünde parlar. */
-  --paper:#141A17;
-  --paper-2:#1B2320;
-  --ink:#E8EDE9;
-  --ink-2:#AFBAB4;
-  --ink-3:#77837D;
-  --rule:#2C3833;
-  --rule-2:#232C28;
-  --accent:#3FCCAC;
-  --accent-2:#6FE0C4;
-  --accent-soft:#16302A;
-  --warm:#E39A4C;
-  --warm-soft:#2E2317;
-  --mark:#3B3520;
-  --good:#3FCCAC;
-  --bad:#E4776A;
+  --paper:#12141a;
+  --paper-2:#181b23;
+  --ink:#e7e5de;
+  --ink-2:#b3b0a7;
+  --ink-3:#8b8880;
+  --rule:#2b303b;
+  --rule-2:#232833;
+  --accent:#7db4e6;
+  --accent-2:#a8cdf2;
+  --accent-soft:#182636;
+  --warm:#d9a45f;
+  --warm-soft:#2a2318;
+  --mark:#3b3520;
+  --good:#6cc191;
+  --bad:#e4776a;
   --shadow:0 1px 2px rgba(0,0,0,.4),0 8px 28px rgba(0,0,0,.45);
   --shadow-lg:0 2px 6px rgba(0,0,0,.5),0 24px 64px rgba(0,0,0,.6);
+
+  /* ilerleme sayfası paleti — koyu zeminde */
+  --sv-accent:#3FCCAC;
+  --sv-accent-2:#6FE0C4;
+  --sv-accent-soft:#16302A;
+  --sv-ember:#E39A4C;
+  --sv-ember-soft:#2E2317;
+  --sv-ink:#E8EDE9;
+  --sv-ink-2:#AFBAB4;
+  --sv-paper:#141A17;
 }
 
 *,*::before,*::after{box-sizing:border-box}

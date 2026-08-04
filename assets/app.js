@@ -157,14 +157,14 @@
     heroGlobe();
   }
 
-  /* Belge tonları teal (172°) → ember (26°) bandına sıraya göre dağıtılır.
-     Ham cover.hue değerleri gökkuşağı veriyordu; küredeki bandHue() ile
-     aynı eşleme kullanılınca kütüphane, hero ve istatistik tek palet
-     okunuyor. */
+  /* Belge tonları sitenin kendi vurgu ailesine dağıtılır: mürekkep mavisi
+     (209°) → sıcak kahve (30°). Ham cover.hue değerleri gökkuşağı
+     veriyordu; sıraya göre dağıtınca her metnin ayrı ama akraba bir tonu
+     oluyor. Küredeki bandHue() ile aynı aralık. */
   function docHue(i, total) {
     var n = Math.max(1, (total || 1) - 1);
     var t = Math.max(0, Math.min(1, i / n));
-    return Math.round(172 + (26 - 172) * t);
+    return Math.round(209 + (30 - 209) * t);
   }
 
   function drawCards(docs) {

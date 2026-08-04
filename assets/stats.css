@@ -5,8 +5,21 @@
    düğmeleri 9 px'e düşürüyor.
    ================================================================== */
 
+/* ------------------------------------------------------------------
+   İlerleme sayfası kendi paletini kullanır: teal vurgu, ember ikincil,
+   yeşilimsi mürekkep. Site geneli mürekkep mavisiyle kalır; buradaki
+   yeniden bağlama yalnızca bu sayfanın kapsamında geçerlidir.
+   ------------------------------------------------------------------ */
 .stats-page{max-width:64rem;margin:0 auto;padding:2rem 5vw 6rem;
-  font-family:var(--sans);font-size:var(--ui)}
+  font-family:var(--sans);font-size:var(--ui);
+  --accent:var(--sv-accent);
+  --accent-2:var(--sv-accent-2);
+  --accent-soft:var(--sv-accent-soft);
+  --warm:var(--sv-ember);
+  --warm-soft:var(--sv-ember-soft);
+  --good:var(--sv-accent);
+  color:var(--sv-ink)}
+.stats-page .sv-hint,.stats-page .sv-sub,.stats-page .sv-muted{color:var(--sv-ink-2)}
 
 /* --------------------------- ortak parçalar ---------------------------
    Arayüzün tamamı Geist. Serif yalnızca okunan METİN içindir; başlıkta
@@ -19,12 +32,14 @@
   margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule-2)}
 .sv-sec-h h3,.sv-head h3{font-family:var(--sans);font-size:1.05rem;margin:0;
   font-weight:600;letter-spacing:-.01em}
-.sv-hint,.sv-muted,.sv-note-info{color:var(--ink-3);font-size:var(--ui-sm);
+/* Açıklama cümleleri --ink-2 ile yazılır: --ink-3 açık temada 3.2:1'de
+   kalıyor ve WCAG AA (4.5:1) sınırının altına düşüyordu. */
+.sv-hint,.sv-muted,.sv-note-info{color:var(--ink-2);font-size:var(--ui-sm);
   line-height:1.5}
 .sv-title{font-weight:700}
 .sv-tag{font-size:.75rem;padding:.15em .55em;border-radius:99px;
   background:var(--paper-2);border:1px solid var(--rule-2);color:var(--ink-2)}
-.sv-empty{text-align:center;padding:2.4rem 1rem;color:var(--ink-3);
+.sv-empty{text-align:center;padding:2.4rem 1rem;color:var(--ink-2);
   border:1px dashed var(--rule);border-radius:10px;line-height:1.6}
 .sv-empty-i{font-size:1.8rem;display:block;margin-bottom:.4rem}
 .sv-empty-t{font-weight:700;color:var(--ink-2)}
@@ -35,33 +50,71 @@
   cursor:pointer;display:inline-flex;align-items:center;justify-content:center;
   gap:.4em;line-height:1.2;white-space:nowrap;
   transition:background .16s,border-color .16s,color .16s}
-.sv-btn:hover,.qz-btn:hover{border-color:var(--accent);color:var(--accent);
+/* Metin rengi olarak --accent-2 kullanılır: --accent açık temada
+   --accent-soft üstünde 3.5:1'de kalıyor. --accent-2 iki temada da 5.6:1+. */
+.sv-btn:hover,.qz-btn:hover{border-color:var(--accent);color:var(--accent-2);
   background:var(--accent-soft)}
 .sv-btn:focus-visible,.qz-btn:focus-visible{outline:2px solid var(--accent);
   outline-offset:2px}
-.sv-btn.is-primary,.qz-btn.is-primary{background:var(--accent);color:#fff;
-  border-color:var(--accent)}
-.sv-btn.is-primary:hover,.qz-btn.is-primary:hover{background:var(--accent-2);
-  border-color:var(--accent-2);color:#fff}
-.sv-btn.is-danger{border-color:#c0392b;color:#c0392b}
-.sv-btn.is-danger:hover{background:#c0392b;color:#fff}
-.sv-btn.is-warn{border-color:var(--warm);color:var(--warm)}
-.sv-x{border:none;background:none;color:var(--ink-3);cursor:pointer;
+/* Dolgulu düğme: zemin --accent-2, etiket --paper. Beyaz etiket açık temada
+   --accent üstünde 4.0:1, koyu temada 2.0:1 kalıyordu. */
+.sv-btn.is-primary,.qz-btn.is-primary{background:var(--accent-2);
+  color:var(--paper);border-color:var(--accent-2)}
+.sv-btn.is-primary:hover,.qz-btn.is-primary:hover{
+  background:color-mix(in srgb,var(--accent-2) 86%,var(--ink));
+  border-color:color-mix(in srgb,var(--accent-2) 86%,var(--ink));
+  color:var(--paper)}
+.sv-btn.is-danger{border-color:var(--bad);color:var(--bad)}
+.sv-btn.is-danger:hover{background:var(--bad);color:var(--paper);
+  border-color:var(--bad)}
+/* --warm açık temada kâğıt üstünde 3.9:1; mürekkeple azıcık koyulaştırılır.
+   Koyu temada aynı karışım --ink açık olduğu için tonu açar. */
+.sv-btn.is-warn{border-color:var(--warm);
+  color:color-mix(in srgb,var(--warm) 78%,var(--ink))}
+.sv-x{border:none;background:none;color:var(--ink-2);cursor:pointer;
   font-size:1.15rem;line-height:1;padding:.2em .35em;border-radius:6px}
-.sv-x:hover{color:#c0392b;background:var(--paper-2)}
+.sv-x:hover{color:var(--bad);background:var(--paper-2)}
 .sv-msg{margin:.7rem 0 0;font-size:var(--ui-sm);color:var(--ink-2)}
 .sv-file{display:none}
 
 /* ------------------------------ özet kartları ------------------------------ */
 .sv-cards{display:grid;gap:.8rem;
   grid-template-columns:repeat(auto-fit,minmax(min(100%,9.5rem),1fr))}
-.sv-card{padding:1rem;border:1px solid var(--rule-2);border-radius:11px;
-  background:var(--paper-2);display:flex;flex-direction:column;gap:.25rem}
-.sv-card-l{font-size:.78rem;color:var(--ink-3);text-transform:uppercase;
-  letter-spacing:.07em}
-.sv-card-v{font-family:var(--sans);font-size:1.75rem;font-weight:600;
-  line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
-.sv-card-s{font-size:.78rem;color:var(--ink-3)}
+.sv-card{position:relative;overflow:hidden;padding:1rem;
+  border:1px solid var(--rule-2);border-radius:11px;
+  background:var(--paper-2);display:flex;flex-direction:column;gap:.25rem;
+  animation:sv-rise .5s cubic-bezier(.22,1,.36,1) both;
+  animation-delay:calc(var(--i,0) * 70ms)}
+/* sol kenarda ince vurgu şeridi — kartı sayfadan ayırır */
+.sv-card::before{content:"";position:absolute;inset:0 auto 0 0;width:2px;
+  background:var(--accent);opacity:.5}
+.sv-card.is-warm::before{background:var(--warm);opacity:.75}
+/* değer yerine oturduğunda bir kez soldan sağa parlama geçer */
+.sv-card::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 34%,
+    color-mix(in srgb,var(--accent) 16%,transparent) 50%,transparent 66%);
+  transform:translateX(-120%);
+  animation:sv-sheen 1.5s cubic-bezier(.4,0,.2,1) both;
+  animation-delay:calc(var(--i,0) * 70ms + 260ms)}
+/* Kart etiketi 11.5 px büyük harf: --ink-3 ile 3.2:1'de kalıyordu. */
+.sv-card-l{font-family:var(--sans);font-size:.72rem;color:var(--ink-2);
+  text-transform:uppercase;letter-spacing:.09em;font-weight:500;
+  display:flex;align-items:center;gap:.4rem;min-width:0}
+.sv-card-l .ic{width:13px;height:13px;flex:none;vertical-align:0;
+  color:var(--ink-2)}
+.sv-card.is-warm .sv-card-l .ic{color:var(--warm)}
+.sv-card-l > span{min-width:0;overflow:hidden;text-overflow:ellipsis}
+.sv-card-v{font-family:var(--mono);font-size:1.75rem;font-weight:700;
+  line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.03em;
+  color:var(--ink)}
+.sv-card-s{font-family:var(--sans);font-size:.78rem;color:var(--ink-2)}
+@keyframes sv-rise{from{opacity:0;transform:translateY(9px)}
+  to{opacity:1;transform:none}}
+@keyframes sv-sheen{to{transform:translateX(120%)}}
+@media (prefers-reduced-motion:reduce){
+  .sv-card{animation:none}
+  .sv-card::after{display:none}
+}
 
 /* ------------------------------ ısı haritası ------------------------------
    Gerçek yapı (stats.js):
@@ -76,91 +129,233 @@
 
 .hm-months{display:flex;gap:3px;margin-bottom:.15rem}
 .hm-corner{width:2.1rem;flex:none}
-.hm-month{width:13px;flex:none;font-size:.66rem;color:var(--ink-3);
+.hm-month{width:13px;flex:none;font-size:.66rem;color:var(--ink-2);
   line-height:1;white-space:nowrap;overflow:visible}
 
 .hm-row{display:grid;grid-template-columns:2.1rem repeat(12,13px);gap:3px;
   align-items:center}
-.hm-dow{font-size:.66rem;color:var(--ink-3);line-height:1;text-align:right;
+.hm-dow{font-size:.66rem;color:var(--ink-2);line-height:1;text-align:right;
   padding-right:.3rem;white-space:nowrap}
 .hm-day{width:13px;height:13px;border-radius:3px;background:var(--rule-2);
   cursor:default}
-.hm-day[data-l="1"]{background:hsl(205 55% 78%)}
-.hm-day[data-l="2"]{background:hsl(205 55% 62%)}
-.hm-day[data-l="3"]{background:hsl(205 58% 46%)}
-.hm-day[data-l="4"]{background:hsl(205 62% 33%)}
-:root[data-theme="dark"] .hm-day{background:#242a34}
-:root[data-theme="dark"] .hm-day[data-l="1"]{background:hsl(205 35% 32%)}
-:root[data-theme="dark"] .hm-day[data-l="2"]{background:hsl(205 45% 44%)}
-:root[data-theme="dark"] .hm-day[data-l="3"]{background:hsl(205 55% 58%)}
-:root[data-theme="dark"] .hm-day[data-l="4"]{background:hsl(205 65% 72%)}
-.hm-key,.hm-legend-t,.hm-sum{font-size:.72rem;color:var(--ink-3)}
+/* Dört kademe teal tabanlıdır: --accent kâğıtla karıştırılır. Karışım
+   temaya duyarlıdır — açık temada koyulaşarak, koyu temada parlayarak
+   yükselir; ayrı bir mavi tonlamaya gerek kalmaz.
+   Efsane kutuları (.hm-key.l1..l4) aynı seçicide toplandı ki iki merdiven
+   asla ayrışmasın. */
+.hm-day[data-l="1"],.hm-key.l1{background:color-mix(in srgb,var(--accent) 22%,var(--paper-2))}
+.hm-day[data-l="2"],.hm-key.l2{background:color-mix(in srgb,var(--accent) 45%,var(--paper-2))}
+.hm-day[data-l="3"],.hm-key.l3{background:color-mix(in srgb,var(--accent) 70%,var(--paper-2))}
+.hm-day[data-l="4"],.hm-key.l4{background:var(--accent)}
+/* Koyu temada zemin çok karanlık; en alt kademe boş hücreden ayrılsın diye
+   merdiven biraz daha yukarıdan başlar. */
+:root[data-theme="dark"] .hm-day[data-l="1"],
+:root[data-theme="dark"] .hm-key.l1{background:color-mix(in srgb,var(--accent) 30%,var(--paper-2))}
+:root[data-theme="dark"] .hm-day[data-l="2"],
+:root[data-theme="dark"] .hm-key.l2{background:color-mix(in srgb,var(--accent) 52%,var(--paper-2))}
+:root[data-theme="dark"] .hm-day[data-l="3"],
+:root[data-theme="dark"] .hm-key.l3{background:color-mix(in srgb,var(--accent) 76%,var(--paper-2))}
+:root[data-theme="dark"] .hm-day[data-l="4"],
+:root[data-theme="dark"] .hm-key.l4{background:var(--accent)}
+.hm-key,.hm-legend-t{font-size:.72rem;color:var(--ink-2)}
+/* özet satırı ölçü taşır → monospace, hizalı rakam */
+.hm-sum{font-family:var(--mono);font-size:.72rem;color:var(--ink-2);
+  font-variant-numeric:tabular-nums}
 .hm-key{width:11px;height:11px;border-radius:3px;background:var(--rule-2);
   display:inline-block}
-.hm-key.l1{background:hsl(205 55% 78%)} .hm-key.l2{background:hsl(205 55% 62%)}
-.hm-key.l3{background:hsl(205 58% 46%)} .hm-key.l4{background:hsl(205 62% 33%)}
 .hm-foot{display:flex;align-items:center;gap:.6rem;margin-top:.7rem;
   flex-wrap:wrap}
 .hm-legend{display:flex;align-items:center;gap:3px}
 .hm-tip{margin-left:auto;font-size:.75rem;color:var(--ink-2);min-height:1.2em}
 
 /* -------------------------- en çok bakılan sözcükler --------------------------
+   Bir LaTeX/TikZ figürü gibi kurulur (referans: projenin fig-bystudy çizimi):
+   ince ve keskin çubuk, arkada 1 px'lik silik ölçek ızgarası, altta çentikli
+   eksen, kesikli ortalama çizgisi. Kalın yuvarlak çubuk ve gradyan yok.
+
+   Sütunlar rem cinsinden SABİT tutulur (--c-*); ızgara katmanı ile eksen
+   aynı --lead/--trail hesabını kullandığı için çizgiler, çentikler ve
+   çubuklar birbirinden asla kaymaz.
+
    Gerçek yapı (stats.js):
-     li.sv-word
-       button.sv-word-b        ← tıklanabilir satır (çubuk DEĞİL)
-         span.sv-word-head     ← .sv-word-en + .sv-word-tr + .sv-word-n
-         span.sv-word-bar > i  ← dolgu çubuğu
-       div.sv-worddet                                                    */
-.sv-words{display:flex;flex-direction:column;gap:.1rem;list-style:none;
-  margin:0;padding:0}
+     div.sv-fig
+       div.sv-fig-body        ← ızgara + liste aynı kutuda
+         div.sv-fig-grid      ← mutlak: dikey ölçek çizgileri + ortalama
+         ol.sv-words
+           li.sv-word > button.sv-word-b
+               .sv-word-rank .sv-word-lab(.sv-word-en+.sv-word-tr)
+               .sv-word-plot > i.sv-word-bar
+               .sv-word-n
+             div.sv-worddet
+       div.sv-axis            ← çentikler
+       p.sv-cap               ← şekil altyazısı                           */
+.sv-fig{--gridn:4;
+  --c-rank:1.6rem;--c-lab:9.5rem;--c-num:2.7rem;--c-gap:.65rem;
+  --lead:calc(var(--c-rank) + var(--c-lab) + var(--c-gap) * 2);
+  --trail:calc(var(--c-num) + var(--c-gap));
+  position:relative}
+.sv-fig-body{position:relative}
+.sv-fig-grid{position:absolute;top:0;bottom:0;left:var(--lead);right:var(--trail);
+  pointer-events:none;border-right:1px solid var(--rule-2);
+  background:repeating-linear-gradient(to right,
+    var(--rule-2) 0 1px,transparent 1px calc(100% / var(--gridn)))}
+/* ortalama: TikZ'deki kesikli referans çizgisinin karşılığı */
+.sv-fig-mean{position:absolute;top:0;bottom:0;left:var(--p);width:0;
+  border-left:1px dashed var(--ink-3);opacity:.4}
+
+.sv-words{list-style:none;margin:0;padding:0;position:relative;z-index:1}
 .sv-word{margin:0}
-.sv-word-b{display:block;width:100%;text-align:left;cursor:pointer;
-  background:none;border:1px solid transparent;border-radius:8px;
-  padding:.45rem .6rem;font-family:inherit;font-size:inherit;color:inherit;
-  transition:background .15s,border-color .15s}
-.sv-word-b:hover{background:var(--paper-2);border-color:var(--rule-2)}
-.sv-word-b:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sv-word-b{display:grid;width:100%;
+  grid-template-columns:var(--c-rank) var(--c-lab) minmax(0,1fr) var(--c-num);
+  gap:var(--c-gap);align-items:center;text-align:left;cursor:pointer;
+  background:none;border:0;border-radius:4px;padding:.28rem 0;
+  min-height:2.375rem;font-family:inherit;font-size:inherit;color:inherit;
+  transition:background .15s}
+/* Vurgu yarı saydam: ızgara çizgileri satırın altından okunmaya devam etsin. */
+.sv-word-b:hover{background:color-mix(in srgb,var(--accent) 8%,transparent)}
+.sv-word-b:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
 .sv-word-b.is-flash,.sv-word.is-flash .sv-word-b{background:var(--mark)}
 
-.sv-word-head{display:grid;grid-template-columns:minmax(5rem,10rem) 1fr auto;
-  align-items:baseline;gap:.7rem}
-.sv-word-en{font-family:var(--serif);font-size:1.02rem;font-weight:700}
-.sv-word-tr{color:var(--ink-2);font-size:var(--ui-sm);
+.sv-word-rank{font-family:var(--mono);font-size:.7rem;color:var(--ink-2);
+  font-variant-numeric:tabular-nums;text-align:right}
+.sv-word-lab{min-width:0}
+.sv-word-en{display:block;font-family:var(--serif);font-size:1rem;font-weight:700;
+  line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.sv-word-tr{display:block;color:var(--ink-2);font-size:.72rem;line-height:1.3;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sv-word-n{font-variant-numeric:tabular-nums;color:var(--ink-3);
-  font-size:var(--ui-sm);min-width:1.8rem;text-align:right}
+.sv-word-plot{position:relative;display:block;height:1.4rem}
+/* 3 px, keskin uç, tek renk — figürdeki çubukların aynısı */
+.sv-word-bar{position:absolute;left:0;top:50%;height:3px;width:0;
+  transform:translateY(-50%);background:var(--accent);border-radius:1px;
+  transition:width .85s cubic-bezier(.22,1,.36,1)}
+.sv-fig.is-in .sv-word-bar{width:var(--w)}
+/* en yüksek değer ember ile ayrışır (figürde de ikinci seri ember'dir) */
+.sv-word.is-top .sv-word-bar{background:var(--warm)}
+.sv-word-n{font-family:var(--mono);font-variant-numeric:tabular-nums;
+  color:var(--ink-2);font-size:.78rem;text-align:right}
+@media (prefers-reduced-motion:reduce){.sv-word-bar{transition:none}}
 
-.sv-word-bar{display:block;position:relative;height:5px;margin-top:.35rem;
-  border-radius:99px;background:var(--rule-2);overflow:hidden}
-.sv-word-bar>i{display:block;height:100%;background:var(--accent);
-  border-radius:99px}
-.sv-worddet{padding:.6rem .8rem;margin:.2rem 0 .5rem;border-left:2px solid var(--accent);
+/* Eksen ızgarayla aynı x aralığına oturur; uçtaki etiketler dışarı taşmasın
+   diye ilk sola, son sağa yaslanır. */
+.sv-axis{position:relative;height:1.35rem;
+  margin:.3rem var(--trail) 0 var(--lead)}
+.sv-axis-t{position:absolute;top:0;left:var(--p)}
+.sv-axis-t i{position:absolute;left:0;top:0;width:1px;height:4px;
+  background:var(--rule);display:block}
+.sv-axis-t b{position:absolute;left:0;top:6px;transform:translateX(-50%);
+  font-family:var(--mono);font-size:.66rem;font-weight:400;color:var(--ink-2);
+  white-space:nowrap}
+.sv-axis-t.is-first b{transform:none}
+.sv-axis-t.is-last b{transform:translateX(-100%)}
+.sv-cap{font-family:var(--sans);font-size:.72rem;color:var(--ink-2);
+  margin:.7rem 0 0;line-height:1.45}
+.sv-cap b{font-weight:600;color:var(--ink-2)}
+/* Ayrıntı kutusu ızgaranın üstünü kapatsın: zemini opak. */
+.sv-worddet{position:relative;padding:.6rem .8rem;margin:.2rem 0 .5rem;
+  border-left:2px solid var(--accent);
   background:var(--accent-soft);border-radius:0 7px 7px 0}
 .sv-wd-tr{color:var(--accent-2);font-weight:700}
 :root[data-theme="dark"] .sv-wd-tr{color:var(--accent)}
 .sv-wd-def{color:var(--ink-2);font-size:var(--ui-sm);margin-top:.2rem}
-.sv-wd-pos,.sv-wd-meta{color:var(--ink-3);font-size:.75rem}
+.sv-wd-pos,.sv-wd-meta{color:var(--ink-2);font-size:.75rem}
 .sv-wd-acts{margin-top:.5rem;display:flex;gap:.4rem}
 
-/* ------------------------------ belge ilerlemesi ------------------------------ */
-.sv-docs{display:flex;flex-direction:column;gap:.7rem}
-.sv-doc{display:grid;grid-template-columns:auto 1fr auto;gap:.9rem;
-  align-items:center;padding:.85rem;border:1px solid var(--rule-2);
-  border-radius:11px;background:var(--paper-2)}
-.sv-doc-cov{font-size:1.5rem;line-height:1}
-.sv-doc-mid{min-width:0}
-.sv-doc-t{font-weight:700;overflow:hidden;text-overflow:ellipsis;
+/* ------------------------------ belge ilerlemesi ------------------------------
+   Satır listesi + emoji + ince yüzde çubuğu YOK. Kart ızgarası ve her belge
+   için çizilen bir halka gösterge var.
+
+   Renk: halkanın tonu belgeler teal (172°) → ember (26°) bandına sıraya göre
+   yayılarak gelir (stats.js → bandHue, globe.js ile aynı uçlar); doygunluk ve
+   açıklık tek formülle sabitlenir (--tint). Böylece on bir belge yan yana
+   dizildiğinde hepsi aynı görsel ağırlıkta kalır ve palet dağılmaz.
+   Durum (bitti / sürüyor / hiç açılmadı) hue ile DEĞİL, doluluk + onay
+   işareti + paletteki --good ile anlatılır: iki bilgi aynı kanalı paylaşmaz.
+   Yeni renk sabiti yok; nötrlerin ve --good'un tamamı style.css'ten gelir. */
+.sv-docs{display:grid;gap:.7rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,16.5rem),1fr))}
+.sv-doc{--hue:210;--tint:hsl(var(--hue) 34% 33%);
+  position:relative;display:grid;
+  grid-template-columns:auto minmax(0,1fr);grid-template-rows:1fr auto;
+  gap:.5rem .85rem;padding:.9rem .95rem;
+  border:1px solid var(--rule-2);border-radius:12px;background:var(--paper);
+  transition:border-color .2s,background .2s}
+:root[data-theme="dark"] .sv-doc{--tint:hsl(var(--hue) 42% 64%)}
+.sv-doc.is-done{--tint:var(--good)}
+.sv-doc.is-new{--tint:var(--ink-3)}
+.sv-doc:hover{border-color:color-mix(in srgb,var(--tint) 50%,var(--rule));
+  background:var(--paper-2)}
+.sv-doc:focus-within{border-color:var(--tint)}
+
+/* --- halka gösterge --- */
+.sv-ring{position:relative;width:4.5rem;height:4.5rem;flex:none;align-self:start}
+.sv-ring svg{display:block;width:100%;height:100%;overflow:visible}
+.sv-ring-ticks line{stroke:var(--rule);stroke-width:1}
+.sv-doc.is-new .sv-ring-ticks line{stroke:var(--rule-2)}
+.sv-ring-track{fill:none;stroke:var(--rule-2);stroke-width:3.5}
+/* keskin uç: yay bir ölçü, bir baloncuk değil */
+.sv-ring-arc{fill:none;stroke:var(--tint);stroke-width:3.5;stroke-linecap:butt;
+  transition:stroke-dashoffset .9s cubic-bezier(.22,1,.36,1)}
+.sv-ring-n{position:absolute;inset:0;display:flex;align-items:center;
+  justify-content:center;font-family:var(--mono);font-weight:500;
+  font-variant-numeric:tabular-nums;letter-spacing:-.04em;color:var(--ink);
+  line-height:1}
+.sv-ring-v{font-size:1.05rem}
+.sv-ring-u{font-size:.68rem;color:var(--ink-2);margin-right:.06rem;
+  align-self:center}
+.sv-doc.is-new .sv-ring-n{color:var(--ink-2);font-weight:400}
+.sv-ring-n.is-check{color:var(--good)}
+.sv-ring-n .ic{width:20px;height:20px;vertical-align:0;stroke-width:2.1}
+@media (prefers-reduced-motion:reduce){.sv-ring-arc{transition:none}}
+
+/* --- kart gövdesi --- */
+.sv-doc-body{min-width:0;display:flex;flex-direction:column;gap:.28rem;
+  padding-top:.1rem}
+.sv-doc-t{display:block;font-family:var(--sans);font-weight:600;
+  font-size:var(--ui);line-height:1.32;color:var(--ink);text-decoration:none}
+/* Kırpma iç <span>'de: -webkit-box üzerindeki ::after kırpmayı bozabiliyor. */
+.sv-doc-tt{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;
+  overflow:hidden}
+/* kartın tamamı tıklanabilir (stretched link); sınav bağlantısı üstte kalır */
+.sv-doc-t::after{content:"";position:absolute;inset:0;border-radius:12px;z-index:1}
+.sv-doc:hover .sv-doc-t{text-decoration:underline;text-underline-offset:3px;
+  text-decoration-thickness:1px;
+  text-decoration-color:color-mix(in srgb,var(--tint) 55%,transparent)}
+.sv-doc-t:focus-visible{outline:none}
+.sv-doc-t:focus-visible::after{outline:2px solid var(--accent);outline-offset:2px}
+.sv-doc-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.1rem .7rem;
+  font-family:var(--sans);font-size:.72rem;color:var(--ink-2)}
+.sv-doc-meta > span{display:inline-flex;align-items:center;gap:.3rem;
   white-space:nowrap}
-.sv-doc-meta{color:var(--ink-3);font-size:.78rem;margin-top:.2rem;
-  display:flex;gap:.5rem;flex-wrap:wrap}
-.sv-bar{position:relative;height:6px;border-radius:99px;background:var(--rule-2);
-  overflow:hidden;margin-top:.4rem}
-.sv-bar>i,.sv-bar span{position:absolute;inset:0 auto 0 0;background:var(--accent);
-  border-radius:99px;display:block}
-.sv-doc-pct{font-variant-numeric:tabular-nums;font-weight:700;
-  color:var(--ink-2);min-width:3rem;text-align:right}
-.sv-doc.is-done .sv-doc-pct{color:#2f7d55}
-.sv-doc-act{display:flex;gap:.4rem}
+.sv-doc-meta .ic{width:12px;height:12px;vertical-align:0;color:var(--ink-3)}
+.sv-doc-time{font-family:var(--mono);font-variant-numeric:tabular-nums}
+.sv-doc-state{margin:0;font-family:var(--sans);font-size:.72rem;
+  color:var(--ink-2);line-height:1.35}
+.sv-doc.is-done .sv-doc-state{color:var(--good)}
+
+/* --- sınav ayağı --- */
+.sv-doc-quiz{grid-column:1/-1;margin-top:.1rem;padding-top:.55rem;
+  border-top:1px solid var(--rule-2);display:flex;align-items:center;
+  gap:.55rem;min-height:2.375rem;font-family:var(--sans);font-size:.72rem;
+  color:var(--ink-2)}
+.sv-doc-qlbl{text-transform:uppercase;letter-spacing:.08em;font-size:.65rem;
+  color:var(--ink-2)}
+.sv-doc-qbar{position:relative;flex:1 1 auto;min-width:1.5rem;height:3px;
+  background:var(--rule-2)}
+.sv-doc-qbar > i{position:absolute;inset:0 auto 0 0;width:0;background:var(--warm);
+  border-radius:1px;transition:width .85s cubic-bezier(.22,1,.36,1) .12s}
+.sv-doc.is-in .sv-doc-qbar > i{width:var(--w)}
+.sv-doc-qn{font-family:var(--mono);font-variant-numeric:tabular-nums;
+  font-weight:500;color:var(--ink)}
+.sv-doc-qa,.sv-doc-invite{position:relative;z-index:2;display:inline-flex;
+  align-items:center;gap:.35rem;min-height:2.375rem;padding:0 .1rem;
+  color:var(--ink-2);text-decoration:none;
+  border-bottom:1px dotted transparent;transition:color .16s}
+.sv-doc-invite{flex:1 1 auto}
+.sv-doc-invite .ic{width:13px;height:13px;vertical-align:0;flex:none}
+.sv-doc-qa:hover,.sv-doc-invite:hover{color:var(--accent)}
+.sv-doc-qa:focus-visible,.sv-doc-invite:focus-visible{outline:2px solid var(--accent);
+  outline-offset:2px;border-radius:4px}
+@media (prefers-reduced-motion:reduce){.sv-doc-qbar > i{transition:none}}
 
 /* -------------------------------- defter -------------------------------- */
 .sv-vocab{display:flex;flex-direction:column;gap:.15rem}
@@ -171,9 +366,10 @@
 .sv-rev-en{letter-spacing:-.01em}
 .sv-v-tr{color:var(--accent-2);font-size:var(--ui-sm)}
 :root[data-theme="dark"] .sv-v-tr{color:var(--accent)}
-.sv-v-def{color:var(--ink-3);font-size:.8rem;line-height:1.4;margin-top:.15rem}
-.sv-v-pos,.sv-v-due,.sv-v-meta{color:var(--ink-3);font-size:.75rem;
+.sv-v-def{color:var(--ink-2);font-size:.8rem;line-height:1.4;margin-top:.15rem}
+.sv-v-pos,.sv-v-due,.sv-v-meta{color:var(--ink-2);font-size:.75rem;
   white-space:nowrap}
+.sv-v-due{font-family:var(--mono);font-variant-numeric:tabular-nums}
 .sv-srs{display:flex;gap:2px}
 .sv-srs-i{width:7px;height:7px;border-radius:50%;background:var(--rule-2)}
 .sv-srs-i.is-done{background:var(--accent)}
@@ -183,13 +379,13 @@
   background:var(--accent-soft);margin-bottom:.9rem}
 .sv-rev{padding:1.4rem;border:1px solid var(--rule);border-radius:12px;
   background:var(--paper-2);text-align:center}
-.sv-rev-n{color:var(--ink-3);font-size:var(--ui-sm)}
+.sv-rev-n{color:var(--ink-2);font-size:var(--ui-sm)}
 .sv-rev-en{font-family:var(--serif);font-size:2rem;font-weight:700;margin:.6rem 0}
-.sv-rev-pos{color:var(--ink-3);font-size:var(--ui-sm)}
+.sv-rev-pos{color:var(--ink-2);font-size:var(--ui-sm)}
 .sv-rev-tr{color:var(--accent-2);font-size:1.25rem;font-weight:700;margin:.5rem 0}
 :root[data-theme="dark"] .sv-rev-tr{color:var(--accent)}
 .sv-rev-def{color:var(--ink-2);font-size:var(--ui-sm);line-height:1.5}
-.sv-rev-hint{color:var(--ink-3);font-size:var(--ui-sm);margin:.8rem 0}
+.sv-rev-hint{color:var(--ink-2);font-size:var(--ui-sm);margin:.8rem 0}
 .sv-rev-acts{display:flex;gap:.5rem;justify-content:center;margin-top:1rem;
   flex-wrap:wrap}
 .sv-rev-done{text-align:center;padding:2rem 1rem}
@@ -202,23 +398,24 @@
   display:grid;grid-template-columns:1fr auto;gap:.6rem}
 .sv-note-q{font-family:var(--serif);font-style:italic;color:var(--ink-2)}
 .sv-note-n{margin-top:.35rem}
-.sv-note-m{color:var(--ink-3);font-size:.75rem;margin-top:.3rem}
+.sv-note-m{color:var(--ink-2);font-size:.75rem;margin-top:.3rem}
 
 /* ------------------------------ veri yönetimi ------------------------------ */
 .sv-data-acts{display:flex;gap:.5rem;flex-wrap:wrap}
 .sv-toolbar{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;
   margin-bottom:.8rem}
-.sv-toolbar-t{color:var(--ink-3);font-size:var(--ui-sm)}
-.sv-confirm-t{color:#c0392b;font-weight:700}
-.sv-mini{font-size:.78rem;color:var(--ink-3)}
+.sv-toolbar-t{color:var(--ink-2);font-size:var(--ui-sm)}
+.sv-confirm-t{color:color-mix(in srgb,var(--bad) 76%,var(--ink));font-weight:700}
+.sv-mini{font-size:.78rem;color:var(--ink-2)}
 
 /* ================================= SINAV ================================= */
 .qz{font-family:var(--sans);font-size:var(--ui)}
 .qz-head{display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
   margin-bottom:1rem}
-.qz-count{color:var(--ink-3);font-size:var(--ui-sm);font-variant-numeric:tabular-nums}
+.qz-count{color:var(--ink-2);font-size:var(--ui-sm);font-family:var(--mono);
+  font-variant-numeric:tabular-nums}
 .qz-type{font-size:.72rem;padding:.15em .55em;border-radius:99px;
-  background:var(--paper-2);border:1px solid var(--rule-2);color:var(--ink-3)}
+  background:var(--paper-2);border:1px solid var(--rule-2);color:var(--ink-2)}
 .qz-bar{position:relative;height:4px;border-radius:99px;background:var(--rule-2);
   overflow:hidden;margin-bottom:1.4rem}
 .qz-bar>*{position:absolute;inset:0 auto 0 0;background:var(--accent);
@@ -242,30 +439,32 @@
 .qz-opt:hover{border-color:var(--accent);background:var(--accent-soft)}
 .qz-opt:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .qz-key,.qz-kbd{font-size:.75rem;width:1.5rem;height:1.5rem;border-radius:5px;
-  border:1px solid var(--rule);display:grid;place-items:center;color:var(--ink-3);
+  border:1px solid var(--rule);display:grid;place-items:center;color:var(--ink-2);
   flex:none}
 /* Şıkta İngilizce üstte, Türkçesi altta. Bunlar <span> olduğu için block
    yapılmazsa yan yana yapışıp "playOyun yazan" gibi okunur. */
 .qz-opt-txt{min-width:0}
 .qz-opt-txt .qz-en{display:block;font-size:var(--ui);margin:0;line-height:1.35}
 .qz-opt-txt .qz-tr{display:block;font-size:.8rem;margin:.15rem 0 0;
-  color:var(--ink-3);line-height:1.35}
+  color:var(--ink-2);line-height:1.35}
 /* seçim göstergesi: yalnızca durum belliyken görünür */
 .qz-mark{display:block;height:2px;border-radius:2px;background:transparent;
   grid-column:2;margin-top:.4rem;transition:background .15s}
 .qz-opt.is-sel .qz-mark,.qz-opt.is-picked .qz-mark{background:var(--accent)}
-.qz-opt.is-ok .qz-mark{background:#2f7d55}
-.qz-opt.is-bad .qz-mark{background:#c0392b}
-.qz-opt.is-ok{border-color:#2f7d55;background:#2f7d5514}
-.qz-opt.is-bad{border-color:#c0392b;background:#c0392b14}
+.qz-opt.is-ok .qz-mark{background:var(--good)}
+.qz-opt.is-bad .qz-mark{background:var(--bad)}
+.qz-opt.is-ok{border-color:var(--good);
+  background:color-mix(in srgb,var(--good) 8%,var(--paper))}
+.qz-opt.is-bad{border-color:var(--bad);
+  background:color-mix(in srgb,var(--bad) 8%,var(--paper))}
 .qz-opt.is-sel,.qz-opt.is-picked{border-color:var(--accent);background:var(--accent-soft)}
 .qz-opt.is-done{cursor:default;opacity:.85}
 .qz-opt.is-no{opacity:.5}
 
 .qz-fb{margin-top:1rem;padding:.85rem 1rem;border-radius:10px;
   border-left:3px solid var(--accent);background:var(--paper-2)}
-.qz-fb.is-ok{border-left-color:#2f7d55}
-.qz-fb.is-bad{border-left-color:#c0392b}
+.qz-fb.is-ok{border-left-color:var(--good)}
+.qz-fb.is-bad{border-left-color:var(--bad)}
 .qz-fb-h{display:flex;align-items:center;gap:.5rem;font-weight:700;
   margin-bottom:.4rem}
 .qz-fb-i{font-size:1.1rem}
@@ -277,10 +476,10 @@
   color:var(--accent);text-decoration:none;border-bottom:1px dotted currentColor}
 .qz-foot,.qz-actions{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap;
   margin-top:1.2rem}
-.qz-hint{color:var(--ink-3);font-size:.78rem}
+.qz-hint{color:var(--ink-2);font-size:.78rem}
 
 .qz-match{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.qz-col-h{font-size:.78rem;color:var(--ink-3);text-transform:uppercase;
+.qz-col-h{font-size:.78rem;color:var(--ink-2);text-transform:uppercase;
   letter-spacing:.06em;margin-bottom:.4rem}
 .qz-col{display:flex;flex-direction:column;gap:.4rem}
 .qz-m{padding:.6rem .7rem;border-radius:8px;border:1px solid var(--rule);
@@ -288,47 +487,65 @@
   font-size:var(--ui-sm);min-height:calc(var(--tap) - 6px)}
 .qz-m:hover{border-color:var(--accent)}
 .qz-m.is-sel{border-color:var(--accent);background:var(--accent-soft)}
-.qz-m.is-ok{border-color:#2f7d55;background:#2f7d5514;cursor:default}
-.qz-m.is-bad{border-color:#c0392b;background:#c0392b14}
+.qz-m.is-ok{border-color:var(--good);cursor:default;
+  background:color-mix(in srgb,var(--good) 8%,var(--paper))}
+.qz-m.is-bad{border-color:var(--bad);
+  background:color-mix(in srgb,var(--bad) 8%,var(--paper))}
 .qz-m-en{font-family:var(--serif);font-weight:700}
 .qz-m-tr{color:var(--ink-2)}
 
 .qz-result{text-align:center;padding:1.5rem 0}
-.qz-pct{font-family:var(--sans);font-size:3.2rem;font-weight:600;line-height:1;
+.qz-pct{font-family:var(--mono);font-size:3.2rem;font-weight:600;line-height:1;
   font-variant-numeric:tabular-nums;letter-spacing:-.03em}
-.qz-pct-n{font-size:1.4rem;color:var(--ink-3)}
+.qz-pct-n{font-size:1.4rem;color:var(--ink-2)}
 .qz-res-h{font-size:1.3rem;font-weight:700;margin:.6rem 0 .3rem}
 .qz-res-line,.qz-res-note{color:var(--ink-2);font-size:var(--ui-sm)}
 .qz-tally{display:flex;justify-content:center;gap:1.4rem;margin:1rem 0}
-.qz-tally-ok{color:#2f7d55;font-weight:700}
-.qz-tally-no{color:#c0392b;font-weight:700}
-.qz-hscore{color:var(--ink-3);font-size:var(--ui-sm)}
+.qz-tally-ok{color:color-mix(in srgb,var(--good) 76%,var(--ink));font-weight:700;
+  font-family:var(--mono);font-variant-numeric:tabular-nums}
+.qz-tally-no{color:color-mix(in srgb,var(--bad) 76%,var(--ink));font-weight:700;
+  font-family:var(--mono);font-variant-numeric:tabular-nums}
+.qz-hscore{color:var(--ink-2);font-size:var(--ui-sm)}
 .qz-wrongs{margin-top:1.6rem;text-align:left}
 .qz-wrong-row{padding:.8rem;border:1px solid var(--rule-2);border-radius:9px;
   margin-bottom:.6rem;background:var(--paper-2)}
 .qz-wrong-q{font-family:var(--serif);font-weight:700;margin-bottom:.3rem}
-.qz-wrong-mine{color:#c0392b;font-size:var(--ui-sm)}
-.qz-wrong-cor{color:#2f7d55;font-size:var(--ui-sm)}
+.qz-wrong-mine{color:color-mix(in srgb,var(--bad) 76%,var(--ink));font-size:var(--ui-sm)}
+.qz-wrong-cor{color:color-mix(in srgb,var(--good) 76%,var(--ink));font-size:var(--ui-sm)}
 .qz-wrong-why{color:var(--ink-2);font-size:var(--ui-sm);margin-top:.3rem}
-.qz-empty{text-align:center;padding:2.5rem 1rem;color:var(--ink-3)}
+.qz-empty{text-align:center;padding:2.5rem 1rem;color:var(--ink-2)}
 .qz-empty-t{font-weight:700;color:var(--ink-2)}
 
-/* ------------------------------- responsive ------------------------------- */
+/* -------------------------------- responsive --------------------------------
+   Figürün sütunları --c-* değişkenleriyle daralır; --lead/--trail bu
+   değişkenlerden türediği için ızgara, eksen ve çubuklar her ölçüde hizalı
+   kalır. Çubuk hiçbir ölçüde gizlenmez: bölümün asıl bilgisi odur.        */
 @media (max-width:760px){
   .stats-page{padding:1.5rem 6vw 5rem}
-  .sv-word{grid-template-columns:minmax(5rem,8rem) 1fr auto}
-  .sv-doc{grid-template-columns:auto 1fr;gap:.7rem}
-  .sv-doc-act{grid-column:1/-1;justify-content:flex-end}
+  .sv-fig{--c-lab:7.5rem;--c-num:2.4rem;--c-gap:.5rem}
+  .sv-docs{grid-template-columns:repeat(auto-fill,minmax(min(100%,15rem),1fr))}
+  .sv-doc{gap:.45rem .7rem}
 }
 @media (max-width:560px){
   .sv-h{font-size:1.5rem}
   .sv-card-v{font-size:1.5rem}
+  .sv-cards{grid-template-columns:repeat(auto-fit,minmax(min(100%,8.5rem),1fr))}
   .qz-match{grid-template-columns:1fr}
   .qz-pct{font-size:2.6rem}
+  .sv-fig{--c-rank:1.3rem;--c-lab:6.5rem;--c-num:2.2rem;--c-gap:.45rem}
+  /* Türkçe karşılık ilk düşen bilgi: sözcük + ölçek + sayı kalsın. */
   .sv-word-tr{display:none}
-  .sv-word{grid-template-columns:1fr auto}
-  .sv-word-bar{display:none}
+  .sv-word-plot{height:1.9rem}
+  .sv-ring{width:4rem;height:4rem}
   .sv-note{grid-template-columns:1fr}
   .qz-key,.qz-kbd{display:none}
   .qz-opt{grid-template-columns:1fr}
+}
+@media (max-width:380px){
+  .sv-fig{--c-rank:0rem;--c-lab:5.6rem;--c-num:2rem;--c-gap:.4rem}
+  .sv-word-rank{display:none}
+  .sv-word-en{font-size:.95rem}
+  .sv-doc{padding:.8rem .8rem}
+  .sv-ring{width:3.75rem;height:3.75rem}
+  .sv-card{padding:.85rem}
 }
