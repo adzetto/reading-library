@@ -157,12 +157,23 @@
     heroGlobe();
   }
 
+  /* Belge tonları teal (172°) → ember (26°) bandına sıraya göre dağıtılır.
+     Ham cover.hue değerleri gökkuşağı veriyordu; küredeki bandHue() ile
+     aynı eşleme kullanılınca kütüphane, hero ve istatistik tek palet
+     okunuyor. */
+  function docHue(i, total) {
+    var n = Math.max(1, (total || 1) - 1);
+    var t = Math.max(0, Math.min(1, i / n));
+    return Math.round(172 + (26 - 172) * t);
+  }
+
   function drawCards(docs) {
     var wrap = $("#cards");
-    wrap.innerHTML = docs.map(function (d) {
+    var N = docs.length;
+    wrap.innerHTML = docs.map(function (d, di) {
       return '<a class="card" data-group="' + esc(d.__group) + '" ' +
         'href="#/read/' + encodeURIComponent(d.id) + '" ' +
-        'style="--hue:' + (d.cover && d.cover.hue || 210) + '">' +
+        'style="--hue:' + docHue(di, N) + '">' +
         '<div class="card-top"><span class="card-ic">' +
         ic(d.kind === "book" ? "book" : "article", 20) + "</span>" +
         '<span class="card-badges">' +
@@ -734,31 +745,34 @@
         }
       });
     }
-    /* --- okuma odağı: aşağı inildikçe içindekiler kapanır, metin ortalanır.
-       Kullanıcı yukarı doğru kaydırınca (bir bölüm aramak istediği anlamına
-       gelir) yeniden açılır. Kullanıcı ☰ ile elle katladıysa karışılmaz. --- */
-    var lastY = scrollY, focusOn = false, focusLock = false;
+    /* --- okuma odağı ---------------------------------------------------
+       Başlık bloğu geçilince içindekiler kapanır, metin ortalanır.
+
+       Karar YALNIZCA konuma bakar, yöne değil. Yön duyarlı olduğunda her
+       yukarı kaydırmada panel açılıp kapanıyor ve sayfa sağa-sola salınıyordu.
+       İki eşik arasında histerezis var: kapanma ve açılma noktaları farklı,
+       böylece sınırda titremez. ☰ ile elle katlandıysa hiç karışılmaz.     */
+    var focusOn = false, focusLock = false;
     function autoFocus() {
-      if (MOBILE() || pref.get("rl_side", false)) return;
-      var y = scrollY, dir = y - lastY;
-      lastY = y;
-      if (Math.abs(dir) < 4) return;
-      var deep = y > innerHeight * 1.1;
-      if (deep && dir > 0 && !focusOn && !focusLock) {
+      if (MOBILE() || focusLock || pref.get("rl_side", false)) return;
+      var head = $(".doc-head");
+      var kapat = head ? head.offsetTop + head.offsetHeight : innerHeight * 0.6;
+      var ac = kapat * 0.55;                 // açılma eşiği daha yukarıda
+      var y = scrollY;
+      if (!focusOn && y > kapat) {
         focusOn = true;
         document.documentElement.classList.add("read-focus");
-      } else if ((!deep || dir < -60) && focusOn) {
+      } else if (focusOn && y < ac) {
         focusOn = false;
         document.documentElement.classList.remove("read-focus");
       }
     }
-    // ☰'ye basılırsa otomatik davranış devreye girmesin
+    // ☰'ye basılırsa otomatik davranış bir daha devreye girmesin
     var mb = $("#menuBtn");
     if (mb) mb.addEventListener("click", function () {
       focusLock = true;
       focusOn = false;
       document.documentElement.classList.remove("read-focus");
-      setTimeout(function () { focusLock = false; }, 1200);
     });
 
     function onScrollAll() { onScroll(); autoFocus(); }
@@ -870,129 +884,25 @@
     });
   }
 
-  /* ====================== HERO — three.js küre ====================== */
+  /* ================= HERO — kelime takımyıldızı küresi =================
+     Küreyi assets/globe.js çizer; buradaki iş yalnızca bağlamak ve
+     görünüm kapanırken temizletmek. */
   function heroGlobe() {
     var cv = $("#globe");
-    if (!cv || !window.THREE || REDUCED) { if (cv) cv.style.display = "none"; return; }
-    var T = THREE, W = cv.clientWidth, H = cv.clientHeight;
-    if (!W || !H) return;
-    var renderer = new T.WebGLRenderer({ canvas: cv, antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-    renderer.setSize(W, H, false);
-    var scene = new T.Scene();
-    var cam = new T.PerspectiveCamera(38, W / H, 0.1, 100);
-    cam.position.set(0, 0, 8.6); cam.lookAt(0, 0, 0);
-    var root = new T.Group(); root.rotation.z = -0.2; scene.add(root);
-
-    var R = 2.0;
-    function ll(lat, lon, r) {
-      var p = (90 - lat) * Math.PI / 180, t = (lon + 180) * Math.PI / 180;
-      return new T.Vector3(-(r * Math.sin(p) * Math.cos(t)), r * Math.cos(p),
-                           r * Math.sin(p) * Math.sin(t));
+    if (!cv) return;
+    if (!window.WordGlobe || !window.THREE || !window.WORDGRAPH) {
+      cv.style.display = "none";
+      return;
     }
-    var N = 3400, pos = new Float32Array(N * 3);
-    for (var i = 0; i < N; i++) {
-      var y = 1 - (i / (N - 1)) * 2, rr = Math.sqrt(Math.max(0, 1 - y * y));
-      var th = Math.PI * (3 - Math.sqrt(5)) * i;
-      pos[i * 3] = Math.cos(th) * rr * R; pos[i * 3 + 1] = y * R;
-      pos[i * 3 + 2] = Math.sin(th) * rr * R;
-    }
-    var pg = new T.BufferGeometry();
-    pg.setAttribute("position", new T.BufferAttribute(pos, 3));
-    var pm = new T.PointsMaterial({ size: .024, transparent: true, opacity: .62, depthWrite: false });
-    root.add(new T.Points(pg, pm));
-
-    var rings = new T.Group();
-    for (var k = -60; k <= 60; k += 30) {
-      var pts = [];
-      for (var a = 0; a <= 360; a += 4) pts.push(ll(k, a, R * 1.001));
-      rings.add(new T.Line(new T.BufferGeometry().setFromPoints(pts),
-        new T.LineBasicMaterial({ transparent: true, opacity: .3 })));
-    }
-    for (var lon = 0; lon < 180; lon += 30) {
-      var p2 = [];
-      for (var b = -90; b <= 90; b += 4) p2.push(ll(b, lon, R * 1.001));
-      for (var c = 90; c >= -90; c -= 4) p2.push(ll(c, lon + 180, R * 1.001));
-      rings.add(new T.Line(new T.BufferGeometry().setFromPoints(p2),
-        new T.LineBasicMaterial({ transparent: true, opacity: .22 })));
-    }
-    root.add(rings);
-
-    var SY = [35, 38];
-    var DEST = [[39, 35], [60.1, 18.6], [51.2, 10.4], [39, 22],
-                [33.9, 35.5], [31.2, 36.5], [36.2, 44], [39.8, -98.6]];
-    var arcs = [];
-    DEST.forEach(function (d, idx) {
-      var A = ll(SY[0], SY[1], R), B = ll(d[0], d[1], R);
-      var mid = A.clone().add(B).multiplyScalar(.5).normalize()
-        .multiplyScalar(R * (1 + .16 + A.distanceTo(B) * .1));
-      var pts = new T.QuadraticBezierCurve3(A, mid, B).getPoints(90);
-      var g = new T.BufferGeometry().setFromPoints(pts); g.setDrawRange(0, 0);
-      var line = new T.Line(g, new T.LineBasicMaterial({ transparent: true, opacity: .85 }));
-      root.add(line);
-      var dot = new T.Mesh(new T.SphereGeometry(.035, 12, 12), new T.MeshBasicMaterial());
-      dot.position.copy(B); root.add(dot);
-      arcs.push({ line: line, n: pts.length, t: -idx * .35, dot: dot });
-    });
-    var src = new T.Mesh(new T.SphereGeometry(.055, 16, 16), new T.MeshBasicMaterial());
-    src.position.copy(ll(SY[0], SY[1], R)); root.add(src);
-    var sp = ll(SY[0], SY[1], R);
-    root.rotation.y = -Math.atan2(sp.x, sp.z);
-
-    var COL = {
-      light: { pt: 0x8d95a1, ring: 0x5d6673, arc: 0x1f5f96, src: 0xb3402c, dst: 0x1f5f96 },
-      dark: { pt: 0x6b7583, ring: 0x59636f, arc: 0x7db4e6, src: 0xe0724f, dst: 0x7db4e6 }
-    };
-    function theme(t) {
-      var c = COL[t === "dark" ? "dark" : "light"];
-      pm.color.setHex(c.pt);
-      rings.children.forEach(function (l) { l.material.color.setHex(c.ring); });
-      arcs.forEach(function (x) {
-        x.line.material.color.setHex(c.arc); x.dot.material.color.setHex(c.dst);
-      });
-      src.material.color.setHex(c.src);
-    }
-    window.__hero__ = { theme: theme };
-    theme(S.theme);
-
-    var mx = 0, my = 0, tx = 0, ty = 0, running = true, alive = true;
-    function onMove(e) {
-      tx = (e.clientX / innerWidth - .5) * .34; ty = (e.clientY / innerHeight - .5) * .22;
-    }
-    addEventListener("pointermove", onMove, { passive: true });
-    var io = new IntersectionObserver(function (es) { running = es[0].isIntersecting; },
-      { threshold: 0 });
-    io.observe(cv);
-    function resize() {
-      W = cv.clientWidth; H = cv.clientHeight; if (!W || !H) return;
-      renderer.setSize(W, H, false); cam.aspect = W / H; cam.updateProjectionMatrix();
-    }
-    addEventListener("resize", resize); resize();
-    var last = performance.now();
-    (function tick(now) {
-      if (!alive) return;
-      requestAnimationFrame(tick);
-      var dt = Math.min(.05, (now - last) / 1000); last = now;
-      if (!running) return;
-      mx += (tx - mx) * .05; my += (ty - my) * .05;
-      root.rotation.y += dt * .06; root.rotation.x = my;
-      cam.position.x = mx * 1.4; cam.position.y = -my * .8; cam.lookAt(0, 0, 0);
-      arcs.forEach(function (x) {
-        x.t += dt * .34;
-        var cc = x.t % 2.2;
-        var kk = cc < 1 ? cc : cc < 1.7 ? 1 : Math.max(0, 1 - (cc - 1.7) / .5);
-        x.line.geometry.setDrawRange(0, Math.round(kk * x.n));
-        x.line.material.opacity = .25 + .6 * kk;
-        x.dot.scale.setScalar(.7 + .6 * kk);
-      });
-      renderer.render(scene, cam);
-    })(last);
-
+    var ok = false;
+    try {
+      ok = WordGlobe.mount(cv, { theme: S.theme, reduced: REDUCED });
+    } catch (e) { ok = false; }
+    if (!ok) { cv.style.display = "none"; return; }
+    // tema düğmesi bunu çağırıyor
+    window.__hero__ = { theme: WordGlobe.setTheme };
     cleanups.push(function () {
-      alive = false; io.disconnect();
-      removeEventListener("pointermove", onMove);
-      removeEventListener("resize", resize);
-      try { renderer.dispose(); } catch (e) {}
+      try { WordGlobe.destroy(); } catch (e) {}
       window.__hero__ = null;
     });
   }
