@@ -25,12 +25,14 @@ body.reading #topbar{display:none}
 .hero-veil{position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(120% 92% at 50% 46%,transparent 34%,var(--paper) 86%)}
 .hero-in{position:relative;text-align:center;max-width:44rem}
-.hero-kicker{font-family:var(--caps);font-variant:small-caps;letter-spacing:.2em;
-  font-size:var(--ui-sm);color:var(--ink-3);margin:0 0 1.1rem}
-.hero-h1{font-family:var(--serif);font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;
-  margin:0 0 1rem;font-weight:400;letter-spacing:-.01em}
-.hero-sub{font-family:var(--serif);font-size:clamp(1rem,2.3vw,1.25rem);
-  line-height:1.5;color:var(--ink-2);margin:0 auto 1.8rem;max-width:34rem}
+/* Hero arayüzdür, okuma metni değil → tamamı Geist. */
+.hero-kicker{font-family:var(--sans);font-size:.6875rem;font-weight:600;
+  letter-spacing:.11em;text-transform:uppercase;color:var(--ink-3);
+  margin:0 0 1.1rem}
+.hero-h1{font-family:var(--sans);font-size:clamp(2rem,5.5vw,3.2rem);
+  line-height:1.08;margin:0 0 1rem;font-weight:600;letter-spacing:-.03em}
+.hero-sub{font-family:var(--sans);font-size:clamp(1rem,2.1vw,1.15rem);
+  line-height:1.55;color:var(--ink-2);margin:0 auto 1.8rem;max-width:32rem}
 .hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.6rem;
   font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-3);
   margin-bottom:1.8rem}
@@ -47,8 +49,8 @@ body.reading #topbar{display:none}
 .lib{max-width:76rem;margin:0 auto;padding:1rem 5vw 6rem}
 .lib-head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;
   margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid var(--rule-2)}
-.lib-head h2{font-family:var(--caps);font-variant:small-caps;letter-spacing:.1em;
-  font-size:1.5rem;margin:0;font-weight:400}
+.lib-head h2{font-family:var(--sans);font-size:1.3rem;margin:0;font-weight:600;
+  letter-spacing:-.02em}
 .lib-filters{margin-left:auto;display:flex;gap:var(--ui-gap);flex-wrap:wrap}
 
 .cards{display:grid;gap:1rem;
@@ -112,7 +114,8 @@ body.reading #topbar{display:none}
 /* --------------------------- sınav sayfası --------------------------- */
 .quiz-page{max-width:44rem;margin:0 auto;padding:2rem 5vw 6rem}
 .quiz-page .qp-head{margin-bottom:1.5rem}
-.quiz-page .qp-head h1{font-family:var(--serif);font-size:1.8rem;margin:0 0 .4rem}
+.quiz-page .qp-head h1{font-family:var(--sans);font-size:1.6rem;margin:0 0 .4rem;
+  font-weight:600;letter-spacing:-.02em}
 .quiz-page .qp-head p{font-family:var(--sans);font-size:var(--ui);
   color:var(--ink-2);margin:0}
 

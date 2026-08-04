@@ -8,15 +8,17 @@
 .stats-page{max-width:64rem;margin:0 auto;padding:2rem 5vw 6rem;
   font-family:var(--sans);font-size:var(--ui)}
 
-/* --------------------------- ortak parçalar --------------------------- */
-.sv-h,.qz-head h2{font-family:var(--serif);font-size:1.9rem;margin:0 0 .3rem;
-  font-weight:700}
+/* --------------------------- ortak parçalar ---------------------------
+   Arayüzün tamamı Geist. Serif yalnızca okunan METİN içindir; başlıkta
+   kullanmak iki yazı tipini yan yana getirip amatör bir görüntü veriyor. */
+.sv-h,.qz-head h2{font-family:var(--sans);font-size:1.5rem;margin:0 0 .3rem;
+  font-weight:600;letter-spacing:-.015em}
 .sv-sub{color:var(--ink-2);margin:0 0 2rem;font-size:var(--ui)}
 .sv-sec{margin:0 0 2.6rem}
 .sv-sec-h,.sv-head{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;
   margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule-2)}
-.sv-sec-h h3,.sv-head h3{font-family:var(--caps);font-variant:small-caps;
-  letter-spacing:.1em;font-size:1.2rem;margin:0;font-weight:400}
+.sv-sec-h h3,.sv-head h3{font-family:var(--sans);font-size:1.05rem;margin:0;
+  font-weight:600;letter-spacing:-.01em}
 .sv-hint,.sv-muted,.sv-note-info{color:var(--ink-3);font-size:var(--ui-sm);
   line-height:1.5}
 .sv-title{font-weight:700}
@@ -57,21 +59,32 @@
   background:var(--paper-2);display:flex;flex-direction:column;gap:.25rem}
 .sv-card-l{font-size:.78rem;color:var(--ink-3);text-transform:uppercase;
   letter-spacing:.07em}
-.sv-card-v{font-family:var(--serif);font-size:1.85rem;font-weight:700;
-  line-height:1.1;font-variant-numeric:tabular-nums}
+.sv-card-v{font-family:var(--sans);font-size:1.75rem;font-weight:600;
+  line-height:1.1;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
 .sv-card-s{font-size:.78rem;color:var(--ink-3)}
 
-/* ------------------------------ ısı haritası ------------------------------ */
+/* ------------------------------ ısı haritası ------------------------------
+   Gerçek yapı (stats.js):
+     .hm-grid            dikey yığın
+       .hm-months        .hm-corner + 12 × .hm-month
+       7 × .hm-row       .hm-dow (gün etiketi) + 12 × .hm-day
+   .hm-dow ayrı bir sütun DEĞİL, her satırın ilk hücresidir.            */
 .hm-wrap{border:1px solid var(--rule-2);border-radius:11px;padding:1rem;
   background:var(--paper-2)}
 .hm-scroll{overflow-x:auto;padding-bottom:.3rem}
-/* stats.js .hm-row'u GÜN satırı olarak üretir: 7 satır, her biri 12 hafta.
-   Izgara bu satırları alt alta yığar, satırın içi yatay akar. */
 .hm-grid{display:flex;flex-direction:column;gap:3px;width:max-content}
-.hm-row{display:grid;grid-auto-flow:column;grid-auto-columns:13px;gap:3px}
+
+.hm-months{display:flex;gap:3px;margin-bottom:.15rem}
+.hm-corner{width:2.1rem;flex:none}
+.hm-month{width:13px;flex:none;font-size:.66rem;color:var(--ink-3);
+  line-height:1;white-space:nowrap;overflow:visible}
+
+.hm-row{display:grid;grid-template-columns:2.1rem repeat(12,13px);gap:3px;
+  align-items:center}
+.hm-dow{font-size:.66rem;color:var(--ink-3);line-height:1;text-align:right;
+  padding-right:.3rem;white-space:nowrap}
 .hm-day{width:13px;height:13px;border-radius:3px;background:var(--rule-2);
   cursor:default}
-.hm-dow>*{height:13px;line-height:13px}
 .hm-day[data-l="1"]{background:hsl(205 55% 78%)}
 .hm-day[data-l="2"]{background:hsl(205 55% 62%)}
 .hm-day[data-l="3"]{background:hsl(205 58% 46%)}
@@ -81,32 +94,46 @@
 :root[data-theme="dark"] .hm-day[data-l="2"]{background:hsl(205 45% 44%)}
 :root[data-theme="dark"] .hm-day[data-l="3"]{background:hsl(205 55% 58%)}
 :root[data-theme="dark"] .hm-day[data-l="4"]{background:hsl(205 65% 72%)}
-.hm-dow,.hm-month,.hm-key,.hm-legend-t,.hm-sum{font-size:.72rem;color:var(--ink-3)}
-.hm-dow{display:grid;grid-template-rows:repeat(7,13px);gap:3px;margin-right:.35rem;
-  align-content:start}
-.hm-months{display:flex;gap:3px;margin-bottom:.3rem}
-.hm-corner{width:1.6rem}
+.hm-key,.hm-legend-t,.hm-sum{font-size:.72rem;color:var(--ink-3)}
+.hm-key{width:11px;height:11px;border-radius:3px;background:var(--rule-2);
+  display:inline-block}
+.hm-key.l1{background:hsl(205 55% 78%)} .hm-key.l2{background:hsl(205 55% 62%)}
+.hm-key.l3{background:hsl(205 58% 46%)} .hm-key.l4{background:hsl(205 62% 33%)}
 .hm-foot{display:flex;align-items:center;gap:.6rem;margin-top:.7rem;
   flex-wrap:wrap}
 .hm-legend{display:flex;align-items:center;gap:3px}
 .hm-tip{margin-left:auto;font-size:.75rem;color:var(--ink-2);min-height:1.2em}
 
-/* -------------------------- en çok bakılan sözcükler -------------------------- */
-.sv-words{display:flex;flex-direction:column;gap:.15rem}
-.sv-word{display:grid;grid-template-columns:minmax(6rem,11rem) 1fr auto;
-  align-items:center;gap:.7rem;padding:.4rem .5rem;border-radius:7px;
-  cursor:pointer;border:1px solid transparent}
-.sv-word:hover{background:var(--paper-2);border-color:var(--rule-2)}
-.sv-word.is-flash{background:var(--mark)}
-.sv-word-en{font-family:var(--serif);font-weight:700}
+/* -------------------------- en çok bakılan sözcükler --------------------------
+   Gerçek yapı (stats.js):
+     li.sv-word
+       button.sv-word-b        ← tıklanabilir satır (çubuk DEĞİL)
+         span.sv-word-head     ← .sv-word-en + .sv-word-tr + .sv-word-n
+         span.sv-word-bar > i  ← dolgu çubuğu
+       div.sv-worddet                                                    */
+.sv-words{display:flex;flex-direction:column;gap:.1rem;list-style:none;
+  margin:0;padding:0}
+.sv-word{margin:0}
+.sv-word-b{display:block;width:100%;text-align:left;cursor:pointer;
+  background:none;border:1px solid transparent;border-radius:8px;
+  padding:.45rem .6rem;font-family:inherit;font-size:inherit;color:inherit;
+  transition:background .15s,border-color .15s}
+.sv-word-b:hover{background:var(--paper-2);border-color:var(--rule-2)}
+.sv-word-b:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.sv-word-b.is-flash,.sv-word.is-flash .sv-word-b{background:var(--mark)}
+
+.sv-word-head{display:grid;grid-template-columns:minmax(5rem,10rem) 1fr auto;
+  align-items:baseline;gap:.7rem}
+.sv-word-en{font-family:var(--serif);font-size:1.02rem;font-weight:700}
 .sv-word-tr{color:var(--ink-2);font-size:var(--ui-sm);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.sv-word-bar{position:relative;height:7px;border-radius:99px;
-  background:var(--rule-2);overflow:hidden;min-width:3rem}
-.sv-word-b{position:absolute;inset:0 auto 0 0;background:var(--accent);
+.sv-word-n{font-variant-numeric:tabular-nums;color:var(--ink-3);
+  font-size:var(--ui-sm);min-width:1.8rem;text-align:right}
+
+.sv-word-bar{display:block;position:relative;height:5px;margin-top:.35rem;
+  border-radius:99px;background:var(--rule-2);overflow:hidden}
+.sv-word-bar>i{display:block;height:100%;background:var(--accent);
   border-radius:99px}
-.sv-word-n{font-variant-numeric:tabular-nums;color:var(--ink-2);
-  font-size:var(--ui-sm);min-width:2.2rem;text-align:right}
 .sv-worddet{padding:.6rem .8rem;margin:.2rem 0 .5rem;border-left:2px solid var(--accent);
   background:var(--accent-soft);border-radius:0 7px 7px 0}
 .sv-wd-tr{color:var(--accent-2);font-weight:700}
@@ -140,7 +167,8 @@
 .sv-v{display:grid;grid-template-columns:1fr auto auto;gap:.7rem;
   align-items:center;padding:.55rem .5rem;border-bottom:1px solid var(--rule-2)}
 .sv-v-main{min-width:0}
-.sv-v-en{font-family:var(--serif);font-size:1.05rem;font-weight:700}
+.sv-v-en{font-family:var(--serif);font-size:1.02rem;font-weight:700}
+.sv-rev-en{letter-spacing:-.01em}
 .sv-v-tr{color:var(--accent-2);font-size:var(--ui-sm)}
 :root[data-theme="dark"] .sv-v-tr{color:var(--accent)}
 .sv-v-def{color:var(--ink-3);font-size:.8rem;line-height:1.4;margin-top:.15rem}
@@ -196,11 +224,13 @@
 .qz-bar>*{position:absolute;inset:0 auto 0 0;background:var(--accent);
   border-radius:99px;display:block}
 .qz-body{margin-bottom:1.2rem}
-.qz-q-en,.qz-en{font-family:var(--serif);font-size:1.2rem;line-height:1.4;
+/* Soru metni İngilizce özgün cümledir → serif kalır (okuma metniyle aynı).
+   Türkçe karşılığı arayüz metnidir → Geist. */
+.qz-q-en,.qz-en{font-family:var(--serif);font-size:1.15rem;line-height:1.45;
   margin:0 0 .35rem}
-.qz-q-tr,.qz-tr{color:var(--ink-2);font-size:var(--ui-sm);line-height:1.45;
-  margin:0 0 1rem}
-.qz-q-gap,.qz-gap{font-family:var(--serif);font-size:1.2rem;line-height:1.5}
+.qz-q-tr,.qz-tr{font-family:var(--sans);color:var(--ink-2);
+  font-size:var(--ui-sm);line-height:1.45;margin:0 0 1rem}
+.qz-q-gap,.qz-gap{font-family:var(--serif);font-size:1.15rem;line-height:1.5}
 .qz-mark{display:inline-block;min-width:4rem;border-bottom:2px solid var(--accent);
   text-align:center;color:var(--accent)}
 .qz-opts{display:flex;flex-direction:column;gap:.5rem}
@@ -214,8 +244,18 @@
 .qz-key,.qz-kbd{font-size:.75rem;width:1.5rem;height:1.5rem;border-radius:5px;
   border:1px solid var(--rule);display:grid;place-items:center;color:var(--ink-3);
   flex:none}
-.qz-opt-txt .qz-en{font-size:var(--ui);margin:0}
-.qz-opt-txt .qz-tr{font-size:.8rem;margin:.1rem 0 0}
+/* Şıkta İngilizce üstte, Türkçesi altta. Bunlar <span> olduğu için block
+   yapılmazsa yan yana yapışıp "playOyun yazan" gibi okunur. */
+.qz-opt-txt{min-width:0}
+.qz-opt-txt .qz-en{display:block;font-size:var(--ui);margin:0;line-height:1.35}
+.qz-opt-txt .qz-tr{display:block;font-size:.8rem;margin:.15rem 0 0;
+  color:var(--ink-3);line-height:1.35}
+/* seçim göstergesi: yalnızca durum belliyken görünür */
+.qz-mark{display:block;height:2px;border-radius:2px;background:transparent;
+  grid-column:2;margin-top:.4rem;transition:background .15s}
+.qz-opt.is-sel .qz-mark,.qz-opt.is-picked .qz-mark{background:var(--accent)}
+.qz-opt.is-ok .qz-mark{background:#2f7d55}
+.qz-opt.is-bad .qz-mark{background:#c0392b}
 .qz-opt.is-ok{border-color:#2f7d55;background:#2f7d5514}
 .qz-opt.is-bad{border-color:#c0392b;background:#c0392b14}
 .qz-opt.is-sel,.qz-opt.is-picked{border-color:var(--accent);background:var(--accent-soft)}
@@ -254,8 +294,8 @@
 .qz-m-tr{color:var(--ink-2)}
 
 .qz-result{text-align:center;padding:1.5rem 0}
-.qz-pct{font-family:var(--serif);font-size:3.4rem;font-weight:700;line-height:1;
-  font-variant-numeric:tabular-nums}
+.qz-pct{font-family:var(--sans);font-size:3.2rem;font-weight:600;line-height:1;
+  font-variant-numeric:tabular-nums;letter-spacing:-.03em}
 .qz-pct-n{font-size:1.4rem;color:var(--ink-3)}
 .qz-res-h{font-size:1.3rem;font-weight:700;margin:.6rem 0 .3rem}
 .qz-res-line,.qz-res-note{color:var(--ink-2);font-size:var(--ui-sm)}

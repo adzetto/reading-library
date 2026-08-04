@@ -398,6 +398,7 @@ table.data .muted{color:var(--ink-3)}
   transition:background .16s,border-color .16s,color .16s,transform .12s;
   display:inline-flex;align-items:center;justify-content:center;
   gap:.4em;line-height:1.2;white-space:nowrap}
+a.btn,a.btn:hover{text-decoration:none}
 .btn:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft)}
 .btn:active{transform:translateY(1px)}
 .btn:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
