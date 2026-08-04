@@ -1,0 +1,754 @@
+IJSS
+1
+Original Article
+Received/Accepted Dates
+12.07.2023/14.10.2023
+DOI 10.52096/usbd.7.32.01
+International Journal of Social Sciences
+Uluslararası Sosyal Bilimler Dergisi
+www.sobider.net e-ISSN: 2548-0685
+Practical Feasibility of Narrative Exposure
+Therapy in Syrian Refugee Population
+Residing in Turkiye: A Focus Group Study
+Fatma Aysazci-Cakar
+Corresponding Author, Division of Mental Health and Clinical Neurosciences, School of Medicine, University of
+Nottingham, YANG Fujia Building, Jubilee Campus, NG8 1BB, Nottingham, United Kingdom,
+fatmaaysazci@icloud.com
+Thomas Schroder
+Division of Mental Health and Clinical Neurosciences, School of Medicine, University of Nottingham, YANG Fujia
+Building, Jubilee Campus, NG8 1BB, Nottingham, United Kingdom
+Nigel Hunt
+Division of Mental Health and Clinical Neurosciences, School of Medicine, University of Nottingham, YANG Fujia
+Building, Jubilee Campus, NG8 1BB, Nottingham, United Kingdom
+Abstract
+It has been reported that 3.6 million Syrian refugees have sought safety in Turkiye since the civil war started in Syria.
+Experiencing war-related events and challenging phases of migration, refugees face various psychological disorders.
+Structured and adapted psychological interventions for this group are limited. To ensure the feasibility of Narrative
+Exposure Therapy in this context, this study aimed to explore the potential challenges during its delivery through a
+preliminary Focus Group with local professionals working with Syrians in Turkiye. Content analysis was used and
+the results led to eligibility criteria to select suitable participants for a subsequent study. These criteria include being
+between the ages of 20-45, fluent in Turkish and literate, having economic relief, and residing in the western region
+of Turkiye. This preliminary study serves as a roadmap for addressing potential obstacles for the subsequent study
+and a foundation for future research in this population.
+Keywords: Syrian refugees, focus group, refugee mental health, psychological intervention, content analysis.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+2
+1. Introduction
+Migration has many wide-ranging impacts on individuals, communities, and cultures, both in the
+countries where people have left and in the places where they have resettled as safe shelters. The
+term 'refugee' is broadly defined as someone who fears persecution due to race, religion,
+nationality, membership in a particular social group, or political opinion. They are outside their
+country of nationality and are either unable or unwilling to seek protection from their country
+(UNHCR, 1951). Prior to forced migration, refugees have often experienced or witnessed physical,
+psychological, and gender-based violence (Giacco et al., 2018). They face uncertain and
+challenging journeys and the compunction of leaving family members and all possessions behind;
+they experience post-migration difficulties such as immigration detention and temporary
+protection with the threat of repatriation (Nickerson et al., 2011). Given these difficulties, the
+refugee population lives through repeated and cumulative traumatic life experiences before,
+during, and after migration.
+Since the civil war started in 2011, it has been reported that over 12 million people in Syria were
+displaced internally and externally to save their lives. At the end of 2022, UNHCR reported that
+at least 5.4 million Syrians had been externally displaced, with 3.6 million of them seeking safety
+in Turkiye (UNHCR, 2022; 2023a). Turkiye hosts the largest number of refugees worldwide
+(UNHCR, 2023b). Since the beginning of the conflict in Syria, the Republic of Turkiye has
+considerably extended protection and assistance to Syrian refugees and declared temporary
+protection in October 2011 (Syria Needs Analysis Project, 2013). This protection law called the
+'Temporary Protection Regulation,' was adopted in 2014 and considers Syrians in Turkiye not as
+'refugees' but as 'guests' (UNHCR, 2018), providing them with temporary protection and assuming
+that they will return to Syria when the conflict ends.
+Many Syrians living in Turkiye encounter multiple daily stressors such as high housing costs, low
+wages, exploitation in the labor market, discrimination, and uncertainty about their futures (Kaya
+& Kıraç, 2016). Being exposed to war-related experiences and going through different phases of
+migration, refugees face various common psychological disorders. The World Health Organization
+(WHO, 2015) reported that approximately 600,000 refugees suffer from severe mental illness and
+require psychological treatment, with another 4 million potentially experiencing such disorders. It
+is well-known that exposure to high levels of traumatic events and other stressful experiences leads
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+3
+many refugees to suffer from psychological disorders. A study conducted in Lebanon by Kazour
+et al. (2017) reported a lifetime prevalence of Post-Traumatic Stress Disorder (PTSD) in Syrian
+refugees at 35.4%. Additionally, PTSD in this population is often comorbid with other
+psychological disorders. A cross-sectional study carried out in Turkiye by Fuhr et al. (2019) found
+that the prevalence of PTSD was 19.6%, with comorbid symptoms of anxiety and depression
+observed as 36.1% and 34.7% in the Syrian population, respectively. While the investigation of
+the mental health problems of refugees is relatively recent, there is a moderate amount of research
+in the literature aiming to address the mental health issues of this population and offer effective
+interventions. Over the past few decades, prominent treatment methods have been developed and
+widely used for the mental health problems of this group. For example in the UK, Trauma-Focused
+Cognitive Behavioral Therapy (TFCBT) and Eye Movement Desensitization and Reprocessing
+(EMDR) have been proven as the most effective interventions, with recommendations of the
+National Institute for Health and Clinical Excellence (NICE) for the treatment of PTSD (NICE,
+2005). These therapy techniques have been examined in numerous studies and have shown high
+success rates in reducing PTSD symptoms (e.g., Giannopoulou et al., 2006; Sandström et al.,
+2008). Schauer et al. (2005) have also developed an effective short-term therapy technique called
+Narrative Exposure Therapy (NET) for addressing potential mental health problems of refugees
+living in post-conflict areas. The effectiveness of NET has been demonstrated through randomized
+controlled studies involving different ethnicities (e.g., Neuner et al., 2004 & Neuner et al., 2008).
+NET is known as a 'culturally universal' approach as it is based on a narrative that is 'an integrative
+part of every culture' (Schauer et al., 2005, 2011). The treatment involves emotional exposure to
+traumatic memories and the reorganization of these memories into a coherent chronological
+narrative (Robjant & Fazel, 2010). NET incorporates components of Testimony Therapy and
+Prolonged Exposure Therapy. It aims to construct a lifeline from birth to the present and focuses
+on a lifespan narrative (Mørkved et al., 2014). It offers a safe confrontation with thoughts and
+memories that have been avoided by the person since the traumatic event occurred (Foa et al.,
+2007). The second focus of NET is the habituation to intrusive symptoms during the reconstruction
+of autobiographical memories of traumatic experiences (Neuner et al., 2002).
+Considering the vast influx of Syrian refugees in resettlement countries, addressing mental health
+difficulties is generally not a priority for this population. Moreover, taking into account the barriers
+to accessing mental health interventions, such as language difficulties, cultural differences,
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+4
+economic concerns, and unfamiliarity with the host country's healthcare system, there is no doubt
+refugees are in an emergency situation that requires immediate psychological support. To
+illustrate, Tinghög et al. (2017) found that 85% of Syrian refugees resettling in Sweden reported
+experiencing war at close quarters, and 79% reported being exposed to other life-threatening
+experiences, which may lead to emerging psychological problems in this population. This suggests
+a dose-response relationship that claims a linear connection between trauma exposure and
+psychological distress (Mollica et al., 1998a, 1998b). Recent studies (e.g., Akhtar et al., 2021;
+Feen-Calligan et al., 2022; de Graff et al., 2023) have attempted to focus on effective psychological
+interventions for both the general population and the Syrian refugee population in conflict areas
+and receiving countries.
+Turkiye has also developed many health action plans for this population. However, budget
+limitations have hindered the integration of mental health into primary and community care,
+resulting in unmet mental health care needs and a treatment gap for Syrian refugees residing in
+Turkiye. A few studies have attempted to look into the efficacy of particular psychological
+interventions in this population, including Programme Management Plus (PM+), Group
+Programme Management Plus (gPM+), a self-help psychological program created by WHO
+(Uygun et al., 2020; Akhtar et al., 2021; Acarturk et al., 2022), EMDR (Acarturk 2015, 2016;
+Yurtsever et al., 2018), a brief group behavioral intervention (Bryant et al., 2022) and culturally
+adapted CBT (Eskici et al., 2023). Apart from these interventions and psychological guidance and
+counseling provided by local mental health services, there are currently few structured and
+commonly adopted psychological interventions for Syrian Refugees. Therefore, there is a clear
+need to offer and implement an evidence-based, structured, and practical psychological
+intervention to offer and implement to address the mental health problems of this population in
+Turkiye. Although NET has been shown to be effective in refugee populations, to date NET has
+not been practiced and investigated in Turkiye or with Syrian refugees. These gaps in the literature
+have motivated us to address these deficiencies and investigate the feasibility and effectiveness of
+NET within the Turkish context and among war-affected Syrian populations. In our subsequent
+study, we aimed to examine the feasibility and effectiveness of NET for the treatment of mental
+health problems of Syrian refugees in Turkiye. To ensure the contextual and practical feasibility
+of NET, a preliminary focus group (FG) was conducted involving local workers who have
+professional experience with Syrians in Turkiye. The primary purpose of this FG was to carry out
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+5
+an in-depth exploration of a topic about which little is known and to encourage participants to
+engage in collective sense-making processes (Stewart et al., 2007; Nel et al., 2015). By employing
+this technique, we aimed to gather knowledge about potential obstacles, challenges, and
+circumstances that could hinder the delivery of NET in this context. This knowledge may help us
+to adapt the practical procedures of NET for effective implementation of it in the subsequent study.
+2. Materials and Methods
+2.1 Participants
+This study was approved by the Ethics Committee of the Division of Psychiatry and Applied
+Psychology at the University of Nottingham (approval no. DPAP-2022-2816). Six participants
+were recruited, but one of them withdrew at the last minute. Thus, the FG was carried out with
+five participants (three females and two males) from different professional backgrounds: social
+worker, sociologist, psychologist, doctor, and nurse. The participants had professional experience
+ranging from 3 to 8 years working with Syrians living in Turkiye. The age range was between 28
+and 35. Participants were recruited from three different regions of Turkiye (Izmir, Mardin, and
+Batman) using convenience sampling, based on the accessibility and availability of the
+participants. Informed consent and demographic data were obtained from each participant.
+2.2 Role of the Moderators
+The FG was moderated by two facilitators, one of whom was an independent researcher, and the
+other was the main researcher (FAC) of this study. The main researcher was responsible for
+introducing the aims and methods of the study, as well as explaining the nature of the NET
+technique to participants. The independent researcher was responsible for posing the semi-
+structured questions to the group and facilitating the discussion. The main researcher was present
+throughout the group to address any research-related questions and to observe the group dynamics.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+6
+2.3. Data Collection
+Due to the Covid-19 pandemic and travel restrictions, the research was conducted online via
+Microsoft Teams. The focus group took place on August 10, 2021, at 19:00 (GMT+3). At the
+beginning, participants were provided with a 20-minute PowerPoint presentation by the main
+researcher, which included information about the general aim and method of the NET intervention
+study, the theoretical background, and the nature of NET. Following the presentation, the
+independent researcher initiated the semi-structured group interview by addressing the pre-defined
+questions. The interview lasted 63 minutes and was video-recorded using the recording function
+of Microsoft Teams. The Turkish language was used during the FG and the group discussion was
+later transcribed and translated from Turkish to English by the main researcher (FAC) for data
+analysis.
+2.4. Data Analysis
+Qualitative Content Analysis was used for data analysis. Krippendorf (2004) defines it as a
+research technique that allows for replicable and valid inferences from texts or other meaningful
+materials to their contexts of use. In this study, an inductive qualitative content analysis approach
+was used to analyze and interpret participants' perspectives. Inductive content analysis involves
+the researcher answering the research question by formulating concepts, categories, and themes,
+and repeatedly referring back to the original text sources to ensure a strong connection between
+the data obtained and the results (Elo & Kyngäs, 2009).
+To conduct the analysis, the discussion was transcribed and translated as a starting point.
+Erlingsson and Brysiewicz's (2017) Content Analysis guide was utilized and following the
+guideline, the text was divided into smaller parts called meaning units (MUs). Codes were then
+formulated and grouped into categories based on their similarities and differences. To achieve a
+deeper level of analysis, subcategories were created from the formulated categories. Figure 1
+illustrates the phases of content analysis.
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+7
+Figure 1. Phases of Content Analysis
+2.5. Quality Check
+Each MU, code, category, and subcategory were evaluated independently by the authors of this
+research. At least an 80% interrater agreement was set for the quality check. The first and third
+authors examined each MU and reached 65% agreement for the MUs between 1-50. After
+discussion and review, the authors had 92% agreement. Then the first and second authors
+investigated the MUs between 51-104 and reached 80% agreement. Following this, after
+discussing the non-overlapping categories and subcategories, 96.3% agreement was reached
+between the first and second authors.
+3. Results
+Four codes, twelve categories, and twenty-one subcategories were created under one-hundred and
+three MUs. The numbers of the codes, categories, and subcategories are represented in Table 1.
+1.
+•Transcription
+& Translation
+2.
+•Meaning
+Units
+3.
+•Codes
+4.
+•Categories
+5.
+•Subcategories
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+8
+Table 1. Distribution of codes, categories, and subcategories
+Code (Numbers) Category (Numbers) Subcategory (Numbers)
+Research
+(N=9)
+Delivery of NET
+(N=9)
+Suitability (N=1)
+Challenges (N=2)
+Length of Sessions (N=3)
+NET Beneficial (N=3)
+Recruitment
+(N=51)
+Language (N=5) -
+Challenges (N=11) Language (N=1)
+Address Changes (N=3)
+Needs (N=7)
+Solution (N=1) -
+Criteria (N=13) -
+Demographics*
+(N=12)
+Location (N=2)
+Age (N=6)
+Employment* (N=3)
+Education* (N=1)
+Traumatic Event
+(N=9)
+Challenge (N=1)
+Suitability (N=1)
+Classification of events (N=7)
+Therapy
+(N=35)
+Language
+(N=26)
+Translator (N=18)
+Turkish (N=1)
+Mother-tongue (N=3)
+Productiveness (N=3)
+Online Delivery (N=2) -
+Challenges (N=1) -
+Cultural Differences (N=6) -
+Remarks Cultural Differences Awareness (N=3)
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+9
+(N=10) (N=10) Trust Issue (N=4)
+Perceptions toward Mental Health
+(N=3)
+Note:* One MU is coded within both the employment and education subcategories.
+3.1 Code ‘Research’
+The only category formulated under the code of "Research" is the "Delivery of NET" category.
+Participants provided their insights and perspectives on how NET could be delivered effectively
+in this context.
+Delivery of NET: This category is divided into four subcategories in terms of similarities and
+differences among the MUs. The participants developed their arguments around these
+subcategories:
+- Suitability: The participants thought that if NET can be delivered robustly, this technique
+seems very suitable and promising for Syrian refugees living in Turkiye.
+- Challenges: The participants highlighted that the successful delivery of NET might pose
+challenges for the researcher due to the specific characteristics of the Syrian population in
+Turkiye. They emphasized that the participants should fully understand the purpose of the
+research and their responsibilities during the therapy sessions.
+- Length of Sessions: The participants expressed concerns that delivering NET for 8-12
+weekly sessions, each lasting 60-90 minutes, might not be suitable for the Syrian
+population, as they tend to live day by day.
+- NET Beneficial: The participants highlighted that NET appears to be a promising,
+beneficial, and productive therapy technique for the population of Syrians living in
+Turkiye. They acknowledged that this aspect makes the study distinguished and adds value
+to the research literature.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+10
+3.2 Code ‘Recruitment’
+Participants discussed the recruitment process of the study. Four categories are formulated under
+the code of “Recruitment”. Some categories are divided into subcategories in terms of similarities
+and differences among the MUs.
+- Language: During the discussions, the FG participants expressed their viewpoints
+regarding the recruitment of Syrians who are fluent in Turkish for the research. They
+suggested that conducting research with Syrians who speak Turkish would be more suitable
+for the nature of the study. The participants believed that Syrians who are fluent in Turkish
+would adjust to the therapy process more easily and would not face difficulties in accessing
+equipment or the internet for the online delivery of NET. They also noted that these
+individuals would be more open to new experiences.
+- Challenges: The FG participants engaged in a discussion about challenges that the
+researcher might encounter regarding recruitment and reaching out to potential
+participants. The "Challenges" category was divided into three subcategories.
+Challenges in Language: Participants discussed the language barrier as a challenge in
+recruiting and communicating with potential participants. They highlighted the
+importance of finding Syrians who are fluent in Turkish or have a good understanding
+of the language to facilitate effective communication during the study. Even though the
+participants indicated that Syrians able to speak Turkish would be more suitable for
+this research, reaching out to this population could still pose a challenge.
+Challenges in address changes: The participants identified the issue of address changes
+as a potential challenge in reaching out to participants. They mentioned that Syrians
+living in Turkiye may frequently change their addresses due to numerous reasons, such
+as seeking better living conditions or job opportunities. This could pose difficulties in
+maintaining contact and ensuring their participation in the study.
+Needs: The participants discussed the diverse needs of the Syrian population as another
+challenge. They mentioned that individuals may have different priorities and urgent
+needs, such as accessing basic necessities, healthcare, or employment. These needs
+could potentially impact their willingness or availability to participate in the study.
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+11
+- Solution: Since the FG participants were given a brief presentation about the intervention
+study, they were already informed about the design of this study which was designed as an
+online therapy session. The participants agreed that online delivery of NET would mitigate
+the negative impact of address changes of participants and help to maintain the continuity
+of the therapy sessions.
+- Criteria: The participants mainly focused on the eligibility criteria for Syrian participants
+in this study. They emphasized that while the Syrian population in Turkiye may face
+challenging living conditions, it is important to note that not every Syrian living in Turkiye
+is subject to living in poor conditions. The participants expressed that it is feasible to find
+six participants who speak Turkish and meet the eligibility criteria for the study.
+Furthermore, the participants highlighted the significance of the recruitment process and
+the importance of establishing clear eligibility criteria in advance.
+- Demographics: The participants developed their arguments around the demographics of
+Syrians in terms of recruitment and reaching out to potential participants. This category is
+divided into four different subcategories. One MU under this category falls into two
+different subcategories.
+Location: The participants raised the issue of different language usage in different
+regions of Turkiye. For example, in the southeast of Turkiye, local people speak Arabic
+or Kurdish in their daily lives. As a result, Syrians resettled in these regions may have
+learned these languages better than Turkish. The participants concluded that the
+location of the participants should also be taken into consideration as well.
+Age: Participants indicated that young adult Syrians would be more suitable for this
+study, as they are relatively more active in daily life and more fluent in the Turkish
+language. That's why the participants agreed that an age range must be established
+before recruiting the participants.
+Employment: The FG participants highlighted that Syrians who have a job and
+economic relief would be more suitable for this study. It was mentioned that this
+population is also more fluent in the Turkish language, open to new experiences, and
+has adjusted to social life in Turkiye better.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+12
+Education: The participants indicated that Syrians literate (in the latin alphabet) would
+be more suitable for this study. The MUs mentioning the educational background of
+participants have layered meanings and fall under both the "employment" and
+"education" subcategories.
+- Traumatic Events: The participants developed their arguments around the notion that
+traumatic events experienced by Syrians might have an impact on the recruitment process.
+This category is divided into three subcategories. These subcategories are Suitability,
+Challenges, and Classification of experienced traumatic events.
+Suitability: It is stressed that the mere existence of traumatic experiences would pose a
+challenge for the researcher, but it would also provide an opportunity for the
+participants who are seeking psychological help.
+Challenges: One participant highlighted a potential difficulty for the researcher in
+recruiting Syrians who have had traumatic life experiences, as the ongoing impact of
+these experiences might still be affecting them.
+Classification: In this subcategory, the participants engaged in a profound argument
+regarding the differentiation of negative life experiences of this population from their
+war-related traumatic life experiences. Specifically, the negative life events
+experienced by this population before and after migration were extensively discussed
+in terms of their direct and indirect connection to the Syrian civil war. The participants
+subsequently reached a consensus that a comprehensive understanding of the
+characteristics of these negative life events is crucial in order to classify them as war-
+related traumatic experiences.
+3.3. Code ‘Therapy’
+The participants engaged in a discussion regarding the design and structure of the NET
+intervention study. They formulated categories related to language, online delivery, challenges,
+and cultural differences under the overarching code of "Therapy".
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+13
+- Language: This category is further divided into four subcategories, which capture the
+similarities and differences among the MUs. The participants developed their arguments
+around the following subcategories: Translator, Turkish Language, Mother Tongue, and
+Productiveness.
+Using a translator in therapy: The participants engaged in an extensive argument
+regarding the benefits and disadvantages of using a translator during the intervention
+study. However, various disagreements emerged, and a common view on the use of a
+translator during the delivery of NET could not be reached.
+Therapy language as Turkish: The participants reached a conclusion that if Turkish
+were to be set as the therapy language, Syrian participants in NET sessions must have
+a good command of the language to express themselves explicitly.
+Using mother tongue in therapy: The participants engaged in an extensive discussion
+regarding the use of the mother tongue during therapy sessions for Syrian participants.
+They did not express any concerns about using a translator in therapy during this
+discussion. Consequently, using a translator and using the mother tongue were formed
+as two separate subcategories. The participants concluded that it is always better and
+easier to have a therapy session in a mother tongue to convey feelings and thoughts
+easily.
+Productiveness: The participants discussed whether the preferred language would
+affect the productivity of therapy sessions, considering the use of the mother tongue in
+the presence of a translator or a second language such as Turkish for Syrian
+participants. They concluded that instead of solely focusing on the preferred language,
+it is essential to consider the participants' ability to benefit from the therapy.
+- Online Delivery: In this category, there are no subcategories as the participants
+unanimously agreed on the convenience of online delivery for NET participants. Despite
+the acknowledgment of online delivery as a convenient technique by the participants,
+challenges for Syrian participants, such as equipment supply for remote delivery of NET,
+were later raised and discussed in detail.
+- Challenges: The participants recognize that while online delivery of NET would be a great
+convenience for the participants, accessing online therapy equipment (computer, phone,
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+14
+headphones, internet, etc.) may be difficult. They acknowledge that this population
+generally lives in poor conditions in Turkiye, making it challenging to provide them with
+the necessary equipment.
+- Cultural Differences: The participants focused their arguments on the cultural differences
+that the therapist may encounter, specifically regarding sex differences, while conducting
+the sessions. Male participants of the FG shared examples from their professional
+experiences, highlighting how sex differences can create barriers when working with this
+population. They mentioned that female Syrians often do not want to speak or prefer to
+have interviews with male workers.
+3.4. Code ‘Remarks’
+The participants were asked to provide any advice or attention for the research team to consider
+that had not been discussed in the group.
+- Cultural differences: The participants shared their opinions and perspectives on the
+Cultural differences category, discussing potential challenges that may arise when working
+or studying with Syrians.
+Awareness: The participants emphasized the importance of being aware of cultural
+differences when working with this vulnerable population.
+Trust Issue: The participants highlighted the trust issues they have encountered when
+working with the Syrian population. Drawing from their own professional experiences,
+they emphasized the sensitivity and importance of establishing a trustworthy
+relationship with this vulnerable group.
+Perception toward Mental Health: The participants highlighted that mental health
+problems are not always recognized as health issues or are generally viewed as a
+punishment from Allah or a source of shame within the community. The participants
+provided advice to the research team regarding this misperception and its impact on
+working with the population, emphasizing the need for sensitivity, cultural
+understanding, and education about mental health within the community.
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+15
+4. Discussion
+This exploratory study has identified several challenges and obstacles that need to be addressed
+before conducting an intervention study. The insights and potential solutions provided by the
+discussion are valuable in helping the research team overcome these challenges. The FG discussion
+emphasized that the successful delivery of NET in this context is seen as a promising technique.
+However, the recruitment process is crucial, particularly in terms of the participants' ability to
+speak Turkish. It was acknowledged that many Syrians in Turkiye face communication problems
+as Arabic is not commonly used in the country (Biçer, 2017). It was concluded that even though
+the number of Syrians fluent in Turkish is narrow, there are Syrians living in Turkiye who are
+fluent in Turkish. Therefore, it is highlighted that the research team can implement strategies to
+identify and recruit Syrians who have a good command of the Turkish language. It is concluded
+by ensuring that participants have a sufficient level of Turkish proficiency, the therapy sessions
+can be conducted effectively, allowing for better engagement, and understanding of the
+intervention. It was raised that frequent address changes among the Syrian population can pose a
+significant barrier for researchers or professionals trying to maintain therapy sessions. However,
+the current study's design as remote sessions provides a potential solution to mitigate this
+challenge, particularly considering the impact of the COVID-19 pandemic during the time of this
+research. By utilizing remote therapy sessions, the research team can overcome the obstacle of
+addressing changes, allowing for flexibility in conducting sessions, as participants can join from
+their current location without the need for physical proximity.
+The scale and complexity of the ‘Syrian crisis’ have made it challenging to provide adequate
+assistance and support to all those in need. Unfortunately, the COVID-19 pandemic also posed a
+challenge to carrying out these endeavours (UNICEF, 2020). The FG participants, who have
+considerable professional experience with Syrians in Turkiye, have also expressed concerns about
+Syrians' unmet basic needs, which could act as a barrier to reaching this population for the
+intervention study. The FG participants discussed that Syrians may not be willing to participate in
+this study, as their priority is to meet their basic needs such as accommodation, food, and money.
+It was also concluded among the participants that it is possible to find six Syrians who speak
+Turkish fluently and have some economic relief, as not all Syrians in Turkiye are living in difficult
+conditions. Therefore, they agreed that eligibility criteria should be established for potential
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+16
+participants and the researcher should implement this during the recruitment process. The set
+eligibility criteria for the age range are 20-45, as this segment of Syrians living in Turkiye tends
+to be more active in daily and business life, which could facilitate their fluency in Turkish and
+adaptation to the research process. Another eligibility criterion discussed was relative economic
+relief. It was mentioned that this would help address concerns related to vital and economic needs
+that could potentially have a negative impact on the recruitment and therapy process. Falconnier
+(2009) has also highlighted the relationship between access to mental health services and seeking
+help among low-income individuals, emphasizing that they are less likely to access such services
+and show fewer improvements compared to middle-income individuals. The FG participants also
+emphasized that literate Syrians in Turkish would be more suitable for the main study, as they have
+adapted to the Turkish community more easily. The location of potential participants must be taken
+into consideration, as in some regions of Turkiye, local people speak different languages such as
+Kurdish and Arabic. Thus, Syrians living in these regions may use these languages as well. The
+nature of experienced traumatic events was also extensively discussed focusing on their
+classification. However, this discussion veered away from the aim of the FG research, prompting
+the main researcher to intervene. The researcher summarized the discussion and the group
+concluded that detailed knowledge of the characteristics and content of the life experiences is
+necessary for proper classification.
+Regarding the therapy language, the participants did not reach a consensus on whether using a
+translator or conducting the session in Turkish, or in their mother tongue would be more productive
+for the intervention study. The main concern raised during this discussion revolved around the
+challenge of conveying feelings to a therapist through a translator and the difficulty of expressing
+oneself in a second language. While the effectiveness of NET with the use of a translator has been
+demonstrated in various refugee populations worldwide (e.g., Neuner et al., 2004; Stenmark et al.,
+2013), it was predicted that using a translator could pose a challenge for the intervention study.
+Because use of a translator during sessions, considering the diverse range of Syrian Arabic dialects,
+may make it difficult to pair Syrian participants with suitable translators. This could potentially
+create another complication for the research process.
+Even though online delivery of NET was acknowledged as convenient for the participants,
+obtaining technological equipment was considered as a challenge. The FG participants advised
+that potential participants should be informed in advance about their access to the required
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+17
+equipment and the Internet. Additionally, the participants further emphasized the importance of
+being aware of cultural differences when studying this population, as any overlooked situation
+may be sensitive in the Syrian culture. It was also highlighted the significance of building
+trustworthy relationships, as individuals who have fled conflict areas to foreign countries often
+possess an insecure worldview due to the dangerous and uncertain environments they have
+experienced. The discussion also focused on the distorted perception of mental health and
+treatment among Syrians, which could pose challenges for the intervention study in various
+aspects, ranging from the recruitment process to treatment. This aligns with existing literature that
+extensively demonstrates the Syrian population's distorted perception of mental health. The
+participants expressed concerns about how Syrian people's perception of mental health problems
+might create challenges for the recruitment of the intervention study. Overall, the participants
+provided valuable insights and advice that had not been previously addressed in the discussion.
+Their professional experiences highlighted the importance of cultural awareness, building trust,
+and addressing the Syrian population's perception of mental health to overcome challenges and
+conduct a successful intervention study. Along the lines of mental health stigma in Arabic culture,
+a study conducted by Llosa et al. (2014) with refugees in camps in Lebanon reported a significant
+treatment gap. Despite the availability of free and well-promoted health services, the study found
+that the mental health treatment gap in the camp was as high as 96%. The findings of the study
+emphasize the need to address mental health stigma and its impact on help-seeking behaviours in
+Arabic culture. Similarly, studies have shown that Syrians residing in Turkiye have reported a high
+prevalence of mental health problems (e.g., Kaya et al., 2019). This population also exhibits
+limited knowledge and awareness of psychological problems and their treatments, coupled with a
+high stigma towards mental health problems (Hassan et al., 2016).
+This study has identified and shed light on the potential obstacles that may arise during the
+implementation of NET in this context. However, it is important to acknowledge the limitations
+of this study. The data was analysed using the Content Analysis method, wherein the researcher
+employed analytical constructs to derive answers to the research question (White et al., 2006).
+Therefore, the researcher's own interpretations and biases may have influenced the analysis and
+findings. To address this potential risk, the main researcher collaborated with an independent
+researcher who also took a role as a moderator in the FG. They specifically reviewed certain MUs
+that could fall under multiple categories or subcategories by watching the video recording of the
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+18
+FG research. This collaborative approach aimed to ensure a robust classification of the MUs under
+relevant and appropriate categories. Another limitation is that the findings are based on the
+perspectives and experiences of the FG participants, and thus may not capture the full range of
+challenges and perspectives within the Syrian population in Turkiye. The sample size of the FG
+was also limited, which may impact the generalizability of the findings. The reliance on self-report
+data from the FG participants introduces potential biases, such as social desirability bias or
+individual interpretations of the questions. It is important to consider these limitations when
+interpreting the results of this study and to conduct further research using diverse methodologies
+to gain a more comprehensive understanding of the challenges and potential solutions for
+implementing NET with Syrians in Turkiye.
+Rather than conducting face-to-face individual interviews, a group interview was preferred for this
+study to capture the dynamics of group interaction among professionals with different experiences.
+From this perspective, the group discussion was centered around the experiences of the recruited
+professionals. However, it is important to acknowledge that other professionals working with
+Syrians may have distinct experiences. While this raises questions about the external validity of
+the generated data, the researcher made efforts to recruit participants from diverse backgrounds to
+enhance the representativeness of the group. Nevertheless, the social nature of focus group
+research inherently possesses this unique strength, as the dynamics of focus groups are never the
+same. It is also important to consider that participants in this focus group study may have possessed
+disagreements on some topics discussed. However, due to the group dynamic where participants
+are strangers to each other, some individuals may choose to withhold their opinions or not fully
+disclose their true thoughts, which could limit the collection of diverse data.
+This exploratory study has shed light on the potential obstacles and challenges involved in
+implementing a specific therapy technique that has not been previously applied to the Syrian war-
+affected population in the Turkish context. The findings of this study also provide insights into the
+challenges that future studies may encounter when conducting research with Syrians. This
+preliminary research serves as an instructive study for planning other psychological interventions
+aimed at investigating mental health interventions among Syrian refugees and other refugee
+populations.
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+19
+5. Conclusion
+In this FG study, it has been concluded that NET may be a promising technique for reducing the
+mental health problems of Syrians. The significance of the recruitment process for potential
+participants was emphasized and eligibility criteria were set. These criteria include being between
+the ages of 20-45, fluent in Turkish, being illiterate, having economic relief, having access to
+equipment such as computers, phones, and the Internet, and residing in the western region of the
+country. Despite the diverse nature of the Syrian population in Turkiye, this FG study serves as a
+roadmap for addressing potential obstacles and ensuring a smoother research process and reliable
+results. The recruitment process for the subsequent study will be carefully considered considering
+the findings of this research.
+Financial disclosure: The authors of this research have no financial relationship to disclose.
+Funding: Not applicable.
+Declaration of competing interest: All authors report no conflicts of interest.
+Data availability: Data will be made available on request.
+Author Contributions: FAC: Writing, data collection, transcription, content analysis; TS, NH:
+Content Analysis, Review.
+Acknowledgments: This study was conducted as a part of doctoral research. During her doctoral
+research, FAC was fully funded by the Republic of Turkiye Ministry of National Education.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+20
+References
+Acarturk, C., Konuk, E., Cetinkaya, M., Senay, I., Sijbrandij, M., Cuijpers, P., & Aker, T. (2015). EMDR
+for Syrian refugees with posttraumatic stress disorder symptoms: Results of a pilot randomized
+controlled trial. European Journal of Psychotraumatology, 6(1).
+https://doi.org/10.3402/ejpt.v6.27414.
+Acarturk, C., Konuk, E., Cetinkaya, M., Senay, I., Sijbrandij, M., Gulen, B., & Cuijpers, P. (2016). The
+efficacy of eye movement desensitization and reprocessing for post-traumatic stress disorder and
+depression among Syrian refugees: Results of a randomized controlled trial. Psychological
+Medicine, 46(12), 2583-2593. https://doi.org/10.1017/S0033291716001070.
+Acarturk, C., Uygun, E., Ilkkursun, Z., Carswell, K., Tedeschi, F., Batu, M., Eskici, S., Kurt, G., Anttila,
+M., Au, T., Baumgartner, J., Churchill, R., Cuijpers, P., Becker, T., Koesters, M., Lantta, T., Nosè,
+M., Ostuzzi, G., Popa, M., Purgato, M., Sijbrandij, M., Turrini, G., Välimäki, M., Walker, L.,
+Wancata, J., Zanini, E., White, R.G., van Ommeren, M., & Barbui, C. (2022). Effectiveness of a
+WHO self-help psychological intervention for preventing mental disorders among Syrian refugees
+in Turkey: a randomized controlled trial. World Psychiatry, 21(1), 88-95.
+https://doi.org/10.1002/wps.20939.
+Akhtar, A., Bawaneh, A., Awwad, M., Al-Hayek, H., Sijbrandij, M., Cuijpers, P., & Bryant,
+A.R. (2021). A longitudinal study of mental health before and during the COVID-19 pandemic in
+Syrian refugees’ European Journal of
+Psychotraumatology, 12(1). http://doi.org/10.1080/20008198.2021.1991651.
+Akhtar, A., Engels, M., Bawaneh, A., Bird, M., Bryant, R., Cuijpers, P., Hansen, P., Al-Hayek, H.,
+Ilkkursun, Z., Kurt, G., Sijbrandij, M., Underhill, J., & Acarturk, C. (2021). Cultural Adaptation
+of a Low-Intensity Group Psychological Intervention for Syrian Refugees. Intervention, 19(1), 48-
+57. https://doi.org/10.4103/INTV.INTV_38_20.
+Biçer, N. (2017). The views of Syrian Refugees Migrating Turkey on the Turkish Language
+and Culture: Kilis Case. Journal of Education and Training Studies, 5(3), 97-109.
+http://doi.org/10.11114/JETS.V5I3.2100.
+Bryant, R. A., Bawaneh, A., Awwad, M., Al-Hayek, H., Giardinelli, L., Whitney, C., Jordans, M. J. D.,
+Cuijpers, P., Sijbrandij, M., Ventevogel, P., Dawson, K., & Akhtar, A. (2022). Effectiveness of a
+brief group behavioral intervention for common mental disorders in Syrian refugees in Jordan: A
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+21
+randomized controlled trial. PLoS Medicine, 19(3).
+https://doi.org/10.1371/journal.pmed.1003949.
+de Graaff, A. M., Cuijpers, P., Twisk, J. W. R., Kieft, B., Hunaidy, S., Elsawy, M., Gorgis, N., Bouman,
+T. K., Lommen, M. J. J., Acarturk, C., Bryant, R., Burchert, S., Dawson, K. S., Fuhr, D. C., Hansen,
+P., Jordans, M., Knaevelsrud, C., McDaid, D., Morina, N., Moergeli, H., … STRENGTHS
+consortium. (2023). Peer-provided psychological intervention for Syrian refugees: results of a
+randomised controlled trial on the effectiveness of Problem Management Plus. BMJ Mental
+Health, 26(1), e300637. https://doi.org/10.1136/bmjment-2022-300637.
+Eskici, H. S., Hinton, D. E., Jalal, B., Yurtbakan, T., & Acarturk, C. (2023). Culturally adapted cognitive
+behavioral therapy for Syrian refugee women in Turkey: A randomized controlled
+trial. Psychological Trauma: Theory, Research, Practice, and Policy, 15(2), 189–
+198. https://doi.org/10.1037/tra0001138.
+Elo, S., & Kyngäs, H. (2008). ‘The qualitative content analysis process’. Journal of Advanced
+Nursing, 62(1), 107–115. https://doi.org/10.1111/j.1365-2648.2007.04569.x.
+Erlingsson, C., & Brysiewicz, P. (2017) ‘A hands-on guide to doing content analysis’. African
+Journal of Emergency Medicine 7(3): 93–99. https://doi.org/10.1016/j.afjem.2017.08.001.
+Falconnier, L. (2009). Socioecenomic Status in the treatment of Depression. American Journal of
+Orthopsychiatry, 79(2), 148-158. https://doi.org/10.1037/a0015469.
+Feen-Calligan, H., Grasser, L. R., Debryn, J., Nasser, S., Jackson, C., Seguin, D., & Javanbakht, A. (2020).
+Art therapy with Syrian refugee youth in the United States: An intervention study. The Arts in
+Psychotherapy, 69, 101665. https://doi.org/10.1016/j.aip.2020.101665.
+Foa, E. B., Hembree, E., & Rothbaum, B. O. (2007). Prolonged exposure therapy for PTSD:
+Emotional processing of traumatic experiences therapist guide, 1st ed. USA: Oxford University
+Press.
+Fuhr, D. C., Acarturk, C., McGrath, M., Ilkkursun, Z., Sondorp, E., Sijbrandij, M., Ventevogel, P.,
+Cujipers, P., McKee, M., & Roberts, B. (2019). Treatment gap and mental health service use
+among Syrian refugees in Sultanbeyli, Istanbul: a cross-sectional survey. Epidemiology and
+Psychiatric Sciences, 29(e70), 1–11. https://doi.org/10.1017/S2045796019000660.
+Giacco, D., Laxhman, N., & Priebe, S. (2018). Prevalence of and risk factors for mental
+disorders in refugees. Seminars in Cell and Developmental Biology, 77, 144-
+152. https://doi.org/10.1016/j.semcdb.2017.11.030.
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+22
+Giannopoulou, I., Dikaiakou, A., & Yule, W. (2006). Cognitive-behavioural group
+intervention for PTSD symptoms in children following the Athens 1999 earthquake: a pilot study.
+Clinical Child Psychology and Psychiatry, 11(4), 543-553.
+https://doi.org/10.1177/1359104506067876.
+Hassan, G., Ventevogel, P., Jefee-Bahloul, H., Barkil-Oteo, A., & Kirmayer, L. J. (2016). Mental health
+and psychosocial well-being of Syrians affected by armed conflict. Epidemiology and Psychiatric
+Sciences, 25(2), 129–141. https://doi.org/10.1017/S2045796016000044.
+Kaya, E., Kılıç, C., Karadaǧ Çaman, Ö., & Üner, S. (2019). Posttraumatic Stress and, Depression among
+Syrian Refugees Living in Turkey: Findings from an Urban Sample. Journal of Nervous and
+Mental Disease, 207(12), 995–1000. https://doi.org/10.1097/NMD.0000000000001104.
+Kaya, A. & Kıraç, A. (2016). Vulnerability Assessment of Syrian Refugees in Istanbul. Istanbul: Hayata
+Destek Derneği. Available at: https://data2.unhcr.org/en/documents/details/54518.
+Kazour, F., Zahreddine, N. R., Maragel, M. G., Almustafa, M. A., Soufia, M., Haddad, R., & Richa, S.
+(2017). Post-traumatic stress disorder in a sample of Syrian refugees in Lebanon. Comprehensive
+Psychiatry, 72, 41–47. https://doi.org/10.1016/j.comppsych.2016.09.007.
+Krippendorf, K. (2004). Content Analysis: An Introduction to its Methodology, 2nd ed. Thousand Oaks,
+CA: Sage.
+Llosa, A. E., Ghantous, Z., Souza, R., Forgione, F., Bastin, P., Jones, A., Antierens, A.,
+Slavuckij, A., & Grais, R. F. (2014). Mental disorders, disability and treatment gap in a protracted
+refugee setting. The British Journal of Psychiatry, 204(3), 208–213.
+https://doi.org/10.1192/bjp.bp.112.120535.
+Mollica, R. F., McInnes, K., Pham, T., Smith Fawzi, M.C., Murphy, E., & Lin, L. (1998a). The dose-effect
+relationships between torture and psychiatric symptoms in Vietnamese expolitical detainees and a
+comparison group. Journal of Nervous and Mental Disease, 186(9), 543–
+553. https://doi.org/10.1097/00005053-199809000-00005.
+Mollica, R. F., McInnes, K., Poole, C., & Tor, S. (1998b). Dose-effect relationships of trauma
+to symptoms of depression and post-traumatic stress disorder among Cambodian survivors of mass
+violence. British Journal of Psychiatry, 173(6), 482- 488. https://doi.org/10.1192/bjp.173.6.482.
+Mørkved, N., Hartmann, K., Aarsheim, L. M., Holen, D., Milde, A. M., Bomyea, J., &
+Thorp, S. R. (2014). A comparison of narrative exposure therapy and prolonged exposure therapy
+for PTSD. Clinical Psychology Review, 34(6), 453-467. https://doi.org/10.1016/j.cpr.2014.06.005.
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+23
+National Institute for Health and Care Excellence (NICE). (2005). Post-traumatic Stress Disorder
+(PTSD): The management of PTSD in adults and children in primary and secondary care. NICE
+Clinical Guideline. Available at: https://www.nice.org.uk/guidance/ng116/evidence/march-2005-
+full-guideline-pdf-6602623598.
+Nel, N. M., Romm, N. R. A., & Tlale, L. D. N. (2015). Reflections on focus group sessions
+regarding inclusive education: Reconsidering focus group research possibilities.
+Australian Educational Researcher, 42(1), 35–53. https://doi.org/10.1007/s13384-0140150-3.
+Neuner, F., Schauer, M., Roth, W., & Elbert, T. (2002). A Narrative Exposure Treatment as
+intervention in a refugee camp: a case report. Behavioural and Cognitive
+Psychotherapy, 30(2), 205-209. http://doi.org/10.1017/S1352465802002072.
+Neuner, F., Schauer, M., Klaschik, C., Karunakara, U., & Elbert, T. (2004). A Comparison of
+Narrative Exposure Therapy, Supportive Counselling, and Psychoeducation for Treating
+Posttraumatic Stress Disorder in an African Refugee Settlement’. Journal of Consulting and
+Clinical Psychology, 72(4), 579–587. https://doi.org/10.1037/0022-006X.72.4.579.
+Neuner, F., Onyut, P. L., Ertl, V., Odenwald, M., Schauer, E., & Elbert, T. (2008). Treatment
+of posttraumatic stress disorder by trained lay counselors in an African refugee settlement: A
+randomized controlled trial. Journal of Consulting and Clinical Psychology, 76(4), 686–
+694. https://doi.org/10.1037/0022-006X.76.4.686.
+Nickerson, A., Bryant, R. A., Silove, D., & Steel, Z. (2011). A critical review of
+psychological treatments of posttraumatic stress disorder in refugees. Clinical Psychology
+Review, 31(3), 399-417. https://doi.org/10.1016/j.cpr.2010.10.004.
+Robjant, K., & Fazel, M. (2010). The emerging evidence for Narrative Exposure Therapy: A
+Review’. Clinical Psychology Review, 30(8), 1030-
+1039. https://doi.org/10.1016/j.cpr.2010.07.004.
+Sandström, M., Wiberg, B., Wikman, M., Willman, A.K., Högberg, U. (2008). A pilot study
+of eye movement desensitisation and reprocessing treatment (EMDR) for post-traumatic stress
+after childbirth’. Midwifery, 24(1), 62-73. http://doi.org/10.1016/j.midw.2006.07.008.
+Schauer, M., Neuner, F., & Elbert, T. (2005). Narrative Exposure Therapy: A Short-term
+Intervention for Traumatic Stress Disorders after War, Terror, or Torture. Hogrefe & Huber
+Publishers.
+Schauer, M., Neuner, F., & Elbert, T. (2011). Narrative Exposure Therapy: A Short-term
+IJSS, 2023, Volume 7, Issue 32, p. 1-25.
+24
+treatment for traumatic stress disorders, 2nd ed. Göttingen, Germany: Hogrefe.
+Stenmark, H., Catani, C., Neuner, F., Elbert, T., & Holen, A. (2013). Treating PTSD in refugees and
+asylum seekers within the general health care system: A randomized controlled multicenter study.
+Behaviour Research and Therapy, 51(10), 641–647. https://doi.org/10.1016/j.brat.2013.07.002.
+Stewart, D. W., Shamdasani, P. N., & Rook, D. W. (2007). Focus groups. 2nd ed. SAGE
+Publications.
+Syria Needs Analysis Project. (2013). Legal Status of Individuals Fleeing Syria. Syria Needs
+Analysis Project. Available at:
+https://reliefweb.int/sites/reliefweb.int/files/resources/legal_status_of_individuals_fleeing_syria.
+Tinghög, P., Malm, A., Arwidson, C., Sigvardsdotter, E., Lundin, A., & Saboonchi, F. (2017).
+Prevalence of mental ill health, traumas and postmigration stress among refugees from Syria
+resettled in Sweden after 2011: A population-based survey. British Medical Journal Open, 7(12)
+1-11. https://doi.org/10.1136/bmjopen-2017-018899.
+United Nations International Children’s Emergency Fund (UNICEF). (2020). Syria Crisis:
+Humanitarian Situation Report. January-December, 2020. Available at:
+https://www.unicef.org/media/96446/file/Syria-Crisis-Humanitarian-SitRep-December-
+2020.pdf.
+United Nation High Commissioner Refugees. (1951). Convention and protocol relating to
+the status of refugee. Available at: https://www.unhcr.org/4ae57b489.
+United Nation High Commissioner Refugees. (2018). Refugees and Asylum Seekers in
+Turkey. Available at: https://www.unhcr.org/tr/en/refugees-and-asylum-seekers-in-turkey.
+United Nation High Commissioner Refugees. (2022). Syria Situation. Available at:
+https://reporting.unhcr.org/operational/situations/syria-situation.
+United Nation High Commissioner Refugees. (2023a). Syrian Regional Refugee Response.
+Available at: https://data2.unhcr.org/en/situations/syria.
+United Nation High Commissioner Refugees. (2023b). Refugee Data
+Finder. Available at: https://www.unhcr.org/refugee-statistics/.
+Uygun, E., Ilkkursun, Z., Sijbrandij, M., Aker, A. T., Bryant, R., Cuijpers, P., Fuhr D. C.,
+Graff, A, M., Jong, J., McDaid.,D., Morina, N., Park, A., Roberts,B., Ventevogel,P., Yurtbakan,
+T., & Acarturk, C. (2020). Protocol for a randomized controlled trial: Peer-to-peer Group Problem
+Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study
+25
+Management plus (PM+) for adult Syrian refugees in Turkey. Trials, 21(1): 1–10.
+https://doi.org/10.1186/s13063-020-4166-x.
+White, M. D., & Marsh, E. E. (2006). Content analysis: A flexible methodology. Library
+Trends, 55(1): 22–45. https://doi.org/10.1353/lib.2006.0053.
+World Health Organozation(WHO). (2015). World Health Organization Syrian Arab Republic.
+Available at: https://www.who.int/countries/syr.
+Yurtsever, A., Konuk, E., Akyüz, T., Zat, Z., Tükel, F., Çetinkaya, M., Savran, C., & Shapiro, E. (2018).
+An Eye Movement Desensitization and Reprocessing (EMDR) group intervention for syrian
+refugees with post-traumatic stress symptoms: Results of a randomized controlled trial. Frontiers
+in Psychology, 9. https://doi.org/10.3389/fpsyg.2018.00493.
+

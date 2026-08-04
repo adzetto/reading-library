@@ -1,0 +1,30 @@
+# bağımlılıklar
+node_modules/
+
+# üretim ara çıktıları
+assets/docs/*.partial.json
+assets/docs/*.blocks.txt
+latex/*.aux
+latex/*.log
+latex/*.out
+latex/*.toc
+latex/*.dvi
+latex/figures.tex
+latex/figpreview.*
+
+# test çıktıları
+shots/
+
+# üretilen ses (Colab'dan gelir, ayrı yayımlanır)
+assets/audio/**/*.wav
+assets/audio/**/*.opus
+assets/audio/**/*.mp3
+
+# işletim sistemi
+Thumbs.db
+.DS_Store
+desktop.ini
+
+# ara kaynaklar
+source/gutenberg/
+assets/vendor/kokoro.bundle.js

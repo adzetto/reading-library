@@ -1,0 +1,1655 @@
+{
+ "id": "doc-b89f",
+ "title": "An Autoethnographic Study of Experiencing Secondary Trauma While Working With War-Affected Children",
+ "title_tr": "Savaştan Etkilenmiş Çocuklarla Çalışırken İkincil Travma Yaşamaya Dair Otoetnografik Bir Çalışma",
+ "voice_hint": "narration, calm, clear, academic",
+ "items": [
+  {
+   "id": "doc-b89f-0000-0",
+   "node": 0,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Abstract",
+   "chars": 8
+  },
+  {
+   "id": "doc-b89f-0001-0",
+   "node": 1,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "This study is an autoethnographic research aimed at exploring the researcher’s experience of secondary trauma while working with Syrian children affected by war. This qualitative research was rooted in the researcher’s personal and professional life experiences, and it delves into the challenges faced during the researcher’s work with these children in a social service setting in Turkiye.",
+   "chars": 391
+  },
+  {
+   "id": "doc-b89f-0001-1",
+   "node": 1,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Data were gathered from the researcher’s personal notes, reflecting the experiences of secondary trauma. Additionally, to gain deeper insights into the professional dimension of secondary trauma, the life stories of two Syrian children affected by war, with whom the researcher worked as a counselor, were included, and analyzed.",
+   "chars": 329
+  },
+  {
+   "id": "doc-b89f-0001-2",
+   "node": 1,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "In summary, the autoethnographic exploration of the researcher’s experience of secondary trauma reshaped the understanding of the reality as both a researcher and a clinician, altering the meaning of the researcher’s self-perception in these roles.",
+   "chars": 248
+  },
+  {
+   "id": "doc-b89f-0002-0",
+   "node": 2,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Keywords: Secondary Trauma, War-Affected Children, Autoethnography, Counselling.",
+   "chars": 80
+  },
+  {
+   "id": "doc-b89f-0003-0",
+   "node": 3,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "1 This study is a production of a master dissertation submitted to University of Edinburgh in the department of Counselling Studies in School of Medicine.",
+   "chars": 154
+  },
+  {
+   "id": "doc-b89f-0004-0",
+   "node": 4,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "136",
+   "chars": 3
+  },
+  {
+   "id": "doc-b89f-0005-0",
+   "node": 5,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "SAVAŞTAN ETKİLENEN ÇOCUKLARLA ÇALIŞIRKEN İKİNCİL",
+   "chars": 52
+  },
+  {
+   "id": "doc-b89f-0006-0",
+   "node": 6,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "TRAVMA YAŞAMAYA İLİŞKİN OTOETNOGRAFİK BİR ÇALIŞMA",
+   "chars": 54
+  },
+  {
+   "id": "doc-b89f-0007-0",
+   "node": 7,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Öz",
+   "chars": 2
+  },
+  {
+   "id": "doc-b89f-0008-0",
+   "node": 8,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Bu çalışma, Suriye'deki savaştan etkilenen çocuklarla çalışırken araştırmacının ikincil travma deneyimini keşfetmeyi amaçlayan bir otobiyografik araştırmadır. Bu nitel araştırma, araştırmacının kişisel ve profesyonel yaşam deneyimlerinden kameydana gelmiş olup, araştırmacının Türkiye'deki bir sosyal hizmet ortamında bu",
+   "chars": 320
+  },
+  {
+   "id": "doc-b89f-0009-0",
+   "node": 9,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "çocuklarla",
+   "chars": 10
+  },
+  {
+   "id": "doc-b89f-0010-0",
+   "node": 10,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "çalışırken",
+   "chars": 10
+  },
+  {
+   "id": "doc-b89f-0011-0",
+   "node": 11,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "karşılaştığı",
+   "chars": 12
+  },
+  {
+   "id": "doc-b89f-0012-0",
+   "node": 12,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "zorlukları",
+   "chars": 10
+  },
+  {
+   "id": "doc-b89f-0013-0",
+   "node": 13,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "ele almaktadır.",
+   "chars": 15
+  },
+  {
+   "id": "doc-b89f-0014-0",
+   "node": 14,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Veriler, araştırmacının kişisel notlarından toplanmış olup, ikincil travma deneyimlerini yansıtmaktadır. Ayrıca, ikincil travmanın mesleki boyutuna daha derin bir anlayış kazanmak amacıyla araştırmacının danışmanlık yaptığı iki Suriyeli savaştan etkilenen çocuğun yaşam öyküleri de dahil edilmiş ve analiz edilmiştir.",
+   "chars": 317
+  },
+  {
+   "id": "doc-b89f-0014-1",
+   "node": 14,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Özetle, araştırmacının ikincil travma deneyiminin otobiyografik keşfi, hem bir araştırmacı hem de bir klinisyen olarak dünyaya bakış açısını yeniden şekillendirmiş olup bu rollerde araştırmacının öz algısının anlamını da değiştirmiştir.",
+   "chars": 236
+  },
+  {
+   "id": "doc-b89f-0015-0",
+   "node": 15,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Anahtar kelimeler: İkincil Travma, Savaştan Etkilenen çocuklar, Otoetnografi, Psikolojik Danışmanlık.",
+   "chars": 101
+  },
+  {
+   "id": "doc-b89f-0016-0",
+   "node": 16,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "INTRODUCTION",
+   "chars": 12
+  },
+  {
+   "id": "doc-b89f-0017-0",
+   "node": 17,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Secondary Traumatic Stress (STS) is specifically described by Figley (1995c, p.7) as ‘‘the natural and consequent behaviours and emotions resulting from knowing about a traumatizing event experienced by a significant other – the stress resulting from helping or wanting to help a traumatized or suffering person’’.",
+   "chars": 314
+  },
+  {
+   "id": "doc-b89f-0017-1",
+   "node": 17,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "STS describes Post Traumatic Stress Disorder (PTSD) symptoms in individuals who play a significant role in the survivor’s life, such as friends, family members, caregivers, and trauma workers (Figley, 1995a). Those with STS do not directly experience a traumatic event but have vicariously acquired symptoms through contact with a traumatized person (McCann & Pearlman, 1990; Figley, 1995b).",
+   "chars": 391
+  },
+  {
+   "id": "doc-b89f-0017-2",
+   "node": 17,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "From that point, STS differs from PTSD, in which the person experiencing STS has not been exposed to the traumatic event but has developed it as a result of close contact with someone experiencing PTSD (Lev-Wiesel & Amir, 2001). According to Baird and Kracen (2006), and Figley (1995a), STS refers to the psychological responses (for example,, exhaustion, avoidance) resulting from exposure to clients’ traumatic experiences.",
+   "chars": 425
+  },
+  {
+   "id": "doc-b89f-0018-0",
+   "node": 18,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "The concepts of STS, Compassion Fatigue, Vicarious Trauma (VT) and Burnout have been used interchangingly by researchers in the literature. On the other hand, some researchers have tried to differentiate these concepts. Additionally, some scholars define Compassion Fatigue, Vicarious Trauma and Burnout as components of STS.",
+   "chars": 325
+  },
+  {
+   "id": "doc-b89f-0018-1",
+   "node": 18,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "To illustrate, according to Bride (2004), both STS and VT include external and internal factors and are considered as a single phenomenon, however, McCann and Pearlman (1990) indicate to VT as negative changes in the therapist’s schemas regarding trust, safety, power, independence, esteem and intimacy as a result of contact with traumatised client.",
+   "chars": 350
+  },
+  {
+   "id": "doc-b89f-0018-2",
+   "node": 18,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Additionally, Pearlman and Saakvitne (1995a, p.279) also distinguish and define VT as a process occuring “through empathic engagement with clients’ trauma material”. However, according to Bride and Figley (2009), STS affects not only the professional’s work with the client but also interpersonal relationship outside the",
+   "chars": 321
+  },
+  {
+   "id": "doc-b89f-0019-0",
+   "node": 19,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "137 professional setting. Figley (2002, p.1435) defines Compassion Fatigue as “a state of tension and preoccupation with the traumatized patients by re-experiencing the traumatic events, avoidance/numbing of reminders, persistent arousal (for example,, anxiety) associated with the patient that results from helping professionals bearing witness to the suffering of their clients”.",
+   "chars": 381
+  },
+  {
+   "id": "doc-b89f-0019-1",
+   "node": 19,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "On the other hand, Burnout is a separate condition that is not directly associated with exposure to traumatic client material but is more a function of work-related stresses, such as caseloads size, long hours, or other institutional factors (Stamm, 1999). Although there is both agreement and disagreement for identifying STS and authors in the field of Secondary Traumatization refer to an extensive variety of definitions. This study employed the term of “Secondary Trauma”.",
+   "chars": 477
+  },
+  {
+   "id": "doc-b89f-0020-0",
+   "node": 20,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "There are variety of studies in the literature investigating the exposure to clients’ materials and narratives of traumatic experiences, the vulnerability of helping professionals and effects of witnessing narratives of traumatic events.",
+   "chars": 237
+  },
+  {
+   "id": "doc-b89f-0020-1",
+   "node": 20,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Bride and Figley (2009, p.316) indicate that “the negative effects of secondary exposure to traumatic events are the same as those of primary exposure including intrusive imagery, avoidance of reminders and cues, hyperarousal, distressing emotions, and functional impairment”. Nevertheless, some research indicates that not all consequences of STS are necessarily negative.",
+   "chars": 373
+  },
+  {
+   "id": "doc-b89f-0020-2",
+   "node": 20,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "STS has been linked to posttraumatic growth, the positive changes that can result from trauma in some professionals (Tedeschi & Calhoun, 1995).",
+   "chars": 143
+  },
+  {
+   "id": "doc-b89f-0021-0",
+   "node": 21,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Many factors influence the development of the trauma on a therapist, such as personal history of trauma, length of working time in the field, percentage of trauma on one’s caseload, work setting, availability of supervision, and level of trauma specific training (Follette et al; 1994; Schauben & Frazier, 1995; Pearlman & MacIan,1995;).",
+   "chars": 337
+  },
+  {
+   "id": "doc-b89f-0021-1",
+   "node": 21,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "Therapists with trauma histories, those working in a clinical setting, those with less training, and those dealing with the impact of their work in personal therapy all showed an increased level of disturbed schemas. However, more experienced therapists, even those with a trauma history, showed less schemas (Lonergan et al, 2004). Additionally, some studies show that sex, age, and empathy are also other risk factors of STS.",
+   "chars": 427
+  },
+  {
+   "id": "doc-b89f-0021-2",
+   "node": 21,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "Kassam-Adams (1999a) shows that female therapists are under the greater risk of STS than male therapists, though other studies did not support this finding (Nelson-Gardell & Harris, 2003). Being young in age and having fewer years of experience as a therapist specifically related to STS (Pearlman & MacIan, 1995;Ghahramanlou & Broodleck, 2000).",
+   "chars": 345
+  },
+  {
+   "id": "doc-b89f-0021-3",
+   "node": 21,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "Through exposure to clients’ reenactments and accounts of traumatic experiences, helping professionals are themselves vulnerable to a variety of effects and symptoms, including depression, anxiety, intrusive imagery, numbing and avoidance phenomena, cognitive shifts, as well as social and relational problems (McCann & Pearlman 1990; Figley, 1995c).",
+   "chars": 350
+  },
+  {
+   "id": "doc-b89f-0021-4",
+   "node": 21,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "It is stated that working with traumatized clients, counselling psychologists, and other mental health professionals are at risk of STS because traumatic stress can be contagious (Herman, 1998). Although the body of literature related to STS among direct service providers is growing (Stamm, 1999), the majority of this literature is conceptual in nature or reports only anecdotal evidence of the phenomenon (Kassam- Adams, 1999b).",
+   "chars": 431
+  },
+  {
+   "id": "doc-b89f-0022-0",
+   "node": 22,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "In most of the studies of quantitative research, instruments used in research on STS were designed to investigate symptomatology among trauma survivors who were directly exposed, rather than secondarily. Such measures have not been validated or normed on samples of persons who were indirectly exposed to trauma. The Secondary Stress Scale was developed in response to the paucity of instruments designed to specifically measure STS symptoms in social",
+   "chars": 451
+  },
+  {
+   "id": "doc-b89f-0023-0",
+   "node": 23,
+   "part": 0,
+   "parts": 6,
+   "tag": "p",
+   "text": "138 workers and other helping professionals (Bride et al, 2004). On the other hand, social scientists often use qualitative research to explore the experience of marginalized groups of individuals whose voices may be unheard, and those whose experiences maybe overlooked in quantitative research.",
+   "chars": 296
+  },
+  {
+   "id": "doc-b89f-0023-1",
+   "node": 23,
+   "part": 1,
+   "parts": 6,
+   "tag": "p",
+   "text": "Through intensive interviewing and life-history interviews, qualitative researchers listen to an account of stressful and painful life events, including poverty, physical and sexual abuse, illness, and even death. Therefore, researchers are not only listening to the stories of traumatic life events, but they are also the first-hand witnesses of painful events in their research participants’ lives (Branson and Radu, 2018).",
+   "chars": 425
+  },
+  {
+   "id": "doc-b89f-0023-2",
+   "node": 23,
+   "part": 2,
+   "parts": 6,
+   "tag": "p",
+   "text": "Knowing that engaging in qualitative research takes a toll on researchers’ emotional well-being, Dickson-Swift and colleagues (2009) examined how researchers engage in emotional work while conducting qualitative research. Drawing from a sample of public health researchers, the authors found that many of their respondents expressed feeling “emotionally overwhelmed” during the research process.",
+   "chars": 395
+  },
+  {
+   "id": "doc-b89f-0023-3",
+   "node": 23,
+   "part": 3,
+   "parts": 6,
+   "tag": "p",
+   "text": "In addition, Putman et al (2009) conducted a study to explore the effects of community violence among Guatemalan aid workers. The study pointed out that local workers might require extra support with loss, PTSD symptoms, training, and additional security.",
+   "chars": 255
+  },
+  {
+   "id": "doc-b89f-0023-4",
+   "node": 23,
+   "part": 4,
+   "parts": 6,
+   "tag": "p",
+   "text": "Additionally, in another study, Vergara and Gardner (2011) found that there was a relationship between stressors experienced and worker’s dissatisfaction with the level of social support received, and they also concluded that well-being was associated with adaptive patterns of appraisal and coping, a sense of satisfaction, and cognitive hardiness.",
+   "chars": 349
+  },
+  {
+   "id": "doc-b89f-0023-5",
+   "node": 23,
+   "part": 5,
+   "parts": 6,
+   "tag": "p",
+   "text": "To the researcher’s knowledge no study has been conducted in the area of STS of counselling professionals who particularly work with war-affected people. Only a couple of studies have investigated the well-being of health professionals in the military service and military members’ family. It has also been suggested that working with traumatized children may put therapists at particular risk for STS (Meyers & Cornille, 2002).",
+   "chars": 428
+  },
+  {
+   "id": "doc-b89f-0024-0",
+   "node": 24,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "War, conflicts, and violence compel millions of people to leave their homes and settle in safer habitations and settlements. Recent conflicts in Syria have displaced many individuals within and outside the country where they have sought protection. Since the conflicts started in March 2011, nearly half of Syria’s population has been displaced (Hassan et al, 2015).",
+   "chars": 366
+  },
+  {
+   "id": "doc-b89f-0024-1",
+   "node": 24,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Together with this substantial amount of relocation, it has been reported that Turkiye now hosts the highest number of refugees with 3.5 million (UNHCR, 2018). It has been specified that children have been particularly targeted in the Syrian conflict (Skuse, 2013) and are experiencing excessive violence (Chammay, 2014), including killing, maiming, sexual violence, torture, arbitrary detention, exposure to the explosive remnants of war and recruitment, and use by armed forces.",
+   "chars": 480
+  },
+  {
+   "id": "doc-b89f-0024-2",
+   "node": 24,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "Many of these children are currently out of school, living in impoverished circumstances and are exposed to many risks (Human Rights Watch Report, 2014), which make them extremely vulnerable to further mental health problems. Ozer et al (2013) found that Syrian refugee children living in Turkiye suffered from various psychological issues. They also stated that these children endured several life events that may have caused these psychological issues.",
+   "chars": 454
+  },
+  {
+   "id": "doc-b89f-0024-3",
+   "node": 24,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "These life events consist of losing a loved one in the war, feeling their life is in danger, exposure to traumatic events, and separation from families.",
+   "chars": 152
+  },
+  {
+   "id": "doc-b89f-0025-0",
+   "node": 25,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Together with these studies in the literature which pointed out Syrian Refugee children’s circumstances, as a Turkish researcher whose country has the biggest population of Syrian Refugees, I was a counsellor in the Social Service in Turkiye and witnessed these children’s difficulties at first hand. Consequently, I witnessed their challenges and difficulties while they were settling in a new country, and I also closely observed their unique and dramatic life",
+   "chars": 462
+  },
+  {
+   "id": "doc-b89f-0026-0",
+   "node": 26,
+   "part": 0,
+   "parts": 6,
+   "tag": "p",
+   "text": "139 experiences during the conflict of the Syrian civil war. I assume that as these kinds of testimonies merged with my personal life experiences, living through STS became an unavoidable experience for as a clinician and researcher. Considering the risks factors of STS made me think of where and who I was when I was working with Syrian children experiencing war-related trauma.",
+   "chars": 380
+  },
+  {
+   "id": "doc-b89f-0026-1",
+   "node": 26,
+   "part": 1,
+   "parts": 6,
+   "tag": "p",
+   "text": "I was on the early stages of my career, and I was not experienced working with war-affected people which were not usual caseloads of the Social Service I was working, but refugees’ situation in my country became urgent. MacRitchie and Leibowitz (2010) outlined that for trauma therapists, who had (or had not) personally experienced trauma, empathy was positively related to STS, suggesting there may be an interaction between empathy and personal trauma history.",
+   "chars": 463
+  },
+  {
+   "id": "doc-b89f-0026-2",
+   "node": 26,
+   "part": 2,
+   "parts": 6,
+   "tag": "p",
+   "text": "The professional with high emotional forms of empathy may be most vulnerable to “emotional contagion” and may be influenced by the client’s emotions (Mehrabian & Epstein, 1972). Thus, high emotional empathy may lead to an increased risk for STS (Goodpaster, 2014). As I will later touch upon, all the emotions and experiences of my personal life were triggers of my Secondary Trauma.",
+   "chars": 383
+  },
+  {
+   "id": "doc-b89f-0026-3",
+   "node": 26,
+   "part": 3,
+   "parts": 6,
+   "tag": "p",
+   "text": "Thus, at that point, I can say that my personal and professional experiences did not form a trauma history, but they were very recent cases happening around the same time. Consequently, all the stories that I listened from Syrian war-affected children caused some concerns that occupy my mind as a clinician and researcher.",
+   "chars": 323
+  },
+  {
+   "id": "doc-b89f-0026-4",
+   "node": 26,
+   "part": 4,
+   "parts": 6,
+   "tag": "p",
+   "text": "I started to imagine my self and my beloved ones in those war-affected people’s positions and my empathic skills in the counselling room went beyond its purpose and became a self- destructive weapon for me. As Pearlman and MacIan (1995) concluded, among trauma therapists with personal histories of trauma (I believe they were overlapping life circumstances for me), those with less than two years of experience tended to have more STS than more experienced therapists.",
+   "chars": 469
+  },
+  {
+   "id": "doc-b89f-0026-5",
+   "node": 26,
+   "part": 5,
+   "parts": 6,
+   "tag": "p",
+   "text": "On the other hand, less experienced counsellors may over-identify with their clients, have trouble in mentally distancing themselves after client contacts, become highly concerned with clients’ outcomes, and may have had less time to develop effective coping strategies for dealing with their own emotions related to client contacts.",
+   "chars": 333
+  },
+  {
+   "id": "doc-b89f-0027-0",
+   "node": 27,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "METHODOLOGY",
+   "chars": 11
+  },
+  {
+   "id": "doc-b89f-0028-0",
+   "node": 28,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "This study seeks to utilize a qualitative research paradigm to investigate the reseracher’s subjective experience of STS. Qualitative research can be thought of as a term encompassing a variety of interpretive methods which operate to describe and decipher with a focus on meaning and not the frequency of phenomena (Maanen, 1983).",
+   "chars": 331
+  },
+  {
+   "id": "doc-b89f-0029-0",
+   "node": 29,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Ontology is “the starting point of all research, after which one’s epistemological and methodological positions logically follow” (Grix, 2002, p.177) and asks what the form and nature of reality is and thus what is there to be known about it (Guba & Lincoln, 1994). The researcher’s ontological outlook for the present research is that of a relativist perspective arguing that there are multiple constructed realities, as opposed to one single reality of truth.",
+   "chars": 461
+  },
+  {
+   "id": "doc-b89f-0029-1",
+   "node": 29,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Relativism argues that reality and truth vary across time and context, meaning that our knowledge is reflected ‘here’ and how this knowledge is generated (Braun& Clarke, 2013). As for Epistemology, the following question is being asked: “What is the nature of the relationship between the knower and what can be known?” (Guba & Lincoln, 1994, p.108).",
+   "chars": 350
+  },
+  {
+   "id": "doc-b89f-0029-2",
+   "node": 29,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "The method of knowing something is separated into two distinct camps; the “positivist camp” (researcher searches for a reality that exists independently of their practices) and the “constructionist camp” (researcher is involved in creating a reality) (Braun & Clarke, 2013). This research is operated within a constructionist perspective where I am as a researcher involved in the construction of data and knowledge.",
+   "chars": 416
+  },
+  {
+   "id": "doc-b89f-0029-3",
+   "node": 29,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "Constructionist epistemologies argue that what we know of the world does",
+   "chars": 72
+  },
+  {
+   "id": "doc-b89f-0030-0",
+   "node": 30,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "140 not reflect the real nature of the world, but our awareness of the world is based on the meaning we make of it (Berger & Luckmann, 1967). In the light of these baselines, Counselling recognises that several perceptions can address the questions we face and emphasises that the subjective experiences of individuals require a different construction of reality by each.",
+   "chars": 371
+  },
+  {
+   "id": "doc-b89f-0031-0",
+   "node": 31,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "In this research, I investigated how my personal life and job experiences led to a subjective experience of STS while I was working with war-affected Syrian children. I reflected on how experiencing STS has shaped and changed the reality of my world, how I was involved in this context, and how I assigned a meaning to my awareness of self. Trying to gather these kinds of knowledge has brought me to the challenge of exploring how to obtain information and by which tool.",
+   "chars": 472
+  },
+  {
+   "id": "doc-b89f-0031-1",
+   "node": 31,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Autoethnography was the most appropriate methodology to utilize for my study. Because, firstly and most importantly, I wanted to gain a more depth understanding of my own STS experience in a research context and desired to entirely examine all aspects of it.",
+   "chars": 258
+  },
+  {
+   "id": "doc-b89f-0032-0",
+   "node": 32,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "Autoethnography can be described as a self-narrative that criticizes the situatedness of self with others in a social context (Reed-Danahay,1997). Autoethnography is an approach to research and writing that seeks to describe and systematically analyse (graphy) personal experience (auto) to understand cultural experience (ethno) (Ellis, 2004; Holman Jones, 2005).",
+   "chars": 364
+  },
+  {
+   "id": "doc-b89f-0032-1",
+   "node": 32,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "These descriptions have enlightened me in terms of choosing Autoethnography as my methodology and investigating how my self-narrative writing has been shaped by my STS. My dual experiences (personal and professional) regarding feelings, thoughts, and emotions of STS do not properly fit into the psychological and medical literature which define STS with generalized and fixed terminology.",
+   "chars": 389
+  },
+  {
+   "id": "doc-b89f-0032-2",
+   "node": 32,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "My testimony of war-affected children’s tragic life experiences, empathy that I utilized during the counselling sessions in the Social Service, my excessive containment of their stories, and my intersecting connection with their experiences were my underlying reasons for experiencing STS. The intention of employing Autoethnography in this research was for narrating my STS which is very subjective and relativistic.",
+   "chars": 417
+  },
+  {
+   "id": "doc-b89f-0032-3",
+   "node": 32,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "My second intention is being witness of war-affected children’s life stories. At this point, I do not mention how my STS stemmed from war-affected Syrian children’s stories but how their stories encouraged me to write my own narrative. Autoethnography is an approach of the use of personal experience for the research purpose; therefore, autoethnography will allow me to analyse the experiencing of STS and also will give me a voice to conceptualise my “self”.",
+   "chars": 460
+  },
+  {
+   "id": "doc-b89f-0032-4",
+   "node": 32,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "Spry (2001, p.711) argues that “autoethnographic methods recognize the reflections and refractions of multiple selves in contexts that arguably transform the authorial ‘I’ to an existential ‘we’, and Spry (2001, p.726) adds that “the embodied Autoethnographic text is a story reflecting the research artist’s collaboration with people, culture, and time”. Therefore, while narrating my experiences, I arrived at a decision of involving their stories into mine.",
+   "chars": 460
+  },
+  {
+   "id": "doc-b89f-0032-5",
+   "node": 32,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "For Ellis and Bochner (2000), autoethnography is about personal identity and the desire to make sense and preserve coherence over the course of our lives. The extent to which a story corresponds to a reasonable view of “what happened” does not seem to matter to them- all that matters is this self-exploration.",
+   "chars": 310
+  },
+  {
+   "id": "doc-b89f-0032-6",
+   "node": 32,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "As Syrian war-affected children’s life experiences are the component of my STS, their stories were included in this study for identifying the researcher’s experiences better.",
+   "chars": 174
+  },
+  {
+   "id": "doc-b89f-0033-0",
+   "node": 33,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Data Collection From Personal Life Experiences For data collection of my personal life experience, I used my diary. According to Jackson and Mazzei (2008), the researcher’s life experiences are to be used as data and evidence",
+   "chars": 225
+  },
+  {
+   "id": "doc-b89f-0034-0",
+   "node": 34,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "141 in autoethnography, and the researcher’s voice is to be a privileged medium for conveying meanings and experience. Concordantly, I use “my own voice for speaking the truth from my perception and my voice will become a mirror of my soul, the essence of my self” (Jackson & Mazzei, 2008, p. 306).",
+   "chars": 298
+  },
+  {
+   "id": "doc-b89f-0035-0",
+   "node": 35,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Data Collection From Counselling Sessions My memories of counselling sessions with war-affected children consist of my professional experience in the Social Service in Turkiye for nearly a year. Besides, regarding my position under the Social Service, I used some cases and field observations as informational sources which include visiting these children at their homes, in streets, and at hospitals.",
+   "chars": 401
+  },
+  {
+   "id": "doc-b89f-0035-1",
+   "node": 35,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "These data sources mainly rely upon my memories and some reports written by me for offering a social model for these children while I was working in the Social Service.",
+   "chars": 168
+  },
+  {
+   "id": "doc-b89f-0036-0",
+   "node": 36,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Data Analysis Process As I narrated my personal and professional experiences that triggered my STS, I thought that it would be better for me to narrate and analyse it in three different sections. The first section contains my personal life experiences. In this section, I will reflect my own perspective and emotions regarding my brother’s military duty in the Turkish-Syrian conflict area.",
+   "chars": 390
+  },
+  {
+   "id": "doc-b89f-0036-1",
+   "node": 36,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "In the second section, I will narrate my professional life experiences that I witnessed many war-related dramatic life stories of my children clients and I will narrate how I was affected by their stories. In the third section, I will narrate my own subjective experience of STS.",
+   "chars": 279
+  },
+  {
+   "id": "doc-b89f-0036-2",
+   "node": 36,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "In addition to this route for narrating my experiences, every section will also be analysed within a theoretical framework which is associated with Counselling and Psychotherapy where I tried to find meaning of what I experienced in my personal and professional life and what are the linkages between my experiences and STS.",
+   "chars": 324
+  },
+  {
+   "id": "doc-b89f-0037-0",
+   "node": 37,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Ethical Considerations “We can never definitively know how others interpret our work nor can we ever know who we harm and help with our life stories. Narrative ethics thus involves a simultaneous welcoming and valuing of endless questioning without ever knowing if our life writing and reading decisions are right or wrong“(Adams, 2008, p.188).",
+   "chars": 344
+  },
+  {
+   "id": "doc-b89f-0037-1",
+   "node": 37,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "In the line with the literature, it can be acknowledged that autoethnography has also its ethical limits as Adams’ mentions in his thoughts about narrative ethics above. This discussion around ethical dilemmas is even more intensive in the domain of Counselling and Psychotherapy where the study of the human behaviour and feelings is one of the preliminary goals of the research.",
+   "chars": 380
+  },
+  {
+   "id": "doc-b89f-0037-2",
+   "node": 37,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "Regarding these limitations, the first considerable ethical issue in this research is, that I might relive or experience Secondary Trauma once again during my research. I believe that writing about my STS and the events or memories which still have impact on me, may affect my well-being and may cause possible psychological distress. Herein, I bear in mind that I might need some support from my outer world.",
+   "chars": 409
+  },
+  {
+   "id": "doc-b89f-0037-3",
+   "node": 37,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "Thus, during my research I sustained a good support system around me, including my Supervisor, Personal Tutor, GP Service, family, and friends. Secondly, as I narrate my own overlapped life experiences, inevitably I also address the situation that my family lived through because of my brother’s military duty in the conflict area.",
+   "chars": 331
+  },
+  {
+   "id": "doc-b89f-0037-4",
+   "node": 37,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "For that reason, conducting an Autoethnographic research under my name also identifies my family member’s names, even though I do not prefer to use their names. That is why, I obtain their permission before I decided to use my personal life experiences. Thirdly, since I decided to use the war-",
+   "chars": 294
+  },
+  {
+   "id": "doc-b89f-0038-0",
+   "node": 38,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "142 affected children’s life stories that I witnessed, I have come up against the fear of harming them. Ellis’ (2007) suggestion about “relational ethic”, an ethic where we act from our hearts and minds, made me think about how I should use their stories. For this reason, I am positive that I showed respect, esteem, and appreciation while I was narrating their life stories. I will give limited details that are directly related to my research.",
+   "chars": 446
+  },
+  {
+   "id": "doc-b89f-0038-1",
+   "node": 38,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Additionally, I use pseudonyms for protecting their identities. The ethics approval for this study was granted by the University of Edinburgh in 2019.",
+   "chars": 150
+  },
+  {
+   "id": "doc-b89f-0039-0",
+   "node": 39,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "RESULTS",
+   "chars": 7
+  },
+  {
+   "id": "doc-b89f-0040-0",
+   "node": 40,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "This section of the study is divided into three parts in which I narrated and analysed my personal and professional life experiences separately and explore my Secondary Trauma experiences. In the first part of my narrative, I used my dairy which includes all my emotions and feelings about my personal life struggles that I had when my brother joined the Turkish army for a year for his military duty.",
+   "chars": 401
+  },
+  {
+   "id": "doc-b89f-0040-1",
+   "node": 40,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "In the second part of my narrative, I use war-affected Syrian children clients’ stories that I witnessed while I was working with them. Lastly, in the third part of my narrative, I explore and narrate my STS from my own perspective.",
+   "chars": 232
+  },
+  {
+   "id": "doc-b89f-0041-0",
+   "node": 41,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Narratives of Personal Life Experiences 18.04.2015- Izmir Today is the day my dearest brother is leaving us for a year for his compulsory military duty. To be honest, we already had some worries and fears about him and his place of duty. Because Turkiye’s geopolitical position is quite critical as Syria is located in Turkiye’s southeastern border and there has been a civil war in Syria since 2011.",
+   "chars": 400
+  },
+  {
+   "id": "doc-b89f-0041-1",
+   "node": 41,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "I do not like politics, and I am not interested in it at all, but as far as I understand, Turkiye wants to protect its southeastern borders from the unrest in Syria and also Turkiye opens its doors to thousands of Syrian Refugees who flee the civil war. Consequently, as I see from the news and TV programmes, Turkiye has launched many military operations there and many military units are waiting for operations.",
+   "chars": 413
+  },
+  {
+   "id": "doc-b89f-0041-2",
+   "node": 41,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "That’s why my whole family and I were worried about the possibility of my brother being sent to this conflict area. However, nearly two weeks ago, the information announcing my brother’s place of duty put our minds at ease and we learnt that, as opposed to our worries, he will do his military duty in Kırklareli which is in the north-east of Turkiye.",
+   "chars": 351
+  },
+  {
+   "id": "doc-b89f-0042-0",
+   "node": 42,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Nowadays, our caseload in the Social Service is on the increase. Especially, the cases of Syrian Refugees have been considerably increasing for the last 3 or 4 months and most of these cases are urgent and require prompt interventions.",
+   "chars": 235
+  },
+  {
+   "id": "doc-b89f-0043-0",
+   "node": 43,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "I pray that this one year will pass quickly and I am sure that I will miss my brother more than ever. I will feel his absence in our dining table, in our family meetings and most importantly I will feel his absence deeply when I need him as a friend.",
+   "chars": 250
+  },
+  {
+   "id": "doc-b89f-0044-0",
+   "node": 44,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "16.05.2015-Izmir Today, my family and I went to visit my brother in the military base. He has finished basic training there and after taking 3 days off (we came back home with him today) he will spend 11 months for the rest of his military duty. We are happy that he will be home for 3 days. I did not have any chance to talk about his first month in the military.",
+   "chars": 364
+  },
+  {
+   "id": "doc-b89f-0044-1",
+   "node": 44,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "I believe, it was a bit harsh, because it is visible that he has lost some weight, but he seems more agile than before.",
+   "chars": 119
+  },
+  {
+   "id": "doc-b89f-0045-0",
+   "node": 45,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "143 03.07.2015-Izmir Today, my brother called me and said that everything is OK; he might be relocated to another place but it was not certain yet. I immediately asked where he might be sent, and he said he did not know, but most of his friends had recently been sent to the conflict area. He was optimistic that he would not be sent there because a great number of soldiers had already been sent there, that is why there was no need for more relocation to there.",
+   "chars": 463
+  },
+  {
+   "id": "doc-b89f-0045-1",
+   "node": 45,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "He also added that their training has became more intense; therefore, he might not be able to phone us frequently.",
+   "chars": 114
+  },
+  {
+   "id": "doc-b89f-0046-0",
+   "node": 46,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "I felt so confused and frustrated. Because I did not believe this was not something that I could underestimate as my brother could. I do not know why and how but I could not trust his words and I became suspicious about every word he said. I was overthinking what might be behind his words after hanging up the phone.",
+   "chars": 317
+  },
+  {
+   "id": "doc-b89f-0046-1",
+   "node": 46,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Because I do not believe that he is being relocated for no reason and we hear the news about the plans of possible operations of Turkiye on Syrian Border and unfortunately, we hear a couple of news on martyred soldiers at least a week. I am afraid! What if he really is sent there?",
+   "chars": 281
+  },
+  {
+   "id": "doc-b89f-0047-0",
+   "node": 47,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "09.08.2015-Izmir Today is Sunday. I waited for a call from my brother the whole day, but neither I nor my parents received a call from him. Today is his weekly off day and it is obvious that he could not take his day-off. In the military, he is not allowed to use his own private phone that is why we cannot call him and always wait for him to call us. But this Sunday was the first Sunday that he has not called us for 4 months. Thus, questions flew in my mind.",
+   "chars": 462
+  },
+  {
+   "id": "doc-b89f-0047-1",
+   "node": 47,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "If he did not take a day off today, then he must be in hard and intensive training. Is it because he will be sent to the conflict area? Is the scenario that we are most afraid of going to happen? I am afraid to face the answers to these questions. I want him to come home, I want to fiddle with him and joke around as we did before.",
+   "chars": 332
+  },
+  {
+   "id": "doc-b89f-0048-0",
+   "node": 48,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "10.08.2015-Bodrum Today my brother called my father even though I was not expecting to have any phone call from him. Luckily, I was in Bodrum to visit my family and we had a chance to talk to him.",
+   "chars": 196
+  },
+  {
+   "id": "doc-b89f-0048-1",
+   "node": 48,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "My father was the first to talk to him and preferred to turn on the speaker as we wanted to hear his voice, but my brother was not aware of it and its consequences brought us to face the fact and my brother said that: “Father, I have two news for you, one is good, and the other is bad”. At the moment I understood that my fears became real, what else can he say?",
+   "chars": 363
+  },
+  {
+   "id": "doc-b89f-0048-2",
+   "node": 48,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "Even though I anticipated this, I had the smallest optimism in my heart and prayed for not hearing the thing that I was afraid of. He said that he would be sent to the Syrian border most probably the following week. We were stunned. We could not say a word. The only thing that I was aware of was that it was happening, the worst was coming. I forgot about the good news because I felt like nothing could change what was happening to us and my mind got blocked.",
+   "chars": 461
+  },
+  {
+   "id": "doc-b89f-0048-3",
+   "node": 48,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "He said that most probably he would be positioned in back zones and would not be in the borderline, so he would not take part in the operation unless something urgent happens. Is this his consolation to us? Are these words for comforting us? I did not believe that he would just stay away from this conflict. He will be at the centre of the war and the conflict. How will he cope with it? Will he testify any soldier dying before his eyes? How is he going to be?",
+   "chars": 462
+  },
+  {
+   "id": "doc-b89f-0048-4",
+   "node": 48,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Is he going to be injured? I do not want to ask other possible questions and even think about the worst misadventure of losing my brother there.",
+   "chars": 144
+  },
+  {
+   "id": "doc-b89f-0049-0",
+   "node": 49,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "144 15.08.2015- Izmir Today, I received a phone call from an unknown number and when I picked up the phone, I realized that it was my brother. I was happy to hear his voice and I realized how much I missed him. He said that he had just come to Hatay (the city located in the border of Syria) earlier than the time he told us. I wanted to ask him how he was feeling, but in real terms. Is he afraid of being there as we are and how much in danger is he in?",
+   "chars": 455
+  },
+  {
+   "id": "doc-b89f-0049-1",
+   "node": 49,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "I could not ask these questions because I knew what he was going to say. I was sure that either he would be mocking up with me or he would speak very optimistically. I know my brother. He is always like this, and you can never get in a serious conversation with him. Sometimes I like it, sometimes I get angry with his peculiar behaviour.",
+   "chars": 338
+  },
+  {
+   "id": "doc-b89f-0049-2",
+   "node": 49,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "This time, I just wanted to know how he was, but I could not ask because I knew that in any answer of his I would get more suspicious of the trueness of his words.",
+   "chars": 163
+  },
+  {
+   "id": "doc-b89f-0050-0",
+   "node": 50,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "I feel so overwhelmed and frustrated. When my brother called me, I was in lunch break and when I hung up the phone I did not want to go back to work. I feel so exhausted. My caseload in the Social Service is increasing day by day and my colleagues and I have started to work out of the service, and we are doing some fieldworks as well. I visit Syrian Refugees in hospitals, in their shanty house, in streets where they work or stay, in fact, it can be anywhere.",
+   "chars": 462
+  },
+  {
+   "id": "doc-b89f-0050-1",
+   "node": 50,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Above all, witnessing their poor living conditions, their problems and dramatic life stories affect me sometimes and I feel so inadequate when I cannot help these people.",
+   "chars": 170
+  },
+  {
+   "id": "doc-b89f-0051-0",
+   "node": 51,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "I never had any interest in politics, but I started to hate it because I see how people’s lives are shattered because of wars and conflicts. Even my life has changed after sending my brother to the military. Why has the world become so cruel? We live happily and peacefully in our country but just beyond the border people are dying and suffering from death and the other part of the world is unaware of the situation and indifferent to people’s suffering.",
+   "chars": 456
+  },
+  {
+   "id": "doc-b89f-0051-1",
+   "node": 51,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Is the geography really a fate?",
+   "chars": 31
+  },
+  {
+   "id": "doc-b89f-0052-0",
+   "node": 52,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "30.08.2015-Bodrum I no more can watch the news as we have recently heard a couple of martyr news from the Syrian Border. Above all, we have not received any call from my brother for 15 days. I am feeling like there is no joy in life anymore. I see people (Syrian Refugees) suffering and I am also experiencing the fear of losing my brother in the conflict area and I do not feel relieved from my worries and fears for a moment.",
+   "chars": 427
+  },
+  {
+   "id": "doc-b89f-0052-1",
+   "node": 52,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "They are with me all the time; I was not mentally strong, and I decided to take a break and came to Bodrum two days ago to see my family. My family and I barely speak about my brother, but I keep telling myself that this long silence of him is not a good thing. I started to ask myself: “Is he alive?” I also acknowledge that not having any news is better than having bad news. What kind of dilemma is that?",
+   "chars": 407
+  },
+  {
+   "id": "doc-b89f-0052-2",
+   "node": 52,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "I believe that this way of thinking is another way out for human beings: seeking the good in bad conditions and the only thing that I can do for my brother is to pray.",
+   "chars": 167
+  },
+  {
+   "id": "doc-b89f-0053-0",
+   "node": 53,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "06.09.2015- Izmir My brother called me two days ago. He said everything was okay and there was no need to worry. However, none of his words could put my mind at ease after seeing the true face of this terrible world. I do not see any goodness, kindness and mercy in the world anymore and I feel that I am ready to accept any possible worst-case scenario that may happen to my brother.",
+   "chars": 384
+  },
+  {
+   "id": "doc-b89f-0053-1",
+   "node": 53,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Because I believe that if he tries to calm us down, it means there is a reason to worry about his",
+   "chars": 97
+  },
+  {
+   "id": "doc-b89f-0054-0",
+   "node": 54,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "145 well-being.",
+   "chars": 15
+  },
+  {
+   "id": "doc-b89f-0055-0",
+   "node": 55,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Analysis of Personal Life Narratives It is obvious that my brother’s military duty had a great effect on my worldview; though I tried to be strong, I became more fragile, and my mental health was negatively affected. Mansfield et al indicate (2010) that depression and anxiety are the most common symptoms observed in military spouses. Although I was not his spouse, I am the closest person to my brother, so I suffered from anxiety.",
+   "chars": 433
+  },
+  {
+   "id": "doc-b89f-0055-1",
+   "node": 55,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "I was afraid that my brother would get injured or die over there. I still do not know whether it was my brother’s personality, my fears or my intuitions that made me feel restless about his situation and relocation. During these difficult times, I was fragile, but I tried to do my best to be strong and not to show this fragile and weak part of my ‘self’.",
+   "chars": 356
+  },
+  {
+   "id": "doc-b89f-0055-2",
+   "node": 55,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "These different parts of my ‘self’ represent my ‘Configurations of self’ which is defined by Mearns and Thorne (2000, p.102) as “a number of elements which form a coherent pattern generally reflective of a dimension of existence within the Self”. Consequently, my ‘weak self’ was afraid of any possible danger or damage that can happen to my brother and even the fear of losing him over there was making me so fragile.",
+   "chars": 418
+  },
+  {
+   "id": "doc-b89f-0055-3",
+   "node": 55,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "According to Slovic et al (1983) the “theory of risk perception” justifies when people lack strong opinions, the opposite situation exists- they are not the mercy of the problem formulation. In that situation, my family and I prefer to not talk about the risks that might happen to my brother, because we knew that all we possess pessimistic thoughts- rather than making rational explanations- as I withdrew into myself, and I believe my family did the same.",
+   "chars": 458
+  },
+  {
+   "id": "doc-b89f-0055-4",
+   "node": 55,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Addition to this, uncertainty is the one of the factors that affect our perception of risk, and the uncertainty of my brother situation was giving an edge to our anxiety.",
+   "chars": 170
+  },
+  {
+   "id": "doc-b89f-0056-0",
+   "node": 56,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "I am very emotional and sensitive in my inner world, but when it comes to reflection, I always prefer to hide behind rational explanations and hardly discourse my feelings in order not to show my weak self. Thereby suppressing my “weak configuration of self”, I could only demonstrate my strong configuration of self to sustain my role in the family. I do not know whether it was influenced by my professional background as a counsellor.",
+   "chars": 437
+  },
+  {
+   "id": "doc-b89f-0056-1",
+   "node": 56,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "It is indicated that Secondary Trauma of helping professionals may partly be based on certain personality characteristics of therapist, such as a tendency to perfectionism, a dedicated, idealistic attitude, need to proof himself (van der Veer, 1998).",
+   "chars": 250
+  },
+  {
+   "id": "doc-b89f-0056-2",
+   "node": 56,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Likewise, I was trying to sustain my professional role even in my family (trying to prove myself for doing my job properly even out of work) and as a novice Counsellor, I was possessing idealistic self who must be a perfect Counsellor. I believe that all these ways of thinking which caused suppression of my feelings and thoughts triggered my STS.",
+   "chars": 348
+  },
+  {
+   "id": "doc-b89f-0057-0",
+   "node": 57,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Narratives of Professional Life Experiences In this section, two different life experiences of my Syrian war-affected children clients will be introduced. Among many of my clients, I decided to discuss Esra’s and Enes’ stories. I chose them because they represent extreme experiences affecting me emotionally and mentally. Also, I struggled to set my boundaries as a professional while working especially with these children.",
+   "chars": 425
+  },
+  {
+   "id": "doc-b89f-0057-1",
+   "node": 57,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Esra’s story was the same one with thousands of Syrian Refugee children who had to leave their education, relocate, and lost their parents in the civil war, but still have hope for making their dreams come true. Enes’ story was my last case that I felt totally overwhelmed and frustrated. After Enes’ case, I decided to do a rotation in Service and I started to work with old client profile (disabled people and people in need of nursing), whom I had been working with",
+   "chars": 468
+  },
+  {
+   "id": "doc-b89f-0058-0",
+   "node": 58,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "146 before, because of experiencing STS and not being able to sustain my own health.",
+   "chars": 84
+  },
+  {
+   "id": "doc-b89f-0059-0",
+   "node": 59,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Esra’s story: Hope springs eternal in human breast Esra was one of the Syrian Refugee adolescents who applied to the Social Service for Counselling. Her story is a common story experienced by nearly all Syrian war-affected children and by any war-affected children all around the world whose childhood and future are taken away.",
+   "chars": 328
+  },
+  {
+   "id": "doc-b89f-0060-0",
+   "node": 60,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Esra and her family had lived a wealthy life until the civil war started in Syria. Her father was an engineer, her mother owned a beauty salon, her brother was studying at university, and Esra was a brilliant student who was preparing for the university exam and her only dream was becoming a doctor.",
+   "chars": 300
+  },
+  {
+   "id": "doc-b89f-0060-1",
+   "node": 60,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "However, the civil war started in Syria shattered their life and she lost her father and brother in the civil war and had to escape from Syria to Turkiye with her mother leaving everything they had behind and also, she had to give up on her dreams. She was suffering from bereavement of her father and brother and that is why her mother brought her to the Social Service for Counselling. In addition to her bereavements, we also talked about her broken dreams and disappointment.",
+   "chars": 479
+  },
+  {
+   "id": "doc-b89f-0060-2",
+   "node": 60,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "She mentioned many times that she would give everything to take back her life in Syria and she was feeling like life had already ended for her, as she did not have any future plans in Turkiye, and she had already lost her beloved ones. I wanted to help her so much to heal her wounds. I started to think about what I could do to help her continue her education in Turkiye.",
+   "chars": 372
+  },
+  {
+   "id": "doc-b89f-0060-3",
+   "node": 60,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "We started to talk about her future plans, and she mentioned her dreams, her hatred about her shattered life, her hopelessness about her further education. I could only recommend her to go on to Syrian Refugee Children School in Turkiye where she could both improve her Turkish language and prepare for the university entrance exams in Turkiye.",
+   "chars": 344
+  },
+  {
+   "id": "doc-b89f-0060-4",
+   "node": 60,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "After 6 weeks counselling sessions with her, in our last session, I saw her quite ready for the end of the sessions as she had many future plans. She said that she and her mother prepared all the documents required for Syrian Refugee Children School and she would most probably be able to start her education in the following school year in September.",
+   "chars": 351
+  },
+  {
+   "id": "doc-b89f-0061-0",
+   "node": 61,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "I believe that with this new step in her education, Esra would fulfil her dreams which were taken away from her by the war. I do not know whether she could get into a university or not. But I am sure that her life story is just an example of how children are affected by war and how they lose their childhood in wars. Even if they can stay alive in these conflicts, they always have to pay much more in their entire lives.",
+   "chars": 422
+  },
+  {
+   "id": "doc-b89f-0061-1",
+   "node": 61,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "I know that their losses and bereavements are irreplaceable, but I believe that there is always hope in future. Future means hope for every human being no matter what they live.",
+   "chars": 177
+  },
+  {
+   "id": "doc-b89f-0062-0",
+   "node": 62,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Enes’ Story: The Rose Dying in my Pot Enes’ case required an urgent intervention when it was handed to me. His situation was informed by the hospital to the Social Service where I was working for and I was charged with his case for offering proper Social Service Model to him.",
+   "chars": 276
+  },
+  {
+   "id": "doc-b89f-0063-0",
+   "node": 63,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Enes was a 3-years-old boy, whose family were killed in the civil war in Syria and who was adopted (not legally) by his uncle and brought to Turkiye to start a new life. When I went to visit Enes’ house for Social Study Report, I saw that they were living in a ratty house and learnt that there were 14 people living in this small wreck house. There was only Enes’ uncle who tries to earn money for the remaining 13 people in the house.",
+   "chars": 436
+  },
+  {
+   "id": "doc-b89f-0063-1",
+   "node": 63,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Enes’ family died in a bomb attack in their house and his uncle found Enes alive in debris and was taking care of him until that day.",
+   "chars": 133
+  },
+  {
+   "id": "doc-b89f-0064-0",
+   "node": 64,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "147 After a short time of settling in Turkiye, Enes was diagnosed with leukaemia, and he needed to be cured immediately as his illness was getting worse. However, like half of the population in the house, Enes did not have any Refugee Identity Card which is required to live in Turkiye as a Refugee. As his mother and father died in the war and his uncle could not do anything for the legal guardianship process of his nephew, Enes’ treatment faced challenges.",
+   "chars": 460
+  },
+  {
+   "id": "doc-b89f-0064-1",
+   "node": 64,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Additionally, as his uncle was illiterate, I was assigned to help them through the legal procedures for starting Enes’ treatment immediately.",
+   "chars": 141
+  },
+  {
+   "id": "doc-b89f-0065-0",
+   "node": 65,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "During the time of executorship process including Enes’ uncle’s asylum request to Turkiye, Enes’ identity card and many other procedures that we tried to accomplish to start cancer treatment (it also required legal responsibility for any possible results of the treatment), Enes’ cancer metastasized even though he was under the surveillance in the hospital, he died during these documentation process.",
+   "chars": 402
+  },
+  {
+   "id": "doc-b89f-0065-1",
+   "node": 65,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "After his death, I was exhausted and started to ask many questions that I could not answer. If the war in Syria did not break out and his family was still alive, would he still be diagnosed with cancer? Was it because he lacked humanitarian needs in this shanty house like many other war-affected children and was he not given the proper care needed at his age, and consequently became more likely to develop diseases?",
+   "chars": 418
+  },
+  {
+   "id": "doc-b89f-0065-2",
+   "node": 65,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "I started to question how effective I was to accelerate the documentation process. If I could do my best for the process, could I save him from death? I felt a sharp pang of remorse for Enes day after day and started to blame myself for his death.",
+   "chars": 247
+  },
+  {
+   "id": "doc-b89f-0065-3",
+   "node": 65,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "His case was my last and final case and I asked to be rotated in another department in the Social Service as I believed that I was not able to sustain my health because of experiencing STS by witnessing many dramatic life experiences and war stories.",
+   "chars": 250
+  },
+  {
+   "id": "doc-b89f-0066-0",
+   "node": 66,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Analysis of Professional Life Narratives I preferred to address these children’s life stories as they deeply affected me. Although these stories were very unique and dramatic for me, I came across many more life stories during my professional role in the Social Service and I understand that these children’s life stories were just a drop in the water. I also encountered many war stories which were about losses, injuries, illnesses, hopelessness, death, and shattered lives.",
+   "chars": 476
+  },
+  {
+   "id": "doc-b89f-0067-0",
+   "node": 67,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Esra’s story was one of the common life stories of war-affected children that I came across with in the Social Service. However, her bereavement of her father and brother overwhelmed me in many ways during our sessions. Similar to hers, everything in my life was good and I was living without any concerns until my brother’s military duty.",
+   "chars": 339
+  },
+  {
+   "id": "doc-b89f-0067-1",
+   "node": 67,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "During our sessions, she frequently mentioned her relationship and memories with her father and brother, and I found myself struggling to sustain my role and was suffering from the over containment of her narratives and I also experienced countertransference while working with her for seven weeks.",
+   "chars": 298
+  },
+  {
+   "id": "doc-b89f-0068-0",
+   "node": 68,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "“Containment”, which is described by Spurling (2017, p.5-24) as “a form of psychological holding”, was what I experienced while working with Esra. I became aware of the fact that I was not able to box her narratives about his brother and father up and my mind was occupied with her narratives after our sessions.",
+   "chars": 312
+  },
+  {
+   "id": "doc-b89f-0068-1",
+   "node": 68,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "It was an internal process that I lived through unconsciously, but later I realized that I started to compare and match her narratives with all my memories with my brother. This experience of my Countertransference is defined by Terry (2018, p.161) as “experiences when the therapist becomes identified with the client’s own traumatised position and emotions in relationships”. As Terry (2018) indicates, this experience",
+   "chars": 420
+  },
+  {
+   "id": "doc-b89f-0069-0",
+   "node": 69,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "148 depends on the therapist’s capacity to be open to unthinkable and unbearable states of mind. I was blind to see my own fears and worries during our sessions with her. Now I realize that I reflected my own feelings and worries about losing a beloved one openly (I mentioned my brother’s presence in the conflict area to her), but I believe that this disclosure of mine as a Counsellor worked well for us and we built a trustworthy relationship.",
+   "chars": 447
+  },
+  {
+   "id": "doc-b89f-0069-1",
+   "node": 69,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Because I believe that is why she became more open to talk about her hopelessness and broken dreams about her future and we worked on them and were able to define a further step for her dreams and hopes.",
+   "chars": 203
+  },
+  {
+   "id": "doc-b89f-0070-0",
+   "node": 70,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "Enes’ case was with me all the time and made me restless about my effort. Now I can openheartedly say that I am sure I did my best and did whatever I can do for accelerating the process. However, after hearing his death, I could not stop blaming myself for it. Besides blaming myself as a human being, I also felt inadequate as a professional and started to question my ability to work with these war- affected and traumatized people.",
+   "chars": 434
+  },
+  {
+   "id": "doc-b89f-0070-1",
+   "node": 70,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "I was not trained in Trauma field to work professionally, but it was obvious that my feelings of inadequateness towards my professional ability resulted from not being able to help these children as much as I wanted to but from the procedures and processes happening out of my control. However, even though I can now distinguish that the obstacles were limiting my ability to help these children.",
+   "chars": 396
+  },
+  {
+   "id": "doc-b89f-0070-2",
+   "node": 70,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "I was not able to see them clearly during those times and was feeling totally helpless. According to Garber and Seligman (1980) people who feel helpless and hopeless in traumatic circumstances charge themselves personally responsible for a troubled situation and they think that the traumatic event will be sustained and do not see any possibility of relief.",
+   "chars": 358
+  },
+  {
+   "id": "doc-b89f-0070-3",
+   "node": 70,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "In Enes’ case, I felt a twinge of guilt about his death and blamed myself as if all happened because of my inadequacy; thus, I experienced prolonged disturbance in my inner world, which did not give me any relief. Lastly, after Enes’ case, I came into realization that I was not able to sustain my professional ability for other refugees and clients.",
+   "chars": 350
+  },
+  {
+   "id": "doc-b89f-0070-4",
+   "node": 70,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "Here, I became aware of John Stuart Mill’s (in McLeod, 2013, p.516) definition of ethical behaviour as ‘the greatest good for the greatest number” which made me think of protecting these clients from any possible harm which might stem from my STS.",
+   "chars": 247
+  },
+  {
+   "id": "doc-b89f-0070-5",
+   "node": 70,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "Additionally, British Association for Counselling and Psychotherapy (BACP, 2018, p.9) defines Beneficence addressing “injunction to promote human welfare” and non-maleficence addressing “above all do no harm” (McLeod, 2013, p.516) under Counselling Ethical Principles. Thereafter, along with my own well-being I also took into consideration of my clients’ welfare, and I decided to stop working with war-affected clients.",
+   "chars": 421
+  },
+  {
+   "id": "doc-b89f-0070-6",
+   "node": 70,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "For all these reasons, I took a resolution to make a rotation in the Social Service and started to work with my previous client profile. It was the time that I came to terms with STS, which I will discuss and narrate in the next section.",
+   "chars": 237
+  },
+  {
+   "id": "doc-b89f-0071-0",
+   "node": 71,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Narrating and Analyzing of My Own Secondary Trauma Experience Regarding my personal and professional life experiences, I assume that it was inevitable for me to live through STS. I am still not sure whether my STS started as a result of my cumulative experiences or with specific life events. Because some studies indicate that STS can be sudden and episodic (for example, Branson, 2011).",
+   "chars": 388
+  },
+  {
+   "id": "doc-b89f-0072-0",
+   "node": 72,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "When I was doing the literature review, I came across many symptoms of STS. However, when I compare these symptomologies with my own experiences, I realized that, even though there were some similarities, my own STS experience was very unique. To clarify, according to Stoesen (2007), symptoms of STS include increased fatigue or illness, social withdrawal, reduced productivity, feelings of hopelessness, despair, nightmares, feelings of re-experiencing",
+   "chars": 454
+  },
+  {
+   "id": "doc-b89f-0073-0",
+   "node": 73,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "149 the event, having unwanted thoughts or images of traumatic events and anxiety, excess vigilance, avoidance of people or activities, or persistent anger and sadness.",
+   "chars": 168
+  },
+  {
+   "id": "doc-b89f-0074-0",
+   "node": 74,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "When I look through my own STS, what I experienced, materials of my clients, unwanted thoughts such as hearing bad news from my bother, mental and physical exhaustion resulting from increasing workload in the Social Service, and most importantly my indirect testimony of my clients’ life experiences, I felt helpless and inadequate, especially after Enes’ case and additionally, in my personal life,",
+   "chars": 399
+  },
+  {
+   "id": "doc-b89f-0074-1",
+   "node": 74,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "I became a hot-tempered person and isolated myself from my social environment because I was not enjoying my life anymore with intrusive thoughts in my minds. I saw the world as the worst place ever and I was bearing hatred and anger towards humanity. I know that I lived through these kinds of experiences and symptoms of STS; however, there was more.",
+   "chars": 351
+  },
+  {
+   "id": "doc-b89f-0075-0",
+   "node": 75,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "During this period, I started to suffer from migraine attacks which I had never experienced until then. The attacks were unbearable, and I got examined by doctors many times and they all said to me that I needed to stay away from this stressful work environment. I assume that my STS was the reason for my migraine attacks.",
+   "chars": 323
+  },
+  {
+   "id": "doc-b89f-0075-1",
+   "node": 75,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "In addition to my migraine attacks, I became a forgetful person during that time, though I have always had the reverse personality during my life as a very scheduled, punctual, and mindful person. I remember that I started to forget my things (phone, jacket, bag) at somewhere else and this was not a familiar behaviour for me at all. I even started to forget my meetings and gatherings with my friends, and at work.",
+   "chars": 416
+  },
+  {
+   "id": "doc-b89f-0075-2",
+   "node": 75,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "I was living through these kinds of experiences both in my personal and professional life; I did not realize my STS until Enes’ case. After becoming aware of it, I decided to change my client and case profile because I anticipated that the more, I was exposed to war-related stories and life experiences, the worse my well-being was going be. When I look back at my STS experience, I am surprised about how overwhelming it was.",
+   "chars": 427
+  },
+  {
+   "id": "doc-b89f-0075-3",
+   "node": 75,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "It was clearly too much for me especially in terms of my overlapping experiences.",
+   "chars": 81
+  },
+  {
+   "id": "doc-b89f-0076-0",
+   "node": 76,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "CONCLUSION, DISCUSSION AND IMPLICATIONS In this study, I aimed to refer to my subjective Secondary Trauma that I experienced as a result of overlapping personal and professional life experiences that I had while working in a Social Service with war-affected Syrian children.",
+   "chars": 274
+  },
+  {
+   "id": "doc-b89f-0077-0",
+   "node": 77,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "At the beginning of my study, working without numbers or any kinds of measurement tools made me question how I would reach a conclusion with my Autoethnographic study as I had been studying at Psychology Department where mostly quantitative methodologies are employed. On the other hand, during my study process, I have become aware of how effectively Autoethnography helped me to demonstrate my subjective experience of STS more clearly.",
+   "chars": 438
+  },
+  {
+   "id": "doc-b89f-0077-1",
+   "node": 77,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "This study has allowed me to re-examine all the things I lived through from a different point of view (being free of worries and fears) and I have reached a conclusion that Autoethnography has provided a substantial help in understanding my subjective Secondary Trauma experience. This study has enabled me to analyse my STS with more extended and clear thoughts, and also helped me to understand my ‘self’ experiencing STS and my current ‘self’ much better.",
+   "chars": 458
+  },
+  {
+   "id": "doc-b89f-0078-0",
+   "node": 78,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "When I look back at my STS experience, especially after carrying it on to an academic research level and looking at this in more depth, I was totally surprised that there were too many coincidences in my life. On the other hand, these overlapping experiences also filled me with the fear of losing the control of my personal voice and straying away from academic research. I",
+   "chars": 374
+  },
+  {
+   "id": "doc-b89f-0079-0",
+   "node": 79,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "150 am positive that I have succeeded in integrating my Autoethnographic voice into academic expression in this study.",
+   "chars": 118
+  },
+  {
+   "id": "doc-b89f-0080-0",
+   "node": 80,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "With this research, I have become more eager to be a Professional Counsellor, especially in war trauma field. I also came into the realization that I direly need to improve myself in this field in order to protect my own well-being and help these war-affected people. Because I know for certain that I want to help these people more efficiently.",
+   "chars": 345
+  },
+  {
+   "id": "doc-b89f-0080-1",
+   "node": 80,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "This attempt of mine also steams from the limited amount of studies in the literature focusing on the subjects of Counselling and war-trauma and Secondary Trauma of Counsellors working with war-affected people. Especially, as a counsellor who suffered from STS, while I was doing my literature review, I barely came across Autoethnographic studies on STS of Counsellors working with war-related people and this made me feel lonely.",
+   "chars": 431
+  },
+  {
+   "id": "doc-b89f-0080-2",
+   "node": 80,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "I believed that this reserach will serve as a unique example of an Autoethnography of STS experience of Counsellors who are working with war-affected children. Also, looking from a broader perspective, I want to be a voice for Counsellors working with any kind of trauma type and are under the risk of Secondary Trauma.",
+   "chars": 319
+  },
+  {
+   "id": "doc-b89f-0080-3",
+   "node": 80,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "I can say that working with traumatized people is not only a process that we (helping professionals) witness externally but also an internal process that we live.",
+   "chars": 162
+  },
+  {
+   "id": "doc-b89f-0081-0",
+   "node": 81,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "I preferred to narrate my war-affected clients’ life stories along with my own narratives. Because I wanted to demonstrate how these war-affected children are overcome by war and what they go through after being relocated to a new country.",
+   "chars": 239
+  },
+  {
+   "id": "doc-b89f-0081-1",
+   "node": 81,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "With this attempt, I also wanted to put these war-affected children’s or people’s situation forward to draw political attention for sorting out their problems or at least developing empathy towards their struggles in their pasts, worries for future and how things stand currently.",
+   "chars": 280
+  },
+  {
+   "id": "doc-b89f-0082-0",
+   "node": 82,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Lastly, I want to emphasize that even though I went through hard times during my Secondary Trauma and possessed hatred against humanity and the world, my current ‘self’ still believes that it is still possible to make the world better place for us and for children with the help of successful attempts and interventions.",
+   "chars": 320
+  },
+  {
+   "id": "doc-b89f-0082-1",
+   "node": 82,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "My STS caused me to develop negative perception of reality towards the world, but then, after recovering from Secondary Trauma, I could grasp another reality towards the world, which is full of hope and peace. That is why, I never feel pessimistic about experiencing Secondary Trauma, quite the contrary I owe it too much.",
+   "chars": 322
+  },
+  {
+   "id": "doc-b89f-0083-0",
+   "node": 83,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "REFERENCES",
+   "chars": 10
+  }
+ ]
+}

@@ -1,0 +1,130 @@
+/* ==================================================================
+   library.css — üst çubuk, hero ve kütüphane kartları
+   Renk/ölçü değişkenleri style.css'ten gelir; burada yeni sabit yok.
+   ================================================================== */
+
+/* ---------------------------- üst çubuk ---------------------------- */
+#topbar{position:sticky;top:0;z-index:60;display:flex;align-items:center;
+  gap:.75rem;padding:.5rem max(.75rem,2vw);
+  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter:blur(14px) saturate(1.5);
+  -webkit-backdrop-filter:blur(14px) saturate(1.5);
+  border-bottom:1px solid var(--rule-2)}
+#topbar .brand{display:flex;align-items:center;gap:.5rem;text-decoration:none;
+  color:var(--ink);font-family:var(--sans);font-size:var(--ui);font-weight:700;
+  min-height:var(--tap)}
+#topbar .brand .mark{color:var(--accent);font-size:1.15rem;line-height:1}
+#topbar .topnav{margin-left:auto;display:flex;gap:var(--ui-gap);align-items:center}
+#topbar a.btn{text-decoration:none}
+body.reading #topbar{display:none}
+
+/* ------------------------------- hero ------------------------------ */
+.hero{position:relative;min-height:min(88svh,780px);display:grid;place-items:center;
+  overflow:hidden;padding:3rem 5vw 4rem}
+#globe{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-veil{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 92% at 50% 46%,transparent 34%,var(--paper) 86%)}
+.hero-in{position:relative;text-align:center;max-width:44rem}
+.hero-kicker{font-family:var(--caps);font-variant:small-caps;letter-spacing:.2em;
+  font-size:var(--ui-sm);color:var(--ink-3);margin:0 0 1.1rem}
+.hero-h1{font-family:var(--serif);font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;
+  margin:0 0 1rem;font-weight:400;letter-spacing:-.01em}
+.hero-sub{font-family:var(--serif);font-size:clamp(1rem,2.3vw,1.25rem);
+  line-height:1.5;color:var(--ink-2);margin:0 auto 1.8rem;max-width:34rem}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:.5rem 1.6rem;
+  font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-3);
+  margin-bottom:1.8rem}
+.hero-stats b{color:var(--ink);font-variant-numeric:tabular-nums}
+.hero-cta{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+/* [hidden] tek başına .btn'in display:inline-flex'ini yenemez */
+.hero-cta .btn[hidden]{display:none}
+.hero-cta .btn{font-size:1rem;min-height:46px;padding:0 1.4em;text-decoration:none}
+.hero-scroll{position:absolute;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  font-family:var(--caps);font-variant:small-caps;letter-spacing:.16em;
+  font-size:var(--ui-sm);color:var(--ink-3)}
+
+/* ---------------------------- kütüphane ---------------------------- */
+.lib{max-width:76rem;margin:0 auto;padding:1rem 5vw 6rem}
+.lib-head{display:flex;align-items:baseline;gap:1rem;flex-wrap:wrap;
+  margin-bottom:1.4rem;padding-bottom:.7rem;border-bottom:1px solid var(--rule-2)}
+.lib-head h2{font-family:var(--caps);font-variant:small-caps;letter-spacing:.1em;
+  font-size:1.5rem;margin:0;font-weight:400}
+.lib-filters{margin-left:auto;display:flex;gap:var(--ui-gap);flex-wrap:wrap}
+
+.cards{display:grid;gap:1rem;
+  grid-template-columns:repeat(auto-fill,minmax(min(100%,20rem),1fr))}
+.card{position:relative;display:flex;flex-direction:column;gap:.6rem;
+  padding:1.1rem 1.1rem 1rem;border:1px solid var(--rule-2);border-radius:12px;
+  background:var(--paper-2);text-decoration:none;color:inherit;
+  transition:border-color .18s,transform .18s,box-shadow .18s;overflow:hidden}
+.card:hover{border-color:var(--accent);transform:translateY(-2px);
+  box-shadow:var(--shadow)}
+.card:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.card::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;
+  background:hsl(var(--hue) 55% 48%)}
+.card-top{display:flex;align-items:center;gap:.7rem}
+.card-ic{display:grid;place-items:center;width:2.35rem;height:2.35rem;
+  border-radius:9px;flex:none;
+  background:hsl(var(--hue) 55% 48% / .11);color:hsl(var(--hue) 55% 38%)}
+:root[data-theme="dark"] .card-ic{color:hsl(var(--hue) 60% 70%);
+  background:hsl(var(--hue) 45% 60% / .14)}
+.card-badges{margin-left:auto;display:flex;gap:.35rem;flex-wrap:wrap;flex:none}
+.badge{font-family:var(--sans);font-size:.75rem;padding:.15em .55em;border-radius:99px;
+  background:var(--paper);border:1px solid var(--rule-2);color:var(--ink-2);
+  white-space:nowrap}
+.badge.lvl{background:hsl(var(--hue) 55% 48% / .13);
+  border-color:hsl(var(--hue) 55% 48% / .3);color:hsl(var(--hue) 55% 34%)}
+:root[data-theme="dark"] .badge.lvl{color:hsl(var(--hue) 60% 72%)}
+.card h3{font-family:var(--serif);font-size:1.12rem;line-height:1.3;margin:0;
+  font-weight:700}
+.card .tr-title{font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-2);
+  line-height:1.4;margin:0}
+.card .blurb{font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-3);
+  line-height:1.5;margin:0}
+.card .meta{margin-top:auto;display:flex;align-items:center;gap:.3rem;
+  font-family:var(--sans);font-size:.78rem;color:var(--ink-3);
+  padding-top:.65rem;border-top:1px solid var(--rule-2);flex-wrap:wrap}
+.card .meta b{color:var(--ink-2);font-variant-numeric:tabular-nums;
+  margin-left:.15rem}
+.card .meta .ic{opacity:.6;margin-left:.5rem}
+.card .meta .ic:first-child{margin-left:0}
+.card-prog{position:relative;height:4px;border-radius:99px;background:var(--rule-2);
+  overflow:hidden;flex:1;min-width:4rem}
+.card-prog i{position:absolute;inset:0 auto 0 0;background:var(--accent);
+  border-radius:99px}
+.card.done::after{content:"✓ bitti";position:absolute;top:.7rem;right:.7rem;
+  font-family:var(--sans);font-size:.72rem;color:#2f7d55;font-weight:700}
+
+/* --------------------------- okuyucu ek --------------------------- */
+.side-back{display:inline-flex;margin-bottom:1rem;text-decoration:none}
+.doc-head{margin-bottom:2rem;padding-bottom:1.2rem;
+  border-bottom:1px solid var(--rule-2)}
+.doc-head .kicker{font-family:var(--sans);font-size:var(--ui-sm);
+  color:var(--ink-3);margin:0 0 .5rem}
+.doc-head h1{font-family:var(--serif);font-size:1.5em;line-height:1.22;margin:0 0 .6rem;
+  font-weight:700;text-indent:0}
+.doc-head .tr{font-family:var(--sans);font-size:var(--ui);color:var(--accent-2);
+  line-height:1.45;margin:0 0 .7rem}
+:root[data-theme="dark"] .doc-head .tr{color:var(--accent)}
+.doc-head .who{font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-2);
+  margin:0}
+
+/* --------------------------- sınav sayfası --------------------------- */
+.quiz-page{max-width:44rem;margin:0 auto;padding:2rem 5vw 6rem}
+.quiz-page .qp-head{margin-bottom:1.5rem}
+.quiz-page .qp-head h1{font-family:var(--serif);font-size:1.8rem;margin:0 0 .4rem}
+.quiz-page .qp-head p{font-family:var(--sans);font-size:var(--ui);
+  color:var(--ink-2);margin:0}
+
+/* ----------------------------- responsive ----------------------------- */
+@media (max-width:760px){
+  .hero{min-height:auto;padding:2.5rem 6vw 3rem}
+  .lib{padding:1rem 6vw 5rem}
+  .hero-scroll{display:none}
+}
+@media (max-width:560px){
+  #topbar .brand .name{display:none}
+  .cards{grid-template-columns:1fr}
+  .lib-head{gap:.6rem}
+  .lib-filters{margin-left:0;width:100%}
+}

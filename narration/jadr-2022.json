@@ -1,0 +1,1646 @@
+{
+ "id": "jadr-2022",
+ "title": "A Systematic Review of Prevalence and Correlates of Post-Traumatic Stress Disorder, Depression and Anxiety in Displaced Syrian Population",
+ "title_tr": "Yerinden Edilmiş Suriyeli Nüfusta Travma Sonrası Stres Bozukluğu, Depresyon ve Anksiyetenin Yaygınlığı ve İlişkili Etkenleri: Sistematik Bir Derleme",
+ "voice_hint": "narration, calm, clear, academic",
+ "items": [
+  {
+   "id": "jadr-2022-0000-0",
+   "node": 0,
+   "part": 0,
+   "parts": 1,
+   "tag": "h1",
+   "text": "Abstract",
+   "chars": 8
+  },
+  {
+   "id": "jadr-2022-0001-0",
+   "node": 1,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Since the beginning of the civil war in Syria, at least 13 million Syrians have been displaced. The vast influx of Syrians in resettlement countries has made it difficult to address the mental health problems of this population. Establishing policies around the risk factors are very fundamental for the social and political course of events and the well-being of Syrians.",
+   "chars": 372
+  },
+  {
+   "id": "jadr-2022-0001-1",
+   "node": 1,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "Thus, it is crucial to understand the correlates of mental health problems to establish effective prevention programmes. This systematic review synthesised literature investigating the prevalence and correlates of PTSD, depression, and anxiety of the externally displaced Syrian population. Following the PRISMA guideline, we searched EMBASE, MEDLINE, PsycInfo, CINAHL and Web of Science databases.",
+   "chars": 398
+  },
+  {
+   "id": "jadr-2022-0001-2",
+   "node": 1,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "The search was limited to peer-reviewed articles published between March 2011 and 2021. Seventeen studies met full eligibility criteria. The confidence interval (95 percent) of the prevalence is between 23.26 and 42.63 percent (SE = 4.48) for PTSD, 30.29 to 50.53 percent (SE = 4.47) for depression and 17.66 to 48.93 percent (SE = 5.62) for anxiety. The results indicate that the mental health problems of this population are 7–8 times higher than the general population.",
+   "chars": 472
+  },
+  {
+   "id": "jadr-2022-0001-3",
+   "node": 1,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "The relationships between sex, economic status and mental health problems are mixed across studies, with female Syrians in Turkey being at greater risk. Marital status, education level and resettlement period were not significant predictors, but the number of traumatic events predicted mental health problems.",
+   "chars": 310
+  },
+  {
+   "id": "jadr-2022-0001-4",
+   "node": 1,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "More population-based and statistically strong studies are needed to identify the mental health problems of this population and their risk factors to provide effective mental health interventions.",
+   "chars": 196
+  },
+  {
+   "id": "jadr-2022-0002-0",
+   "node": 2,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "KEYWORDS. Syrian refugees; Mental health; Prevalence; Post-traumatic stress disorder; Depression; Anxiety; Systematic review.",
+   "chars": 125
+  },
+  {
+   "id": "jadr-2022-0003-0",
+   "node": 3,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "1Introduction",
+   "chars": 13
+  },
+  {
+   "id": "jadr-2022-0004-0",
+   "node": 4,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Since the beginning of the civil war in Syria in March 2011, the world has confronted one of the largest displaced migration waves in our era, with the dislocation of at least 5.6 million Syrians seeking safety in different countries (United Nation High Commissioner Refugees, 2021a).",
+   "chars": 284
+  },
+  {
+   "id": "jadr-2022-0004-1",
+   "node": 4,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Due to displacement inside the country, seeking shelter out of the conflict area, around 13.1 million people from Syria need humanitarian assistance (United Nation High Commissioner Refugees, 2018). In 2013, Syria became the main country of origin of asylum seekers in 44 industrialized countries in Europe, North America, and the Asia Pacific region (United Nation High Commissioner Refugees, 2015).",
+   "chars": 400
+  },
+  {
+   "id": "jadr-2022-0004-2",
+   "node": 4,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "Due to countries’ policies toward refugees and closeness to the conflict area, Turkey, Lebanon, Jordan, Iraq, and Egypt have become the leading neighboring countries (United Nation High Commissioner Refugees, 2021a) allowing access to this vulnerable population. Since the summer of 2015, Europe has been a new destination for Syrian citizens mainly crossing through Turkey to enter Greece for possible onward travel.",
+   "chars": 417
+  },
+  {
+   "id": "jadr-2022-0004-3",
+   "node": 4,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "The ‘Syrian crisis’ has prompted greater attention from European countries (Yazgan et al, 2015) in the face of an overwhelming and unstoppable influx of Syrians into Europe. Germany and Sweden have the highest Syrian displaced population in Europe (Bitoulas, 2015).",
+   "chars": 265
+  },
+  {
+   "id": "jadr-2022-0005-0",
+   "node": 5,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Forced displacement has a detrimental impact on people’s integrity of self, existence, health, and mental well-being (Ozkaleli, 2018; Welsh and Brodsky, 2010; Boehnlein et al, 2016). The migration period involves distinctive transitions. Before forced migration, refugees may have experienced or witnessed physical, psychological, and sexual- or gender-based violence (Giacco et al, 2018); during migration they may face uncertain and challenging journeys.",
+   "chars": 456
+  },
+  {
+   "id": "jadr-2022-0005-1",
+   "node": 5,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "After arriving in a safe country, they may face numerous challenges and post-migration stressors. They may experience uncertainty about their legal status and future, worry about people left behind, discrimination and adverse political climate, loneliness and boredom, prohibition to work, disruption of education for children, and problems with language and culture (Kirmayer et al, 2011; Miller and Rasmussen, 2010).",
+   "chars": 418
+  },
+  {
+   "id": "jadr-2022-0006-0",
+   "node": 6,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "Researchers have shown interest in the dose-response relationship between trauma exposure and psychological distress in refugees (Mollica et al, 1998a, 1998b; Steel et al, 2009). There is a strong relationship between the complexity of trauma and psychological disorder: the more types of traumas to which participants were exposed, the greater the post-traumatic stress disorder (PTSD), anxiety, and depression symptoms they exhibited (Nickerson et al, 2015).",
+   "chars": 460
+  },
+  {
+   "id": "jadr-2022-0006-1",
+   "node": 6,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "Associations with psychopathology occur not only with traumatic experiences before migration but also with living in the host country (for example,, Hunt and Gekenyi, 2005; Silove et al, 1997). PTSD, depression, and anxiety disorders are the most common psychological problems among displaced populations affected by war trauma and having adverse life experiences (Morina et al, 2018).",
+   "chars": 385
+  },
+  {
+   "id": "jadr-2022-0006-2",
+   "node": 6,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "In a systematic review of studies encompassing nearly 7000 refugees residing in Western countries, Fazel et al (2005) found that they were ten times more likely to develop PTSD than corresponding age groups in those countries, with a prevalence range of 3–86 percent for PTSD and 3–80 percent for depression. Studies investigating the prevalence of psychological problems vary in terms of diagnostic methods (clinical interview or self-reports) and instruments applied.",
+   "chars": 469
+  },
+  {
+   "id": "jadr-2022-0006-3",
+   "node": 6,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "Some assessment tools lack validity, having been originally developed for Western civilization and not standardized for different ethnicities, and there are challenges with cross-cultural understanding and interpretation of assessments.",
+   "chars": 236
+  },
+  {
+   "id": "jadr-2022-0006-4",
+   "node": 6,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Studies also vary in terms of the severity and number of traumatic events and the extent of exposure to violence reported, sociodemographic characteristics of samples, ongoing threats that refugees are facing, and other post-migration stressors (Steel et al, 2009; Naja et al, 2016; Bogic et al, 2015).",
+   "chars": 302
+  },
+  {
+   "id": "jadr-2022-0007-0",
+   "node": 7,
+   "part": 0,
+   "parts": 6,
+   "tag": "p",
+   "text": "In addition to the psychological impact of war and conflict on the displaced population, host countries may face hardship to meet even the basic needs of asylum seekers and their inhabitants may confront political and societal challenges (Yalim and Kim, 2018).",
+   "chars": 260
+  },
+  {
+   "id": "jadr-2022-0007-1",
+   "node": 7,
+   "part": 1,
+   "parts": 6,
+   "tag": "p",
+   "text": "Since the civil war in Syria started, neighbouring countries have struggled to manage the huge migration wave politically, societally, and economically, even though they receive aid from international organisations (for example,, UNHCR) and Western countries.",
+   "chars": 259
+  },
+  {
+   "id": "jadr-2022-0007-2",
+   "node": 7,
+   "part": 2,
+   "parts": 6,
+   "tag": "p",
+   "text": "For example, Lebanon has the estimated highest numbers of refugees per capita in the World with 1.5 million displaced Syrians in a total population of 6.8 million (United Nation High Commissioner Refugees, 2021b), which makes it hard for the country to sustain and address the needs of both its own citizens and of Syrian refugees.",
+   "chars": 331
+  },
+  {
+   "id": "jadr-2022-0007-3",
+   "node": 7,
+   "part": 3,
+   "parts": 6,
+   "tag": "p",
+   "text": "Thus, the ‘Syrian crisis’ has evolved into a ‘Lebanese-Syrian crisis’, due to the shortage of resources caused by the widespread presence of Syrians (Hendaus et al, 2020). In a UNHCR Mental Health Report, El Chammay et al (2013) reported that only 1 percent of Syrians in Lebanon had access to mental health services due to a lack of service delivery and economic problems.",
+   "chars": 373
+  },
+  {
+   "id": "jadr-2022-0007-4",
+   "node": 7,
+   "part": 4,
+   "parts": 6,
+   "tag": "p",
+   "text": "Studies over the past decade have documented the dramatic increase in psychological distress in the Syrian displaced population. More than half of the 22 million Syrian people are estimated to be in need of psychosocial support (Moghaddam et al, 2017) and the majority of Syrian refugees have experienced at least three traumatic events during or after their migration (Ibrahim and Hassan, 2017).",
+   "chars": 396
+  },
+  {
+   "id": "jadr-2022-0007-5",
+   "node": 7,
+   "part": 5,
+   "parts": 6,
+   "tag": "p",
+   "text": "However, given the vast influx of Syrian refugees in resettlement countries, addressing their mental health difficulties is generally not a priority. Due to a lack of appropriate services for addressing this population’s basic needs such as food, safety, and accommodation, there is little scope for mental health service delivery.",
+   "chars": 331
+  },
+  {
+   "id": "jadr-2022-0008-0",
+   "node": 8,
+   "part": 0,
+   "parts": 9,
+   "tag": "p",
+   "text": "Several studies have investigated the prevalence of mental health problems in the displaced Syrian population. A cross-sectional study conducted in Sweden reported a high prevalence of PTSD (29.9 percent), depression (40.2 percent), and anxiety (31.8 percent) among 1215 Syrian refugees having a residency permit (Tinghög et al, 2017).",
+   "chars": 335
+  },
+  {
+   "id": "jadr-2022-0008-1",
+   "node": 8,
+   "part": 1,
+   "parts": 9,
+   "tag": "p",
+   "text": "Acarturk et al (2018) found a higher prevalence of PTSD (83.4 percent) and depression (37.4 percent) in 781 externally displaced Syrian citizens residing in a camp in Turkey. Considering the dramatic numbers of displaced Syrians in need of psychological treatment, this population needs immediate psychological support around the world. It is crucial for their adjustment to new countries and sustained well-being to respond appropriately to their psychological problems.",
+   "chars": 471
+  },
+  {
+   "id": "jadr-2022-0008-2",
+   "node": 8,
+   "part": 2,
+   "parts": 9,
+   "tag": "p",
+   "text": "Refugees and asylum seekers may differ in manifesting their psychological problems in terms of their socio-economic and demographic characteristics, though findings are mixed. However, it was demonstrated that female refugees have worse mental health than male refugees (Schweitzer et al, 2006; Schubert and Punamäki, 2011).",
+   "chars": 324
+  },
+  {
+   "id": "jadr-2022-0008-3",
+   "node": 8,
+   "part": 3,
+   "parts": 9,
+   "tag": "p",
+   "text": "Some studies highlighted that marital status, socio-economic and resettlement status and length of stay, settlement type, traumatic life experiences, and educational level are also associated with worse mental health status (Bhugra, 2004; Lindencrona et al, 2008; Bhui et al, 2003; SırBayram and Özkan, 1998; Burnett and Ndovi, 2018).",
+   "chars": 334
+  },
+  {
+   "id": "jadr-2022-0008-4",
+   "node": 8,
+   "part": 4,
+   "parts": 9,
+   "tag": "p",
+   "text": "Even though findings showing the association between mental health problems and demographics of refugees vary, it is crucial to investigate the possible impact of these characteristics on refugees’ well-being; enabling governments, policy-makers, and healthcare professionals to handle this population’s mental health problems better and in time.",
+   "chars": 346
+  },
+  {
+   "id": "jadr-2022-0008-5",
+   "node": 8,
+   "part": 5,
+   "parts": 9,
+   "tag": "p",
+   "text": "Delayed access to mental health care after resettlement increases the risk of depression more than fourfold and PTSD more than threefold in traumatized refugees exposed to adverse life experiences (Song et al, 2018). Improving and detecting mental health problems in the early stages of immigration might better facilitate the adjustment of refugees and might have a subsequent positive impact on their resettlement problems (Hollander, 2013; Blight et al, 2006).",
+   "chars": 463
+  },
+  {
+   "id": "jadr-2022-0008-6",
+   "node": 8,
+   "part": 6,
+   "parts": 9,
+   "tag": "p",
+   "text": "Considering the scarcity and inconsistency of studies indicating the prevalence of psychological problems and determining the correlations between demographic characteristics and mental health problems of this disadvantaged population; this systematic review aims to investigate the prevalence of PTSD, depression, and anxiety in the externally displaced Syrian population.",
+   "chars": 373
+  },
+  {
+   "id": "jadr-2022-0008-7",
+   "node": 8,
+   "part": 7,
+   "parts": 9,
+   "tag": "p",
+   "text": "Furthermore, it aims to investigate the correlations between these mental health problems and Syrian refugees’ demographic characteristics: sex, marital status, educational level, economic status, traumatic events experienced, resettlement period, residing country, legal status, and settlement type.",
+   "chars": 300
+  },
+  {
+   "id": "jadr-2022-0008-8",
+   "node": 8,
+   "part": 8,
+   "parts": 9,
+   "tag": "p",
+   "text": "These variables are compared and analysed for demonstrating the possible outcomes/ reasons for risk and protective factors for the displaced Syrian population’s mental health status. To our knowledge, this systematic review is the first study investigating the prevalence and correlates of common psychological problems in the externally displaced Syrian population in both low-income and high-income countries.",
+   "chars": 411
+  },
+  {
+   "id": "jadr-2022-0009-0",
+   "node": 9,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "2Method",
+   "chars": 7
+  },
+  {
+   "id": "jadr-2022-0010-0",
+   "node": 10,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.1Search strategy",
+   "chars": 18
+  },
+  {
+   "id": "jadr-2022-0011-0",
+   "node": 11,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "EMBASE, MEDLINE, PsycInfo, CINAHL and Web of Science databases were searched with the keywords of ‘Mental Health’, ‘Psychological Problems’, ‘Psychopathology’, ‘Prevalence’ and ‘Syrian’ using truncations, combinations of Boolean operators (AND, OR, NOT), parenthesis (“ ”), and Medical Subject Headings (MeSH) between January and March 2021. The search strategy and key terms used in different databases are represented in Table 1.",
+   "chars": 431
+  },
+  {
+   "id": "jadr-2022-0011-1",
+   "node": 11,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "No language restriction was applied, the search was limited to only peer-reviewed/scholarly articles and the time frame was between March 2011 (the beginning of the Syrian Civil War) and March 2021.",
+   "chars": 198
+  },
+  {
+   "id": "jadr-2022-0012-0",
+   "node": 12,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.2Selection and screening process",
+   "chars": 34
+  },
+  {
+   "id": "jadr-2022-0013-0",
+   "node": 13,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "This review follows the guideline of Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) (Moher et al, 2009). A flow diagram of the literature search based on the PRISMA is presented in Fig. 1. The registration for the PROSPERO database was completed in March 2021. The review was accepted with the protocol number CRD42021241360. To frame and refine the review question, the PICO model (Eriksen and Frandsen, 2018) was utilized.",
+   "chars": 453
+  },
+  {
+   "id": "jadr-2022-0013-1",
+   "node": 13,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "PICO contains the components of (P)opulation (Adult Syrian population), (I)ntervention/(I)nterest (prevalence of PTSD, Anxiety and Depression), (C)ontext/(C)omparison (displaced Syrian population due to Syrian civil war) and (O)utcomes (correlates between these mental health problems and Syrian people’s demographics). Primary inclusion and exclusion criteria for this review are represented in Table 2.",
+   "chars": 404
+  },
+  {
+   "id": "jadr-2022-0014-0",
+   "node": 14,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Fig. 1 presents the inclusion and exclusion process of the screening studies. During the database searching, a total of 319 studies were screened. Additionally, 28 studies were detected with hand-searching of literature, saved alerts from the databases, and the help of the librarians of the University of Nottingham. After the title screening, 78 studies were removed from the list because of the duplications across databases.",
+   "chars": 428
+  },
+  {
+   "id": "jadr-2022-0014-1",
+   "node": 14,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "The abstract screening was carried out with 269 studies and 235 studies were excluded due to the aims of the studies which are out of the scope of this review. Full search screening was carried out with a Screening tool created by the first author for the detailed full-text retrieval. During the full-text screening, 4 additional studies were detected from the bibliographies of the studies screened.",
+   "chars": 401
+  },
+  {
+   "id": "jadr-2022-0014-2",
+   "node": 14,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Each paper was read carefully to identify whether they meet inclusion criteria. 17 studies were excluded during this process and a total of 21 studies met the eligibility criteria.",
+   "chars": 180
+  },
+  {
+   "id": "jadr-2022-0015-0",
+   "node": 15,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.3Data extraction",
+   "chars": 18
+  },
+  {
+   "id": "jadr-2022-0016-0",
+   "node": 16,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "A data extraction tool was developed to tabulate and analyse data across the included studies and to compare their different outcomes. It describes each study in detail such as the location of the study, demographics of the sample, and context and measurements used for data collection.",
+   "chars": 286
+  },
+  {
+   "id": "jadr-2022-0017-0",
+   "node": 17,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.4Quality appraisal",
+   "chars": 20
+  },
+  {
+   "id": "jadr-2022-0018-0",
+   "node": 18,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "The Joanna Briggs Institute (JBI)’s Critical Appraisal tool was utilised for the assessment of risk of bias in the included studies. This enabled a rigorous process for evaluating the quality of studies and investigating the possibility of bias in their design, measurement, classification, conduct, and analysis. After full-text searching, a total of 21 studies met full eligibility criteria.",
+   "chars": 393
+  },
+  {
+   "id": "jadr-2022-0018-1",
+   "node": 18,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Quality appraisal of was initially completed by the first author and then checked for reliability by the second and third author reviewing one half of studies each. Consequently, three studies were excluded from the final list due to insufficient sample size, inadequate detail about study participants, psychometric concerns toward the validity and reliability of the measurements, and difficulties in the measurement of PTSD.",
+   "chars": 427
+  },
+  {
+   "id": "jadr-2022-0018-2",
+   "node": 18,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "There were disagreements for only two studies, which were resolved by discussion. Consequently, one study was included, and the other study was excluded because of the sampling method and the aim of the study.",
+   "chars": 209
+  },
+  {
+   "id": "jadr-2022-0019-0",
+   "node": 19,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.5Data synthesis",
+   "chars": 17
+  },
+  {
+   "id": "jadr-2022-0020-0",
+   "node": 20,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "To answer the review questions, the prevalence and correlates of PTSD, depression, and anxiety and the demographics of the Syrian population (sex, marital status, education level, economic status, legal status, number of traumatic events experienced, resettlement period, and residing country) are analysed descriptively in an organized structure.",
+   "chars": 347
+  },
+  {
+   "id": "jadr-2022-0020-1",
+   "node": 20,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Quantitative outcomes are represented in Table 3, indicating that findings are not robust and differ in evaluating the demographics (for example, classification of employment status or education levels), and in applying a variety of measurement tools. For example, while some studies report the PTSD prevalence of female and male participants separately, others presented their outcomes together.",
+   "chars": 396
+  },
+  {
+   "id": "jadr-2022-0020-2",
+   "node": 20,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "As a result, the outcomes were synthesised and analysed descriptively according to each demographic.",
+   "chars": 100
+  },
+  {
+   "id": "jadr-2022-0021-0",
+   "node": 21,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "3Results",
+   "chars": 8
+  },
+  {
+   "id": "jadr-2022-0022-0",
+   "node": 22,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Seventeen studies met full eligibility criteria and were included in this review. Despite the systematic search of the literature having no language restriction, only studies in English remained on the final list. The demographics of the included studies are represented in Table 3. A total of 9061 Syrian participants were included in this review with 50.1 percent (4492) female and 49.9 percent (4474) male.",
+   "chars": 409
+  },
+  {
+   "id": "jadr-2022-0022-1",
+   "node": 22,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "The marital status, education level, economic status, traumatic events experienced, resettlement period and residing country, and legal status and settlement type are analysed descriptively in Tables 3 and 4. Because of missing cases, the numbers do not add up to the total population. The numbers are presented as they were reflected in the original articles. In general, the prevalence of PTSD, depression, and anxiety varies across studies.",
+   "chars": 443
+  },
+  {
+   "id": "jadr-2022-0022-2",
+   "node": 22,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "It is between 11.4 percent (Georgiadou et al, 2018) and 83.4 percent (Acarturk et al, 2018) for PTSD, 14.5 percent (Georgiadou et al, 2018) and 70.5 percent (Tekeli-Yesil et al, 2018) for depression, and 13.5 percent (Georgiadou et al, 2018) and 47.7 percent (Javanbakht et al, 2019) for anxiety. The confidence interval (95 percent) of PTSD prevalence of included studies is likely to fall between 23.26 and 42.63 percent with a mean of 32.95 percent (SE = 4.48).",
+   "chars": 464
+  },
+  {
+   "id": "jadr-2022-0022-3",
+   "node": 22,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "The prevalence of depression is between 30.29 and 50.53 percent, with a mean of 40.41 percent (SE = 4.47) and anxiety is between 17.66 and 48.93 with a mean of 33.3 percent (SE = 5.62).",
+   "chars": 185
+  },
+  {
+   "id": "jadr-2022-0023-0",
+   "node": 23,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.1Sex and PTSD, depression and anxiety",
+   "chars": 39
+  },
+  {
+   "id": "jadr-2022-0024-0",
+   "node": 24,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Overall, 14 studies aimed to investigate the association between sex and symptoms of PTSD, depression, and anxiety in the externally displaced Syrian population. The relationship between mental health problems and sex varies across studies, but while most studies reported that being female is highly associated with experiencing PTSD, depression, and anxiety; 6 studies found no relationship between sex and these disorders.",
+   "chars": 425
+  },
+  {
+   "id": "jadr-2022-0025-0",
+   "node": 25,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Nine studies (N=4974) assessed the relationship between sex and PTSD. Among those, five studies reported that being female is significantly associated with developing PTSD.",
+   "chars": 172
+  },
+  {
+   "id": "jadr-2022-0025-1",
+   "node": 25,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "(Acarturk et al, 2018 [OR=4.1 (95 percentCI) (0.4–6.8), p less than point 1]; Kaya, 2019 [OR= 2.8 (95 percentCI) (1.75–4.47), p less than point 1)]; (Sagaltici et al, 2019), (\\beta;.41, p less than point 1); Acarturk et al, 2020 [OR= 1.84 (95 percentCI) (1.33–2.54), p less than point 1]; Alpak et al, 2015 (46.2 percent, p less than point 1)).",
+   "chars": 344
+  },
+  {
+   "id": "jadr-2022-0025-2",
+   "node": 25,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Three studies had found no significant relationship between sex and PTSD symptoms (Georgiadou et al, 2018; Kazour et al, 2017; Chung et al, 2018). On the other hand, one study had reported higher PTSD symptoms among male participants, but no correlation was found (Basheti et al, 2019) between sex and PTSD symptoms.",
+   "chars": 316
+  },
+  {
+   "id": "jadr-2022-0026-0",
+   "node": 26,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Nine studies (N=5661) assessed the relationship between sex and depression. Five studies reported that being female is significantly associated with developing depression (Acarturk et al, 2018, [OR=5.1 (95 percentCI) (3.2–8.1, p less than point 1)]; Poole et al, 2018, [OR=3.23 (95 percentCI) (1.21–8.62), p equals point 0.019]; A.",
+   "chars": 331
+  },
+  {
+   "id": "jadr-2022-0026-1",
+   "node": 26,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Javanbakht et al, 2019 (58.8 percent, p equals point 3); Kaya et al, 2019, [OR= 2.7 (95 percentCI), (1.74–4.41), p equals point 4)]; Acarturk et al, 2020, [OR=1.86 (95 percentCI) (1.44–2.42), p less than point 1]. Four studies found no relationship between sex and depression (Gammouh et al, 2015; Naja et al, 2016; Georgiadou et al, 2018; Tinghög et al, 2017).",
+   "chars": 361
+  },
+  {
+   "id": "jadr-2022-0027-0",
+   "node": 27,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Three studies (N=3050) assessed the relationship between sex and anxiety. Two studies reported that being female is significantly associated with developing anxiety disorder (Javanbakht et al, 2019 (52.7 percent, p equals point 1); Acarturk et al, 2020, [OR=2.44 (95 percentCI) (1.87–3.19), p less than point 1], but one study (Tinghög et al, 2017) reported no relationship between sex and anxiety even though the female Syrian population showed higher anxiety symptoms.",
+   "chars": 470
+  },
+  {
+   "id": "jadr-2022-0028-0",
+   "node": 28,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.2Marital status and PTSD, depression and anxiety",
+   "chars": 50
+  },
+  {
+   "id": "jadr-2022-0029-0",
+   "node": 29,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Fifteen studies aimed to investigate the association between marital status and the prevalence of PTSD, depression, and anxiety in the externally displaced Syrian population yielding varying results. As detailed below, 19 results showed no relationship between marital status and PTSD, depression, and anxiety. Twelve studies (N=6632) assessed the relationship between marital status and PTSD.",
+   "chars": 393
+  },
+  {
+   "id": "jadr-2022-0029-1",
+   "node": 29,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Among those, one reported that being married (civil or religious marriage) and being single were protective factors for developing PTSD (Tekeli-Yesil et al, 2018; for civil marriage [OR= 0.30 (95 percent CI) (0.12- 0.74) p less than point 1], for only religious marriage [OR= 0.33 (95 percent CI) (0.11- 0.99), p less than point 1), for being single [OR= 0.18 (95 percent CI) (0.05- 0.61), p less than point 1]);",
+   "chars": 412
+  },
+  {
+   "id": "jadr-2022-0029-2",
+   "node": 29,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "this study suggests that being divorced or widowed might predict PTSD. Another study also reported being divorced or widowed as a risk factor for developing PTSD (Tinghög et al, 2017, [OR= 51.5 percent (95 percent CI) (37.9- 65.1 percent), p less than point 1].",
+   "chars": 261
+  },
+  {
+   "id": "jadr-2022-0029-3",
+   "node": 29,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "The remaining 10 studies found no significant relationship between marital status and PTSD (Alpak et al, 2015; Kazour et al, 2017; Acarturk et al, 2018; Georgiadou et al, 2018; Basheti et al, 2019; Chung et al, 2018; Kaya et al, 2019; Javanbakht et al, 2019; Sagaltici et al, 2019; Acarturk et al, 2020).",
+   "chars": 304
+  },
+  {
+   "id": "jadr-2022-0030-0",
+   "node": 30,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Nine studies (N=5946) assessed the relationship between marital status and depression; only three of these found a significant relationship.",
+   "chars": 140
+  },
+  {
+   "id": "jadr-2022-0030-1",
+   "node": 30,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "One study found that being married (civil or religious marriage) and being single were protective factors for developing depression (Tekeli-Yesil et al, 2018; for civil marriage [OR= 0.72 (95 percent CI) (0.31 - 1.64), p less than point 1], for only religious marriage [OR= 0.57 (95 percent CI) (0.21- 1.52), p less than point 1, for being single [OR= 0.61 (95 percent CI) (0.21- 1.79), p less than point 1],",
+   "chars": 408
+  },
+  {
+   "id": "jadr-2022-0030-2",
+   "node": 30,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "one study reported that being married was associated with reduced depression symptoms (Poole et al, 2018, [AOR= 0.23 (95 percent CI) (0.05- 0.95), p equals point 42) and one study reported that divorced or widowed participants were at high risk of developing depression (Tinghög et al, 2017, [OR= 56.5 percent (95 percent CI) (41.9- 69.5 percent), p less than point 1].",
+   "chars": 369
+  },
+  {
+   "id": "jadr-2022-0030-3",
+   "node": 30,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "On the other hand, six studies found no significant relationship between marital status and depression (Gammouh et al, 2015; Naja et al, 2016; Acarturk et al, 2018; Georgiadou et al, 2018; Kaya et al, 2019; Javanbakht et al, 2019; Acarturk et al, 2020).",
+   "chars": 253
+  },
+  {
+   "id": "jadr-2022-0031-0",
+   "node": 31,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Four studies (N=3250) assessed the relationship between marital status and anxiety, but only one found a significant relationship, reporting that divorced or widowed participants were at high risk of developing anxiety (Tinghög et al, 2017, [OR= 51.8 percent (95 percent CI) (38.0- 66.1 percent), p less than point 1]. Three studies found no relationship between marital status and anxiety (Georgiadou et al, 2018; Javanbakht et al, 2019; Acarturk et al, 2020).",
+   "chars": 461
+  },
+  {
+   "id": "jadr-2022-0032-0",
+   "node": 32,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.3Educational level and PTSD, depression and anxiety",
+   "chars": 53
+  },
+  {
+   "id": "jadr-2022-0033-0",
+   "node": 33,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "In total, fourteen studies aimed to investigate the relationship between educational level and PTSD, depression, and anxiety. None of them found a significant relationship between educational level and mental health problems. Eleven studies (N=6967) assessed the relationship between PTSD and educational level.",
+   "chars": 311
+  },
+  {
+   "id": "jadr-2022-0033-1",
+   "node": 33,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "None found a significant relationship between these two variables (Alpak et al, 2015; Taha et al, 2016; Kazour et al, 2017; Tinghög et al, 2017; Acarturk et al, 2018; Chung et al, 2018; Basheti et al, 2019; Kaya et al, 2019; Javanbakht et al, 2019; Sagaltici et al, 2019; Acarturk et al, 2020).",
+   "chars": 294
+  },
+  {
+   "id": "jadr-2022-0033-2",
+   "node": 33,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "Eight (N=5461) studies assessed the relationship between depression and educational level, and none found a significant relationship between the two variables (Gammouh et al, 2015; Naja et al, 2016; Tinghög et al, 2017; Acarturk et al, 2018; Poole et al, 2018; Javanbakht et al, 2019; Kaya et al, 2019; Acarturk et al, 2020).",
+   "chars": 325
+  },
+  {
+   "id": "jadr-2022-0033-3",
+   "node": 33,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "Three studies (N=3050) assessed the relationship between educational level and anxiety; none reported a significant relationship between these two variables (Tinghög et al, 2017; Javanbakht et al, 2019; Acarturk et al, 2020).",
+   "chars": 225
+  },
+  {
+   "id": "jadr-2022-0034-0",
+   "node": 34,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.4Economic status and PTSD, depression and anxiety",
+   "chars": 51
+  },
+  {
+   "id": "jadr-2022-0035-0",
+   "node": 35,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "In total, seven studies aimed to investigate the relationship between economic status and PTSD, depression, and anxiety. The variables related to economic status were addressed differently across studies as employment, occupation, and income status. In data analysis, these variables were gathered under the ‘economic status’ category. The relationship between the prevalence of mental health problems and economic status varies across included studies.",
+   "chars": 453
+  },
+  {
+   "id": "jadr-2022-0035-1",
+   "node": 35,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "However, as indicated below, the negative association between economic status and the prevalence of mental health disorders was also claimed. Five studies (N=3516) examined the relationship between PTSD and economic status. Among those, three found a significant relationship between employment status and PTSD prevalence.",
+   "chars": 322
+  },
+  {
+   "id": "jadr-2022-0035-2",
+   "node": 35,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "Alpak et al (2015) found that PTSD prevalence was higher among housewives ( percent51.8, p less than point 1), and Acarturk et al (2018) reported higher PTSD scores among retired Syrians (Med=66, a score range from 0 to 88 for IES-R).",
+   "chars": 234
+  },
+  {
+   "id": "jadr-2022-0035-3",
+   "node": 35,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "Acarturk et al (2020) also found that good income was associated with lower PTSD prevalence [OR= 0.19 (95 percent CI) (0.05- 0.64), p less than point 1], but nothing was reported for unemployed participants, and no other studies (Tekeli-Yesil et al, 2018 and Kaya et al, 2019) indicated a relationship between economic status and PTSD.",
+   "chars": 335
+  },
+  {
+   "id": "jadr-2022-0036-0",
+   "node": 36,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Six studies (N=4239) investigated the relationship between depression and economic status. Among those, four studies found a significant relationship between employment status and depression. Acarturk et al (2018) reported that depression scores were higher among retired Syrians (Med=24, a score range from 0 to 63 for BDI-II). However, in this population, PTSD levels were higher than depression.",
+   "chars": 398
+  },
+  {
+   "id": "jadr-2022-0036-1",
+   "node": 36,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Kaya et al (2019) found that depression [OR= 1.62 (95 percent CI) (1.19–2.20), p less than point 1] was predicted by lower economic status among male [OR= 2.23 (95 percent CI) (1.36- 3.64), p less than point 1] but not among women, but no significant relationship was found between PTSD and lower economic status in this study.",
+   "chars": 327
+  },
+  {
+   "id": "jadr-2022-0036-2",
+   "node": 36,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Similarly, Gammouh et al (2015) found that low income was associated with higher depression symptoms [OR= 0.70 (95 percent CI) (0.42–1.15), p equals point 3] and Acarturk et al (2020) reported that good income had predicted lower depression scores [OR= 0.16 (95 percent CI) (0.07- 0.38), p less than point 1]. On the other hand, two studies reported no significant relationship between economic status and depression (Naja et al, 2016 and Tekeli-Yesil et al, 2018).",
+   "chars": 465
+  },
+  {
+   "id": "jadr-2022-0037-0",
+   "node": 37,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Only one study (N=1678) investigated the relationship between economic status and anxiety (Acarturk et al, 2020). This study found that good income was associated with low anxiety symptoms [OR= 0.26 (95 percent CI) (0.12–0.59), p less than point 1].",
+   "chars": 249
+  },
+  {
+   "id": "jadr-2022-0038-0",
+   "node": 38,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.5Traumatic events experienced (TEE) and PTSD, depression and anxiety",
+   "chars": 70
+  },
+  {
+   "id": "jadr-2022-0039-0",
+   "node": 39,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Five studies investigated the relationship between Traumatic Events Experienced (TEE) and PTSD, depression, and anxiety. The mean numbers of traumatic events are between 3.71 and 13.7 across studies.",
+   "chars": 199
+  },
+  {
+   "id": "jadr-2022-0039-1",
+   "node": 39,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The most common experienced traumatic events in this population (N=3371) were, in order, “living in a war-affected area; the experience of the death of someone close; experiencing life-threatening accident; experiencing life-threatening accident of a someone close; experiencing someone close’s torture; experiencing the abduction or being taken hostage of someone close; experiencing torture; and experiencing someone else’s torture, beating or sexual abuse”.",
+   "chars": 460
+  },
+  {
+   "id": "jadr-2022-0040-0",
+   "node": 40,
+   "part": 0,
+   "parts": 6,
+   "tag": "p",
+   "text": "All studies investigating the relationship between TEE and mental health disorders reported that exposing a greater number of traumatic events is associated with higher PTSD, depression, and anxiety symptoms.",
+   "chars": 208
+  },
+  {
+   "id": "jadr-2022-0040-1",
+   "node": 40,
+   "part": 1,
+   "parts": 6,
+   "tag": "p",
+   "text": "For example, Kaya et al (2019) found that exposing combat situation was the most common traumatic event for both female (88.6 percent) and male (89 percent) participants and the high numbers of TEE were predicted to PTSD [OR= 1.092 (95 percent CI) (1.045–1.140), p less than point 1] and depression [OR= 1.142 (95 percent CI) (1.090–1.196), p less than point 1].",
+   "chars": 362
+  },
+  {
+   "id": "jadr-2022-0040-2",
+   "node": 40,
+   "part": 2,
+   "parts": 6,
+   "tag": "p",
+   "text": "(Tinghög et al, 2017) reported similar results and found a significant relationship between the number of TEE and Anxiety [OR= 0.044 (95 percent CI) (0.031- 0.056), p less than point 5], addition to PTSD [OR= 0.056 (95 percent CI) (0.044- 0.068), p less than point 5] and depression [OR= 0.045 (95 percent CI) (0.032- 0.058), p less than point 5]. In this study, 85 percent of the sample reported experiencing war at a close quarter.",
+   "chars": 433
+  },
+  {
+   "id": "jadr-2022-0040-3",
+   "node": 40,
+   "part": 3,
+   "parts": 6,
+   "tag": "p",
+   "text": "Additionally, the relationship between increased PTSD symptoms and higher means of traumatic events was also reported in other studies (for example,, Alpak et al, 2015, (p equals point 2); Taha et al, 2016, (p less than point 1); Chung et al, 2018, (p less than point 1)).",
+   "chars": 272
+  },
+  {
+   "id": "jadr-2022-0040-4",
+   "node": 40,
+   "part": 4,
+   "parts": 6,
+   "tag": "p",
+   "text": "Alpak et al (2015) reported that 92 percent of participants reported having been in a region affected by war and the participants reported a mean of 3.71 (min-max:0–9) traumatic events with 33.5 percent of PTSD prevalence. Moreover, the higher numbers of traumatic events were reported in a study conducted in Turkey by Kaya et al (2019) with a mean of 13.7 (min-max: 2–32) associated with the 36.5 percent of PTSD and 47.7 percent of depression prevalence.",
+   "chars": 457
+  },
+  {
+   "id": "jadr-2022-0040-5",
+   "node": 40,
+   "part": 5,
+   "parts": 6,
+   "tag": "p",
+   "text": "This study also highlighted that male participants reported experiences of more traumatic events than females (14.9 versus 13.0; p less than point 1).",
+   "chars": 150
+  },
+  {
+   "id": "jadr-2022-0041-0",
+   "node": 41,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.6Resettlement period and country and PTSD, depression and anxiety",
+   "chars": 67
+  },
+  {
+   "id": "jadr-2022-0042-0",
+   "node": 42,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Eight articles discussed the resettlement period and its impact on mental health problems. The mean numbers of resettlement periods differ across studies from 6.52 months to 3.4 years. The studies included had reported no significant relationship between the resettlement period and the mental health disorders (Alpak et al, 2015; Kazour et al, 2017; Acarturk et al, 2018; Chung et al, 2018; Kaya et al, 2019; Sagaltici et al, 2019; Acarturk et al, 2020).",
+   "chars": 455
+  },
+  {
+   "id": "jadr-2022-0042-1",
+   "node": 42,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Only a study conducted in Greece by Poole et al\\ (2018) found that increased time in the asylum process as a predictor of depression symptoms.",
+   "chars": 142
+  },
+  {
+   "id": "jadr-2022-0043-0",
+   "node": 43,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "The studies included in this systematic review represent the Syrian displaced population from eight different countries: Turkey, Sweden, Jordan, Lebanon, Iraqi Kurdistan, Greece, Germany, and the USA. Most of the included studies (7) were conducted in Turkey (see Table 4).",
+   "chars": 273
+  },
+  {
+   "id": "jadr-2022-0043-1",
+   "node": 43,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "The highest prevalence of PTSD among the Syrian population was calculated in Turkey with 83.4 percent (Acarturk et al, 2018) and the lowest prevalence was reported in Germany with 11.45 percent (Georgiadou et al, 2018). The highest depression prevalence was found in Turkey with 70.5 percent (Tekeli-Yesil et al, 2018) and the lowest in Germany with 14.5 percent (Georgiadou et al, 2018).",
+   "chars": 388
+  },
+  {
+   "id": "jadr-2022-0043-2",
+   "node": 43,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Lastly, the highest prevalence of anxiety was reported in the US with 47.7 percent (Javanbakht et al, 2019) and the lowest in Germany with 13.5 percent (Georgiadou et al, 2018).",
+   "chars": 177
+  },
+  {
+   "id": "jadr-2022-0044-0",
+   "node": 44,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.7Legal status of the population and settlement type and PTSD, depression and anxiety",
+   "chars": 86
+  },
+  {
+   "id": "jadr-2022-0045-0",
+   "node": 45,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Almost all included studies referred to the Syrian displaced population as ‘refugees’, but most did not provide information whether this population had legal refugee documents or not. Only two studies clearly specified the refugee status as “having a guaranteed residency permit”, one of these was conducted in Germany by Georgiadou et al (2018) reporting the lowest PTSD (11.4 percent), depression (14.5 percent) and anxiety (13.5 percent) levels of all reviewed studies.",
+   "chars": 472
+  },
+  {
+   "id": "jadr-2022-0045-1",
+   "node": 45,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "It also reported that shorter validity of residence permits was significantly associated with increased PTSD symptoms (p equals point 4). A study conducted by Tinghög et al (2017), sampling the population of Syrian refugees with residency permits in Sweden, had not reported similar results.",
+   "chars": 291
+  },
+  {
+   "id": "jadr-2022-0045-2",
+   "node": 45,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "It showed no distinction in the prevalence of PTSD (29.9 percent), depression (40.2 percent), and anxiety (31.8 percent) when compared to other studies with Syrian refugees without legal status. Additionally, a study conducted by Poole et al (2018) sampled asylum seekers in Greece and finding a very high depression prevalence (44.0 percent). The lack of a clear definition of legal refugee status and inconsistent results across studies make it difficult to draw conclusions.",
+   "chars": 477
+  },
+  {
+   "id": "jadr-2022-0046-0",
+   "node": 46,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Regarding settlement type, six studies (N=2882) investigated Syrian refugees living in camps, ten studies (N=5934) sampled those living outside camps and one study (N=200) was mixed (see Table 4). Only two studies investigated the relationship between settlement type and mental health problems: Basheti et al (2019) and Georgiadou et al (2018) examined the impact of settlement type on Syrian refugees’ mental health, but neither found a significant relationship.",
+   "chars": 464
+  },
+  {
+   "id": "jadr-2022-0047-0",
+   "node": 47,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "4Discussion",
+   "chars": 11
+  },
+  {
+   "id": "jadr-2022-0048-0",
+   "node": 48,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "The purpose of this review was to gain a better understanding of the prevalence and correlates of PTSD, depression, and anxiety among the externally displaced Syrian population.",
+   "chars": 177
+  },
+  {
+   "id": "jadr-2022-0048-1",
+   "node": 48,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "The findings indicate that the prevalence of PTSD, depression, and anxiety is high and that female displaced Syrians, especially those living in Turkey, are at greater risk of experiencing these mental health problems; however, results regarding the relationship between sex and mental health are mixed.",
+   "chars": 303
+  },
+  {
+   "id": "jadr-2022-0048-2",
+   "node": 48,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "Generally, economic status was not found to be significantly related to mental health problems; however, higher-level depression was found to be strongly associated with a lower level of economic status. Marital status, education level, and resettlement period were not found to be significant predictors of PTSD, depression, and anxiety. The number of traumatic events was closely associated with higher symptom severity of PTSD, depression, and anxiety.",
+   "chars": 455
+  },
+  {
+   "id": "jadr-2022-0049-0",
+   "node": 49,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "The results of this review show that the prevalence of mental health problems among externally displaced Syrians to range from 23.26 percent to 42.63 percent for PTSD, 30.28 percent - 50.53 percent for depression, and 17.67 percent - 48.93 percent for anxiety. These rates are significantly higher than in the general population.",
+   "chars": 329
+  },
+  {
+   "id": "jadr-2022-0049-1",
+   "node": 49,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "In the US National Comorbidity Survey, the prevalence of PTSD was found between 6 percent and 9 percent in the adult population (age 18–59, Kessler et al, 2005) and a systematic review (Baxter et al, 2013) reported the global prevalence of anxiety as 7.3 percent. A national survey reported that the prevalence of depression as 7.1 percent among U.S. adults (National Institute of Mental Health. (NIMH), 2017).",
+   "chars": 410
+  },
+  {
+   "id": "jadr-2022-0049-2",
+   "node": 49,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "The prevalence of depression and anxiety in this review is up to 7 times higher and PTSD is up to 8 times higher in the externally displaced Syrian population than in the general population. Our findings are consistent with the literature indicating that refugees have worse mental health than permanent residents or non-refugees (for example,, Kocijan-Hercigonja et al, 1998).",
+   "chars": 377
+  },
+  {
+   "id": "jadr-2022-0049-3",
+   "node": 49,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "Having lived through war-related life experiences and migration has put this population at a higher risk of experiencing mental health problems; however, we did not find data regarding the prevalence of psychological problems in the Syrian population before the war, preventing comparisons of psychological well-being before and after the war. This is due to the shortage in mental health research and care in Syria before the civil war.",
+   "chars": 437
+  },
+  {
+   "id": "jadr-2022-0049-4",
+   "node": 49,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Only 70 psychiatrists in two psychiatric hospitals were serving a population of 22 million in Syria before the civil war (Cultural Orientation Research Center, Cultural Orientation Research, 2014). Nonetheless, the prevalence of PTSD, depression, and anxiety disorders in the internally displaced Syrian population, and refugee populations in general, is similar to our findings (for example,, Kakaje et al, 2021; Ibraheem et al, 2017; Steel et al, 2009; Turner et al, 2003).",
+   "chars": 475
+  },
+  {
+   "id": "jadr-2022-0050-0",
+   "node": 50,
+   "part": 0,
+   "parts": 8,
+   "tag": "p",
+   "text": "Contrary to expectations, this review found a mixed relationship between gender and PTSD, depression, and anxiety. While some studies reported a significant relationship between being female and experiencing PTSD, depression, and anxiety, others found no such relationship in the displaced Syrian population.",
+   "chars": 308
+  },
+  {
+   "id": "jadr-2022-0050-1",
+   "node": 50,
+   "part": 1,
+   "parts": 8,
+   "tag": "p",
+   "text": "This is surprising because women in the general population are more likely to experience and report PTSD, depression (for example,, Piccinelli and Wilkinson, 2000, Hapke et al, 2006; Nolen-Hoeksema et al, 2008) and anxiety (for example,, McLean et al, 2011), even though some types of psychological problems such as substance abuse and antisocial behaviours are more common in the male population (World Health Organization (WHO), 2002).",
+   "chars": 437
+  },
+  {
+   "id": "jadr-2022-0050-2",
+   "node": 50,
+   "part": 2,
+   "parts": 8,
+   "tag": "p",
+   "text": "It has also been reported that female refugees tend to experience more mental health problems than males (Cantekin and Gençöz, 2017; World Health Organization. WHO, 2004; Aoun et al, 2018b). Even though the male participants report higher numbers of traumatic events, female participants experience higher symptoms of PTSD (Mollica et al, 1987; Potts, 1994).",
+   "chars": 358
+  },
+  {
+   "id": "jadr-2022-0050-3",
+   "node": 50,
+   "part": 3,
+   "parts": 8,
+   "tag": "p",
+   "text": "This might be because men have higher resistance to, and avoidance of, experiencing and verbalizing mental health problems, due to a common belief that men should stand and fight to protect their family members from external threats (Jaji, 2009).",
+   "chars": 246
+  },
+  {
+   "id": "jadr-2022-0050-4",
+   "node": 50,
+   "part": 4,
+   "parts": 8,
+   "tag": "p",
+   "text": "Women may be concerned about continuing to take care of the family in post-conflict areas, increased workload because of losing a husband during the war, changes in parental roles after the migration, and be used to reporting and interpreting feelings and problems.",
+   "chars": 265
+  },
+  {
+   "id": "jadr-2022-0050-5",
+   "node": 50,
+   "part": 5,
+   "parts": 8,
+   "tag": "p",
+   "text": "Some of these stressors and responsibilities had not been associated with female Syrians before the war, and displacement might have put extra burdens on their post-migration challenges, leading them to suffer from more severe mental health problems. All studies reporting an association between being female and the risk of developing PTSD were conducted in Turkey.",
+   "chars": 366
+  },
+  {
+   "id": "jadr-2022-0050-6",
+   "node": 50,
+   "part": 6,
+   "parts": 8,
+   "tag": "p",
+   "text": "This may be due to environmental circumstances such as gender-based violence, isolation, living in poor conditions, or forced marriages. Acarer (2015) reported that women residing in camps in Turkey ages between 15 and 50 were sold on the ground of “temporary marriage” for up to 5000 Turkish Lira.",
+   "chars": 298
+  },
+  {
+   "id": "jadr-2022-0050-7",
+   "node": 50,
+   "part": 7,
+   "parts": 8,
+   "tag": "p",
+   "text": "Even though the Turkish government has been trying to control and prevent these arrangements, female Syrians may still be at a great risk that might have a detrimental impact on their mental health and well-being.",
+   "chars": 213
+  },
+  {
+   "id": "jadr-2022-0051-0",
+   "node": 51,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "The findings of this review also highlight a mixed result for marital status and experiencing PTSD, depression, and anxiety. The majority of findings indicated no significant relationship between marital status (single, married, widowed, or divorced), several studies reported that while being single and married are protective factors, being widowed or divorced are risk factors for developing these mental health problems in the displaced Syrian population.",
+   "chars": 459
+  },
+  {
+   "id": "jadr-2022-0051-1",
+   "node": 51,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "These results are supported by the mixed outcomes of studies conducted in both the Syrian displaced population and other refugee populations (for example,, Ibraheem et al, 2017; Momartin et al, 2004). A cross-sectional study with Syrian refugees living in Lebanon reported that divorced participants showed the highest prevalence (80 percent) of PTSD symptoms (Aoun et al, 2018b).",
+   "chars": 380
+  },
+  {
+   "id": "jadr-2022-0051-2",
+   "node": 51,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "In addition, another study concluded that being married is a protective factor against mental health problems (for example,, Poole et al, 2018). However, it could be argued that being married might also have a negative impact on mental health because of having to leave the partner behind, losing family connections during migration, witnessing a partner being kidnapped, and having no idea about their whereabouts.",
+   "chars": 415
+  },
+  {
+   "id": "jadr-2022-0051-3",
+   "node": 51,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "These kinds of situations might have extra concerns for married Syrians and may reduce the supportiveness of marital ties. Having family members to care for in a new country might put additional stress on married Syrians who try to survive in insecure and poor economic conditions.",
+   "chars": 281
+  },
+  {
+   "id": "jadr-2022-0052-0",
+   "node": 52,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "We found inconsistent results regarding the relationship between PTSD and economic status. However, these findings must be interpreted with caution because economic status was addressed differently in included studies. Several studies classified it as “employment status” and others as “occupation” and “income status”. However, the obvious finding to emerge from this review is that low economic status is strongly associated with higher PTSD, depression, and anxiety.",
+   "chars": 469
+  },
+  {
+   "id": "jadr-2022-0052-1",
+   "node": 52,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Conversely, good income is associated with lower depression symptoms. Kaya et al (2019) indicated that being male can be a risk factor for developing depression, especially for those with low economic status. These results can be in line with the role of Syrian men in the traditional patriarchal structure of Syrian society (Briskman and Latham, 2017; Connor et al, 2016).",
+   "chars": 373
+  },
+  {
+   "id": "jadr-2022-0052-2",
+   "node": 52,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "There is no doubt that because of resettling in a new country, experiencing economic distress because of leaving all possessions behind, and not knowing how to sustain their economic roles in a new community, Syrian men experience a salient reduction of the power of their economic role in their families where they were previously responsible for breadwinning.",
+   "chars": 361
+  },
+  {
+   "id": "jadr-2022-0052-3",
+   "node": 52,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "The unemployment status of refugees had been extensively studied, and the findings indicate lower mental health outcomes for both genders who are unemployed refugees (Simich et al, 2006; Dalgard and Thapa, 2007; Segal et al, 2018). Despite inconsistent results found between economic status and the mental health problems in this review, lower economic status can be a risk factor for developing mental health problems.",
+   "chars": 419
+  },
+  {
+   "id": "jadr-2022-0053-0",
+   "node": 53,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Interestingly, the results of the current review showed no relationship between length of the resettlement period and symptoms of PTSD, depression, and anxiety. This finding is contrary to previous studies, which have suggested the association between a longer resettlement period and higher levels of psychological problems among the refugee population.",
+   "chars": 354
+  },
+  {
+   "id": "jadr-2022-0053-1",
+   "node": 53,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "For instance, Bogic et al (2015) found a higher prevalence of PTSD, depression, and other anxiety disorders was associated with a longer resettlement period. Laban et al (2004) also found that a longer duration of asylum procedure was associated with higher psychiatric disorders. Our divergent result may be explained by the fact that the settlement period was less than 4 years across the included studies, limiting the results of our review.",
+   "chars": 444
+  },
+  {
+   "id": "jadr-2022-0054-0",
+   "node": 54,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Traumatic exposure is the main predictor of PTSD and comorbid psychological problems (Mollica et al, 1998a). The number of types of traumas, to which people were exposed, is positively associated with PTSD, anxiety, and depression symptoms (Nickerson et al, 2015; LeMaster et al, 2018; Borho et al, 2020; Hendaus et al, 2020).",
+   "chars": 326
+  },
+  {
+   "id": "jadr-2022-0054-1",
+   "node": 54,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Consistent with the literature, our review strongly implies that the number of traumatic events experienced is associated with higher levels of PTSD, depression, and anxiety. The most common traumatic events experienced in our review were “living in an area affected by war/destruction of home” and “experiencing/witnessing the death of someone close”, presenting great risks of trauma in this population.",
+   "chars": 405
+  },
+  {
+   "id": "jadr-2022-0055-0",
+   "node": 55,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "The relationship between the legal status of the population (being a refugee or asylum seeker) and mental health problems could not be analysed, as nearly all included studies lacked detailed information about the status of the Syrian refugee population. This demonstrates a problem with the quality of studies, which omit significant information from their methods and results.",
+   "chars": 378
+  },
+  {
+   "id": "jadr-2022-0055-1",
+   "node": 55,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "Only three studies provided this information; however, their findings demonstrated mixed results for different legal statuses.",
+   "chars": 126
+  },
+  {
+   "id": "jadr-2022-0055-2",
+   "node": 55,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "While one study found no distinctive relationship between either having a legal status or not and the symptoms of PTSD, depression, and anxiety in the Syrian population residing in Sweden (Tinghög et al, 2017), the other studies indicated a higher prevalence of depression in asylum seekers in Greece (Poole et al, 2018) and higher PTSD symptoms among Syrian population in Germany having shorter validity of residency permit (Georgiadou et al, 2018).",
+   "chars": 450
+  },
+  {
+   "id": "jadr-2022-0055-3",
+   "node": 55,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "These results may be explained by the presence of uncertainty about the future and fear of repatriation or immigration detention among this population. Importantly, we did not find a relationship between settlement type and mental health problems of Syrian Refugees; however, this finding cannot be extrapolated, because only two out of seventeen studies investigated this relationship.",
+   "chars": 386
+  },
+  {
+   "id": "jadr-2022-0055-4",
+   "node": 55,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Generally, there are few studies investigating the relationship between settlement type and mental health problems and their results are inconsistent. For instance, contrary to our findings, a study conducted in two refugee camps in Chad reported the association between experiencing daily stressors and higher levels of depression among refugees, due to safety concerns and problems meeting basic needs, such as food, water, and medical care (Rasmussen and Annan, 2010).",
+   "chars": 471
+  },
+  {
+   "id": "jadr-2022-0056-0",
+   "node": 56,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Lastly, another unanticipated finding was the higher levels of PTSD and depression among Syrian Refugees living in Turkey. Possible explanations for this result might be the proximity to the conflict area, the temporary protection status of Syrian living in this country, and the huge influx of Syrians in Turkey, which hosts the largest refugee population in the world (UNHCR, 2021c), with highly negative the quality and quantity of service provided for this population.",
+   "chars": 472
+  },
+  {
+   "id": "jadr-2022-0057-0",
+   "node": 57,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "4.1Limitations",
+   "chars": 14
+  },
+  {
+   "id": "jadr-2022-0058-0",
+   "node": 58,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "This review aimed to find out the prevalence of PTSD, depression, and anxiety in externally displaced Syrian refugees and its demographic correlates. It has provided substantial data about the mental health problems of Syrian Refugees living outside of Syria. It has also highlighted methodological and theoretical problems associated with research in this area. There is a distinct lack of consistency and poor choice of methods and reporting.",
+   "chars": 444
+  },
+  {
+   "id": "jadr-2022-0058-1",
+   "node": 58,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "During the process of screening and data analysis, a number of problems were identified.",
+   "chars": 88
+  },
+  {
+   "id": "jadr-2022-0058-2",
+   "node": 58,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "The most frequent of these were: (1) sampling methods (for example, convenience or registry-based sampling, sample size, response rates), (2) the use of a variety of measurement tools (different diagnostic criteria and cut-off points), (3) assessment of tools (for example,, clinical interviews, lack of structure in interviews), (4) validity and reliability of the measurements (not culturally standardised for Syrian population),",
+   "chars": 431
+  },
+  {
+   "id": "jadr-2022-0058-3",
+   "node": 58,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "(5) appropriateness of statistical analysis (for example,, using different software for data analysis, unexplained psychometric data), (6) contextual differences across studies (for example,, variety of traumatic events experienced, differences in living environment, settlement type, the undefined legal status of the population).",
+   "chars": 331
+  },
+  {
+   "id": "jadr-2022-0058-4",
+   "node": 58,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Considering these shortcomings, a good number of the studies have substantial limitations and provide inconsistent results, especially in sampling, assessment, and identifying contextual and demographic differences. In line with these shortcomings and particular examples given above that we encountered during the data collection and analysis; the limitations of our review should be acknowledged.",
+   "chars": 398
+  },
+  {
+   "id": "jadr-2022-0059-0",
+   "node": 59,
+   "part": 0,
+   "parts": 6,
+   "tag": "p",
+   "text": "Some studies only tabulated the demographic variables of participants and did not analyse the relationship between a specific demographic and mental health problems (for example,, educational level of the participants was tabulated only as numbers or percentages but was not analysed as a variable with mental health problems), making it difficult to obtain cumulative data.",
+   "chars": 374
+  },
+  {
+   "id": "jadr-2022-0059-1",
+   "node": 59,
+   "part": 1,
+   "parts": 6,
+   "tag": "p",
+   "text": "For this reason, most variables could not be analysed in terms of prevalence (which had been one of the aims of this review) but only analysed descriptively as correlates. Additionally, some variables across studies were categorized in different ways. Some classified employment status as being “retired” or “student” but others as “housewife” or “labourer” preventing the extraction and analysis of these data.",
+   "chars": 411
+  },
+  {
+   "id": "jadr-2022-0059-2",
+   "node": 59,
+   "part": 2,
+   "parts": 6,
+   "tag": "p",
+   "text": "Even though we had not applied any language and country (region) restrictions, the final list of eligible studies was all in English, but with participants from eight different countries.",
+   "chars": 187
+  },
+  {
+   "id": "jadr-2022-0059-3",
+   "node": 59,
+   "part": 3,
+   "parts": 6,
+   "tag": "p",
+   "text": "This might affect the generalizability of our results as some countries hosting a large number of Syrian displaced people, such as Egypt, Denmark, Sudan (STATISTA, 2022), Canada or Norway could not be included in this review, as there were no studies from these countries meeting our eligibility criteria.",
+   "chars": 305
+  },
+  {
+   "id": "jadr-2022-0059-4",
+   "node": 59,
+   "part": 4,
+   "parts": 6,
+   "tag": "p",
+   "text": "Another frequent obstacle to data analysis was the use of a variety of different measurements and characteristics such as self or clinician-administered, different cut-off scores, or lack of cultural adaptation. For example, the mean numbers of TEE vary between 3.7 and 13.7. The most likely reason for this variability is the number of items included in TEE measurements.",
+   "chars": 372
+  },
+  {
+   "id": "jadr-2022-0059-5",
+   "node": 59,
+   "part": 5,
+   "parts": 6,
+   "tag": "p",
+   "text": "Even though higher mean numbers of TEE were reported in Kaya et al (2019), the highest PTSD, depression, and anxiety were reported in other studies, potentially leading to inconsistent results in this review.",
+   "chars": 208
+  },
+  {
+   "id": "jadr-2022-0060-0",
+   "node": 60,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Several studies included in this review investigated the impact of settlement type (in camp/out of camp) on mental health well-being. Future studies should consider the impact of this variable on the mental health of the Syrian displaced population regarding their living conditions and accessing or failing to access resources to meet fundamental needs.",
+   "chars": 354
+  },
+  {
+   "id": "jadr-2022-0060-1",
+   "node": 60,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Uncertainty about the legal status of the Syrian population across studies in this review prevented an examination of the association between legal status and mental health well-being. Future studies should also be careful about identifying this population’s legal status which might have a different and considerable impact on mental health well-being.",
+   "chars": 353
+  },
+  {
+   "id": "jadr-2022-0061-0",
+   "node": 61,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "Currently, there is low-to-moderate intensity of research on the mental health problems of the displaced Syrian population; future studies must focus on this topic and establish additional potential factors for the mental health well-being of this specific group. As mentioned above, there is no research from some countries hosting a large number of Syrian populations. Future studies should also aim to address the mental health status of Syrians in residing in these countries.",
+   "chars": 480
+  },
+  {
+   "id": "jadr-2022-0061-1",
+   "node": 61,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "Considering the large number of Syrian refugees, host countries should pay attention to the high prevalence of PTSD, depression and anxiety in this population and establish early specific psychological interventions. This is very important in terms of the spectrum and continuum of affective disorders in this population.",
+   "chars": 321
+  },
+  {
+   "id": "jadr-2022-0061-2",
+   "node": 61,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "Recent studies have investigated patients fulfilling the diagnostic criteria for multiple psychological disorders who might be misdiagnosed because of overlapping symptoms of psychological disorders, which, rather than being categorised distinctly, have common biological underpinnings which may form the continuum of affective disorders ((Ng. et al, 2020).",
+   "chars": 357
+  },
+  {
+   "id": "jadr-2022-0061-3",
+   "node": 61,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "Considering the outcomes of this review, highlighting the higher level of PTSD, depression, and anxiety symptoms in the displaced Syrian population, these diagnoses might overlap and convert into other psychological problems in the future. For instance, Ng et al (2020) reported the conversion of patients with psychotic characteristics with overlapping mood and psychotic symptoms into more distinct symptoms of schizophrenia or bipolar disorder over time.",
+   "chars": 457
+  },
+  {
+   "id": "jadr-2022-0061-4",
+   "node": 61,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "Thus, the findings of this study have important implications highlighting the early diagnosis and interventions of psychological disorders which would allow researchers, clinicians, policymakers, and health professionals to determine and monitor possible diagnoses of future psychological problems, support future well-being, and built up better social and individual adjustments to society for the Syrian displaced population.",
+   "chars": 427
+  },
+  {
+   "id": "jadr-2022-0061-5",
+   "node": 61,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "The results of this review have demonstrated that some demographic variables can be identified as risk factors for mental health problems. Awareness of these risk factors would prevent more serious mental health problems in the future.",
+   "chars": 235
+  },
+  {
+   "id": "jadr-2022-0061-6",
+   "node": 61,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "Successful schemes and policies must be set up especially for accelerating the acculturation process and avoiding post-migration risk factors such as providing employment opportunities, offering better accommodation facilities, granting legal status, and framing legal rights for this specific population.",
+   "chars": 305
+  },
+  {
+   "id": "jadr-2022-0062-0",
+   "node": 62,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "5Conclusion",
+   "chars": 11
+  },
+  {
+   "id": "jadr-2022-0063-0",
+   "node": 63,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "This systematic review has identified that PTSD, depression, and anxiety in the Syrian displaced population are significantly higher than in the general population. The relationship between sex and economic status and mental health problems of the Syrian population are mixed across included studies, but it is evidenced that being a female is a predictor of experiencing PTSD, depression, and anxiety in this population.",
+   "chars": 421
+  },
+  {
+   "id": "jadr-2022-0063-1",
+   "node": 63,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "Particularly, female Syrians residing in Turkey are at a greater risk of suffering from these mental health problems. Additionally, the association between lower economic status and higher depression levels draws attention. The marital status, education level, and resettlement period were not significant predictors of PTSD, depression, and anxiety among this population. Providing a residency permit was not associated with improved well-being.",
+   "chars": 446
+  },
+  {
+   "id": "jadr-2022-0063-2",
+   "node": 63,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "On the other hand, consistent with the literature, the number of traumatic events experienced was also the predictor of mental health problems, but post-migration challenges also play a great role in it. Greater numbers of traumatic events were closely associated with the higher symptom severity of PTSD, depression, and anxiety. Lastly, among eight different countries, the highest PTSD and depression prevalence was found in Turkey and the highest anxiety prevalence in the US.",
+   "chars": 480
+  },
+  {
+   "id": "jadr-2022-0063-3",
+   "node": 63,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "The lowest prevalence for these three mental health problems was reported in Germany. More population-based and statistically strong studies are needed to identify the mental health problems of this population and their risk factors to provide effective and convenient mental health interventions. There are significant methodological and theoretical problems in the articles reviewed.",
+   "chars": 385
+  },
+  {
+   "id": "jadr-2022-0063-4",
+   "node": 63,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "Future studies should improve their study designs and applications taking these shortcomings into consideration for demonstrating reliable outcomes.",
+   "chars": 148
+  },
+  {
+   "id": "jadr-2022-0064-0",
+   "node": 64,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "CRediT authorship contribution statement",
+   "chars": 40
+  },
+  {
+   "id": "jadr-2022-0065-0",
+   "node": 65,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Fatma Aysazci-Cakar: Conceptualization, Data curation, Methodology, Formal analysis, Writing – original draft. Thomas Schroder: Supervision, Methodology, Writing – review & editing. Nigel Hunt: Supervision, Methodology, Writing – review & editing.",
+   "chars": 247
+  },
+  {
+   "id": "jadr-2022-0066-0",
+   "node": 66,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Declaration of Competing Interest",
+   "chars": 33
+  },
+  {
+   "id": "jadr-2022-0067-0",
+   "node": 67,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "This manuscript has not been published and is not under consideration for publication elsewhere. We have no conflicts of interest to disclose.",
+   "chars": 142
+  },
+  {
+   "id": "jadr-2022-0068-0",
+   "node": 68,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Acknowledgments",
+   "chars": 15
+  },
+  {
+   "id": "jadr-2022-0069-0",
+   "node": 69,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "This study was conducted as a part of doctoral research. Throughout her doctoral degree, the researcher (FA) is financially sponsored by the Republic of Turkey Ministry of National Education. We gratefully thank them for their support.",
+   "chars": 235
+  },
+  {
+   "id": "jadr-2022-0070-0",
+   "node": 70,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "References",
+   "chars": 10
+  },
+  {
+   "id": "jadr-2022-0071-0",
+   "node": 71,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Appendix A. Figures drawn from the reported data",
+   "chars": 48
+  },
+  {
+   "id": "jadr-2022-0072-0",
+   "node": 72,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "The six figures below do not appear in the published article. They are drawn entirely from the numbers reported in §3 and Tables 3 and 4, and are supplied only as reading aids. The article’s own single figure is Fig. 1.",
+   "chars": 219
+  }
+ ]
+}

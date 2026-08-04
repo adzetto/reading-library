@@ -1,0 +1,101 @@
+/* ==================================================================
+   tts.css — seslendirme vurguları ve kumanda paneli
+   Renkler style.css değişkenlerinden; kendi sabiti yok.
+   ================================================================== */
+
+/* okunan paragraf */
+.tts-active{background:color-mix(in srgb,var(--accent) 7%,transparent);
+  box-shadow:-0.6rem 0 0 color-mix(in srgb,var(--accent) 7%,transparent),
+             inset 3px 0 0 var(--accent);
+  border-radius:0 4px 4px 0;transition:background .25s}
+
+/* okunan sözcük (yalnızca tarayıcı motorunda) */
+.tts-word{background:var(--mark);border-radius:3px;
+  box-shadow:0 0 0 .12em var(--mark)}
+:root[data-theme="dark"] .tts-word{color:var(--ink)}
+
+@media (prefers-reduced-motion:reduce){ .tts-active{transition:none} }
+
+/* ========================== kumanda paneli ========================== */
+#ttsPanel{position:fixed;z-index:78;right:1rem;bottom:5.2rem;
+  width:min(23rem,calc(100vw - 2rem));
+  background:color-mix(in srgb,var(--paper) 96%,transparent);
+  backdrop-filter:blur(16px) saturate(1.5);
+  -webkit-backdrop-filter:blur(16px) saturate(1.5);
+  border:1px solid var(--rule);border-radius:14px;
+  box-shadow:var(--shadow-lg);
+  font-family:var(--sans);font-size:var(--ui-sm);
+  letter-spacing:var(--ui-track);
+  display:flex;flex-direction:column;overflow:hidden;
+  animation:ttsIn .28s cubic-bezier(.22,1,.36,1)}
+#ttsPanel[hidden]{display:none}
+@keyframes ttsIn{from{opacity:0;transform:translateY(10px) scale(.98)}}
+
+.ttsp-head{display:flex;align-items:center;gap:.55rem;
+  padding:.6rem .75rem .55rem;border-bottom:1px solid var(--rule-2)}
+.ttsp-head b{flex:1;font-size:var(--ui-sm);font-weight:600}
+.ttsp-badge{display:inline-flex;align-items:center;gap:.3em;
+  font-size:.6875rem;font-weight:600;padding:.2em .5em;border-radius:99px;
+  background:var(--paper-2);border:1px solid var(--rule-2);color:var(--ink-3);
+  letter-spacing:.01em;white-space:nowrap}
+.ttsp-badge.is-neural{background:color-mix(in srgb,var(--accent) 12%,transparent);
+  border-color:color-mix(in srgb,var(--accent) 32%,transparent);
+  color:var(--accent-2)}
+:root[data-theme="dark"] .ttsp-badge.is-neural{color:var(--accent)}
+.ttsp-x{border:none;background:none;color:var(--ink-3);cursor:pointer;
+  padding:.25em;border-radius:6px;display:grid;place-items:center}
+.ttsp-x:hover{color:var(--ink);background:var(--paper-2)}
+
+.ttsp-ctrls{display:flex;align-items:center;gap:.3rem;padding:.6rem .7rem;
+  flex-wrap:wrap}
+.ttsp-ctrls button{min-height:34px;min-width:34px;border-radius:8px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink);
+  cursor:pointer;display:grid;place-items:center;padding:0 .45em;
+  transition:border-color .15s,color .15s,background .15s}
+.ttsp-ctrls button:hover{border-color:var(--accent);color:var(--accent);
+  background:var(--accent-soft)}
+.ttsp-ctrls button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.ttsp-ctrls .ttsp-main{min-width:40px;min-height:40px}
+.ttsp-ctrls .ttsp-main.is-on{background:var(--accent);border-color:var(--accent);
+  color:#fff}
+.ttsp-rate{display:flex;align-items:center;gap:.35rem;margin-left:.15rem;
+  color:var(--ink-3);font-variant-numeric:tabular-nums;font-size:.72rem}
+.ttsp-rate input{width:4.5rem;accent-color:var(--accent)}
+.ttsp-ctrls select{font-family:inherit;font-size:.75rem;max-width:9rem;
+  min-width:0;flex:1;padding:.3em .4em;border-radius:7px;
+  border:1px solid var(--rule);background:var(--paper);color:var(--ink)}
+
+/* model indirme çubuğu */
+.ttsp-load{padding:.15rem .75rem .6rem}
+.ttsp-load[hidden]{display:none}
+.ttsp-load-t{font-size:.7rem;color:var(--ink-3);margin-bottom:.3rem}
+.ttsp-load-bar{height:4px;border-radius:99px;background:var(--rule-2);
+  overflow:hidden}
+.ttsp-load-bar i{display:block;height:100%;width:0;border-radius:99px;
+  background:var(--accent);transition:width .3s}
+
+/* iki dilli transkript */
+.ttsp-tx{padding:.7rem .85rem .85rem;border-top:1px solid var(--rule-2);
+  max-height:34vh;overflow-y:auto}
+.ttsp-en{font-family:var(--serif);font-size:1rem;line-height:1.45;
+  margin:0 0 .5rem;color:var(--ink)}
+.ttsp-tr{line-height:1.5;margin:0;color:var(--accent-2);
+  padding-top:.5rem;border-top:1px dashed var(--rule-2)}
+:root[data-theme="dark"] .ttsp-tr{color:var(--accent)}
+.ttsp-wait{color:var(--ink-3);font-style:italic}
+.ttsp-hint{color:var(--ink-3);margin:0;line-height:1.5}
+.ttsp-err{color:#c0392b;margin:0;line-height:1.5}
+
+.ttsp-foot{padding:.5rem .75rem .65rem;border-top:1px solid var(--rule-2)}
+.ttsp-sw{display:inline-flex;align-items:center;gap:.35em;width:100%;
+  justify-content:center;min-height:32px;border-radius:8px;
+  border:1px dashed var(--rule);background:none;color:var(--ink-3);
+  cursor:pointer;font-family:inherit;font-size:.75rem}
+.ttsp-sw:hover{border-color:var(--accent);color:var(--accent);border-style:solid}
+.ttsp-sw[hidden]{display:none}
+
+@media (max-width:560px){
+  #ttsPanel{left:.5rem;right:.5rem;bottom:4.4rem;width:auto}
+  .ttsp-tx{max-height:26vh}
+  .ttsp-ctrls select{max-width:none}
+}

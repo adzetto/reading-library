@@ -1,0 +1,1817 @@
+{
+ "id": "net-feasibility",
+ "title": "Practical Feasibility of Narrative Exposure Therapy in Syrian Refugee Population Residing in Turkiye: A Focus Group Study",
+ "title_tr": "Türkiye'de Yaşayan Suriyeli Mülteci Nüfusunda Anlatısal Maruz Bırakma Terapisinin Uygulanabilirliği: Bir Odak Grup Çalışması",
+ "voice_hint": "narration, calm, clear, academic",
+ "items": [
+  {
+   "id": "net-feasibility-0000-0",
+   "node": 0,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "Abstract",
+   "chars": 8
+  },
+  {
+   "id": "net-feasibility-0001-0",
+   "node": 1,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "It has been reported that 3.6 million Syrian refugees have sought safety in Turkiye since the civil war started in Syria. Experiencing war-related events and challenging phases of migration, refugees face various psychological disorders. Structured and adapted psychological interventions for this group are limited.",
+   "chars": 316
+  },
+  {
+   "id": "net-feasibility-0001-1",
+   "node": 1,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "To ensure the feasibility of Narrative Exposure Therapy in this context, this study aimed to explore the potential challenges during its delivery through a preliminary Focus Group with local professionals working with Syrians in Turkiye. Content analysis was used and the results led to eligibility criteria to select suitable participants for a subsequent study.",
+   "chars": 363
+  },
+  {
+   "id": "net-feasibility-0001-2",
+   "node": 1,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "These criteria include being between the ages of 20-45, fluent in Turkish and literate, having economic relief, and residing in the western region of Turkiye. This preliminary study serves as a roadmap for addressing potential obstacles for the subsequent study and a foundation for future research in this population.",
+   "chars": 318
+  },
+  {
+   "id": "net-feasibility-0002-0",
+   "node": 2,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Keywords: Syrian refugees, focus group, refugee mental health, psychological intervention, content analysis.",
+   "chars": 108
+  },
+  {
+   "id": "net-feasibility-0003-0",
+   "node": 3,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "1Introduction",
+   "chars": 13
+  },
+  {
+   "id": "net-feasibility-0004-0",
+   "node": 4,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Migration has many wide-ranging impacts on individuals, communities, and cultures, both in the countries where people have left and in the places where they have resettled as safe shelters. The term 'refugee' is broadly defined as someone who fears persecution due to race, religion, nationality, membership in a particular social group, or political opinion.",
+   "chars": 359
+  },
+  {
+   "id": "net-feasibility-0004-1",
+   "node": 4,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "They are outside their country of nationality and are either unable or unwilling to seek protection from their country (UNHCR, 1951). Prior to forced migration, refugees have often experienced or witnessed physical, psychological, and gender-based violence (Giacco et al, 2018).",
+   "chars": 278
+  },
+  {
+   "id": "net-feasibility-0004-2",
+   "node": 4,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "They face uncertain and challenging journeys and the compunction of leaving family members and all possessions behind; they experience post-migration difficulties such as immigration detention and temporary protection with the threat of repatriation (Nickerson et al, 2011). Given these difficulties, the refugee population lives through repeated and cumulative traumatic life experiences before, during, and after migration.",
+   "chars": 425
+  },
+  {
+   "id": "net-feasibility-0005-0",
+   "node": 5,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Since the civil war started in 2011, it has been reported that over 12 million people in Syria were displaced internally and externally to save their lives. At the end of 2022, UNHCR reported that at least 5.4 million Syrians had been externally displaced, with 3.6 million of them seeking safety in Turkiye (UNHCR, 2022; 2023a). Turkiye hosts the largest number of refugees worldwide (UNHCR, 2023b).",
+   "chars": 400
+  },
+  {
+   "id": "net-feasibility-0005-1",
+   "node": 5,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "Since the beginning of the conflict in Syria, the Republic of Turkiye has considerably extended protection and assistance to Syrian refugees and declared temporary protection in October 2011 (Syria Needs Analysis Project, 2013).",
+   "chars": 228
+  },
+  {
+   "id": "net-feasibility-0005-2",
+   "node": 5,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "This protection law called the 'Temporary Protection Regulation,' was adopted in 2014 and considers Syrians in Turkiye not as 'refugees' but as 'guests' (UNHCR, 2018), providing them with temporary protection and assuming that they will return to Syria when the conflict ends.",
+   "chars": 276
+  },
+  {
+   "id": "net-feasibility-0006-0",
+   "node": 6,
+   "part": 0,
+   "parts": 10,
+   "tag": "p",
+   "text": "Many Syrians living in Turkiye encounter multiple daily stressors such as high housing costs, low wages, exploitation in the labor market, discrimination, and uncertainty about their futures (Kaya & Kıraç, 2016). Being exposed to war-related experiences and going through different phases of migration, refugees face various common psychological disorders.",
+   "chars": 356
+  },
+  {
+   "id": "net-feasibility-0006-1",
+   "node": 6,
+   "part": 1,
+   "parts": 10,
+   "tag": "p",
+   "text": "The World Health Organization (WHO, 2015) reported that approximately 600,000 refugees suffer from severe mental illness and require psychological treatment, with another 4 million potentially experiencing such disorders. It is well-known that exposure to high levels of traumatic events and other stressful experiences leads many refugees to suffer from psychological disorders.",
+   "chars": 379
+  },
+  {
+   "id": "net-feasibility-0006-2",
+   "node": 6,
+   "part": 2,
+   "parts": 10,
+   "tag": "p",
+   "text": "A study conducted in Lebanon by Kazour et al (2017) reported a lifetime prevalence of Post-Traumatic Stress Disorder (PTSD) in Syrian refugees at 35.4 percent. Additionally, PTSD in this population is often comorbid with other psychological disorders.",
+   "chars": 251
+  },
+  {
+   "id": "net-feasibility-0006-3",
+   "node": 6,
+   "part": 3,
+   "parts": 10,
+   "tag": "p",
+   "text": "A cross-sectional study carried out in Turkiye by Fuhr et al (2019) found that the prevalence of PTSD was 19.6 percent, with comorbid symptoms of anxiety and depression observed as 36.1 percent and 34.7 percent in the Syrian population, respectively.",
+   "chars": 250
+  },
+  {
+   "id": "net-feasibility-0006-4",
+   "node": 6,
+   "part": 4,
+   "parts": 10,
+   "tag": "p",
+   "text": "While the investigation of the mental health problems of refugees is relatively recent, there is a moderate amount of research in the literature aiming to address the mental health issues of this population and offer effective interventions. Over the past few decades, prominent treatment methods have been developed and widely used for the mental health problems of this group.",
+   "chars": 378
+  },
+  {
+   "id": "net-feasibility-0006-5",
+   "node": 6,
+   "part": 5,
+   "parts": 10,
+   "tag": "p",
+   "text": "For example in the UK, Trauma-Focused Cognitive Behavioral Therapy (TFCBT) and Eye Movement Desensitization and Reprocessing (EMDR) have been proven as the most effective interventions, with recommendations of the National Institute for Health and Clinical Excellence (NICE) for the treatment of PTSD (NICE, 2005).",
+   "chars": 314
+  },
+  {
+   "id": "net-feasibility-0006-6",
+   "node": 6,
+   "part": 6,
+   "parts": 10,
+   "tag": "p",
+   "text": "These therapy techniques have been examined in numerous studies and have shown high success rates in reducing PTSD symptoms (for example,, Giannopoulou et al, 2006; Sandström et al, 2008). Schauer et al (2005) have also developed an effective short-term therapy technique called Narrative Exposure Therapy (NET) for addressing potential mental health problems of refugees living in post-conflict areas.",
+   "chars": 402
+  },
+  {
+   "id": "net-feasibility-0006-7",
+   "node": 6,
+   "part": 7,
+   "parts": 10,
+   "tag": "p",
+   "text": "The effectiveness of NET has been demonstrated through randomized controlled studies involving different ethnicities (for example,, Neuner et al, 2004 & Neuner et al, 2008). NET is known as a 'culturally universal' approach as it is based on a narrative that is 'an integrative part of every culture' (Schauer et al, 2005, 2011).",
+   "chars": 329
+  },
+  {
+   "id": "net-feasibility-0006-8",
+   "node": 6,
+   "part": 8,
+   "parts": 10,
+   "tag": "p",
+   "text": "The treatment involves emotional exposure to traumatic memories and the reorganization of these memories into a coherent chronological narrative (Robjant & Fazel, 2010). NET incorporates components of Testimony Therapy and Prolonged Exposure Therapy. It aims to construct a lifeline from birth to the present and focuses on a lifespan narrative (Mørkved et al, 2014).",
+   "chars": 367
+  },
+  {
+   "id": "net-feasibility-0006-9",
+   "node": 6,
+   "part": 9,
+   "parts": 10,
+   "tag": "p",
+   "text": "It offers a safe confrontation with thoughts and memories that have been avoided by the person since the traumatic event occurred (Foa et al, 2007). The second focus of NET is the habituation to intrusive symptoms during the reconstruction of autobiographical memories of traumatic experiences (Neuner et al, 2002).",
+   "chars": 315
+  },
+  {
+   "id": "net-feasibility-0007-0",
+   "node": 7,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "Considering the vast influx of Syrian refugees in resettlement countries, addressing mental health difficulties is generally not a priority for this population.",
+   "chars": 160
+  },
+  {
+   "id": "net-feasibility-0007-1",
+   "node": 7,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Moreover, taking into account the barriers to accessing mental health interventions, such as language difficulties, cultural differences, economic concerns, and unfamiliarity with the host country's healthcare system, there is no doubt refugees are in an emergency situation that requires immediate psychological support.",
+   "chars": 321
+  },
+  {
+   "id": "net-feasibility-0007-2",
+   "node": 7,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "To illustrate, Tinghög et al (2017) found that 85 percent of Syrian refugees resettling in Sweden reported experiencing war at close quarters, and 79 percent reported being exposed to other life-threatening experiences, which may lead to emerging psychological problems in this population. This suggests a dose-response relationship that claims a linear connection between trauma exposure and psychological distress (Mollica et al, 1998a, 1998b).",
+   "chars": 446
+  },
+  {
+   "id": "net-feasibility-0007-3",
+   "node": 7,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "Recent studies (for example,, Akhtar et al, 2021; Feen-Calligan et al, 2022; de Graff et al, 2023) have attempted to focus on effective psychological interventions for both the general population and the Syrian refugee population in conflict areas and receiving countries.",
+   "chars": 272
+  },
+  {
+   "id": "net-feasibility-0008-0",
+   "node": 8,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "Turkiye has also developed many health action plans for this population. However, budget limitations have hindered the integration of mental health into primary and community care, resulting in unmet mental health care needs and a treatment gap for Syrian refugees residing in Turkiye.",
+   "chars": 285
+  },
+  {
+   "id": "net-feasibility-0008-1",
+   "node": 8,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "A few studies have attempted to look into the efficacy of particular psychological interventions in this population, including Programme Management Plus (PM+), Group Programme Management Plus (gPM+), a self-help psychological program created by WHO (Uygun et al, 2020; Akhtar et al, 2021; Acarturk et al, 2022), EMDR (Acarturk 2015, 2016; Yurtsever et al, 2018), a brief group behavioral intervention (Bryant et al, 2022) and culturally adapted CBT (Eskici et al, 2023).",
+   "chars": 470
+  },
+  {
+   "id": "net-feasibility-0008-2",
+   "node": 8,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "Apart from these interventions and psychological guidance and counseling provided by local mental health services, there are currently few structured and commonly adopted psychological interventions for Syrian Refugees. Therefore, there is a clear need to offer and implement an evidence-based, structured, and practical psychological intervention to offer and implement to address the mental health problems of this population in Turkiye.",
+   "chars": 439
+  },
+  {
+   "id": "net-feasibility-0008-3",
+   "node": 8,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "Although NET has been shown to be effective in refugee populations, to date NET has not been practiced and investigated in Turkiye or with Syrian refugees. These gaps in the literature have motivated us to address these deficiencies and investigate the feasibility and effectiveness of NET within the Turkish context and among war-affected Syrian populations.",
+   "chars": 359
+  },
+  {
+   "id": "net-feasibility-0008-4",
+   "node": 8,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "In our subsequent study, we aimed to examine the feasibility and effectiveness of NET for the treatment of mental health problems of Syrian refugees in Turkiye. To ensure the contextual and practical feasibility of NET, a preliminary focus group (FG) was conducted involving local workers who have professional experience with Syrians in Turkiye.",
+   "chars": 346
+  },
+  {
+   "id": "net-feasibility-0008-5",
+   "node": 8,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "The primary purpose of this FG was to carry out an in-depth exploration of a topic about which little is known and to encourage participants to engage in collective sense-making processes (Stewart et al, 2007; Nel et al, 2015). By employing this technique, we aimed to gather knowledge about potential obstacles, challenges, and circumstances that could hinder the delivery of NET in this context.",
+   "chars": 397
+  },
+  {
+   "id": "net-feasibility-0008-6",
+   "node": 8,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "This knowledge may help us to adapt the practical procedures of NET for effective implementation of it in the subsequent study.",
+   "chars": 127
+  },
+  {
+   "id": "net-feasibility-0009-0",
+   "node": 9,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "2Materials and Methods",
+   "chars": 22
+  },
+  {
+   "id": "net-feasibility-0010-0",
+   "node": 10,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.1Participants",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0011-0",
+   "node": 11,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "This study was approved by the Ethics Committee of the Division of Psychiatry and Applied Psychology at the University of Nottingham (approval no. DPAP-2022-2816). Six participants were recruited, but one of them withdrew at the last minute. Thus, the FG was carried out with five participants (three females and two males) from different professional backgrounds: social worker, sociologist, psychologist, doctor, and nurse.",
+   "chars": 425
+  },
+  {
+   "id": "net-feasibility-0011-1",
+   "node": 11,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The participants had professional experience ranging from 3 to 8 years working with Syrians living in Turkiye. The age range was between 28 and 35. Participants were recruited from three different regions of Turkiye (Izmir, Mardin, and Batman) using convenience sampling, based on the accessibility and availability of the participants. Informed consent and demographic data were obtained from each participant.",
+   "chars": 411
+  },
+  {
+   "id": "net-feasibility-0012-0",
+   "node": 12,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.2Role of the Moderators",
+   "chars": 25
+  },
+  {
+   "id": "net-feasibility-0013-0",
+   "node": 13,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "The FG was moderated by two facilitators, one of whom was an independent researcher, and the other was the main researcher (FAC) of this study. The main researcher was responsible for introducing the aims and methods of the study, as well as explaining the nature of the NET technique to participants. The independent researcher was responsible for posing the semi-structured questions to the group and facilitating the discussion.",
+   "chars": 431
+  },
+  {
+   "id": "net-feasibility-0013-1",
+   "node": 13,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The main researcher was present throughout the group to address any research-related questions and to observe the group dynamics.",
+   "chars": 129
+  },
+  {
+   "id": "net-feasibility-0014-0",
+   "node": 14,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.3Data Collection",
+   "chars": 18
+  },
+  {
+   "id": "net-feasibility-0015-0",
+   "node": 15,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Due to the Covid-19 pandemic and travel restrictions, the research was conducted online via Microsoft Teams. The focus group took place on August 10, 2021, at 19:00 (GMT+3). At the beginning, participants were provided with a 20-minute PowerPoint presentation by the main researcher, which included information about the general aim and method of the NET intervention study, the theoretical background, and the nature of NET.",
+   "chars": 425
+  },
+  {
+   "id": "net-feasibility-0015-1",
+   "node": 15,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Following the presentation, the independent researcher initiated the semi-structured group interview by addressing the pre-defined questions. The interview lasted 63 minutes and was video-recorded using the recording function of Microsoft Teams. The Turkish language was used during the FG and the group discussion was later transcribed and translated from Turkish to English by the main researcher (FAC) for data analysis.",
+   "chars": 423
+  },
+  {
+   "id": "net-feasibility-0016-0",
+   "node": 16,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.4Data Analysis",
+   "chars": 16
+  },
+  {
+   "id": "net-feasibility-0017-0",
+   "node": 17,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Qualitative Content Analysis was used for data analysis. Krippendorf (2004) defines it as a research technique that allows for replicable and valid inferences from texts or other meaningful materials to their contexts of use. In this study, an inductive qualitative content analysis approach was used to analyze and interpret participants' perspectives.",
+   "chars": 353
+  },
+  {
+   "id": "net-feasibility-0017-1",
+   "node": 17,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Inductive content analysis involves the researcher answering the research question by formulating concepts, categories, and themes, and repeatedly referring back to the original text sources to ensure a strong connection between the data obtained and the results (Elo & Kyngäs, 2009).",
+   "chars": 284
+  },
+  {
+   "id": "net-feasibility-0018-0",
+   "node": 18,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "To conduct the analysis, the discussion was transcribed and translated as a starting point. Erlingsson and Brysiewicz's (2017) Content Analysis guide was utilized and following the guideline, the text was divided into smaller parts called meaning units (MUs). Codes were then formulated and grouped into categories based on their similarities and differences. To achieve a deeper level of analysis, subcategories were created from the formulated categories.",
+   "chars": 457
+  },
+  {
+   "id": "net-feasibility-0018-1",
+   "node": 18,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Figure 1 illustrates the phases of content analysis.",
+   "chars": 52
+  },
+  {
+   "id": "net-feasibility-0019-0",
+   "node": 19,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Figure 1. Phases of Content Analysis",
+   "chars": 36
+  },
+  {
+   "id": "net-feasibility-0020-0",
+   "node": 20,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "2.5Quality Check",
+   "chars": 16
+  },
+  {
+   "id": "net-feasibility-0021-0",
+   "node": 21,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Each MU, code, category, and subcategory were evaluated independently by the authors of this research. At least an 80 percent interrater agreement was set for the quality check. The first and third authors examined each MU and reached 65 percent agreement for the MUs between 1-50. After discussion and review, the authors had 92 percent agreement. Then the first and second authors investigated the MUs between 51-104 and reached 80 percent agreement.",
+   "chars": 452
+  },
+  {
+   "id": "net-feasibility-0021-1",
+   "node": 21,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Following this, after discussing the non-overlapping categories and subcategories, 96.3 percent agreement was reached between the first and second authors.",
+   "chars": 155
+  },
+  {
+   "id": "net-feasibility-0022-0",
+   "node": 22,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "3Results",
+   "chars": 8
+  },
+  {
+   "id": "net-feasibility-0023-0",
+   "node": 23,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Four codes, twelve categories, and twenty-one subcategories were created under one-hundred and three MUs. The numbers of the codes, categories, and subcategories are represented in Table 1. 1.",
+   "chars": 192
+  },
+  {
+   "id": "net-feasibility-0024-0",
+   "node": 24,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "•Transcription",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0025-0",
+   "node": 25,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "& Translation",
+   "chars": 13
+  },
+  {
+   "id": "net-feasibility-0026-0",
+   "node": 26,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "2.",
+   "chars": 2
+  },
+  {
+   "id": "net-feasibility-0027-0",
+   "node": 27,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "•Meaning",
+   "chars": 8
+  },
+  {
+   "id": "net-feasibility-0028-0",
+   "node": 28,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Units",
+   "chars": 5
+  },
+  {
+   "id": "net-feasibility-0029-0",
+   "node": 29,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "3.",
+   "chars": 2
+  },
+  {
+   "id": "net-feasibility-0030-0",
+   "node": 30,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "•Codes",
+   "chars": 6
+  },
+  {
+   "id": "net-feasibility-0031-0",
+   "node": 31,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "4.",
+   "chars": 2
+  },
+  {
+   "id": "net-feasibility-0032-0",
+   "node": 32,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "•Categories",
+   "chars": 11
+  },
+  {
+   "id": "net-feasibility-0033-0",
+   "node": 33,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "5.",
+   "chars": 2
+  },
+  {
+   "id": "net-feasibility-0034-0",
+   "node": 34,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "•Subcategories",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0035-0",
+   "node": 35,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Table 1. Distribution of codes, categories, and subcategories Code (Numbers)",
+   "chars": 76
+  },
+  {
+   "id": "net-feasibility-0036-0",
+   "node": 36,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Category (Numbers)",
+   "chars": 18
+  },
+  {
+   "id": "net-feasibility-0037-0",
+   "node": 37,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Subcategory (Numbers)",
+   "chars": 21
+  },
+  {
+   "id": "net-feasibility-0038-0",
+   "node": 38,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Research (N=9)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0039-0",
+   "node": 39,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Delivery of NET",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0040-0",
+   "node": 40,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=9)",
+   "chars": 5
+  },
+  {
+   "id": "net-feasibility-0041-0",
+   "node": 41,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Suitability (N=1)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0042-0",
+   "node": 42,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenges (N=2)",
+   "chars": 16
+  },
+  {
+   "id": "net-feasibility-0043-0",
+   "node": 43,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Length of Sessions (N=3)",
+   "chars": 24
+  },
+  {
+   "id": "net-feasibility-0044-0",
+   "node": 44,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "NET Beneficial (N=3)",
+   "chars": 20
+  },
+  {
+   "id": "net-feasibility-0045-0",
+   "node": 45,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Recruitment (N=51)",
+   "chars": 18
+  },
+  {
+   "id": "net-feasibility-0046-0",
+   "node": 46,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Language (N=5)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0048-0",
+   "node": 48,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenges (N=11)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0049-0",
+   "node": 49,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Language (N=1)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0050-0",
+   "node": 50,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Address Changes (N=3)",
+   "chars": 21
+  },
+  {
+   "id": "net-feasibility-0051-0",
+   "node": 51,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Needs (N=7)",
+   "chars": 11
+  },
+  {
+   "id": "net-feasibility-0052-0",
+   "node": 52,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Solution (N=1)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0054-0",
+   "node": 54,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Criteria (N=13)",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0056-0",
+   "node": 56,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Demographics*",
+   "chars": 13
+  },
+  {
+   "id": "net-feasibility-0057-0",
+   "node": 57,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=12)",
+   "chars": 6
+  },
+  {
+   "id": "net-feasibility-0058-0",
+   "node": 58,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Location (N=2)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0059-0",
+   "node": 59,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Age (N=6)",
+   "chars": 9
+  },
+  {
+   "id": "net-feasibility-0060-0",
+   "node": 60,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Employment* (N=3)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0061-0",
+   "node": 61,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Education* (N=1)",
+   "chars": 16
+  },
+  {
+   "id": "net-feasibility-0062-0",
+   "node": 62,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Traumatic Event",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0063-0",
+   "node": 63,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=9)",
+   "chars": 5
+  },
+  {
+   "id": "net-feasibility-0064-0",
+   "node": 64,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenge (N=1)",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0065-0",
+   "node": 65,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Suitability (N=1)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0066-0",
+   "node": 66,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Classification of events (N=7)",
+   "chars": 30
+  },
+  {
+   "id": "net-feasibility-0067-0",
+   "node": 67,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Therapy (N=35)",
+   "chars": 14
+  },
+  {
+   "id": "net-feasibility-0068-0",
+   "node": 68,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Language",
+   "chars": 8
+  },
+  {
+   "id": "net-feasibility-0069-0",
+   "node": 69,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=26)",
+   "chars": 6
+  },
+  {
+   "id": "net-feasibility-0070-0",
+   "node": 70,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Translator (N=18)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0071-0",
+   "node": 71,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Turkish (N=1)",
+   "chars": 13
+  },
+  {
+   "id": "net-feasibility-0072-0",
+   "node": 72,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Mother-tongue (N=3)",
+   "chars": 19
+  },
+  {
+   "id": "net-feasibility-0073-0",
+   "node": 73,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Productiveness (N=3)",
+   "chars": 20
+  },
+  {
+   "id": "net-feasibility-0074-0",
+   "node": 74,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Online Delivery (N=2)",
+   "chars": 21
+  },
+  {
+   "id": "net-feasibility-0076-0",
+   "node": 76,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenges (N=1)",
+   "chars": 16
+  },
+  {
+   "id": "net-feasibility-0078-0",
+   "node": 78,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Cultural Differences (N=6)",
+   "chars": 26
+  },
+  {
+   "id": "net-feasibility-0079-0",
+   "node": 79,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Remarks",
+   "chars": 9
+  },
+  {
+   "id": "net-feasibility-0080-0",
+   "node": 80,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Cultural Differences",
+   "chars": 20
+  },
+  {
+   "id": "net-feasibility-0081-0",
+   "node": 81,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Awareness (N=3)",
+   "chars": 15
+  },
+  {
+   "id": "net-feasibility-0082-0",
+   "node": 82,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=10)",
+   "chars": 6
+  },
+  {
+   "id": "net-feasibility-0083-0",
+   "node": 83,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=10)",
+   "chars": 6
+  },
+  {
+   "id": "net-feasibility-0084-0",
+   "node": 84,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Trust Issue (N=4)",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0085-0",
+   "node": 85,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Perceptions toward Mental Health",
+   "chars": 32
+  },
+  {
+   "id": "net-feasibility-0086-0",
+   "node": 86,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "(N=3)",
+   "chars": 5
+  },
+  {
+   "id": "net-feasibility-0087-0",
+   "node": 87,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Note:* One MU is coded within both the employment and education subcategories.",
+   "chars": 78
+  },
+  {
+   "id": "net-feasibility-0088-0",
+   "node": 88,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.1Code ‘Research’",
+   "chars": 18
+  },
+  {
+   "id": "net-feasibility-0089-0",
+   "node": 89,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "The only category formulated under the code of \"Research\" is the \"Delivery of NET\" category. Participants provided their insights and perspectives on how NET could be delivered effectively in this context.",
+   "chars": 205
+  },
+  {
+   "id": "net-feasibility-0090-0",
+   "node": 90,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Delivery of NET: This category is divided into four subcategories in terms of similarities and differences among the MUs. The participants developed their arguments around these subcategories:",
+   "chars": 192
+  },
+  {
+   "id": "net-feasibility-0091-0",
+   "node": 91,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Suitability: The participants thought that if NET can be delivered robustly, this technique seems very suitable and promising for Syrian refugees living in Turkiye.",
+   "chars": 166
+  },
+  {
+   "id": "net-feasibility-0092-0",
+   "node": 92,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Challenges: The participants highlighted that the successful delivery of NET might pose challenges for the researcher due to the specific characteristics of the Syrian population in Turkiye. They emphasized that the participants should fully understand the purpose of the research and their responsibilities during the therapy sessions.",
+   "chars": 338
+  },
+  {
+   "id": "net-feasibility-0093-0",
+   "node": 93,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Length of Sessions: The participants expressed concerns that delivering NET for 8-12 weekly sessions, each lasting 60-90 minutes, might not be suitable for the Syrian population, as they tend to live day by day.",
+   "chars": 213
+  },
+  {
+   "id": "net-feasibility-0094-0",
+   "node": 94,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- NET Beneficial: The participants highlighted that NET appears to be a promising, beneficial, and productive therapy technique for the population of Syrians living in Turkiye. They acknowledged that this aspect makes the study distinguished and adds value to the research literature.",
+   "chars": 284
+  },
+  {
+   "id": "net-feasibility-0095-0",
+   "node": 95,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.2Code ‘Recruitment’",
+   "chars": 21
+  },
+  {
+   "id": "net-feasibility-0096-0",
+   "node": 96,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Participants discussed the recruitment process of the study. Four categories are formulated under the code of “Recruitment”. Some categories are divided into subcategories in terms of similarities and differences among the MUs.",
+   "chars": 227
+  },
+  {
+   "id": "net-feasibility-0097-0",
+   "node": 97,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "- Language: During the discussions, the FG participants expressed their viewpoints regarding the recruitment of Syrians who are fluent in Turkish for the research. They suggested that conducting research with Syrians who speak Turkish would be more suitable for the nature of the study.",
+   "chars": 286
+  },
+  {
+   "id": "net-feasibility-0097-1",
+   "node": 97,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The participants believed that Syrians who are fluent in Turkish would adjust to the therapy process more easily and would not face difficulties in accessing equipment or the internet for the online delivery of NET. They also noted that these individuals would be more open to new experiences.",
+   "chars": 293
+  },
+  {
+   "id": "net-feasibility-0098-0",
+   "node": 98,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Challenges: The FG participants engaged in a discussion about challenges that the researcher might encounter regarding recruitment and reaching out to potential participants. The \"Challenges\" category was divided into three subcategories.",
+   "chars": 240
+  },
+  {
+   "id": "net-feasibility-0099-0",
+   "node": 99,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Challenges in Language: Participants discussed the language barrier as a challenge in recruiting and communicating with potential participants. They highlighted the importance of finding Syrians who are fluent in Turkish or have a good understanding of the language to facilitate effective communication during the study.",
+   "chars": 321
+  },
+  {
+   "id": "net-feasibility-0099-1",
+   "node": 99,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Even though the participants indicated that Syrians able to speak Turkish would be more suitable for this research, reaching out to this population could still pose a challenge.",
+   "chars": 177
+  },
+  {
+   "id": "net-feasibility-0100-0",
+   "node": 100,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenges in address changes: The participants identified the issue of address changes as a potential challenge in reaching out to participants. They mentioned that Syrians living in Turkiye may frequently change their addresses due to numerous reasons, such as seeking better living conditions or job opportunities. This could pose difficulties in maintaining contact and ensuring their participation in the study.",
+   "chars": 416
+  },
+  {
+   "id": "net-feasibility-0101-0",
+   "node": 101,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Needs: The participants discussed the diverse needs of the Syrian population as another challenge. They mentioned that individuals may have different priorities and urgent needs, such as accessing basic necessities, healthcare, or employment. These needs could potentially impact their willingness or availability to participate in the study.",
+   "chars": 342
+  },
+  {
+   "id": "net-feasibility-0101-1",
+   "node": 101,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Solution: Since the FG participants were given a brief presentation about the intervention study, they were already informed about the design of this study which was designed as an online therapy session. The participants agreed that online delivery of NET would mitigate the negative impact of address changes of participants and help to maintain the continuity of the therapy sessions.",
+   "chars": 387
+  },
+  {
+   "id": "net-feasibility-0102-0",
+   "node": 102,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "- Criteria: The participants mainly focused on the eligibility criteria for Syrian participants in this study. They emphasized that while the Syrian population in Turkiye may face challenging living conditions, it is important to note that not every Syrian living in Turkiye is subject to living in poor conditions. The participants expressed that it is feasible to find six participants who speak Turkish and meet the eligibility criteria for the study.",
+   "chars": 454
+  },
+  {
+   "id": "net-feasibility-0102-1",
+   "node": 102,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "Furthermore, the participants highlighted the significance of the recruitment process and the importance of establishing clear eligibility criteria in advance.",
+   "chars": 159
+  },
+  {
+   "id": "net-feasibility-0103-0",
+   "node": 103,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Demographics: The participants developed their arguments around the demographics of Syrians in terms of recruitment and reaching out to potential participants. This category is divided into four different subcategories. One MU under this category falls into two different subcategories.",
+   "chars": 288
+  },
+  {
+   "id": "net-feasibility-0104-0",
+   "node": 104,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Location: The participants raised the issue of different language usage in different regions of Turkiye. For example, in the southeast of Turkiye, local people speak Arabic or Kurdish in their daily lives. As a result, Syrians resettled in these regions may have learned these languages better than Turkish. The participants concluded that the location of the participants should also be taken into consideration as well.",
+   "chars": 421
+  },
+  {
+   "id": "net-feasibility-0105-0",
+   "node": 105,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Age: Participants indicated that young adult Syrians would be more suitable for this study, as they are relatively more active in daily life and more fluent in the Turkish language. That's why the participants agreed that an age range must be established before recruiting the participants.",
+   "chars": 290
+  },
+  {
+   "id": "net-feasibility-0106-0",
+   "node": 106,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Employment: The FG participants highlighted that Syrians who have a job and economic relief would be more suitable for this study. It was mentioned that this population is also more fluent in the Turkish language, open to new experiences, and has adjusted to social life in Turkiye better.",
+   "chars": 289
+  },
+  {
+   "id": "net-feasibility-0107-0",
+   "node": 107,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Education: The participants indicated that Syrians literate (in the latin alphabet) would be more suitable for this study. The MUs mentioning the educational background of participants have layered meanings and fall under both the \"employment\" and \"education\" subcategories.",
+   "chars": 274
+  },
+  {
+   "id": "net-feasibility-0108-0",
+   "node": 108,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Traumatic Events: The participants developed their arguments around the notion that traumatic events experienced by Syrians might have an impact on the recruitment process. This category is divided into three subcategories. These subcategories are Suitability, Challenges, and Classification of experienced traumatic events.",
+   "chars": 326
+  },
+  {
+   "id": "net-feasibility-0109-0",
+   "node": 109,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Suitability: It is stressed that the mere existence of traumatic experiences would pose a challenge for the researcher, but it would also provide an opportunity for the participants who are seeking psychological help.",
+   "chars": 217
+  },
+  {
+   "id": "net-feasibility-0110-0",
+   "node": 110,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Challenges: One participant highlighted a potential difficulty for the researcher in recruiting Syrians who have had traumatic life experiences, as the ongoing impact of these experiences might still be affecting them.",
+   "chars": 218
+  },
+  {
+   "id": "net-feasibility-0111-0",
+   "node": 111,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Classification: In this subcategory, the participants engaged in a profound argument regarding the differentiation of negative life experiences of this population from their war-related traumatic life experiences. Specifically, the negative life events experienced by this population before and after migration were extensively discussed in terms of their direct and indirect connection to the Syrian civil war.",
+   "chars": 411
+  },
+  {
+   "id": "net-feasibility-0111-1",
+   "node": 111,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The participants subsequently reached a consensus that a comprehensive understanding of the characteristics of these negative life events is crucial in order to classify them as war-related traumatic experiences.",
+   "chars": 212
+  },
+  {
+   "id": "net-feasibility-0112-0",
+   "node": 112,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.3Code ‘Therapy’",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0113-0",
+   "node": 113,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "The participants engaged in a discussion regarding the design and structure of the NET intervention study. They formulated categories related to language, online delivery, challenges, and cultural differences under the overarching code of \"Therapy\".",
+   "chars": 249
+  },
+  {
+   "id": "net-feasibility-0114-0",
+   "node": 114,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Language: This category is further divided into four subcategories, which capture the similarities and differences among the MUs. The participants developed their arguments around the following subcategories: Translator, Turkish Language, Mother Tongue, and Productiveness.",
+   "chars": 273
+  },
+  {
+   "id": "net-feasibility-0115-0",
+   "node": 115,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Using a translator in therapy: The participants engaged in an extensive argument regarding the benefits and disadvantages of using a translator during the intervention study. However, various disagreements emerged, and a common view on the use of a translator during the delivery of NET could not be reached.",
+   "chars": 308
+  },
+  {
+   "id": "net-feasibility-0116-0",
+   "node": 116,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Therapy language as Turkish: The participants reached a conclusion that if Turkish were to be set as the therapy language, Syrian participants in NET sessions must have a good command of the language to express themselves explicitly.",
+   "chars": 233
+  },
+  {
+   "id": "net-feasibility-0117-0",
+   "node": 117,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "Using mother tongue in therapy: The participants engaged in an extensive discussion regarding the use of the mother tongue during therapy sessions for Syrian participants. They did not express any concerns about using a translator in therapy during this discussion. Consequently, using a translator and using the mother tongue were formed as two separate subcategories.",
+   "chars": 369
+  },
+  {
+   "id": "net-feasibility-0117-1",
+   "node": 117,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "The participants concluded that it is always better and easier to have a therapy session in a mother tongue to convey feelings and thoughts easily.",
+   "chars": 147
+  },
+  {
+   "id": "net-feasibility-0118-0",
+   "node": 118,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Productiveness: The participants discussed whether the preferred language would affect the productivity of therapy sessions, considering the use of the mother tongue in the presence of a translator or a second language such as Turkish for Syrian participants. They concluded that instead of solely focusing on the preferred language, it is essential to consider the participants' ability to benefit from the therapy.",
+   "chars": 416
+  },
+  {
+   "id": "net-feasibility-0119-0",
+   "node": 119,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Online Delivery: In this category, there are no subcategories as the participants unanimously agreed on the convenience of online delivery for NET participants. Despite the acknowledgment of online delivery as a convenient technique by the participants, challenges for Syrian participants, such as equipment supply for remote delivery of NET, were later raised and discussed in detail.",
+   "chars": 387
+  },
+  {
+   "id": "net-feasibility-0120-0",
+   "node": 120,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Challenges: The participants recognize that while online delivery of NET would be a great convenience for the participants, accessing online therapy equipment (computer, phone, headphones, internet, etc.) may be difficult. They acknowledge that this population generally lives in poor conditions in Turkiye, making it challenging to provide them with the necessary equipment.",
+   "chars": 377
+  },
+  {
+   "id": "net-feasibility-0121-0",
+   "node": 121,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Cultural Differences: The participants focused their arguments on the cultural differences that the therapist may encounter, specifically regarding sex differences, while conducting the sessions. Male participants of the FG shared examples from their professional experiences, highlighting how sex differences can create barriers when working with this population. They mentioned that female Syrians often do not want to speak or prefer to have interviews with male workers.",
+   "chars": 476
+  },
+  {
+   "id": "net-feasibility-0122-0",
+   "node": 122,
+   "part": 0,
+   "parts": 1,
+   "tag": "h3",
+   "text": "3.4Code ‘Remarks’",
+   "chars": 17
+  },
+  {
+   "id": "net-feasibility-0123-0",
+   "node": 123,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "The participants were asked to provide any advice or attention for the research team to consider that had not been discussed in the group.",
+   "chars": 138
+  },
+  {
+   "id": "net-feasibility-0124-0",
+   "node": 124,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "- Cultural differences: The participants shared their opinions and perspectives on the Cultural differences category, discussing potential challenges that may arise when working or studying with Syrians.",
+   "chars": 203
+  },
+  {
+   "id": "net-feasibility-0125-0",
+   "node": 125,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Awareness: The participants emphasized the importance of being aware of cultural differences when working with this vulnerable population.",
+   "chars": 138
+  },
+  {
+   "id": "net-feasibility-0126-0",
+   "node": 126,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Trust Issue: The participants highlighted the trust issues they have encountered when working with the Syrian population. Drawing from their own professional experiences, they emphasized the sensitivity and importance of establishing a trustworthy relationship with this vulnerable group.",
+   "chars": 288
+  },
+  {
+   "id": "net-feasibility-0127-0",
+   "node": 127,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Perception toward Mental Health: The participants highlighted that mental health problems are not always recognized as health issues or are generally viewed as a punishment from Allah or a source of shame within the community. The participants provided advice to the research team regarding this misperception and its impact on working with the population, emphasizing the need for sensitivity, cultural understanding, and education about mental health within the community.",
+   "chars": 474
+  },
+  {
+   "id": "net-feasibility-0128-0",
+   "node": 128,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "4Discussion",
+   "chars": 11
+  },
+  {
+   "id": "net-feasibility-0129-0",
+   "node": 129,
+   "part": 0,
+   "parts": 5,
+   "tag": "p",
+   "text": "This exploratory study has identified several challenges and obstacles that need to be addressed before conducting an intervention study. The insights and potential solutions provided by the discussion are valuable in helping the research team overcome these challenges. The FG discussion emphasized that the successful delivery of NET in this context is seen as a promising technique.",
+   "chars": 385
+  },
+  {
+   "id": "net-feasibility-0129-1",
+   "node": 129,
+   "part": 1,
+   "parts": 5,
+   "tag": "p",
+   "text": "However, the recruitment process is crucial, particularly in terms of the participants' ability to speak Turkish. It was acknowledged that many Syrians in Turkiye face communication problems as Arabic is not commonly used in the country (Biçer, 2017). It was concluded that even though the number of Syrians fluent in Turkish is narrow, there are Syrians living in Turkiye who are fluent in Turkish.",
+   "chars": 399
+  },
+  {
+   "id": "net-feasibility-0129-2",
+   "node": 129,
+   "part": 2,
+   "parts": 5,
+   "tag": "p",
+   "text": "Therefore, it is highlighted that the research team can implement strategies to identify and recruit Syrians who have a good command of the Turkish language. It is concluded by ensuring that participants have a sufficient level of Turkish proficiency, the therapy sessions can be conducted effectively, allowing for better engagement, and understanding of the intervention.",
+   "chars": 373
+  },
+  {
+   "id": "net-feasibility-0129-3",
+   "node": 129,
+   "part": 3,
+   "parts": 5,
+   "tag": "p",
+   "text": "It was raised that frequent address changes among the Syrian population can pose a significant barrier for researchers or professionals trying to maintain therapy sessions. However, the current study's design as remote sessions provides a potential solution to mitigate this challenge, particularly considering the impact of the COVID-19 pandemic during the time of this research.",
+   "chars": 380
+  },
+  {
+   "id": "net-feasibility-0129-4",
+   "node": 129,
+   "part": 4,
+   "parts": 5,
+   "tag": "p",
+   "text": "By utilizing remote therapy sessions, the research team can overcome the obstacle of addressing changes, allowing for flexibility in conducting sessions, as participants can join from their current location without the need for physical proximity.",
+   "chars": 247
+  },
+  {
+   "id": "net-feasibility-0130-0",
+   "node": 130,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "The scale and complexity of the ‘Syrian crisis’ have made it challenging to provide adequate assistance and support to all those in need. Unfortunately, the COVID-19 pandemic also posed a challenge to carrying out these endeavours (UNICEF, 2020).",
+   "chars": 246
+  },
+  {
+   "id": "net-feasibility-0130-1",
+   "node": 130,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "The FG participants, who have considerable professional experience with Syrians in Turkiye, have also expressed concerns about Syrians' unmet basic needs, which could act as a barrier to reaching this population for the intervention study. The FG participants discussed that Syrians may not be willing to participate in this study, as their priority is to meet their basic needs such as accommodation, food, and money.",
+   "chars": 418
+  },
+  {
+   "id": "net-feasibility-0130-2",
+   "node": 130,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "It was also concluded among the participants that it is possible to find six Syrians who speak Turkish fluently and have some economic relief, as not all Syrians in Turkiye are living in difficult conditions. Therefore, they agreed that eligibility criteria should be established for potential participants and the researcher should implement this during the recruitment process.",
+   "chars": 379
+  },
+  {
+   "id": "net-feasibility-0130-3",
+   "node": 130,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "The set eligibility criteria for the age range are 20-45, as this segment of Syrians living in Turkiye tends to be more active in daily and business life, which could facilitate their fluency in Turkish and adaptation to the research process. Another eligibility criterion discussed was relative economic relief.",
+   "chars": 312
+  },
+  {
+   "id": "net-feasibility-0130-4",
+   "node": 130,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "It was mentioned that this would help address concerns related to vital and economic needs that could potentially have a negative impact on the recruitment and therapy process. Falconnier (2009) has also highlighted the relationship between access to mental health services and seeking help among low-income individuals, emphasizing that they are less likely to access such services and show fewer improvements compared to middle-income individuals.",
+   "chars": 449
+  },
+  {
+   "id": "net-feasibility-0130-5",
+   "node": 130,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "The FG participants also emphasized that literate Syrians in Turkish would be more suitable for the main study, as they have adapted to the Turkish community more easily. The location of potential participants must be taken into consideration, as in some regions of Turkiye, local people speak different languages such as Kurdish and Arabic. Thus, Syrians living in these regions may use these languages as well.",
+   "chars": 412
+  },
+  {
+   "id": "net-feasibility-0130-6",
+   "node": 130,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "The nature of experienced traumatic events was also extensively discussed focusing on their classification. However, this discussion veered away from the aim of the FG research, prompting the main researcher to intervene. The researcher summarized the discussion and the group concluded that detailed knowledge of the characteristics and content of the life experiences is necessary for proper classification.",
+   "chars": 409
+  },
+  {
+   "id": "net-feasibility-0131-0",
+   "node": 131,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Regarding the therapy language, the participants did not reach a consensus on whether using a translator or conducting the session in Turkish, or in their mother tongue would be more productive for the intervention study. The main concern raised during this discussion revolved around the challenge of conveying feelings to a therapist through a translator and the difficulty of expressing oneself in a second language.",
+   "chars": 419
+  },
+  {
+   "id": "net-feasibility-0131-1",
+   "node": 131,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "While the effectiveness of NET with the use of a translator has been demonstrated in various refugee populations worldwide (for example,, Neuner et al, 2004; Stenmark et al, 2013), it was predicted that using a translator could pose a challenge for the intervention study. Because use of a translator during sessions, considering the diverse range of Syrian Arabic dialects, may make it difficult to pair Syrian participants with suitable translators.",
+   "chars": 451
+  },
+  {
+   "id": "net-feasibility-0131-2",
+   "node": 131,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "This could potentially create another complication for the research process.",
+   "chars": 76
+  },
+  {
+   "id": "net-feasibility-0132-0",
+   "node": 132,
+   "part": 0,
+   "parts": 7,
+   "tag": "p",
+   "text": "Even though online delivery of NET was acknowledged as convenient for the participants, obtaining technological equipment was considered as a challenge. The FG participants advised that potential participants should be informed in advance about their access to the required equipment and the Internet.",
+   "chars": 301
+  },
+  {
+   "id": "net-feasibility-0132-1",
+   "node": 132,
+   "part": 1,
+   "parts": 7,
+   "tag": "p",
+   "text": "Additionally, the participants further emphasized the importance of being aware of cultural differences when studying this population, as any overlooked situation may be sensitive in the Syrian culture. It was also highlighted the significance of building trustworthy relationships, as individuals who have fled conflict areas to foreign countries often possess an insecure worldview due to the dangerous and uncertain environments they have experienced.",
+   "chars": 454
+  },
+  {
+   "id": "net-feasibility-0132-2",
+   "node": 132,
+   "part": 2,
+   "parts": 7,
+   "tag": "p",
+   "text": "The discussion also focused on the distorted perception of mental health and treatment among Syrians, which could pose challenges for the intervention study in various aspects, ranging from the recruitment process to treatment. This aligns with existing literature that extensively demonstrates the Syrian population's distorted perception of mental health.",
+   "chars": 357
+  },
+  {
+   "id": "net-feasibility-0132-3",
+   "node": 132,
+   "part": 3,
+   "parts": 7,
+   "tag": "p",
+   "text": "The participants expressed concerns about how Syrian people's perception of mental health problems might create challenges for the recruitment of the intervention study. Overall, the participants provided valuable insights and advice that had not been previously addressed in the discussion.",
+   "chars": 291
+  },
+  {
+   "id": "net-feasibility-0132-4",
+   "node": 132,
+   "part": 4,
+   "parts": 7,
+   "tag": "p",
+   "text": "Their professional experiences highlighted the importance of cultural awareness, building trust, and addressing the Syrian population's perception of mental health to overcome challenges and conduct a successful intervention study. Along the lines of mental health stigma in Arabic culture, a study conducted by Llosa et al (2014) with refugees in camps in Lebanon reported a significant treatment gap.",
+   "chars": 402
+  },
+  {
+   "id": "net-feasibility-0132-5",
+   "node": 132,
+   "part": 5,
+   "parts": 7,
+   "tag": "p",
+   "text": "Despite the availability of free and well-promoted health services, the study found that the mental health treatment gap in the camp was as high as 96 percent. The findings of the study emphasize the need to address mental health stigma and its impact on help-seeking behaviours in Arabic culture. Similarly, studies have shown that Syrians residing in Turkiye have reported a high prevalence of mental health problems (for example,, Kaya et al, 2019).",
+   "chars": 452
+  },
+  {
+   "id": "net-feasibility-0132-6",
+   "node": 132,
+   "part": 6,
+   "parts": 7,
+   "tag": "p",
+   "text": "This population also exhibits limited knowledge and awareness of psychological problems and their treatments, coupled with a high stigma towards mental health problems (Hassan et al, 2016).",
+   "chars": 189
+  },
+  {
+   "id": "net-feasibility-0133-0",
+   "node": 133,
+   "part": 0,
+   "parts": 4,
+   "tag": "p",
+   "text": "This study has identified and shed light on the potential obstacles that may arise during the implementation of NET in this context. However, it is important to acknowledge the limitations of this study. The data was analysed using the Content Analysis method, wherein the researcher employed analytical constructs to derive answers to the research question (White et al, 2006).",
+   "chars": 378
+  },
+  {
+   "id": "net-feasibility-0133-1",
+   "node": 133,
+   "part": 1,
+   "parts": 4,
+   "tag": "p",
+   "text": "Therefore, the researcher's own interpretations and biases may have influenced the analysis and findings. To address this potential risk, the main researcher collaborated with an independent researcher who also took a role as a moderator in the FG. They specifically reviewed certain MUs that could fall under multiple categories or subcategories by watching the video recording of the FG research.",
+   "chars": 398
+  },
+  {
+   "id": "net-feasibility-0133-2",
+   "node": 133,
+   "part": 2,
+   "parts": 4,
+   "tag": "p",
+   "text": "This collaborative approach aimed to ensure a robust classification of the MUs under relevant and appropriate categories. Another limitation is that the findings are based on the perspectives and experiences of the FG participants, and thus may not capture the full range of challenges and perspectives within the Syrian population in Turkiye. The sample size of the FG was also limited, which may impact the generalizability of the findings.",
+   "chars": 442
+  },
+  {
+   "id": "net-feasibility-0133-3",
+   "node": 133,
+   "part": 3,
+   "parts": 4,
+   "tag": "p",
+   "text": "The reliance on self-report data from the FG participants introduces potential biases, such as social desirability bias or individual interpretations of the questions. It is important to consider these limitations when interpreting the results of this study and to conduct further research using diverse methodologies to gain a more comprehensive understanding of the challenges and potential solutions for implementing NET with Syrians in Turkiye.",
+   "chars": 448
+  },
+  {
+   "id": "net-feasibility-0134-0",
+   "node": 134,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "Rather than conducting face-to-face individual interviews, a group interview was preferred for this study to capture the dynamics of group interaction among professionals with different experiences. From this perspective, the group discussion was centered around the experiences of the recruited professionals. However, it is important to acknowledge that other professionals working with Syrians may have distinct experiences.",
+   "chars": 427
+  },
+  {
+   "id": "net-feasibility-0134-1",
+   "node": 134,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "While this raises questions about the external validity of the generated data, the researcher made efforts to recruit participants from diverse backgrounds to enhance the representativeness of the group. Nevertheless, the social nature of focus group research inherently possesses this unique strength, as the dynamics of focus groups are never the same.",
+   "chars": 354
+  },
+  {
+   "id": "net-feasibility-0134-2",
+   "node": 134,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "It is also important to consider that participants in this focus group study may have possessed disagreements on some topics discussed. However, due to the group dynamic where participants are strangers to each other, some individuals may choose to withhold their opinions or not fully disclose their true thoughts, which could limit the collection of diverse data.",
+   "chars": 365
+  },
+  {
+   "id": "net-feasibility-0135-0",
+   "node": 135,
+   "part": 0,
+   "parts": 2,
+   "tag": "p",
+   "text": "This exploratory study has shed light on the potential obstacles and challenges involved in implementing a specific therapy technique that has not been previously applied to the Syrian war-affected population in the Turkish context. The findings of this study also provide insights into the challenges that future studies may encounter when conducting research with Syrians.",
+   "chars": 374
+  },
+  {
+   "id": "net-feasibility-0135-1",
+   "node": 135,
+   "part": 1,
+   "parts": 2,
+   "tag": "p",
+   "text": "This preliminary research serves as an instructive study for planning other psychological interventions aimed at investigating mental health interventions among Syrian refugees and other refugee populations.",
+   "chars": 207
+  },
+  {
+   "id": "net-feasibility-0136-0",
+   "node": 136,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "5Conclusion",
+   "chars": 11
+  },
+  {
+   "id": "net-feasibility-0137-0",
+   "node": 137,
+   "part": 0,
+   "parts": 3,
+   "tag": "p",
+   "text": "In this FG study, it has been concluded that NET may be a promising technique for reducing the mental health problems of Syrians. The significance of the recruitment process for potential participants was emphasized and eligibility criteria were set.",
+   "chars": 250
+  },
+  {
+   "id": "net-feasibility-0137-1",
+   "node": 137,
+   "part": 1,
+   "parts": 3,
+   "tag": "p",
+   "text": "These criteria include being between the ages of 20-45, fluent in Turkish, being illiterate, having economic relief, having access to equipment such as computers, phones, and the Internet, and residing in the western region of the country. Despite the diverse nature of the Syrian population in Turkiye, this FG study serves as a roadmap for addressing potential obstacles and ensuring a smoother research process and reliable results.",
+   "chars": 435
+  },
+  {
+   "id": "net-feasibility-0137-2",
+   "node": 137,
+   "part": 2,
+   "parts": 3,
+   "tag": "p",
+   "text": "The recruitment process for the subsequent study will be carefully considered considering the findings of this research.",
+   "chars": 120
+  },
+  {
+   "id": "net-feasibility-0138-0",
+   "node": 138,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Financial disclosure: The authors of this research have no financial relationship to disclose. Funding: Not applicable.",
+   "chars": 119
+  },
+  {
+   "id": "net-feasibility-0139-0",
+   "node": 139,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Declaration of competing interest: All authors report no conflicts of interest.",
+   "chars": 79
+  },
+  {
+   "id": "net-feasibility-0140-0",
+   "node": 140,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Data availability: Data will be made available on request.",
+   "chars": 58
+  },
+  {
+   "id": "net-feasibility-0141-0",
+   "node": 141,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Author Contributions: FAC: Writing, data collection, transcription, content analysis; TS, NH: Content Analysis, Review.",
+   "chars": 119
+  },
+  {
+   "id": "net-feasibility-0142-0",
+   "node": 142,
+   "part": 0,
+   "parts": 1,
+   "tag": "p",
+   "text": "Acknowledgments: This study was conducted as a part of doctoral research. During her doctoral research, FAC was fully funded by the Republic of Turkiye Ministry of National Education.",
+   "chars": 183
+  },
+  {
+   "id": "net-feasibility-0143-0",
+   "node": 143,
+   "part": 0,
+   "parts": 1,
+   "tag": "h2",
+   "text": "References",
+   "chars": 10
+  }
+ ]
+}
