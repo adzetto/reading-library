@@ -125,10 +125,18 @@
     return id || "Bilinmeyen belge";
   }
 
-  function docCover(id) {
-    var D = global.DOCS && global.DOCS[id];
-    if (D && D.cover) return D.cover;
-    return { emoji: "📄", hue: 210 };
+  /**
+   * Belge tonu. Kapaklardaki ham `cover.hue` değerleri 0-320 arasına
+   * saçılmış; on bir belge yan yana dizilince palet dağılıyor ve teal→ember
+   * dizgesiyle çakışıyordu. Onun yerine belgeler sıraya göre teal → ember
+   * bandına yayılır — globe.js'teki bandHue() ile aynı uçlar, aynı yaklaşım.
+   * Doygunluk ve açıklık stats.css'te tek formülle sabitlenir.
+   */
+  var HUE0 = 172, HUE1 = 26;                    // teal → ember
+  function bandHue(i, total) {
+    var n = Math.max(1, (total || 1) - 1);
+    var t = Math.max(0, Math.min(1, (i || 0) / n));
+    return Math.round(HUE0 + (HUE1 - HUE0) * t);
   }
 
   /** Sözlükten Türkçe karşılık — yalnızca yerel, ağa çıkılmaz. */
@@ -208,31 +216,102 @@
 
   /* ====================== bölüm: a) özet kartları ====================== */
 
-  function card(label, value, sub, tone) {
+  var REDUCED = global.matchMedia
+    ? matchMedia("(prefers-reduced-motion: reduce)").matches : false;
+
+  /**
+   * Ögeyi ekrana girdiğinde bir kez tetikler. Hareket azaltma açıksa ya da
+   * IntersectionObserver yoksa anında çağrılır — o durumda çizim işlevi son
+   * değeri doğrudan yazar, hiçbir şey canlanmaz.
+   */
+  function onVisible(node, fn) {
+    if (REDUCED || typeof global.IntersectionObserver !== "function") { fn(); return; }
+    var fired = false, io;
+    function go() {
+      if (fired) return;
+      fired = true;
+      try { io.disconnect(); } catch (e) { /* yoksay */ }
+      fn();
+    }
+    io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) if (entries[i].isIntersecting) return go();
+    }, { rootMargin: "0px 0px -6% 0px" });
+    io.observe(node);
+  }
+
+  /** Lucide ikonu (assets/icons.js). Modül yoksa boş dizge döner. */
+  function ico(name, size) {
+    return (typeof global.icon === "function") ? global.icon(name, size || 14) : "";
+  }
+
+  /**
+   * Metindeki her sayı öbeğini 0'dan hedefe saydırır; harfler yerinde kalır
+   * ("2 sa 14 dk" → "0 sa 0 dk" … → "2 sa 14 dk"). Bitişte hedef metin
+   * birebir yazılır, yuvarlama artığı kalmaz.
+   */
+  function countUp(node, text, order) {
+    var parts = String(text).split(/(\d+)/);      /* tek indisler = sayılar */
+    var nums = [], i;
+    for (i = 1; i < parts.length; i += 2) nums.push(parseInt(parts[i], 10));
+    if (!nums.length || REDUCED) { node.textContent = text; return; }
+
+    function draw(k) {
+      var e = 1 - Math.pow(1 - k, 3);             /* easeOutCubic */
+      var out = "", j = 0;
+      for (var q = 0; q < parts.length; q++) {
+        out += (q % 2) ? String(Math.round(nums[j++] * e)) : parts[q];
+      }
+      node.textContent = out;
+    }
+    draw(0);
+
+    onVisible(node, function () {
+      var t0 = 0, dur = 700, delay = Math.min(order || 0, 6) * 55;
+      setTimeout(function () {
+        requestAnimationFrame(function step(now) {
+          if (!t0) t0 = now;
+          var k = Math.min(1, (now - t0) / dur);
+          if (k < 1) { draw(k); requestAnimationFrame(step); }
+          else node.textContent = text;
+        });
+      }, delay);
+    });
+  }
+
+  var cardOrder = 0;
+  function card(label, value, sub, iconName, tone) {
     var c = el("div", "sv-card" + (tone ? " is-" + tone : ""));
-    c.appendChild(el("div", "sv-card-l", label));
-    c.appendChild(el("div", "sv-card-v", value));
+    var l = el("div", "sv-card-l");
+    if (iconName) l.insertAdjacentHTML("afterbegin", ico(iconName, 13));
+    l.appendChild(el("span", null, label));
+    c.appendChild(l);
+    var v = el("div", "sv-card-v");
+    c.appendChild(v);
     c.appendChild(el("div", "sv-card-s", sub || ""));
+    c.style.setProperty("--i", String(cardOrder));
+    countUp(v, value, cardOrder);
+    cardOrder++;
     return c;
   }
 
   function buildSummary(ctx) {
+    cardOrder = 0;
     var t = ctx.totals, prog = ctx.progress, lk = ctx.lookupTotal;
     var read = prog.length;
     var done = prog.filter(function (p) { return p.finishedAt || (p.pct || 0) >= 99; }).length;
 
     var g = el("div", "sv-cards");
     g.appendChild(card("Toplam okuma süresi", dk(t.minutes),
-      t.days ? plural(t.days, "gün okudun") : "henüz okuma yok"));
+      t.days ? plural(t.days, "gün okudun") : "henüz okuma yok", "clock"));
     g.appendChild(card("Okuduğun metin", String(read),
-      done ? plural(done, "tanesi bitti") : "henüz bitirilen yok"));
+      done ? plural(done, "tanesi bitti") : "henüz bitirilen yok", "layers"));
     g.appendChild(card("Farklı sözcük", String(lk.distinct || 0),
-      "anlamına baktığın ayrı sözcük"));
+      "anlamına baktığın ayrı sözcük", "eye"));
     g.appendChild(card("Toplam arama", String(lk.total || 0),
-      "sözcüğe bakma sayısı"));
+      "sözcüğe bakma sayısı", "target"));
     g.appendChild(card("Güncel seri", plural(t.streak || 0, "gün"),
       (t.streak > 0) ? "kesintisiz okuma" : "bugün okursan seri başlar",
-      (t.streak > 0) ? "warm" : ""));
+      "flame", (t.streak > 0) ? "warm" : ""));
 
     if (!read && !lk.total && !t.minutes) {
       var f = frag();
@@ -361,27 +440,67 @@
     if (!top.length) {
       return empty("Henüz sözcüğe bakmadın — okurken bir sözcüğe dokununca anlamı burada birikir.");
     }
-    var max = top[0].count || 1;
+    /* --------------------------------------------------------------
+       LaTeX/TikZ figür üslubu (örnek: latex figürlerindeki fig-bystudy):
+         · ince ve keskin çubuk, dolgu yok, gölge yok
+         · arkada 1 px'lik silik dikey ölçek ızgarası
+         · altta çentikli x ekseni, monospace değerler
+         · ortalamayı gösteren kesikli dikey çizgi
+       Ölçek "yuvarlak" bir üst sınıra çıkarılır (1/2/5/10… adımları) ve
+       çentik sayısı 6'yı geçmez; ızgara ile eksen birebir aynı yerdedir.  */
+    var raw = top[0].count || 1;
+    var NICE = [1, 2, 5, 10, 20, 25, 50, 100, 200, 250, 500, 1000];
+    var step = NICE[NICE.length - 1];
+    for (var s = 0; s < NICE.length; s++) {
+      if (Math.ceil(raw / NICE[s]) <= 5) { step = NICE[s]; break; }
+    }
+    var max = Math.max(step, Math.ceil(raw / step) * step);
+    var ticks = [];
+    for (var tv = 0; tv <= max; tv += step) ticks.push(tv);
+
+    var sum = 0;
+    top.forEach(function (w) { sum += (w.count || 0); });
+    var mean = sum / top.length;
+
+    var fig = el("div", "sv-fig");
+    fig.style.setProperty("--gridn", String(ticks.length - 1));
+
+    /* Izgara, satırların arkasında tek parça durur: satırlar arasında
+       kesilmesin diye listeyle aynı kutuya mutlak konumlanır. */
+    var body = el("div", "sv-fig-body");
+    var bg = el("div", "sv-fig-grid");
+    bg.setAttribute("aria-hidden", "true");
+    var meanLine = el("div", "sv-fig-mean");
+    meanLine.style.setProperty("--p", ((mean / max) * 100).toFixed(3) + "%");
+    bg.appendChild(meanLine);
+    body.appendChild(bg);
+
     var list = el("ol", "sv-words");
 
-    top.forEach(function (w) {
-      var li = el("li", "sv-word");
+    top.forEach(function (w, idx) {
+      var li = el("li", "sv-word" + (idx === 0 ? " is-top" : ""));
       var btn = el("button", "sv-word-b");
       btn.type = "button";
       btn.setAttribute("aria-expanded", "false");
 
-      var head = el("span", "sv-word-head");
-      head.appendChild(el("span", "sv-word-en", w.word));
-      var hit = vocab[w.word] || peekTr(w.word);
-      head.appendChild(el("span", "sv-word-tr", (hit && hit.tr) ? hit.tr : "—"));
-      head.appendChild(el("span", "sv-word-n", String(w.count)));
-      btn.appendChild(head);
+      btn.appendChild(el("span", "sv-word-rank", String(idx + 1)));
 
-      var barw = el("span", "sv-word-bar");
-      var fill = el("i");
-      fill.style.width = Math.max(3, Math.round((w.count / max) * 100)) + "%";
-      barw.appendChild(fill);
-      btn.appendChild(barw);
+      var lab = el("span", "sv-word-lab");
+      lab.appendChild(el("span", "sv-word-en", w.word));
+      var hit = vocab[w.word] || peekTr(w.word);
+      lab.appendChild(el("span", "sv-word-tr", (hit && hit.tr) ? hit.tr : "—"));
+      btn.appendChild(lab);
+
+      /* Genişlik sayaçla tam orantılı; asgari genişlik uygulanmaz ki
+         çubuklar birbiriyle karşılaştırılabilir kalsın. */
+      var plot = el("span", "sv-word-plot");
+      var bar = el("i", "sv-word-bar");
+      bar.style.setProperty("--w", ((w.count / max) * 100).toFixed(3) + "%");
+      bar.style.transitionDelay = Math.min(idx, 16) * 32 + "ms";
+      plot.appendChild(bar);
+      btn.appendChild(plot);
+
+      btn.appendChild(el("span", "sv-word-n", String(w.count)));
       li.appendChild(btn);
 
       var det = el("div", "sv-worddet");
@@ -399,7 +518,34 @@
 
       list.appendChild(li);
     });
-    return list;
+
+    body.appendChild(list);
+    fig.appendChild(body);
+
+    /* x ekseni: çentikler + değerler. Uçtaki etiketler hizadan taşmasın
+       diye ilk sola, son sağa yaslanır (yatay kaydırma doğurmaz). */
+    var axis = el("div", "sv-axis");
+    axis.setAttribute("aria-hidden", "true");
+    ticks.forEach(function (v, i) {
+      var t = el("span", "sv-axis-t" +
+        (i === 0 ? " is-first" : (i === ticks.length - 1 ? " is-last" : "")));
+      t.style.setProperty("--p", ((v / max) * 100).toFixed(3) + "%");
+      t.appendChild(el("i"));
+      t.appendChild(el("b", null, String(v)));
+      axis.appendChild(t);
+    });
+    fig.appendChild(axis);
+
+    var cap = el("p", "sv-cap");
+    cap.appendChild(el("b", null, "Şekil."));
+    cap.appendChild(document.createTextNode(
+      " Sözcük başına arama sayısı (n = " + top.length + ", en yüksek " + raw +
+      "). Kesikli çizgi ortalamayı gösterir: " +
+      (Math.round(mean * 10) / 10).toFixed(1).replace(".", ",") + "."));
+    fig.appendChild(cap);
+
+    onVisible(fig, function () { fig.classList.add("is-in"); });
+    return fig;
   }
 
   /** Sözcük ayrıntısı: defterdeki kayıt varsa o, yoksa sözlük karşılığı. */
@@ -456,7 +602,79 @@
 
   function cssEsc(s) { return String(s).replace(/["\\]/g, "\\$&"); }
 
-  /* ==================== bölüm: d) belge ilerlemesi ==================== */
+  /* ==================== bölüm: d) belge ilerlemesi ====================
+     Emoji + satır listesi + ince yüzde çubuğu kaldırıldı. Yerine kart
+     ızgarası ve her belge için çizilen bir halka gösterge geldi.
+
+     Neden halka: okuma ilerlemesi 0-100 arası kapalı bir orandır; kapalı
+     oranlar için yay, doğrusal çubuktan daha okunaklıdır (uçları bellidir,
+     "ne kadar kaldı" boşluk olarak görünür) ve kartın köşesinde yer kaplamaz.
+
+     Yayın uzunluğu doğrudan `stroke-dasharray`de durur:
+        dasharray = "<yüzdenin yay karşılığı> <çevre+1>"
+     Böylece değer DOM'dan doğrulanabilir. Dolum `stroke-dashoffset`
+     geçişiyle canlanır ve IntersectionObserver ile görünürlükte başlar.  */
+
+  var RING_R = 26;
+  var RING_C = 2 * Math.PI * RING_R;            // ≈ 163.363
+
+  function svg(tag, attrs) {
+    var n = document.createElementNS("http://www.w3.org/2000/svg", tag);
+    for (var k in attrs) n.setAttribute(k, attrs[k]);
+    return n;
+  }
+
+  /**
+   * Halka gösterge. → { node, reveal }
+   * `reveal()` çağrılana kadar yay kapalıdır; çağıran onu görünürlüğe bağlar.
+   */
+  function ring(pct, done, order) {
+    var L = RING_C * (Math.max(0, Math.min(100, pct)) / 100);
+    var wrap = el("div", "sv-ring");
+
+    var s = svg("svg", { viewBox: "0 0 64 64", "aria-hidden": "true", focusable: "false" });
+
+    /* Ölçek çentikleri: 12 adet, her üçüncüsü uzun — TikZ figürlerindeki
+       tick'lerin karşılığı. Halka boşken bile "bu bir ölçek" der. */
+    var g = svg("g", { "class": "sv-ring-ticks" });
+    for (var i = 0; i < 12; i++) {
+      var a = (i / 12) * Math.PI * 2 - Math.PI / 2;
+      var r2 = (i % 3 === 0) ? 27.2 : 28.8;
+      g.appendChild(svg("line", {
+        x1: (32 + Math.cos(a) * 30.6).toFixed(2), y1: (32 + Math.sin(a) * 30.6).toFixed(2),
+        x2: (32 + Math.cos(a) * r2).toFixed(2),   y2: (32 + Math.sin(a) * r2).toFixed(2)
+      }));
+    }
+    s.appendChild(g);
+
+    /* Yay saat 12'den başlasın: dönüşü CSS yerine SVG özniteliğiyle veriyoruz
+       ki çentikler yerinde kalsın ve tarayıcı farkı olmasın. */
+    var rot = svg("g", { transform: "rotate(-90 32 32)" });
+    rot.appendChild(svg("circle", { "class": "sv-ring-track", cx: 32, cy: 32, r: RING_R }));
+    var arc = svg("circle", { "class": "sv-ring-arc", cx: 32, cy: 32, r: RING_R });
+    arc.setAttribute("stroke-dasharray", L.toFixed(2) + " " + (RING_C + 1).toFixed(2));
+    arc.style.strokeDashoffset = L.toFixed(2);          /* kapalı başla */
+    arc.style.transitionDelay = Math.min(order || 0, 9) * 60 + "ms";
+    rot.appendChild(arc);
+    s.appendChild(rot);
+    wrap.appendChild(s);
+
+    var num = el("b", "sv-ring-n" + (done ? " is-check" : ""));
+    if (done) {
+      num.innerHTML = ico("check", 20);
+      if (!num.innerHTML) num.textContent = "✓";
+    } else {
+      /* Türkçe yazımda yüzde işareti sayının önünde durur: %34 */
+      num.appendChild(el("span", "sv-ring-u", "%"));
+      num.appendChild(el("span", "sv-ring-v", String(pct)));
+    }
+    wrap.appendChild(num);
+
+    return {
+      node: wrap,
+      reveal: function () { arc.style.strokeDashoffset = "0"; }
+    };
+  }
 
   function buildDocs(ctx) {
     var byId = {};
@@ -475,54 +693,84 @@
       if (best[r.docId] == null || p > best[r.docId]) best[r.docId] = p;
     });
 
-    var list = el("div", "sv-docs");
-    ids.forEach(function (id) {
+    var grid = el("div", "sv-docs");
+    ids.forEach(function (id, i) {
       var p = byId[id] || { pct: 0, seconds: 0, finishedAt: null };
-      var pct = Math.max(0, Math.min(100, Math.round(p.pct || 0)));
+      var rawPct = p.pct || 0;
+      // Store ilerlemeyi 0-1 arası tutar; eski kayıtlar 0-100 olabilir.
+      var pct = Math.max(0, Math.min(100,
+        Math.round(rawPct <= 1 ? rawPct * 100 : rawPct)));
       var fin = !!p.finishedAt || pct >= 99;
+      var D = global.DOCS && global.DOCS[id];
+      var kind = (D && D.kind) === "book" ? "book" : "article";
 
-      var row = el("div", "sv-doc" + (fin ? " is-done" : ""));
+      var cardEl = el("article", "sv-doc" +
+        (fin ? " is-done" : (pct > 0 ? " is-open" : " is-new")));
+      /* Ton, belgenin kütüphanedeki sırasına göre teal→ember bandından
+         gelir; doygunluk ve açıklık tek formülle sabitlendiği için on bir
+         belge yan yana dizildiğinde ton karmaşası olmuyor
+         (bkz. stats.css → .sv-doc --tint). */
+      cardEl.style.setProperty("--hue", String(bandHue(i, ids.length)));
+      cardEl.setAttribute("data-pct", String(pct));
 
-      var cov = docCover(id);
-      var badge = el("div", "sv-doc-cov", cov.emoji || "📄");
-      badge.style.setProperty("--h", String(cov.hue == null ? 210 : cov.hue));
-      row.appendChild(badge);
+      var r = ring(pct, fin, i);
+      cardEl.appendChild(r.node);
 
-      var mid = el("div", "sv-doc-mid");
-      var ttl = el("div", "sv-doc-t", docTitle(id));
-      mid.appendChild(ttl);
+      var body = el("div", "sv-doc-body");
 
-      var bar = el("div", "sv-bar");
-      var fill = el("i");
-      fill.style.width = pct + "%";
-      bar.appendChild(fill);
-      mid.appendChild(bar);
+      /* Başlık bağlantısı kartın tamamını kaplar (::after ile). Sınav
+         bağlantısı onun üstünde kalır; iç içe <a> kurulmaz. */
+      var a = el("a", "sv-doc-t");
+      a.href = "#/read/" + id;
+      a.appendChild(el("span", "sv-doc-tt", docTitle(id)));
+      body.appendChild(a);
 
       var meta = el("div", "sv-doc-meta");
-      meta.appendChild(el("span", "sv-doc-pct", "%" + pct));
-      meta.appendChild(el("span", "", dk((p.seconds || 0) / 60)));
-      if (fin) meta.appendChild(el("span", "sv-tag is-done", "bitti"));
-      meta.appendChild(el("span", best[id] != null ? "sv-tag is-quiz" : "sv-muted",
-        best[id] != null ? "sınav en iyi %" + best[id] : "sınav yapılmadı"));
-      mid.appendChild(meta);
-      row.appendChild(mid);
+      var kindEl = el("span", "sv-doc-kind");
+      kindEl.insertAdjacentHTML("afterbegin", ico(kind, 12));
+      kindEl.appendChild(el("span", null, kind === "book" ? "Kitap" : "Makale"));
+      meta.appendChild(kindEl);
+      var timeEl = el("span", "sv-doc-time");
+      timeEl.insertAdjacentHTML("afterbegin", ico("clock", 12));
+      timeEl.appendChild(el("span", null, dk((p.seconds || 0) / 60)));
+      meta.appendChild(timeEl);
+      body.appendChild(meta);
 
-      var act = el("div", "sv-doc-act");
-      var b = el("button", "sv-btn" + (pct > 0 && !fin ? " is-primary" : ""),
-                 pct > 0 ? (fin ? "Yeniden oku" : "Kaldığın yerden devam et") : "Okumaya başla");
-      b.type = "button";
-      b.addEventListener("click", function () { global.location.hash = "#/read/" + id; });
-      act.appendChild(b);
-      if (best[id] != null || pct > 0) {
-        var q = el("button", "sv-btn sv-mini", "Sınav");
-        q.type = "button";
-        q.addEventListener("click", function () { global.location.hash = "#/quiz/" + id; });
-        act.appendChild(q);
+      body.appendChild(el("p", "sv-doc-state",
+        fin ? "Bitirdin" : (pct > 0 ? "Kaldığın yerden sürebilirsin"
+                                    : "Henüz başlamadın")));
+      cardEl.appendChild(body);
+
+      /* --- sınav ayağı: skor varsa ölçek, yoksa davet --- */
+      var foot = el("div", "sv-doc-quiz");
+      if (best[id] != null) {
+        foot.appendChild(el("span", "sv-doc-qlbl", "Sınav"));
+        var qbar = el("span", "sv-doc-qbar");
+        var qfill = el("i", null);
+        qfill.style.setProperty("--w", best[id] + "%");
+        qbar.appendChild(qfill);
+        foot.appendChild(qbar);
+        foot.appendChild(el("b", "sv-doc-qn", "%" + best[id]));
+        var again = el("a", "sv-doc-qa", "yenile");
+        again.href = "#/quiz/" + id;
+        again.setAttribute("aria-label", docTitle(id) + " sınavını yeniden çöz");
+        foot.appendChild(again);
+      } else {
+        var inv = el("a", "sv-doc-invite");
+        inv.href = "#/quiz/" + id;
+        inv.insertAdjacentHTML("afterbegin", ico("quiz", 13));
+        inv.appendChild(el("span", null,
+          pct > 0 ? "Ne kadarını anladın? Sınavı dene" : "Sınavı dene"));
+        foot.appendChild(inv);
       }
-      row.appendChild(act);
-      list.appendChild(row);
+      cardEl.appendChild(foot);
+
+      /* Görünürlükte: yay dolar, sınav ölçeği uzar. */
+      onVisible(cardEl, function () { cardEl.classList.add("is-in"); r.reveal(); });
+
+      grid.appendChild(cardEl);
     });
-    return list;
+    return grid;
   }
 
   /* ==================== bölüm: e) sözcük defteri ==================== */
@@ -823,7 +1071,8 @@
     ["summary", "Özet", buildSummary, ""],
     ["heat", "Son 12 hafta", buildHeat, "Her kare bir gün; koyulaştıkça o gün daha çok okumuşsun."],
     ["words", "En çok baktığın sözcükler", buildWords, "Sözcüğe dokununca anlamı ve defterdeki kaydı açılır."],
-    ["docs", "Belge ilerlemesi", buildDocs, ""],
+    ["docs", "Belge ilerlemesi", buildDocs,
+     "Halka okunan bölümü gösterir; ortadaki sayı yüzdedir. Karta dokununca metin açılır."],
     ["vocab", "Sözcük defteri", buildVocab, "Aralıklı tekrar: bildiğin sözcük daha seyrek, bilemediğin daha sık sorulur."],
     ["notes", "Notlar", buildNotes, ""],
     ["data", "Verilerin", buildData, ""],
