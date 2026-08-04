@@ -1,5 +1,11 @@
 # Okuma Kütüphanesi
 
+<!-- badges -->
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=white) ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![CSS](https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white)
+
+![last commit](https://img.shields.io/github/last-commit/adzetto/reading-library?style=flat-square&color=informational) ![repo size](https://img.shields.io/github/repo-size/adzetto/reading-library?style=flat-square&color=informational) ![top language](https://img.shields.io/github/languages/top/adzetto/reading-library?style=flat-square)
+
+
 İngilizce bilmeyen bir okurun İngilizce akademik makale ve edebi metin
 okuyabilmesi için hazırlanmış tek sayfalık uygulama.
 
