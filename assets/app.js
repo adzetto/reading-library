@@ -155,6 +155,7 @@
 
     drawCards(docs);
     heroGlobe();
+    heroMotion();
   }
 
   /* Belge tonları sitenin kendi vurgu ailesine dağıtılır: mürekkep mavisi
@@ -173,7 +174,8 @@
     wrap.innerHTML = docs.map(function (d, di) {
       return '<a class="card" data-group="' + esc(d.__group) + '" ' +
         'href="#/read/' + encodeURIComponent(d.id) + '" ' +
-        'style="--hue:' + docHue(di, N) + '">' +
+        'style="--hue:' + docHue(di, N) +
+        ';--t:' + (N > 1 ? (di / (N - 1)).toFixed(4) : "0") + '">' +
         '<div class="card-top"><span class="card-ic">' +
         ic(d.kind === "book" ? "book" : "article", 20) + "</span>" +
         '<span class="card-badges">' +
@@ -905,6 +907,13 @@
       try { WordGlobe.destroy(); } catch (e) {}
       window.__hero__ = null;
     });
+  }
+
+  /* Hero'nun hareketi (renk şeridi, giriş, sayaçlar, ışık) assets/hero-motion.js'te. */
+  function heroMotion() {
+    if (!window.HeroMotion) return;
+    try { HeroMotion.mount(); } catch (e) { return; }
+    cleanups.push(function () { try { HeroMotion.destroy(); } catch (e) {} });
   }
 
   /* ============================ AÇILIŞ ============================ */

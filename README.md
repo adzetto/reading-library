@@ -159,6 +159,8 @@ node validate-docs.js
 python -m http.server 8850            # ayrı pencerede
 node test-app.js                      # uçtan uca: 4 görünüm, kalıcılık, telemetri
 node test-responsive-all.js           # 4 görünüm × 8 ekran = 32 birleşim
+node test-hero.js                     # iki sütunlu hero: yerleşim, renk şeridi, kontrast
+node test-globe.js                    # kelime küresi: WebGL, etiket, tema, kur/yık
 node latex/validate-docs.js           # belge bütünlüğü ve sınav geçerliliği
 node assets/store.test.js             # depolama birim testleri
 python latex/verify_doc.py <id>       # metin sadakati

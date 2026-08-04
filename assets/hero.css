@@ -1,0 +1,212 @@
+/* ==================================================================
+   hero.css — açılış bölümü: solda metin, sağda kelime takımyıldızı
+   Renk/ölçü değişkenleri style.css'ten gelir; burada yeni sabit yok.
+
+   Başlıklar önceden kürenin ÜSTÜNDE duruyordu; sözcükler metnin
+   arkasından geçtiği için ikisi de okunmuyordu. Artık iki ayrı sütun:
+   metin ve küre birbirine hiç girmez, perde/scrim de gerekmez.
+   ================================================================== */
+
+/* ------------------------------ düzen ------------------------------ */
+/* max-width + dolgu .lib ile BİREBİR aynı kutuda (library.css): ikisi ayrı
+   ögelere bölünürse sol kenarlar 5vw kayıyor ve hero metni kartların
+   hizasını tutturamıyor. */
+.hero{max-width:76rem;margin:0 auto;padding:2.5rem 5vw 3rem}
+/* minmax(0,…) ŞART: düz 1fr sütunun min-content genişliğine uyar ve
+   sayfayı yatay kaydırır — bu hata bu projede daha önce iki kez çıktı.
+   Yükseklik ~72svh: küre rahat nefes alsın ama kütüphane kartları
+   kaydırmadan görünmeye başlasın — eski 88svh'de kartlar ekranın
+   tamamen altında kalıyordu. */
+.hero-grid{display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,.95fr);
+  gap:clamp(1.5rem,4vw,3.5rem);align-items:center;
+  min-height:min(72svh,620px)}
+
+/* Küre kabı: position:relative iki işi birden görür — globe.js kendi
+   .wg-tip balonunu canvas.parentNode'a ekleyip canvas piksel
+   koordinatlarıyla konumlandırıyor, o yüzden kap konumlanmış olmalı.
+   aspect-ratio:1 ise canvas'ı kare tutar; globe.js'in fit()'i kamera
+   payını W/H üzerinden hesapladığı için kare olmayan kapta küre
+   kırpılıyor. */
+.hero-orb{position:relative;aspect-ratio:1;width:100%;
+  max-width:min(38rem,42vw);justify-self:end;align-self:center}
+#globe{position:absolute;inset:0;width:100%;height:100%;display:block;
+  touch-action:pan-y}
+/* Kürenin kenarı sert bitmesin diye çok yumuşak bir kâğıt vinyeti.
+   Eski .hero-veil'den kat kat hafif: orada perde metni okutmak içindi,
+   burada yalnızca çerçeveyi eritiyor. */
+.hero-orb::after{content:"";position:absolute;inset:-2%;pointer-events:none;
+  background:radial-gradient(closest-side,transparent 74%,
+    color-mix(in srgb,var(--paper) 55%,transparent) 90%,var(--paper) 100%)}
+
+/* ------------------------------ metin ------------------------------ */
+/* Metin artık canvas'ın üstünde durmadığı için eski pointer-events:none
+   kaldırıldı; sütun kendi fare olaylarını alabilir. */
+.hero-in{text-align:left;min-width:0}
+
+/* Manşet Mona Sans'a (--display) geçti; gövde ve arayüz Geist'te kalır.
+   Ölçek GitHub'ın hero'sundan alındı: iri punto + AĞIR kalınlık + sıkı
+   negatif tracking. Eskiden 3.4rem/600/-.03em idi ve çekingen duruyordu;
+   manşeti "tasarlanmış" gösteren şey punto değil, punto ile kalınlığın
+   ve harf aralığının birlikte sıkışması. Büyük puntoda harfler optik
+   olarak açılır, o yüzden tracking eksiye iner. */
+.hero-kicker{font-family:var(--display);font-size:.8125rem;font-weight:600;
+  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
+  margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
+/* Kısa vurgu çizgisi: katalog fişi hissi, tek sözde bile hiyerarşi. */
+.hero-kicker::before{content:"";width:1.65rem;height:2px;flex:none;
+  border-radius:2px;background:var(--accent)}
+.hero-h1{font-family:var(--display);font-size:clamp(2.4rem,5.2vw,4rem);
+  line-height:1.03;margin:0 0 1.25rem;font-weight:800;letter-spacing:-.035em;
+  text-wrap:balance}
+/* Ara metin gövdeden belirgin biçimde iri: GitHub'da manşet/ara metin
+   oranı ~3:1. Bizde eskiden 1.15rem ile gövdeye çok yakındı, bu yüzden
+   hiyerarşi düzleşiyordu. Ölçü 32rem ≈ 60-70 karakter. */
+.hero-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.7vw,1.3rem);
+  line-height:1.5;color:var(--ink-2);margin:0 0 1.75rem;max-width:32rem}
+.hero-stats{display:flex;flex-wrap:wrap;justify-content:flex-start;
+  gap:.5rem 1.6rem;font-family:var(--sans);font-size:var(--ui-sm);
+  color:var(--ink-2);margin-bottom:1.75rem}
+/* sayılar monospace: hizalanır ve arayüze ölçüm havası verir */
+.hero-stats b{color:var(--ink);font-family:var(--mono);font-weight:600;
+  font-variant-numeric:tabular-nums;font-size:.9375rem;letter-spacing:-.02em}
+.hero-cta{display:flex;gap:.75rem;justify-content:flex-start;flex-wrap:wrap}
+/* [hidden] tek başına .btn'in display:inline-flex'ini yenemez */
+.hero-cta .btn[hidden]{display:none}
+/* İlerleme varsa "Kaldığım yerden devam" birincil eylem olur; o zaman
+   "Okumaya başla" fazlalık. Kardeş seçiciyle saf CSS: üç düğme hiçbir
+   zaman yan yana gelmez, hero hep iki kademeli kalır. */
+.hero-cta #continueBtn:not([hidden]) ~ #heroStartBtn{display:none}
+/* Hero düğmeleri site geneli .btn'den daha iri ve daha kalın: manşetin
+   yanında normal punto cılız kalıyor. 48 px, GitHub'ın hero düğmesiyle
+   aynı yükseklik ve --tap'ın (42-46) üstünde. */
+.hero-cta .btn{font-size:1.0625rem;font-weight:600;min-height:48px;
+  padding:0 1.5rem;text-decoration:none}
+/* İkincil düğme "hayalet": çift CTA'da kademe ancak birincil dolu,
+   ikincil çerçeveli olunca okunur. İkisi de dolu olursa göz hangisine
+   gideceğini bilemiyor. */
+.hero-cta .btn:not(.primary){background:transparent;border-color:var(--rule)}
+.hero-cta .btn:not(.primary):hover{background:var(--paper-2);
+  border-color:var(--ink-3)}
+/* "Kaldığım yerden devam: <başlık> (%NN)" 70 karaktere varıyor; .btn'in
+   white-space:nowrap'i onu tek satırda tutunca dar telefonda düğme
+   sütundan taşıyordu. Testler yakalayamıyor: taze oturumda ilerleme
+   kaydı yok, düğme hiç görünmüyor. */
+#continueBtn{white-space:normal;text-align:left;line-height:1.25;
+  padding-block:.5rem;min-width:0;max-width:100%}
+
+/* ---------------------- belge renk şeridi ----------------------
+   Şeridin içeriğini hero-motion.js dolduruyor (her belge için bir
+   <button>); burada yalnızca görünüm tanımlı, boş kalırsa gizli.  */
+/* --sheen 0→1 arası bir sayı; JS onu canlandırıyor. @property olmadan
+   özel değişken animasyonu kademeli zıplar. inherits:true ŞART: boya
+   ::after'a taşındı, kayıtlı değişken kalıtsal değilse sözde öge
+   animasyonlu değeri değil başlangıç değerini görür. */
+@property --sheen{syntax:"<number>";inherits:true;initial-value:0}
+.hero-bar{display:flex;flex-direction:column;gap:.35rem;margin-top:1.5rem}
+.hero-bar[hidden]{display:none}
+.hero-bar .hb-track{display:flex;gap:.3rem;width:100%}
+/* RENK: ton bandını doğrudan hsl() ile taramak (209°→30°) ortada
+   yeşil-hardal bir gökkuşağı üretiyordu — kâğıt/mürekkep paletinin
+   yanında ucuz duruyor. Bunun yerine iki uç renk oklab'de karıştırılır:
+   mürekkep mavisi → doygunluğu düşük gri-kahve → sıcak kahve. Aynı on
+   belge, aynı sıra, ama tek bir renk ailesi. --t (0..1) sıra kesrini
+   hero-motion.js yazıyor. */
+/* Düğmenin KENDİSİ dokunma hedefi kadar yüksek (38 px); görünen çubuk
+   ::after ile ortalanmış 10 px. Önceden düğme 10 px'ti ve hedef sahte
+   bir ::before ile büyütülüyordu — ölçen için hedef yine 10 px'ti. */
+.hero-bar .hb-seg{position:relative;flex:1;min-width:0;height:38px;padding:0;
+  border:none;background:none;cursor:pointer;border-radius:4px}
+.hero-bar .hb-seg::after{content:"";position:absolute;left:0;right:0;
+  top:50%;margin-top:-5px;height:10px;border-radius:3px;
+  background-color:color-mix(in oklab,var(--accent),
+    var(--warm) calc(var(--t,0) * 100%));
+  /* parlama: --sheen konumu ilerlettikçe ışık şerit boyunca kayar */
+  background-image:linear-gradient(100deg,transparent 38%,
+    color-mix(in srgb,var(--paper) 62%,transparent) 50%,transparent 62%);
+  background-size:260% 100%;
+  background-position:calc((1 - var(--sheen,0)) * 130%) 0;
+  background-repeat:no-repeat;
+  transition:height .22s cubic-bezier(.22,1,.36,1),
+             margin-top .22s cubic-bezier(.22,1,.36,1),filter .22s}
+/* Koyu temada aynı karışım, mürekkebe doğru bir tık açılmış hâli. */
+:root[data-theme="dark"] .hero-bar .hb-seg::after{
+  background-color:color-mix(in oklab,
+    color-mix(in oklab,var(--accent),var(--warm) calc(var(--t,0) * 100%)),
+    var(--ink) 22%)}
+/* Üstüne gelince çubuk kalınlaşır — scaleY yerine yükseklik, çünkü
+   dönüşüm ::after'ın ortalamasını da bozardı. */
+.hero-bar .hb-seg:hover::after,.hero-bar .hb-seg:focus-visible::after{
+  height:17px;margin-top:-8.5px;filter:brightness(1.12)}
+.hero-bar .hb-seg:focus-visible{outline:2px solid var(--accent);
+  outline-offset:3px}
+/* Etiket yeri baştan ayrılır: belge adı gelip gidince şerit zıplamasın.
+   Renk --ink-2; --ink-3 açık temada 3.2:1 ile AA'nın altında kalıyor. */
+.hero-bar .hb-label{font-family:var(--sans);font-size:var(--ui-sm);
+  color:var(--ink-2);min-height:1.4em;line-height:1.4}
+
+/* ------------- kelime takımyıldızı etiketi (globe.js) ------------- */
+.wg-tip{position:absolute;left:0;top:0;z-index:5;max-width:17rem;
+  display:none;flex-direction:column;gap:.15rem;
+  padding:.5rem .7rem;border:1px solid var(--rule-2);border-radius:10px;
+  background:color-mix(in srgb,var(--paper) 94%,transparent);
+  backdrop-filter:blur(10px) saturate(1.4);
+  -webkit-backdrop-filter:blur(10px) saturate(1.4);
+  box-shadow:var(--shadow);font-family:var(--sans);
+  pointer-events:none;text-align:left}
+.wg-tip.on{display:flex}
+.wg-tip .wg-w{font-size:var(--ui-lg);font-weight:600;color:var(--ink);
+  line-height:1.2;letter-spacing:var(--ui-track)}
+.wg-tip .wg-tr{font-size:var(--ui);color:var(--accent-2);line-height:1.3}
+:root[data-theme="dark"] .wg-tip .wg-tr{color:var(--accent)}
+.wg-tip .wg-n{font-size:.75rem;color:var(--ink-2);font-family:var(--mono);
+  font-variant-numeric:tabular-nums;margin-top:.1rem}
+.wg-tip .wg-docs{display:flex;flex-direction:column;gap:.1rem;margin-top:.3rem;
+  padding-top:.35rem;border-top:1px solid var(--rule-2);
+  font-size:.75rem;color:var(--ink-2);line-height:1.35}
+.wg-tip .wg-docs i{display:inline-block;width:.45rem;height:.45rem;flex:none;
+  border-radius:50%;margin-right:.35rem;vertical-align:baseline;
+  background:hsl(var(--h) 55% 48%)}
+:root[data-theme="dark"] .wg-tip .wg-docs i{background:hsl(var(--h) 60% 68%)}
+.wg-tip .wg-docs em{font-style:normal;color:var(--ink-2)}
+
+/* ----------------------------- responsive -----------------------------
+   Kırılma noktaları site geneliyle aynı: 1080 / 760 / 560 / 380.      */
+
+/* ---- dar masaüstü: küre sütunu biraz daralır ---- */
+@media (max-width:1080px){
+  .hero-grid{grid-template-columns:minmax(0,1fr) minmax(0,.8fr);
+    gap:clamp(1.2rem,3vw,2.4rem)}
+}
+
+/* ---- tablet ve telefon: tek sütun, metin üstte küre altta ---- */
+@media (max-width:760px){
+  /* .lib bu ölçüde 6vw dolgu kullanıyor; sol kenar onunla hizalı kalsın. */
+  .hero{padding:2rem 6vw 2.5rem}
+  /* Kaynak sırası zaten metin → küre; tek sütuna düşünce doğal olarak
+     metin üstte kalır. min-height kalkar, yükseklik içerikten gelir. */
+  .hero-grid{grid-template-columns:minmax(0,1fr);min-height:auto}
+  /* Kare kapta çizilen küre kutunun ancak ~%62'sini dolduruyor; tek
+     sütuna düşünce bu, metinle küre arasında koca bir boşluk bırakıyordu.
+     Kabı biraz basıklaştırmak boşluğu alır, küreyi kırpmaz: fit()
+     kamera payını W/H > 0.85 dalında hesaplamayı sürdürür. */
+  .hero-orb{max-width:min(24rem,78vw);justify-self:center;
+    aspect-ratio:1/.84;margin-top:-.5rem}
+}
+@media (max-width:560px){
+  .hero-orb{max-width:min(20rem,86vw)}
+  /* clamp'in alt sınırı (2.4rem) telefonda manşeti üç satıra bölüyor;
+     dar sütunda 2.05rem hem iri kalıyor hem iki satırda duruyor. */
+  .hero-h1{font-size:clamp(2.05rem,8.4vw,2.6rem);letter-spacing:-.03em}
+  .hero-sub{font-size:1.0625rem}
+}
+@media (max-width:380px){
+  /* İki düğme 360 px'e yan yana sığmıyor; alt alta ve tam genişlik. */
+  .hero-cta{flex-direction:column;align-items:stretch}
+  .hero-cta .btn{width:100%}
+}
+
+/* ---- alçak ekranlar (yatay telefon): 72svh burada küreyi ezerdi ---- */
+@media (max-height:520px){
+  .hero-grid{min-height:auto}
+}

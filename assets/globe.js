@@ -15,6 +15,8 @@
      WordGlobe.setTheme("light" | "dark")
      WordGlobe.destroy()
      WordGlobe.info()                                  → tanılama | null
+     WordGlobe.focusDoc(i | null)     → o belgeyi öne çıkar, gerisini söndür
+     WordGlobe.pointer(nx, ny | null) → -1..1 imleç; kürenin ışığını sürer
 
    ES modülü yok, fetch yok — file:// altında da çalışır (sözleşme §0).
    ================================================================== */
@@ -26,23 +28,27 @@
   /* ------------------------- renk paleti -------------------------
      Sözcük ve yay renkleri belgenin `hue` değerinden türer; buradaki
      sayılar yalnızca doygunluk/parlaklık ayarıdır. Arayüz (etiket)
-     renkleri style.css değişkenlerinden gelir. */
+     renkleri style.css değişkenlerinden gelir.
+
+     dimA artık 0: sprite'lar depthTest'siz çizildiği için küre onları
+     gizlemiyor: sıfırdan büyük her taban, arka yarıküredeki sözcükleri
+     ön yüzün üstüne yayılan sürekli bir pus hâline getiriyordu. */
   var PAL = {
     light: {
       wordS: 40, wordL: 25,               // sözcük: hsl(ton, S%, L%)
-      lineS: 48, lineL: 38, lineA: 0.32,  // yay — ince ve sakin
+      lineS: 48, lineL: 38, lineA: 0.40,  // yay — ince ve sakin
       grat: "#c6bfae", gratA: 0.32,       // enlem/boylam ağı
       ball: "#fdfcf9", ballA: 0.68,       // küre gövdesi
       rim:  "#1f5f96",                    // kenar parlaması (mürekkep mavisi)
-      dimA: 0.028                         // en arkadaki sözcüğün opaklığı
+      dimA: 0                             // arka yüzdeki sözcüğün taban opaklığı
     },
     dark: {
       wordS: 38, wordL: 74,
-      lineS: 52, lineL: 56, lineA: 0.30,
+      lineS: 52, lineL: 56, lineA: 0.38,
       grat: "#39424f", gratA: 0.48,
       ball: "#0a0c11", ballA: 0.78,
       rim:  "#7db4e6",
-      dimA: 0.04
+      dimA: 0
     }
   };
 
@@ -56,6 +62,19 @@
     var t = clamp((docIndex || 0) / n, 0, 1);
     return HUE0 + (HUE1 - HUE0) * t;
   }
+
+  /* 209°→30° ton bandı düz taranınca ortadan yeşil-hardal geçiyor ve
+     kâğıt/mürekkep paletinin yanında gökkuşağı gibi duruyor. Çare tonu
+     değil DOYGUNLUĞU eğmek: uçlarda tam doygun (mavi / kahve), ortada
+     düşük doygun (gri-kahve). Böylece on belge birbirinden ayrılmaya
+     devam eder ama tek bir renk ailesi olarak okunur. hero.css'teki
+     color-mix(in oklab, --accent, --warm) ile aynı his.
+     0 uçlarda, 1 tam ortada. */
+  function bandK(docIndex, total) {
+    var n = Math.max(1, (total || 1) - 1);
+    return Math.sin(Math.PI * clamp((docIndex || 0) / n, 0, 1));
+  }
+  var DESAT = 0.62;                  // ortadaki doygunluk kaybı oranı
 
   /* --------------------------- yardımcılar --------------------------- */
   function clamp(x, a, b) { return x < a ? a : x > b ? b : x; }
@@ -186,8 +205,11 @@
     var reduced = opts.reduced != null ? !!opts.reduced :
       (global.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)").matches : false);
 
-    /* Dar ekranda daha az sözcük: hem okunur hem hızlı kalsın. */
-    var cap = opts.max || (W < 560 ? 105 : W < 900 ? 130 : 155);
+    /* Dar ekranda daha az sözcük: hem okunur hem hızlı kalsın.
+       Eşikler artık TUVAL genişliğine bakıyor ve tuval hero'nun yalnız bir
+       sütunu; 390 px telefonda kutu ~317 px'e düşüyor. Alt basamak 105'te
+       kalsaydı sınamanın "en az 100 sprite" koşuluna 5 sprite kalırdı. */
+    var cap = opts.max || (W < 560 ? 110 : W < 900 ? 135 : 155);
     cap = Math.min(cap, 200, G.nodes.length);
     var nodes = G.nodes.slice(0, cap);      // en anlamlılar başta duruyor
     var links = G.links.filter(function (l) { return l.a < cap && l.b < cap; });
@@ -236,9 +258,15 @@
     var dirs = layout(T, nodes, G.docs.length, rad);
 
     /* ---------------------- küre gövdesi + ağ ----------------------
-       Düz renk bir top yerine gölgeli bir küre: sol üstten gelen yumuşak
-       bir ışık ve kenarda fresnel parlaması. TikZ'in `ball color` gölgeli
-       kürelerinin verdiği hacim duygusunu bu iki terim taşıyor. */
+       Düz renk bir top yerine gölgeli bir küre: yumuşak bir ışık ve
+       kenarda fresnel parlaması. TikZ'in `ball color` gölgeli kürelerinin
+       verdiği hacim duygusunu bu iki terim taşıyor.
+
+       Işık yönü artık sabit değil: imleci izliyor (uLight her karede
+       hedefine doğru yumuşatılıyor), imleç yokken çok yavaş bir Lissajous
+       ile geziniyor. Üstüne uPointer'ın sürdüğü geniş bir parıltı ve
+       hareketli bir spekülerlik biniyor — gölge böylece hiç donmuyor. */
+    var LIGHT0 = new T.Vector3(-0.55, 0.72, 0.42).normalize();
     var ballGeo = new T.SphereGeometry(0.99, 64, 48);
     var ballMat = new T.ShaderMaterial({
       transparent: true, depthWrite: true,
@@ -246,7 +274,9 @@
         uBase:  { value: new T.Color("#ffffff") },
         uRim:   { value: new T.Color("#000000") },
         uOpac:  { value: 0.74 },
-        uLight: { value: new T.Vector3(-0.55, 0.72, 0.42).normalize() }
+        uLight: { value: LIGHT0.clone() },
+        uTime:  { value: 0 },
+        uPointer: { value: new T.Vector2(0, 0) }
       },
       vertexShader: [
         "varying vec3 vN; varying vec3 vV;",
@@ -260,13 +290,24 @@
       fragmentShader: [
         "uniform vec3 uBase; uniform vec3 uRim;",
         "uniform float uOpac; uniform vec3 uLight;",
+        "uniform float uTime; uniform vec2 uPointer;",
         "varying vec3 vN; varying vec3 vV;",
         "void main(){",
-        "  float fres = pow(1.0 - max(dot(vN,vV),0.0), 2.6);",
-        "  float diff = 0.5 + 0.5*dot(vN, normalize(uLight));",
+        "  vec3 N = normalize(vN); vec3 V = normalize(vV);",
+        "  vec3 L = normalize(uLight);",
+        "  float fres = pow(1.0 - max(dot(N,V),0.0), 2.6);",
+        "  float diff = 0.5 + 0.5*dot(N, L);",
+        // imlecin bulunduğu yandan gelen çok geniş, düşük genlikli parıltı:
+        // uLight yumuşatılarak geldiği için bu terim ani tepkiyi taşıyor
+        "  vec3 L2 = normalize(vec3(uPointer.x*1.2, -uPointer.y*1.2, 0.9));",
+        "  float sheen = pow(max(dot(N,L2),0.0), 3.0);",
+        "  float spec = pow(max(dot(reflect(-L,N), V), 0.0), 24.0);",
         "  vec3 c = mix(uBase*0.90, uBase, diff);",
         "  c = mix(c, uRim, fres*0.55);",
-        "  float a = uOpac*(0.62+0.38*diff) + fres*0.22;",
+        "  c += spec*0.12 + sheen*0.05;",
+        // kenar çok yavaş nefes alsın: küre hiç kıpırdamadığında bile canlı
+        "  float rimB = 1.0 + 0.05*sin(uTime*0.31);",
+        "  float a = uOpac*(0.62+0.38*diff) + fres*0.22*rimB + spec*0.10;",
         "  gl_FragColor = vec4(c, clamp(a,0.0,1.0));",
         "}"
       ].join("\n")
@@ -300,15 +341,26 @@
     grat.renderOrder = 1;
     root.add(grat);
 
-    /* -------------------- yaylar (geodezik eğri) -------------------- */
-    var SEGS = 16, VPL = SEGS * 2;            // yay başına köşe (LineSegments)
+    /* -------------------- yaylar (geodezik eğri) --------------------
+       Yay, iki sözcüğün DİBİNDE başlayıp bitmeli: sözcükler R=1.014..1.026
+       yarıçapında duruyor, yaylar ise 1.005'te başlıyordu — uçlarda gözle
+       görülür boşluk kalıyordu. Taban yarıçap sözcüklerin ortalamasına
+       çekildi, kabarma (lift) da kısıldı: eski 0.06 katsayısıyla uzun
+       yaylar 1.075'e balon yapıp küreden kopuyor, ilgisiz sözcüklerin
+       üstünden geçiyordu. */
+    var R_ARC = 1.020;
+    var SEGS = 28, VPL = SEGS * 2;            // yay başına köşe (LineSegments)
     var lpos = new Float32Array(links.length * VPL * 3);
     var lcol = new Float32Array(links.length * VPL * 4);
-    var taper = new Float32Array(VPL);
-    var linkMid = [];
+    /* Her yayın SEGS+1 ayrık noktasının BİRİM yönü. Derinlik solmasını her
+       karede bu diziden okuyoruz; köşeleri döndürmek yerine kamerayı
+       kürenin yerel eksenine taşıdığımız için tek nokta çarpım yetiyor. */
+    var ldir = new Float32Array(links.length * (SEGS + 1) * 3);
+    var taper = new Float32Array(VPL);        // uçlara doğru incelme
+    var cmix = new Float32Array(VPL);         // iki uç rengi arası karışım
 
-    /** İki yön arasında küre yüzeyinde geodezik (slerp) + hafif kabarma. */
-    function geodesic(a, b, t, ang, lift, out) {
+    /** İki yön arasında küre yüzeyinde geodezik (slerp); birim yön döner. */
+    function geodesic(a, b, t, ang, out) {
       var s = Math.sin(ang);
       if (ang < 1e-4 || Math.abs(s) < 1e-4) {
         out.set(0, 0, 0).addScaledVector(a, 1 - t).addScaledVector(b, t);
@@ -318,28 +370,48 @@
           .addScaledVector(a, Math.sin((1 - t) * ang) / s)
           .addScaledVector(b, Math.sin(t * ang) / s);
       }
-      return out.normalize().multiplyScalar(1.005 + lift * Math.sin(Math.PI * t));
+      return out.normalize();
     }
 
     (function buildArcs() {
       var k;
       for (k = 0; k < VPL; k++) {
-        var tt = (Math.floor(k / 2) + (k % 2)) / SEGS;
-        taper[k] = 0.3 + 0.7 * Math.sin(Math.PI * clamp(tt, 0, 1));
+        var u = ((k >> 1) + (k & 1)) / SEGS;         // 0..1, çizilen yay boyunca
+        /* Uç 0.15'e iniyor (eskiden 0.3): iplik sözcüğün dibinde sönerek
+           bitiyor. Üs 1'den küçük olduğu için sönme yalnız uçlara sıkışır,
+           yayın gövdesi tam parlak kalır. */
+        taper[k] = 0.15 + 0.85 * Math.pow(Math.sin(Math.PI * clamp(u, 0, 1)), 0.55);
+        /* Renk karışımı yalnız ortada: her yarı dürüstçe kendi belgesinin
+           renginde kalsın. Karışım BİLEŞEN bazında (RGB) — ton üzerinden
+           209°→30° geçişi tam yeşilin (120°) içinden geçerdi. */
+        cmix[k] = smooth(u, 0.30, 0.70);
       }
-      var A = new T.Vector3(), B = new T.Vector3();
-      var P = new T.Vector3(), Q = new T.Vector3();
+      var A = new T.Vector3(), B = new T.Vector3(), P = new T.Vector3();
       links.forEach(function (l, li) {
         A.copy(dirs[l.a]); B.copy(dirs[l.b]);
         var ang = Math.acos(clamp(A.dot(B), -1, 1));
-        var lift = 0.01 + 0.06 * (ang / Math.PI);
-        var off = li * VPL * 3;
-        linkMid.push(new T.Vector3().addVectors(A, B).normalize());
-        for (var s = 0; s < SEGS; s++) {
-          geodesic(A, B, s / SEGS, ang, lift, P);
-          geodesic(A, B, (s + 1) / SEGS, ang, lift, Q);
-          lpos[off + s * 6] = P.x; lpos[off + s * 6 + 1] = P.y; lpos[off + s * 6 + 2] = P.z;
-          lpos[off + s * 6 + 3] = Q.x; lpos[off + s * 6 + 4] = Q.y; lpos[off + s * 6 + 5] = Q.z;
+        var lift = 0.008 + 0.035 * (ang / Math.PI);
+        /* Yay sözcüğün MERKEZİNİ delmesin: uçlar sözcüğün açısal yarıçapı
+           kadar içeri çekiliyor (rad[] yerleşim gevşetmesinden geliyor). */
+        var t0 = ang > 1e-3 ? Math.min(0.34, 0.85 * rad[l.a] / ang) : 0;
+        var t1 = 1 - (ang > 1e-3 ? Math.min(0.34, 0.85 * rad[l.b] / ang) : 0);
+        var o3 = li * (SEGS + 1) * 3, off = li * VPL * 3;
+        for (var s = 0; s <= SEGS; s++) {
+          var t = t0 + (t1 - t0) * (s / SEGS);
+          geodesic(A, B, t, ang, P);
+          ldir[o3 + s * 3] = P.x; ldir[o3 + s * 3 + 1] = P.y; ldir[o3 + s * 3 + 2] = P.z;
+          var r = R_ARC + lift * Math.sin(Math.PI * t);
+          // LineSegments her parçayı iki köşe ister; iç noktalar iki kez yazılır
+          if (s < SEGS) {
+            lpos[off + s * 6] = P.x * r;
+            lpos[off + s * 6 + 1] = P.y * r;
+            lpos[off + s * 6 + 2] = P.z * r;
+          }
+          if (s > 0) {
+            lpos[off + (s - 1) * 6 + 3] = P.x * r;
+            lpos[off + (s - 1) * 6 + 4] = P.y * r;
+            lpos[off + (s - 1) * 6 + 5] = P.z * r;
+          }
         }
       });
     })();
@@ -356,6 +428,42 @@
     var arcs = new T.LineSegments(arcGeo, arcMat);
     arcs.renderOrder = 2;
     root.add(arcs);
+
+    /* LineBasicMaterial `linewidth`i yok sayar (WebGL çekirdek sınırı):
+       2× ekranda çizgi fiziksel olarak yarı yarıya inceliyor ve yıkanıyor.
+       Kalınlaştıramadığımız için alfa tabanını azıcık açıyoruz. */
+    var dprBoost = 1 + 0.15 * (clamp(global.devicePixelRatio || 1, 1, 2) - 1);
+
+    /* Belge renkleri: ton her belgenin bandHue'su çevresinde ±4° salınıyor
+       (Task C). Kuşak (209°→30°) kütüphane kartlarını ve renk şeridini de
+       sürdüğü için sapma dar tutuldu — belge kimliği bozulmamalı. */
+    var ND = G.docs.length;
+    var docRGB = new Float32Array(ND * 3);
+    function mixDocColors(t, P) {
+      for (var d = 0; d < ND; d++) {
+        var c = hsl(bandHue(d, ND) + 4 * Math.sin(t * 0.07 + d),
+                    P.lineS * (1 - DESAT * bandK(d, ND)), P.lineL);
+        docRGB[d * 3] = c.r; docRGB[d * 3 + 1] = c.g; docRGB[d * 3 + 2] = c.b;
+      }
+    }
+
+    /** Yay köşelerinin RGB'si: A ucunun belge renginden B ucununkine.
+        Ton kayması çok yavaş olduğu için her karede değil, saniyede
+        birkaç kez çağrılıyor; alfa ise her karede yeniden yazılıyor. */
+    function paintArcs() {
+      for (var i = 0; i < links.length; i++) {
+        var l = links[i], off = i * VPL * 4;
+        var a3 = (nodes[l.a].p || 0) * 3, b3 = (nodes[l.b].p || 0) * 3;
+        var ar = docRGB[a3], ag = docRGB[a3 + 1], ab = docRGB[a3 + 2];
+        var br = docRGB[b3], bg = docRGB[b3 + 1], bb = docRGB[b3 + 2];
+        for (var k = 0; k < VPL; k++) {
+          var m = cmix[k], o = off + k * 4;
+          lcol[o]     = ar + (br - ar) * m;
+          lcol[o + 1] = ag + (bg - ag) * m;
+          lcol[o + 2] = ab + (bb - ab) * m;
+        }
+      }
+    }
 
     /* -------------------------- sözcükler -------------------------- */
     var sprites = [], texes = [], built = false;
@@ -404,22 +512,22 @@
       ballMat.uniforms.uOpac.value = P.ballA;
       gratMat.color.setStyle(P.grat); gratMat.opacity = P.gratA;
 
-      links.forEach(function (l, li) {
-        var c = hsl(bandHue(l.d, G.docs.length), P.lineS, P.lineL);
-        var off = li * VPL * 4;
-        for (var k = 0; k < VPL; k++) {
-          lcol[off + k * 4] = c.r;
-          lcol[off + k * 4 + 1] = c.g;
-          lcol[off + k * 4 + 2] = c.b;
-        }
-      });
+      /* Yayın rengi artık tek bir belgeden gelmiyor: `l.d` iki ucun DEĞİL,
+         "en ayırt edici ortak belge"nin indeksi — mavi iki sözcüğü birleştiren
+         yay kahverengi çıkabiliyordu. Her yarı kendi ucunun belge rengini
+         alıyor, ortada yumuşak geçiyor. (l.d focusDoc için duruyor.) */
+      mixDocColors(0, P);
+      paintArcs();
       arcColAttr.needsUpdate = true;
 
       sprites.forEach(function (sp, i) {
-        var hue = bandHue(nodes[i].p, G.docs.length);
+        var ndoc = G.docs.length;
+        var hue = bandHue(nodes[i].p, ndoc);
+        var k = bandK(nodes[i].p, ndoc);
         var t = size[i].t;
         var l = P.wordL + (inst.theme === "dark" ? 7 * t : -7 * t);
-        sp.material.color.copy(hsl(hue, P.wordS, clamp(l, 8, 92)));
+        sp.material.color.copy(hsl(hue, P.wordS * (1 - DESAT * k),
+                                   clamp(l, 8, 92)));
       });
       inst.dirty = true;
     }
@@ -459,34 +567,76 @@
     }
     function hideTip() { tip.classList.remove("on"); }
 
-    /* ------------------------- etkileşim ------------------------- */
-    var ray = new T.Raycaster(), ndc = new T.Vector2();
-    var hover = -1, pointerIn = false, mx = 0, my = 0, needPick = false;
+    /* ------------------------- etkileşim -------------------------
+       İmleç iki ayrı işi sürüyor ve ikisinin sınırı artık farklı:
+         · TUVAL içindeki konum → sözcük seçimi (pick/hover)
+         · HERO içindeki konum  → paralaks eğim ve kürenin ışığı
+       Küre eskiden hero'nun tamamını kaplıyordu, ikisi aynı şeydi. Şimdi
+       yalnız sağ sütunda; tuvale bakarsak imleç sol sütunda gezerken küre
+       ölü kalır. Ölçüm kutusu opts.pointerHost ile değiştirilebilir. */
+    var pHost = opts.pointerHost ||
+                (canvas.closest ? canvas.closest(".hero") : null) || canvas;
+    var ray = new T.Raycaster(), ndc = new T.Vector3();
+    var hover = -1, inCanvas = false, inHost = false;
+    var mx = 0, my = 0, needPick = false;
     var tiltX = 0, tiltY = 0, tgX = 0, tgY = 0, lastTap = -1;
+    /* imleç ışığı: -1..1. İki kaynak var — kendi olayımız ve DOM
+       katmanının pointer() çağrısı; dışarıdan gelen önceliklidir. */
+    var ptrX = 0, ptrY = 0, ptrOn = false;
+    var extX = 0, extY = 0, extOn = false;
+
+    /* Dikdörtgenler önbellekte: pointermove'da getBoundingClientRect
+       çağırmak her harekette düzen hesabı zorluyor. Kaydırma/yeniden
+       boyutlama geçersiz kılar, ayrıca 200 ms'de bir kendiliğinden
+       tazelenir (Lenis gibi dönüşümle kaydıran katmanlara karşı). */
+    var rcCv = null, rcHo = null, rcAt = -1e9, rcOld = false;
+    function rects(now) {
+      if (rcCv && !rcOld && now - rcAt < 200) return;
+      rcCv = canvas.getBoundingClientRect();
+      rcHo = pHost === canvas ? rcCv : pHost.getBoundingClientRect();
+      rcAt = now; rcOld = false;
+    }
+    function stale() { rcOld = true; }
 
     function onMove(e) {
-      var r = canvas.getBoundingClientRect();
-      if (!r.width || !r.height) return;
-      mx = e.clientX - r.left; my = e.clientY - r.top;
-      pointerIn = mx >= 0 && my >= 0 && mx <= r.width && my <= r.height;
-      if (!pointerIn) { setHover(-1); return; }
-      tgX = (mx / r.width - 0.5) * 0.28;
-      tgY = (my / r.height - 0.5) * 0.18;
+      rects(e.timeStamp || performance.now());
+      if (!rcCv.width || !rcCv.height) return;
+      mx = e.clientX - rcCv.left; my = e.clientY - rcCv.top;
+      inCanvas = mx >= 0 && my >= 0 && mx <= rcCv.width && my <= rcCv.height;
+
+      var hx = e.clientX - rcHo.left, hy = e.clientY - rcHo.top;
+      inHost = rcHo.width > 0 && rcHo.height > 0 &&
+               hx >= 0 && hy >= 0 && hx <= rcHo.width && hy <= rcHo.height;
+      if (inHost) {
+        tgX = (hx / rcHo.width - 0.5) * 0.28;
+        tgY = (hy / rcHo.height - 0.5) * 0.18;
+        ptrX = (hx / rcHo.width) * 2 - 1;
+        ptrY = (hy / rcHo.height) * 2 - 1;
+        ptrOn = true;
+      } else {
+        tgX = tgY = 0; ptrOn = false;
+      }
+      if (!inCanvas) { setHover(-1); inst.dirty = true; return; }
       needPick = true;
       inst.dirty = true;
     }
-    function onLeave() { pointerIn = false; setHover(-1); tgX = tgY = 0; inst.dirty = true; }
+    /* pointerleave yalnız tuvalden çıkışı bildirir: eğim ve ışık hero
+       sınırına bakıyor, orada sürmeye devam etmeli. */
+    function onLeave() { inCanvas = false; setHover(-1); inst.dirty = true; }
 
     function pick() {
       needPick = false;
-      if (!built || !pointerIn) return;
-      var r = canvas.getBoundingClientRect();
-      if (!r.width || !r.height) return;
-      ndc.set((mx / r.width) * 2 - 1, -(my / r.height) * 2 + 1);
+      if (!built || !inCanvas) return;
+      rects(performance.now());
+      if (!rcCv.width || !rcCv.height) return;
+      ndc.set((mx / rcCv.width) * 2 - 1, -(my / rcCv.height) * 2 + 1, 0);
       ray.setFromCamera(ndc, cam);
       var hits = ray.intersectObjects(sprites, false), found = -1;
       for (var k = 0; k < hits.length; k++) {
-        if (hits[k].object.userData.front > 0.02) { found = hits[k].object.userData.i; break; }
+        // ufkun ötesindeki sözcük görünmüyor; etiketi de açılmasın
+        if (hits[k].object.userData.front > horizon) {
+          found = hits[k].object.userData.i; break;
+        }
       }
       setHover(found);
     }
@@ -512,15 +662,16 @@
     }
     function onDown(e) {
       if (e.pointerType !== "touch" && e.pointerType !== "pen") return;
-      var r = canvas.getBoundingClientRect();
-      mx = e.clientX - r.left; my = e.clientY - r.top;
-      pointerIn = true; pick();
+      stale(); rects(performance.now());
+      mx = e.clientX - rcCv.left; my = e.clientY - rcCv.top;
+      inCanvas = true; pick();
     }
 
     canvas.addEventListener("click", onClick);
     canvas.addEventListener("pointerdown", onDown, { passive: true });
     canvas.addEventListener("pointerleave", onLeave, { passive: true });
     global.addEventListener("pointermove", onMove, { passive: true });
+    global.addEventListener("scroll", stale, { passive: true });
 
     /* ---------------------- ölçü / görünürlük ---------------------- */
     function resize() {
@@ -531,17 +682,12 @@
       cam.aspect = W / H;
       fit();
       cam.updateProjectionMatrix();
-      measureSafe();
+      stale();                                 // imleç kutuları da kaydı
       inst.dirty = true;
     }
     var ro = null;
     if (global.ResizeObserver) { ro = new ResizeObserver(resize); ro.observe(canvas); }
     global.addEventListener("resize", resize);
-    /* Hero metni yazı tipi yüklendikçe yeniden akıyor; güvenli bölge ilk
-       ölçümde yanlış kalmasın diye birkaç kez tazelenir. */
-    measureSafe();
-    [80, 400, 1200].forEach(function (ms) { setTimeout(measureSafe, ms); });
-    if (document.fonts && document.fonts.ready) document.fonts.ready.then(measureSafe);
 
     var visible = true, io = null;
     if (global.IntersectionObserver) {
@@ -554,51 +700,28 @@
     function onVis() { if (!document.hidden) { last = performance.now(); inst.dirty = true; } }
     document.addEventListener("visibilitychange", onVis);
 
-    /* ---------------------- metin güvenli bölgesi ----------------------
-       Başlık ve düğmeler kürenin önünde duruyor. Sözcükler onların
-       arkasından geçerken metni okunmaz hâle getiriyordu. Hero metninin
-       ekrandaki dikdörtgeni NDC'ye çevrilir; o alana giren sözcük ve yay
-       yumuşak bir geçişle silinir. Böylece küre metnin çevresinde
-       "açılır" — kesip atmak yerine yerini açar. */
-    var safe = null;                       // {x0,y0,x1,y1} NDC (-1..1)
-    function measureSafe() {
-      var box = canvas.parentNode &&
-                canvas.parentNode.querySelector(".hero-in");
-      if (!box) { safe = null; return; }
-      var c = canvas.getBoundingClientRect();
-      var r = box.getBoundingClientRect();
-      if (!c.width || !c.height) { safe = null; return; }
-      var padX = 26, padY = 18;            // metnin çevresindeki nefes payı
-      safe = {
-        x0: ((r.left - padX - c.left) / c.width) * 2 - 1,
-        x1: ((r.right + padX - c.left) / c.width) * 2 - 1,
-        y0: -(((r.bottom + padY - c.top) / c.height) * 2 - 1),
-        y1: -(((r.top - padY - c.top) / c.height) * 2 - 1)
-      };
-    }
-
-    /** NDC noktası güvenli bölgeye ne kadar gömülü: 0 = dışarıda, 1 = tam içeride.
-        Kenarlarda `smooth` ile yumuşak geçiş; sert kesme çirkin duruyor. */
-    function safeMask(x, y) {
-      if (!safe) return 0;
-      var fx = 0.16 * (safe.x1 - safe.x0);
-      var fy = 0.34 * (safe.y1 - safe.y0);
-      var mx = Math.min(smooth(x, safe.x0 - fx, safe.x0 + fx),
-                        1 - smooth(x, safe.x1 - fx, safe.x1 + fx));
-      var my = Math.min(smooth(y, safe.y0 - fy, safe.y0 + fy),
-                        1 - smooth(y, safe.y1 - fy, safe.y1 + fy));
-      return clamp(mx, 0, 1) * clamp(my, 0, 1);
-    }
-
-    /* ------------------------- çizim döngüsü ------------------------- */
-    var wv = new T.Vector3(), camDir = new T.Vector3(), ndc = new T.Vector3();
-    var last = performance.now(), raf = 0;
+    /* ------------------------- çizim döngüsü -------------------------
+       Metin güvenli bölgesi (safeMask) kaldırıldı: hero iki sütuna
+       ayrıldı, metin artık kürenin ÜSTÜNDE durmuyor. Maske her sprite ve
+       her yay için karede bir project(cam) çağırıyordu — o da gitti. */
+    var wv = new T.Vector3(), camDir = new T.Vector3();
+    var camLoc = new T.Vector3(), invQ = new T.Quaternion();
+    var lightNow = LIGHT0.clone(), lightTgt = new T.Vector3();
+    var fseg = new Float32Array(SEGS + 1);
+    var last = performance.now(), raf = 0, tsec = 0, hueT = 1;
+    /* Görünen ufuk: küre yüzeyindeki bir nokta, kamera uzaklığı d iken
+       dot(yön, kameraYönü) = R/d değerinde silüete değer — SIFIRDA değil.
+       Solmaları buraya oturtmazsak sözcükler kenarda birden beliriyor,
+       yaylar da arka yüzden görünmeye devam ediyor. */
+    var horizon = 1.005 / camZ;
     /* her yayın darbesi farklı anda geçsin diye sabit faz kaymaları */
-    var pulse = 0, linkPhase = (function () {
+    var pulse = 0, pulseF = 0, linkPhase = (function () {
       var r = rng(99173), a = [];
       for (var i = 0; i < links.length; i++) a.push(r());
       return a;
     })();
+    /* belge odağı (WordGlobe.focusDoc) — sertçe değil, süzülerek geçer */
+    var focusDocIdx = null, focusStr = 0;
 
     function frame(now) {
       if (!inst || inst.dead) return;
@@ -607,10 +730,14 @@
       if (!visible || document.hidden) return;
       if (reduced && !inst.dirty) return;      // hareket azaltıldıysa durağan
 
+      /* Yumuşatma katsayısı kare süresinden türer: 0.05 sabiti 120 Hz'de
+         iki kat hızlı, 30 Hz'de yarı hızlı davranıyordu. τ = 0.16 s. */
+      var kd = 1 - Math.exp(-dt / 0.16);
       if (!reduced) {
+        tsec += dt;
         root.rotation.y += dt * 0.05;
-        tiltX += (tgY - tiltX) * 0.05;
-        tiltY += (tgX - tiltY) * 0.05;
+        tiltX += (tgY - tiltX) * kd;
+        tiltY += (tgX - tiltY) * kd;
         root.rotation.x = tiltX * 0.85;
         cam.position.x = tiltY * 1.1;
         cam.position.y = -tiltX * 0.7;
@@ -619,7 +746,48 @@
       }
       inst.dirty = false;
       camDir.copy(cam.position).normalize();
+      var cdist = cam.position.length();
+      horizon = 1.005 / cdist;
+      /* Yaylar topun bir kabuk üstünde duruyor (r ≈ 1.02+), bu yüzden ÖN
+         yüzdeyken bile silüetin dışına taşıp küreyi saran bir hâle
+         yapıyorlardı. Sönmeyi topun disk kenarına oturtuyoruz: r
+         yarıçapındaki nokta diski sin θ = Rtop·√(1-(Rtop/d)²) / r
+         açısında geçiyor; ötesi zaten "arkada" sayılmalı. */
+      var rb = 0.99 / cdist;
+      var sB = 0.99 * Math.sqrt(Math.max(0, 1 - rb * rb));
+      var sA = Math.min(1, sB / (R_ARC + 0.02));
+      var hArc = Math.sqrt(Math.max(0, 1 - sA * sA));
+      /* Yay derinliği için: 16 bin köşeyi döndürmek yerine kamerayı kürenin
+         yerel eksenine taşıyoruz — dönme nokta çarpımı korur. Birim
+         dördeyin tersi eşleniğidir (sürüm farkı gözetmeden). */
+      invQ.set(-root.quaternion.x, -root.quaternion.y,
+               -root.quaternion.z, root.quaternion.w);
+      camLoc.copy(camDir).applyQuaternion(invQ);
       var P = inst.pal, i;
+
+      /* --- odak geçişi (focusDoc): ani sönme yerine süzülme --- */
+      var fTgt = focusDocIdx == null ? 0 : 1;
+      if (Math.abs(fTgt - focusStr) > 0.002) {
+        focusStr += (fTgt - focusStr) * (1 - Math.exp(-dt / 0.20));
+        inst.dirty = true;                     // azaltılmış harekette de tamamlansın
+      } else { focusStr = fTgt; }
+
+      /* --- küre ışığı: imleci izler, imleç yokken çok yavaş gezinir --- */
+      var lon = extOn || ptrOn, lx = extOn ? extX : ptrX, ly = extOn ? extY : ptrY;
+      if (reduced) {
+        lightTgt.copy(LIGHT0);                 // hareket azaltıldı: sabit yön
+      } else if (lon) {
+        // imleç sağa gidince ışık sağdan gelsin; ekran y'si aşağı doğru büyür
+        lightTgt.set(lx * 0.95, -ly * 0.95, 0.62).normalize();
+      } else {
+        lightTgt.set(LIGHT0.x + 0.16 * Math.sin(tsec * 0.23),
+                     LIGHT0.y + 0.12 * Math.cos(tsec * 0.17),
+                     LIGHT0.z + 0.10 * Math.sin(tsec * 0.11)).normalize();
+      }
+      lightNow.lerp(lightTgt, 1 - Math.exp(-dt / 0.22)).normalize();
+      ballMat.uniforms.uLight.value.copy(lightNow);
+      ballMat.uniforms.uTime.value = tsec;
+      ballMat.uniforms.uPointer.value.set(lon ? lx : 0, lon ? ly : 0);
 
       /* sözcükler: derinliğe göre soluklaşsın, üstüne gelinen öne çıksın */
       if (built) {
@@ -629,14 +797,14 @@
           wv.copy(sp.position).applyQuaternion(root.quaternion);
           var f = wv.dot(camDir);
           sp.userData.front = f;
-          var a = smooth(f, -0.45, 0.86);
+          // solma ufka oturuyor: silüetin ötesindeki sözcük tamamen gider
+          var a = smooth(f, horizon - 0.03, horizon + 0.34);
           var on = i === hover;
           var o = P.dimA + (1 - P.dimA) * Math.pow(a, 1.6);
           if (hover >= 0) o *= on ? 1 : (near[i] ? 1.1 : 0.45);
-          // metnin durduğu alana giren sözcük silinsin
-          if (safe && f > -0.2) {
-            ndc.copy(sp.position).applyQuaternion(root.quaternion).project(cam);
-            o *= 1 - 0.97 * safeMask(ndc.x, ndc.y);
+          if (focusStr > 0.002) {
+            var inDoc = focusDocIdx != null && nodes[i].docs.indexOf(focusDocIdx) >= 0;
+            o *= 1 + focusStr * ((inDoc ? 1 : 0.18) - 1);
           }
           sp.material.opacity = on ? 1 : clamp(o, 0, 1);
           var k = (0.86 + 0.14 * a) * (on ? 1.32 : 1);
@@ -645,29 +813,46 @@
         if (hover >= 0) placeTip(hover);
       }
 
-      /* yaylar: derinlik solması + metin bölgesinden kaçınma + akan darbe.
-         Darbe, yay boyunca ilerleyen dar bir parlaklık tepesi; küre yavaş
-         döndüğü için hareketi asıl bu taşıyor. */
+      /* --- yaylar ---
+         Sönme artık yayın ORTA noktasının derinliğinden değil, her köşenin
+         kendi derinliğinden geliyor. 180°'ye varan bir yayın ortası kameraya
+         bakınca yayın tamamı — silüetin arkasına dolanan yarısı dahil — aynı
+         parlaklıkta kalıyordu; bağlantıların yanlış görünmesinin asıl
+         sebebi buydu. Üstüne yay boyunca akan bir darbe biniyor; küre çok
+         yavaş döndüğü için hareketi asıl o taşıyor. */
       pulse += dt * 0.16;
+      pulseF += dt * 0.34;                     // vurgulanan komşu yaylar ~2× hızlı
+      /* Ton kayması saniyede birkaç kez tazelense yeter (periyodu ~90 s);
+         renk yazımını her kareye yaymak boşuna 200 KB kopyalamak olurdu. */
+      hueT += dt;
+      if (!reduced && hueT > 0.12) { hueT = 0; mixDocColors(tsec, P); paintArcs(); }
+      var base0 = P.lineA * dprBoost;
       for (i = 0; i < links.length; i++) {
-        wv.copy(linkMid[i]).applyQuaternion(root.quaternion);
-        var fa = P.lineA * smooth(wv.dot(camDir), -0.3, 0.6);
-        if (hover >= 0) {
-          fa *= (links[i].a === hover || links[i].b === hover) ? 2.6 : 0.22;
-          fa = Math.min(1, fa);
+        var lk = links[i];
+        var nb = hover >= 0 && (lk.a === hover || lk.b === hover);
+        var fa = base0;
+        if (hover >= 0) fa *= nb ? 2.2 : 0.30;
+        if (focusStr > 0.002) {
+          /* Odaklı belgenin yayı: l.d "en ayırt edici ortak belge", tek
+             başına çok seyrek (bir belgede yalnız 1 yay olabiliyor); uçların
+             kıtası da sayılıyor ki odak gözle görülür bir demet olsun. */
+          var inD = lk.d === focusDocIdx ||
+                    nodes[lk.a].p === focusDocIdx || nodes[lk.b].p === focusDocIdx;
+          fa *= 1 + focusStr * ((inD ? 1.8 : 0.15) - 1);
         }
-        if (safe && fa > 0.002) {
-          ndc.copy(linkMid[i]).applyQuaternion(root.quaternion).project(cam);
-          fa *= 1 - 0.95 * safeMask(ndc.x, ndc.y);
+        var ph = ((nb ? pulseF : pulse) + linkPhase[i]) % 1;
+        var o3 = i * (SEGS + 1) * 3, off = i * VPL * 4;
+        for (var s = 0; s <= SEGS; s++) {
+          var q = o3 + s * 3;
+          var fv = ldir[q] * camLoc.x + ldir[q + 1] * camLoc.y + ldir[q + 2] * camLoc.z;
+          fseg[s] = smooth(fv, hArc - 0.02, hArc + 0.30);
         }
-        var ph = (pulse + linkPhase[i]) % 1;
-        var off = i * VPL * 4;
         for (var k2 = 0; k2 < VPL; k2++) {
-          var tpos = (Math.floor(k2 / 2) + (k2 % 2)) / SEGS;
-          var dd = Math.abs(tpos - ph);
-          dd = Math.min(dd, 1 - dd);                       // halka mesafesi
-          var glow = 1 + 1.5 * Math.exp(-dd * dd * 140);   // dar tepe
-          lcol[off + k2 * 4 + 3] = Math.min(1, fa * taper[k2] * glow);
+          var s2 = (k2 >> 1) + (k2 & 1);
+          var dd = Math.abs(s2 / SEGS - ph);
+          dd = Math.min(dd, 1 - dd);                        // halka mesafesi
+          var glow = 1 + 0.25 * Math.exp(-dd * dd * 110);   // dar tepe
+          lcol[off + k2 * 4 + 3] = Math.min(1, fa * fseg[s2] * taper[k2] * glow);
         }
       }
       arcColAttr.needsUpdate = true;
@@ -682,7 +867,21 @@
       applyTheme: applyTheme,
       info: function () {
         return { sprites: sprites.length, links: links.length, nodes: nodes.length,
-                 theme: inst.theme, reduced: reduced, built: built, w: W, h: H };
+                 theme: inst.theme, reduced: reduced, built: built, w: W, h: H,
+                 focus: focusDocIdx };
+      },
+      /** Bir belgeyi öne çıkar; null her şeyi geri getirir. */
+      focusDoc: function (i) {
+        var v = (i == null || i < 0 || i >= ND) ? null : (i | 0);
+        if (v === focusDocIdx) return;
+        focusDocIdx = v;
+        inst.dirty = true;
+      },
+      /** -1..1 normalize imleç (hero kutusuna göre); null = imleç yok. */
+      pointer: function (x, y) {
+        if (x == null || y == null || x !== x || y !== y) { extOn = false; }
+        else { extOn = true; extX = clamp(x, -1, 1); extY = clamp(y, -1, 1); }
+        inst.dirty = true;
       },
       destroy: function () {
         inst.dead = true;
@@ -692,6 +891,7 @@
         document.removeEventListener("visibilitychange", onVis);
         global.removeEventListener("resize", resize);
         global.removeEventListener("pointermove", onMove);
+        global.removeEventListener("scroll", stale);
         canvas.removeEventListener("click", onClick);
         canvas.removeEventListener("pointerdown", onDown);
         canvas.removeEventListener("pointerleave", onLeave);
@@ -708,7 +908,7 @@
         try { renderer.dispose(); } catch (e) {}
         try { renderer.forceContextLoss(); } catch (e) {}
         canvas.style.cursor = "";
-        sprites = []; texes = []; linkMid = [];
+        sprites = []; texes = []; rcCv = rcHo = null;
       }
     };
     st = inst;
@@ -736,6 +936,17 @@
   }
   /** Tanılama (test-globe.js kullanıyor); küre yoksa null. */
   function info() { return st && !st.dead ? st.info() : null; }
+  /** Renk şeridi (#heroBar) için: bir belgeyi öne çıkar, null geri alır. */
+  function focusDoc(i) {
+    if (!st || st.dead) return;
+    try { st.focusDoc(i); } catch (e) {}
+  }
+  /** DOM katmanı kendi ışığını sürerken aynı değeri küreye de versin diye. */
+  function pointer(x, y) {
+    if (!st || st.dead) return;
+    try { st.pointer(x, y); } catch (e) {}
+  }
 
-  global.WordGlobe = { mount: mount, destroy: destroy, setTheme: setTheme, info: info };
+  global.WordGlobe = { mount: mount, destroy: destroy, setTheme: setTheme, info: info,
+                       focusDoc: focusDoc, pointer: pointer };
 })(window);

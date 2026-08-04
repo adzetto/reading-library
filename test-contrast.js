@@ -43,11 +43,18 @@ const TEMALAR = ["light", "dark"];
 
 /* Tarayıcı içinde çalışır: bir seçicinin tüm örneklerini ölçer. */
 function olc(sel) {
-  /* --- renk ayrıştırma: rgb()/rgba() → [r,g,b,a] --- */
+  /* --- renk ayrıştırma: rgb()/rgba()/color(srgb …) → [r,g,b,a] ---
+     color-mix() kullanan kurallarda Chromium `color(srgb 0.81 0.80 0.76)`
+     döndürüyor: bileşenler 0-255 değil 0-1. Ölçekleme yapılmazsa her
+     color-mix rengi neredeyse siyah sanılıp kontrast yanlış "düşük"
+     çıkıyor — gerçekte 11:1 olan bir rozet 1.17:1 görünmüştü. */
   function ayir(c) {
-    var m = String(c).match(/[\d.]+/g);
+    var s = String(c);
+    var m = s.match(/[\d.]+/g);
     if (!m) return null;
-    return [+m[0], +m[1], +m[2], m.length > 3 ? +m[3] : 1];
+    var k = /^color\(/.test(s) ? 255 : 1;     // srgb bileşenleri 0-1
+    return [+m[0] * k, +m[1] * k, +m[2] * k,
+            m.length > 3 ? +m[3] : 1];
   }
   /* --- alfa karışımı: üst rengi alt rengin üstüne bindirir --- */
   function bindir(ust, alt) {
