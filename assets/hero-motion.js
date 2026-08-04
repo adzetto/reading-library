@@ -99,6 +99,25 @@
     var G = global.WORDGRAPH;
     var docs = (G && G.docs) || [];
 
+    /* ---- şerit artık BELGE değil RAF gösteriyor ----
+       Kütüphane 300 kitaba çıkınca belge başına bir bölme 300 bölme
+       demekti: her biri bir pikselden ince, ne okunur ne tıklanır.
+       Şerit raflara (türlere) indirildi; bir rafın üstüne gelince
+       küredeki o rafın bütün kitapları öne çıkıyor. */
+    function raflariCikar() {
+      var man = global.MANIFEST || [];
+      var grupOf = {};
+      man.forEach(function (m) { grupOf[m.id] = m.group || "Metinler"; });
+      var sira = [], harita = {};
+      docs.forEach(function (d, i) {
+        var gr = grupOf[d.id] || "Metinler";
+        if (!harita[gr]) { harita[gr] = { ad: gr, idx: [] }; sira.push(harita[gr]); }
+        harita[gr].idx.push(i);
+      });
+      return sira;
+    }
+    var raflar = raflariCikar();
+
     var reduced = opts.reduced != null ? !!opts.reduced
       : (global.matchMedia ? matchMedia("(prefers-reduced-motion: reduce)").matches : false);
     /* Dokunmatikte "imleci izleyen ışık" diye bir şey yok; parmak kalkınca
@@ -116,19 +135,19 @@
        1 — belge renk şeridi
        ============================================================ */
     function buildBar() {
-      if (!bar || !docs.length) return;
-      var n = docs.length, h = "";
-      /* role="toolbar" + gezici tabindex: on düğme ayrı ayrı sekme durağı
-         olsaydı hero'da klavye on kez takılırdı. Şerit tek durak, içinde
-         ok tuşlarıyla gezilir — ARIA'nın standart kalıbı. */
+      if (!bar || !raflar.length) return;
+      var n = raflar.length, h = "";
+      /* role="toolbar" + gezici tabindex: her raf ayrı sekme durağı
+         olsaydı hero'da klavye onlarca kez takılırdı. Şerit tek durak,
+         içinde ok tuşlarıyla gezilir — ARIA'nın standart kalıbı. */
       h += '<div class="hb-track" role="toolbar" aria-orientation="horizontal"' +
-           ' aria-label="Kütüphanedeki metinler, renk sırasıyla">';
-      docs.forEach(function (d, i) {
+           ' aria-label="Kütüphane rafları, renk sırasıyla">';
+      raflar.forEach(function (r, i) {
         h += '<button type="button" class="hb-seg" data-i="' + i + '"' +
-             ' data-id="' + esc(d.id) + '" tabindex="' + (i ? "-1" : "0") + '"' +
+             ' data-id="' + esc(r.ad) + '" tabindex="' + (i ? "-1" : "0") + '"' +
              ' style="--hue:' + bandHue(i, n) +
              ';--t:' + (n > 1 ? (i / (n - 1)).toFixed(4) : "0") + '"' +
-             ' aria-label="' + esc(d.title_tr) + '"></button>';
+             ' aria-label="' + esc(r.ad) + ", " + r.idx.length + ' metin"></button>';
       });
       /* Etiket <div>: <p>'nin tarayıcı payı şeridi aşağı itiyor. */
       h += '</div><div class="hb-label" aria-live="polite"></div>';
@@ -143,10 +162,25 @@
         her çağrı iki kat korumalı. */
     function focusDoc(i) {
       var W = global.WordGlobe;
-      if (W && W.focusDoc) { try { W.focusDoc(i); } catch (e) {} }
+      var raf = i == null ? null : raflar[i];
+      // Raf birden çok belge tutuyor; küre bir dizi de kabul ediyor.
+      if (W && W.focusDoc) {
+        try { W.focusDoc(raf ? raf.idx : null); } catch (e) {}
+      }
       if (!label) return;
-      label.textContent = i == null ? ""
-        : shortTitle((docs[i] || {}).title_tr, 58);
+      label.textContent = raf
+        ? shortTitle(raf.ad, 40) + " · " + raf.idx.length + " metin" : "";
+    }
+
+    /** Rafa tıklayınca kütüphanede o rafın destesini aç. */
+    function gotoDoc(i) {
+      var raf = raflar[i];
+      if (!raf) return;
+      var d = document.querySelector('[data-deck="' + raf.ad.replace(/"/g, '\\"') + '"]');
+      if (d) { d.click(); d.scrollIntoView({ behavior: reduced ? "auto" : "smooth",
+                                             block: "center" }); return; }
+      var lib = document.querySelector(".lib-head");
+      if (lib) lib.scrollIntoView({ behavior: reduced ? "auto" : "smooth" });
     }
 
     function bindBar() {
@@ -250,20 +284,6 @@
       offs.push(function () { b.removeEventListener("click", go); });
     }
 
-    /** Şeridin bölmesi → aşağıdaki karta yumuşak kaydırma + kısa vurgu.
-        Kart süzgeçle gizlenmişse ya da hiç yoksa doğrudan metne gider. */
-    function gotoDoc(i) {
-      var d = docs[i];
-      if (!d || !d.id) return;
-      var card = document.querySelector(
-        '#cards .card[href="#/read/' + encodeURIComponent(d.id) + '"]');
-      if (!card || card.hidden || !card.offsetParent) {
-        global.location.hash = "#/read/" + encodeURIComponent(d.id);
-        return;
-      }
-      card.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "center" });
-      flashCard(card, bandHue(i, docs.length));
-    }
 
     /* Vurgu için outline seçildi: .card'ın kendi geçişleri border-color,
        transform ve box-shadow üzerinde — onlara dokunmak :hover ile

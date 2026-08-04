@@ -68,7 +68,14 @@ function quizYap(doc) {
     .filter((w) => DICT[w] && !CORE.has(w) && sayac[w] >= 3 &&
                    DICT[w][1] && DICT[w][1].length > 1)
     .sort((a, b) => sayac[b] - sayac[a]);
-  aday = aday.slice(40, 400);
+  /* Sabit 40 atlamak yüz bin sözcüklük romanda doğruydu (aday havuzu 150-500),
+     ama 2-6 bin sözcüklük kısa metinde havuz zaten 16-47 sözcük; 40 atlayınca
+     geriye hiç aday kalmıyor ve metin sınavsız kalıyordu. Atlama sayısı artık
+     havuzla orantılı ve havuzu asla soru sayısının altına düşürmüyor.
+     267+ adayı olan her kitapta sonuç eskisiyle birebir aynı kalır. */
+  const atla = Math.min(40, Math.floor(aday.length * 0.15),
+                        Math.max(0, aday.length - (SORU + 3)));
+  aday = aday.slice(atla, atla + 360);
   if (aday.length < SORU + 3) return null;
 
   const r = rng(doc.id.split("").reduce((a, c) => a + c.charCodeAt(0), 7));

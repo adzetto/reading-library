@@ -98,7 +98,13 @@
     return s.length > n ? s.slice(0, n - 1).replace(/[\s,:;–—-]+$/, "") + "…" : s;
   }
 
-  var FONT = '"Geist",ui-sans-serif,system-ui,"Segoe UI",sans-serif';
+  /* Küredeki sözcükler arayüz değil MANŞET: iri, seyrek, tek tek okunan
+     nesneler. Geist gövde metni için tasarlanmış; bu ölçekte harfleri
+     gevşek ve karaktersiz duruyordu. Mona Sans (GitHub, OFL) sıkı
+     tracking'i ve dolgun gövdesiyle burada belirgin biçimde daha iyi.
+     Sıra önemli: Mona yüklenmemişse Geist'e, o da yoksa sisteme düşer. */
+  var FONT = '"Mona Sans","Geist",ui-sans-serif,system-ui,"Segoe UI",sans-serif';
+  var FONT_W = 700;                 // değişken eksende manşet kalınlığı
 
   /* ================================================================
      yerleşim — her belge kürede bir "kıta", sözcükler çevresine serpilir
@@ -162,22 +168,35 @@
 
   /* ---------------- sözcük dokusu (CanvasTexture + Sprite) ----------------
      three.js TextGeometry font dosyası ister; burada gerekmiyor. */
-  function wordTexture(T, word, px, ts) {
+  function wordTexture(T, word, px, ts, aniso) {
     var c = document.createElement("canvas");
     var g = c.getContext("2d");
-    var font = "600 " + Math.round(px * ts) + "px " + FONT;
+    var font = FONT_W + " " + Math.round(px * ts) + "px " + FONT;
+    /* Manşet ölçeğinde harfler optik olarak açılır; hafif negatif tracking
+       sözcüğü tek bir nesne gibi tutuyor. Desteklenmeyen tarayıcıda
+       sessizce yok sayılır. */
+    var track = -Math.round(px * ts * 0.012) + "px";
     g.font = font;
+    try { g.letterSpacing = track; } catch (e) {}
     var pad = Math.round(px * ts * 0.3);
     c.width = Math.max(8, Math.ceil(g.measureText(word).width) + pad * 2);
     c.height = Math.max(8, Math.ceil(px * ts * 1.4));
     g = c.getContext("2d");                    // boyut değişimi bağlamı sıfırlar
     g.font = font;
+    try { g.letterSpacing = track; } catch (e) {}
     g.textAlign = "center";
     g.textBaseline = "middle";
     g.fillStyle = "#ffffff";                   // gerçek renk materyalden gelir
     g.fillText(word, c.width / 2, c.height / 2);
     var tex = new T.CanvasTexture(c);
     tex.colorSpace = T.SRGBColorSpace;
+    /* Sözcükler kürenin arkasına döndükçe küçülüyor; mipmap ve
+       anizotropik süzgeç olmadan kenarlar titriyor ve harfler
+       "kaynıyordu". Asıl "font kötü" hissini büyük ölçüde bu yapıyordu. */
+    tex.generateMipmaps = true;
+    tex.minFilter = T.LinearMipmapLinearFilter;
+    tex.magFilter = T.LinearFilter;
+    if (aniso) tex.anisotropy = aniso;
     return { tex: tex, w: c.width, h: c.height };
   }
 
@@ -479,10 +498,14 @@
 
     function buildWords() {
       if (!inst || inst.dead || built) return;
-      var ts = clamp(global.devicePixelRatio || 1, 1, 2) * 1.6;
+      /* 1.6 → 2.3: sözcükler kürede büyütülünce (wordK) doku gerilip
+         bulanıklaşıyordu. 110 sprite için ek bellek önemsiz. */
+      var ts = clamp(global.devicePixelRatio || 1, 1, 2) * 2.3;
+      var aniso = 4;
+      try { aniso = renderer.capabilities.getMaxAnisotropy(); } catch (e) {}
       nodes.forEach(function (nd, i) {
         var px = Math.max(9, Math.round(size[i].h / unit));      // doku çözünürlüğü
-        var tx = wordTexture(T, nd.w, px, ts);
+        var tx = wordTexture(T, nd.w, px, ts, aniso);
         texes.push(tx.tex);
         var mat = new T.SpriteMaterial({ map: tx.tex, transparent: true,
                                          depthTest: false, depthWrite: false });
@@ -1017,7 +1040,15 @@
 
     applyTheme(opts.theme || "light");
     if (document.fonts && document.fonts.ready && document.fonts.ready.then) {
-      document.fonts.ready.then(buildWords, buildWords);
+      /* fonts.ready tek başına yetmiyor: Mona Sans yalnızca kullanıldığı
+         anda indiriliyor ve hero'da @font-face henüz tetiklenmemiş
+         olabiliyor. Açıkça yükletiyoruz, yoksa küre Geist'le kuruluyor. */
+      var hazir = document.fonts.load
+        ? document.fonts.load(FONT_W + ' 64px "Mona Sans"')
+            .catch(function () {})
+            .then(function () { return document.fonts.ready; })
+        : document.fonts.ready;
+      hazir.then(buildWords, buildWords);
       setTimeout(function () { buildWords(); }, 1200);   // yazı tipi hiç gelmezse
     } else {
       buildWords();

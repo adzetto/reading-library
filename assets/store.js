@@ -15,7 +15,7 @@
   /* ---------------------------------------------------------------- sabitler */
 
   var DB_NAME = "reading-library";
-  var DB_VERSION = 1;
+  var DB_VERSION = 2;              // 2: userDocs (kullanıcının yüklediği PDF'ler)
   var LS_PREFIX = "rl:";          // localStorage anahtar öneki
   var SCHEMA_VERSION = 1;         // dışa aktarım şema sürümü
   var WRITE_DELAY = 400;          // ms — sık yazmalar için bekletme süresi
@@ -30,7 +30,11 @@
     { name: "vocab",    keyPath: "key",   autoInc: false, indexes: ["dueAt"] },
     { name: "notes",    keyPath: "id",    autoInc: true,  indexes: ["docId"] },
     { name: "quizRuns", keyPath: "id",    autoInc: true,  indexes: ["docId"] },
-    { name: "sessions", keyPath: "id",    autoInc: true,  indexes: ["docId"] }
+    { name: "sessions", keyPath: "id",    autoInc: true,  indexes: ["docId"] },
+    /* Kullanıcının kendi yüklediği belgeler (PDF içe aktarma, beta).
+       Gövde de burada durur: dosya kullanıcının kendi diskinde kalır,
+       hiçbir yere gönderilmez. */
+    { name: "userDocs", keyPath: "id",    autoInc: false, indexes: [] }
   ];
 
   // SRS (Leitner) — kutu numarasına karşılık gelen gecikme, gün cinsinden.
@@ -615,6 +619,33 @@
   /* ------------------------------------------------------------------- sınav */
 
   // Bir sınav denemesinin sonucunu kaydeder.
+  /* --------------------------------------------------- kullanıcı belgeleri */
+
+  /** Yüklenen belgeyi (üstveri + gövde) saklar. Belge modeli site
+      belgeleriyle aynı biçimde; `user:true` ile işaretlenir. */
+  api.putUserDoc = function (doc) {
+    if (!isObj(doc) || !doc.id) return Promise.reject(new Error("putUserDoc: id gerekli"));
+    var rec = clone(doc);
+    rec.user = true;
+    rec.updatedAt = now();
+    rec.createdAt = rec.createdAt || rec.updatedAt;
+    return ready().then(function () { return backend.put("userDocs", rec); })
+      .then(function () { return clone(rec); });
+  };
+
+  api.getUserDoc = function (id) {
+    return ready().then(function () { return backend.get("userDocs", id); });
+  };
+
+  api.listUserDocs = function () {
+    return ready().then(function () { return backend.getAll("userDocs"); })
+      .then(function (rows) { return (rows || []).slice().sort(newestFirst); });
+  };
+
+  api.removeUserDoc = function (id) {
+    return ready().then(function () { return backend.del("userDocs", id); });
+  };
+
   api.saveQuizRun = function (run) {
     var o = isObj(run) ? run : {};
     var t = now();

@@ -91,6 +91,24 @@
      altında da çalışmayı şart koşuyor ve orada fetch bloklanır, script
      etiketi çalışır.
      Gövde dosyası window.DOCS[id]'yi tamamen ezdiği için __stub kalkar. */
+  /* --------- belge gövdelerinin nereden geleceği ---------
+     Kitap dosyaları `window.DOCS[id] = {...}` yazan klasik betikler.
+     Klasik <script> CORS'a TABİ DEĞİLDİR: aynı dosya herhangi bir
+     kaynaktan, sunucuda hiçbir ayar yapmadan yüklenebilir. Bu yüzden
+     depoyu şişirmek istemeyen biri tek satırla bir CDN'e geçebilir:
+
+       <script>window.DOC_BASE =
+         "https://cdn.jsdelivr.net/gh/KULLANICI/DEPO@main/assets/docs/";</script>
+
+     Varsayılan YEREL: sözleşme §0 sitenin file:// altında da tam
+     çalışmasını istiyor, orada ağ yok. */
+  var YEREL = "assets/docs/";
+  function docBase() {
+    var b = window.DOC_BASE;
+    if (!b || location.protocol === "file:") return YEREL;
+    return String(b).replace(/\/?$/, "/");
+  }
+
   var yukleniyor = {};
   function ensureDoc(id, cb) {
     var d = window.DOCS && window.DOCS[id];
@@ -103,16 +121,41 @@
       var doc = window.DOCS[id];
       list.forEach(function (f) { f(doc && !doc.__stub ? doc : null); });
     };
+    var dosya = d.__file || (id + ".js");
     var s = document.createElement("script");
-    s.src = "assets/docs/" + (d.__file || (id + ".js"));
+    s.src = docBase() + dosya;
+    /* Uzak kaynak yanıt vermezse sessizce yerel kopyaya dön: kitap
+       açılmıyor olmaktansa biraz geç açılsın. */
+    var yedek = false;
+    s.onerror = function () {
+      if (!yedek && docBase() !== YEREL) {
+        yedek = true;
+        var s2 = document.createElement("script");
+        s2.src = YEREL + dosya;
+        s2.onload = bitir; s2.onerror = bitir;
+        document.head.appendChild(s2);
+        return;
+      }
+      bitir();
+    };
     s.onload = bitir;
-    s.onerror = bitir;
     document.head.appendChild(s);
   }
 
-  function yuklemeEkrani(baslik) {
-    view.innerHTML = '<div class="doc-loading"><span class="spin"></span>' +
-      '<p>' + esc(baslik || "Metin yükleniyor") + '…</p></div>';
+  function yuklemeEkrani(meta) {
+    var ad = (meta && meta.title && meta.title.tr) || "Metin";
+    var alt = meta && meta.words
+      ? meta.words.toLocaleString("tr") + " sözcük · " +
+        (meta.minutes || 0) + " dakikalık okuma"
+      : "";
+    view.innerHTML =
+      '<div class="doc-loading">' +
+        '<span class="spin"></span>' +
+        '<p class="dl-name">' + esc(ad) + '</p>' +
+        (alt ? '<p class="dl-sub">' + esc(alt) + "</p>" : "") +
+        '<p class="dl-hint">Kitap ilk açılışta indiriliyor; sonraki ' +
+        "açılışlarda tarayıcı önbelleğinden gelir.</p>" +
+      "</div>";
   }
 
   function route() {
@@ -124,7 +167,7 @@
       var meta = window.DOCS && window.DOCS[r.id];
       if (!meta) { renderLibrary(); scrollTo(0, 0); return; }
       var tur = r.name;
-      if (meta.__stub) yuklemeEkrani(meta.title && meta.title.tr);
+      if (meta.__stub) yuklemeEkrani(meta);
       ensureDoc(r.id, function (doc) {
         // Yükleme sürerken kullanıcı başka yere gitmiş olabilir.
         if (parseHash().id !== r.id) return;
@@ -158,9 +201,19 @@
   /* ====================== KÜTÜPHANE GÖRÜNÜMÜ ====================== */
   function docList() {
     var man = window.MANIFEST || [];
-    return man.map(function (m) { return window.DOCS && window.DOCS[m.id]; })
+    var out = man.map(function (m) { return window.DOCS && window.DOCS[m.id]; })
       .filter(Boolean)
       .map(function (d, i) { d.__group = (man[i] || {}).group || "Metinler"; return d; });
+    /* Kullanıcının kendi yüklediği PDF'ler manifestte yok; Store'dan
+       gelip window.DOCS'a yerleşiyorlar (pdf-import.js yukle()). */
+    Object.keys(window.DOCS || {}).forEach(function (id) {
+      var d = window.DOCS[id];
+      if (d && d.user && out.indexOf(d) < 0) {
+        d.__group = "Yüklediklerim";
+        out.push(d);
+      }
+    });
+    return out;
   }
 
   function renderLibrary() {
@@ -176,26 +229,65 @@
       '<span><b>' + (window.Lookup ? Lookup.size : 0).toLocaleString("tr") +
       "</b> sözlük maddesi</span>";
 
-    // süzgeçler
-    var groups = [];
+    /* ---------------- türe göre desteler ----------------
+       300'e yakın kitapla düz bir kart listesi okunmaz hâle geliyor.
+       Kütüphane önce RAFLARI gösteriyor: her tür bir deste, üstünde
+       kaç kitap olduğu ve o türün ilk kitaplarının sırtları. Desteye
+       tıklayınca yalnız o türün kartları açılıyor. */
+    var gruplar = [];
     docs.forEach(function (d) {
-      if (groups.indexOf(d.__group) < 0) groups.push(d.__group);
+      var g = gruplar.filter(function (x) { return x.ad === d.__group; })[0];
+      if (!g) { g = { ad: d.__group, n: 0, docs: [] }; gruplar.push(g); }
+      g.n++; g.docs.push(d);
     });
-    var filt = $("#libFilters");
-    var chips = ["Tümü"].concat(groups);
-    filt.innerHTML = chips.map(function (g, i) {
-      return '<button class="btn mini' + (i === 0 ? " on" : "") +
-        '" data-filter="' + esc(g) + '">' + esc(g) + "</button>";
-    }).join("");
-    filt.addEventListener("click", function (e) {
-      var b = e.target.closest("[data-filter]"); if (!b) return;
-      $$("[data-filter]", filt).forEach(function (x) { x.classList.remove("on"); });
-      b.classList.add("on");
-      var g = b.dataset.filter;
+
+    var secili = null;                      // null = tüm desteler görünür
+    var destelerEl = $("#libDecks");
+    var N = docs.length;
+    var sira = {};                          // belge → genel sıra (renk için)
+    docs.forEach(function (d, i) { sira[d.id] = i; });
+
+    function desteCiz() {
+      destelerEl.innerHTML = gruplar.map(function (g) {
+        var sirt = g.docs.slice(0, 5).map(function (d) {
+          return '<i style="--t:' +
+            (N > 1 ? (sira[d.id] / (N - 1)).toFixed(3) : 0) + '"></i>';
+        }).join("");
+        return '<button type="button" class="deck" data-deck="' + esc(g.ad) + '">' +
+          '<span class="deck-spines">' + sirt + "</span>" +
+          '<span class="deck-name">' + esc(g.ad) + "</span>" +
+          '<span class="deck-n"><b>' + g.n + "</b> kitap</span></button>";
+      }).join("");
+    }
+
+    function uygula() {
       $$(".card", $("#cards")).forEach(function (c) {
-        c.hidden = g !== "Tümü" && c.dataset.group !== g;
+        c.hidden = !!secili && c.dataset.group !== secili;
       });
+      var add = document.getElementById("addPdfCard");
+      if (add) add.hidden = !!secili;
+      $$("[data-deck]", destelerEl).forEach(function (b) {
+        b.classList.toggle("on", b.dataset.deck === secili);
+      });
+      var geri = $("#deckBack");
+      if (geri) geri.hidden = !secili;
+      var bas = $(".lib-head h2");
+      if (bas) bas.textContent = secili || "Kütüphane";
+    }
+
+    desteCiz();
+    destelerEl.addEventListener("click", function (e) {
+      var b = e.target.closest("[data-deck]"); if (!b) return;
+      secili = (secili === b.dataset.deck) ? null : b.dataset.deck;
+      uygula();
+      var k = $("#cards");
+      if (k && secili) k.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth",
+                                          block: "start" });
     });
+    var geriBtn = $("#deckBack");
+    if (geriBtn) {
+      geriBtn.addEventListener("click", function () { secili = null; uygula(); });
+    }
 
     drawCards(docs);
     heroGlobe();
@@ -234,6 +326,22 @@
         '<div class="card-prog" data-prog="' + esc(d.id) + '"><i style="width:0"></i></div>' +
         '<span class="pct" data-pct="' + esc(d.id) + '"></span></div></a>';
     }).join("");
+
+    /* Kütüphanenin sonuna "kendi PDF'ini ekle" kartı. Ayrı bir düğme
+       yerine kart: kütüphaneye bir şey EKLEMEK, kütüphanenin içinde
+       anlatılır. */
+    wrap.insertAdjacentHTML("beforeend",
+      '<button type="button" class="card card-add" id="addPdfCard">' +
+      '<span class="ca-ic">' + ic("upload", 22) + "</span>" +
+      "<h3>PDF yükle<span class=\"beta\">beta</span></h3>" +
+      '<p class="blurb">Kendi belgenizi ekleyin; sözcüklere tıklayarak ' +
+      "Türkçe destekle okuyun. Dosya bu tarayıcıdan çıkmaz.</p></button>");
+    var addBtn = document.getElementById("addPdfCard");
+    if (addBtn) {
+      addBtn.addEventListener("click", function () {
+        if (window.PdfImport) PdfImport.ac();
+      });
+    }
 
     if (!DB) return;
     DB.allProgress().then(function (rows) {
@@ -973,5 +1081,13 @@
       (DB && DB.engine ? DB.engine : "yok"));
     document.body.classList.add("ready");
   }
-  if (DB && DB.ready) DB.ready().then(boot, boot); else boot();
+  /* Kullanıcının yüklediği belgeler kütüphanede görünsün diye açılıştan
+     ÖNCE Store'dan okunur; gövdeleri de orada durduğu için ensureDoc
+     onlar için ek yükleme yapmaz. */
+  function acilis() {
+    if (window.PdfImport && PdfImport.yukle) {
+      PdfImport.yukle().then(boot, boot);
+    } else { boot(); }
+  }
+  if (DB && DB.ready) DB.ready().then(acilis, acilis); else acilis();
 })();

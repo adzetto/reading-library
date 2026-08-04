@@ -132,7 +132,13 @@ const COLORS = (sel) => {
     const segs = [...document.querySelectorAll("#heroBar .hb-seg")];
     return {
       n: segs.length,
-      docs: (window.WORDGRAPH && window.WORDGRAPH.docs || []).length,
+      // Şerit artık BELGE değil RAF gösteriyor: 283 kitapta belge başına
+      // bir bölme piksel kalınlığında çıkıyordu, ne okunur ne tıklanır.
+      docs: (function () {
+        var g = {};
+        (window.MANIFEST || []).forEach(function (m) { g[m.group || "Metinler"] = 1; });
+        return Object.keys(g).length;
+      })(),
       hidden: !!document.querySelector("#heroBar[hidden]"),
       hues: segs.map((s) => s.style.getPropertyValue("--hue").trim()),
       etiketli: segs.every((s) => (s.getAttribute("aria-label") || "").length > 2),
@@ -143,14 +149,20 @@ const COLORS = (sel) => {
     };
   });
   check("(2) şerit görünür", !bar.hidden);
-  check("(2) bölme sayısı = belge sayısı", bar.n > 0 && bar.n === bar.docs,
-    bar.n + " bölme / " + bar.docs + " belge");
+  check("(2) bölme sayısı = raf sayısı", bar.n > 0 && bar.n === bar.docs,
+    bar.n + " bölme / " + bar.docs + " raf");
   const tonDogru = bar.hues.every((h, i) => Number(h) === docHue(i, bar.n));
   check("(2) tonlar 209°→30° bandında", bar.n > 0 && tonDogru,
     bar.hues.join(", "));
-  check("(2) kart tonlarıyla aynı",
-    bar.kart.length > 0 && bar.hues.join() === bar.kart.slice(0, bar.n).join(),
-    "kart: " + bar.kart.slice(0, 4).join(", ") + "…");
+  /* Şerit raf gösterdiği için kartlarla birebir ton eşleşmesi artık
+     beklenmiyor; beklenen, aynı 209°→30° bandını uçtan uca taraması. */
+  check("(2) şerit bandı mürekkepten kehribara iniyor",
+    bar.n > 1 && Number(bar.hues[0]) === 209 &&
+      Number(bar.hues[bar.n - 1]) === 30 &&
+      bar.hues.every(function (h, i) {
+        return i === 0 || Number(h) <= Number(bar.hues[i - 1]);
+      }),
+    bar.hues.slice(0, 3).join(", ") + " … " + bar.hues.slice(-2).join(", "));
   check("(2) bölmeler gerçek <button>", bar.dugme);
   check("(2) her bölmenin erişilebilir adı var", bar.etiketli);
 
@@ -318,7 +330,11 @@ const COLORS = (sel) => {
   }
   const tur = await p4.evaluate(() => ({
     segs: document.querySelectorAll("#heroBar .hb-seg").length,
-    docs: (window.WORDGRAPH && window.WORDGRAPH.docs || []).length,
+    docs: (function () {
+      var g = {};
+      (window.MANIFEST || []).forEach(function (m) { g[m.group || "Metinler"] = 1; });
+      return Object.keys(g).length;
+    })(),
     hero: !!window.__hero__,
     tas: document.documentElement.scrollWidth - document.documentElement.clientWidth
   }));

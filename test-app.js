@@ -28,7 +28,7 @@ function check(name, ok, detail) {
   await page.waitForTimeout(1800);
 
   const lib = await page.evaluate(() => ({
-    cards: document.querySelectorAll(".card").length,
+    cards: document.querySelectorAll("#cards .card:not(.card-add)").length,
     docs: Object.keys(window.DOCS || {}).length,
     manifest: (window.MANIFEST || []).length,
     engine: window.Store ? window.Store.engine : "yok",

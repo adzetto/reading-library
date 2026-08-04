@@ -26,5 +26,13 @@ Thumbs.db
 desktop.ini
 
 # ara kaynaklar
-source/gutenberg/
+# ham Gutenberg metinleri (200 MB) depoya girmez; Gutenberg'den
+# yeniden indirilebilir. Ama SEÇİM ve TÜRKÇE ÜSTVERİ girer: bunlar
+# elle üretildi, deterministik olarak yeniden üretilemez.
+source/gutenberg/*
+!source/gutenberg/sec.json
+!source/gutenberg/meta/
+source/gutenberg/meta/*
+!source/gutenberg/meta/in-*.json
+!source/gutenberg/meta/out-*.json
 assets/vendor/kokoro.bundle.js

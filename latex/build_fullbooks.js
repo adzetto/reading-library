@@ -340,4 +340,9 @@ function main() {
                 (toplam / 1024).toFixed(1), "MB (istendiğinde yüklenir)");
   }
 }
-main();
+if (require.main === module) main();
+
+/* Bölüm çözümleme parçaları build_library.js tarafından da kullanılıyor
+   (275 kitaplık katalog). Ortak modül yapmak yerine buradan açıyoruz:
+   mantık tek yerde kalsın. */
+module.exports = { govde, bolumleriBul, paragraflar, slug, SRC };

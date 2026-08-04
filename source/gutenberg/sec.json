@@ -1,0 +1,2102 @@
+[
+ {
+  "id": 2701,
+  "rank": 0,
+  "tur": "macera",
+  "title": "Moby Dick; Or, The Whale",
+  "authors": "Melville, Herman, 1819-1891"
+ },
+ {
+  "id": 1342,
+  "rank": 1,
+  "tur": "romantik",
+  "title": "Pride and Prejudice",
+  "authors": "Austen, Jane, 1775-1817"
+ },
+ {
+  "id": 1727,
+  "rank": 2,
+  "tur": "masal",
+  "title": "The Odyssey",
+  "authors": "Homer, 751? BCE-651? BCE; Butler, Samuel, 1835-1902 [Translator]"
+ },
+ {
+  "id": 2641,
+  "rank": 3,
+  "tur": "romantik",
+  "title": "A Room with a View",
+  "authors": "Forster, E. M. (Edward Morgan), 1879-1970"
+ },
+ {
+  "id": 2554,
+  "rank": 4,
+  "tur": "polisiye",
+  "title": "Crime and Punishment",
+  "authors": "Dostoyevsky, Fyodor, 1821-1881; Garnett, Constance, 1861-1946 [Translator]"
+ },
+ {
+  "id": 65238,
+  "rank": 5,
+  "tur": "polisiye",
+  "title": "The Secret of Chimneys",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 3268,
+  "rank": 6,
+  "tur": "polisiye",
+  "title": "The Mysteries of Udolpho",
+  "authors": "Radcliffe, Ann Ward, 1764-1823"
+ },
+ {
+  "id": 1513,
+  "rank": 7,
+  "tur": "romantik",
+  "title": "Romeo and Juliet",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 2465,
+  "rank": 8,
+  "tur": "polisiye",
+  "title": "Carmen",
+  "authors": "Mérimée, Prosper, 1803-1870; Loyd, Mary, Lady, 1853-1936 [Translator]"
+ },
+ {
+  "id": 2868,
+  "rank": 9,
+  "tur": "polisiye",
+  "title": "The Green Mummy",
+  "authors": "Hume, Fergus, 1859-1932"
+ },
+ {
+  "id": 1661,
+  "rank": 10,
+  "tur": "polisiye",
+  "title": "The Adventures of Sherlock Holmes",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 67979,
+  "rank": 11,
+  "tur": "romantik",
+  "title": "The Blue Castle: a novel",
+  "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942"
+ },
+ {
+  "id": 1260,
+  "rank": 12,
+  "tur": "romantik",
+  "title": "Jane Eyre: An Autobiography",
+  "authors": "Brontë, Charlotte, 1816-1855; Townsend, F. H. (Frederick Henry), 1868-1920 [Illustrator]"
+ },
+ {
+  "id": 34413,
+  "rank": 13,
+  "tur": "romantik",
+  "title": "The Love Letters of Mary Wollstonecraft to Gilbert Imlay",
+  "authors": "Wollstonecraft, Mary, 1759-1797; Ingpen, Roger, 1869?-1936 [Contributor]"
+ },
+ {
+  "id": 59828,
+  "rank": 14,
+  "tur": "polisiye",
+  "title": "The String of Pearls; Or, The Barber of Fleet Street. A Domestic Romance.",
+  "authors": "Rymer, James Malcolm, 1814?-1884; Prest, Thomas Peckett, 1810-1859"
+ },
+ {
+  "id": 1695,
+  "rank": 16,
+  "tur": "polisiye",
+  "title": "The Man Who Was Thursday: A Nightmare",
+  "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936"
+ },
+ {
+  "id": 345,
+  "rank": 17,
+  "tur": "polisiye",
+  "title": "Dracula",
+  "authors": "Stoker, Bram, 1847-1912"
+ },
+ {
+  "id": 11,
+  "rank": 18,
+  "tur": "cocuk",
+  "title": "Alice's Adventures in Wonderland",
+  "authors": "Carroll, Lewis, 1832-1898"
+ },
+ {
+  "id": 21839,
+  "rank": 20,
+  "tur": "romantik",
+  "title": "Sense and Sensibility",
+  "authors": "Austen, Jane, 1775-1817; Dobson, Austin, 1840-1921 [Commentator]; Thomson, Hugh, 1860-1920 [Illustrator]"
+ },
+ {
+  "id": 601,
+  "rank": 21,
+  "tur": "korku",
+  "title": "The Monk: A Romance",
+  "authors": "Lewis, M. G. (Matthew Gregory), 1775-1818"
+ },
+ {
+  "id": 43,
+  "rank": 22,
+  "tur": "polisiye",
+  "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+  "authors": "Stevenson, Robert Louis, 1850-1894"
+ },
+ {
+  "id": 831,
+  "rank": 23,
+  "tur": "macera",
+  "title": "Four Arthurian Romances",
+  "authors": "Chrétien, de Troyes, active 12th century; Comfort, William Wistar, 1874-1955 [Translator]"
+ },
+ {
+  "id": 6133,
+  "rank": 24,
+  "tur": "polisiye",
+  "title": "The Extraordinary Adventures of Arsène Lupin, Gentleman-Burglar",
+  "authors": "Leblanc, Maurice, 1864-1941"
+ },
+ {
+  "id": 42,
+  "rank": 25,
+  "tur": "polisiye",
+  "title": "The strange case of Dr. Jekyll and Mr. Hyde",
+  "authors": "Stevenson, Robert Louis, 1850-1894"
+ },
+ {
+  "id": 3011,
+  "rank": 27,
+  "tur": "macera",
+  "title": "The Lady of the Lake",
+  "authors": "Scott, Walter, 1771-1832"
+ },
+ {
+  "id": 468,
+  "rank": 28,
+  "tur": "romantik",
+  "title": "Manon Lescaut",
+  "authors": "Prévost, abbé, 1697-1763"
+ },
+ {
+  "id": 51252,
+  "rank": 29,
+  "tur": "macera",
+  "title": "The Book of the Thousand Nights and a Night — Volume 01 (of 10)",
+  "authors": "Burton, Richard Francis, Sir, 1821-1890 [Translator]"
+ },
+ {
+  "id": 76639,
+  "rank": 30,
+  "tur": "romantik",
+  "title": "Eloisa",
+  "authors": "Rousseau, Jean-Jacques, 1712-1778; Kenrick, W. (William), 1725?-1779 [Translator]"
+ },
+ {
+  "id": 564,
+  "rank": 31,
+  "tur": "polisiye",
+  "title": "The Mystery of Edwin Drood",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 47530,
+  "rank": 32,
+  "tur": "polisiye",
+  "title": "Oliver Twist, Vol. 2 (of 3)",
+  "authors": "Dickens, Charles, 1812-1870; Cruikshank, George, 1792-1878 [Illustrator]"
+ },
+ {
+  "id": 72,
+  "rank": 33,
+  "tur": "bilimkurgu",
+  "title": "Thuvia, maid of Mars",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 22541,
+  "rank": 34,
+  "tur": "polisiye",
+  "title": "The Misplaced Battleship",
+  "authors": "Harrison, Harry, 1925-2012; Schoenherr, John, 1935-2010 [Illustrator]"
+ },
+ {
+  "id": 75201,
+  "rank": 35,
+  "tur": "romantik",
+  "title": "A farewell to arms",
+  "authors": "Hemingway, Ernest, 1899-1961"
+ },
+ {
+  "id": 45839,
+  "rank": 36,
+  "tur": "polisiye",
+  "title": "Dracula",
+  "authors": "Stoker, Bram, 1847-1912"
+ },
+ {
+  "id": 7326,
+  "rank": 38,
+  "tur": "macera",
+  "title": "The Yeoman Adventurer",
+  "authors": "Gough, George W."
+ },
+ {
+  "id": 42671,
+  "rank": 39,
+  "tur": "romantik",
+  "title": "Pride and Prejudice",
+  "authors": "Austen, Jane, 1775-1817; Chapman, R. W. (Robert William), 1881-1960 [Editor]"
+ },
+ {
+  "id": 145,
+  "rank": 40,
+  "tur": "klasik",
+  "title": "Middlemarch",
+  "authors": "Eliot, George, 1819-1880"
+ },
+ {
+  "id": 19476,
+  "rank": 41,
+  "tur": "bilimkurgu",
+  "title": "A Honeymoon in Space",
+  "authors": "Griffith, George Chetwynd, 1857-1906"
+ },
+ {
+  "id": 24739,
+  "rank": 43,
+  "tur": "polisiye",
+  "title": "Bidwell's Travels, from Wall Street to London Prison: Fifteen Years in Solitude",
+  "authors": "Bidwell, Austin"
+ },
+ {
+  "id": 8492,
+  "rank": 44,
+  "tur": "polisiye",
+  "title": "The King in Yellow",
+  "authors": "Chambers, Robert W. (Robert William), 1865-1933"
+ },
+ {
+  "id": 100,
+  "rank": 45,
+  "tur": "siir",
+  "title": "The Complete Works of William Shakespeare",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 393,
+  "rank": 46,
+  "tur": "macera",
+  "title": "The Blue Lagoon: A Romance",
+  "authors": "Stacpoole, H. De Vere (Henry De Vere), 1863-1951"
+ },
+ {
+  "id": 589,
+  "rank": 47,
+  "tur": "macera",
+  "title": "Catriona",
+  "authors": "Stevenson, Robert Louis, 1850-1894"
+ },
+ {
+  "id": 31100,
+  "rank": 48,
+  "tur": "romantik",
+  "title": "The Complete Project Gutenberg Works of Jane Austen",
+  "authors": "Austen, Jane, 1775-1817; Widger, David, 1932-2021 [Editor]"
+ },
+ {
+  "id": 36462,
+  "rank": 49,
+  "tur": "macera",
+  "title": "King Arthur and the Knights of the Round Table",
+  "authors": "Malory, Thomas, Sir, -1471; Holland, Rupert Sargent, 1878-1952 [Editor]"
+ },
+ {
+  "id": 244,
+  "rank": 50,
+  "tur": "polisiye",
+  "title": "A Study in Scarlet",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 53874,
+  "rank": 51,
+  "tur": "romantik",
+  "title": "Under the Red Dragon: A Novel",
+  "authors": "Grant, James, 1822-1887"
+ },
+ {
+  "id": 103,
+  "rank": 52,
+  "tur": "macera",
+  "title": "Around the World in Eighty Days",
+  "authors": "Verne, Jules, 1828-1905; Towle, George M. (George Makepeace), 1841-1893 [Translator]"
+ },
+ {
+  "id": 37106,
+  "rank": 53,
+  "tur": "cocuk",
+  "title": "Little Women; Or, Meg, Jo, Beth, and Amy",
+  "authors": "Alcott, Louisa May, 1832-1888; Merrill, Frank T., 1848-1923 [Illustrator]"
+ },
+ {
+  "id": 70854,
+  "rank": 54,
+  "tur": "macera",
+  "title": "The Countess of Pembroke's Arcadia",
+  "authors": "Sidney, Philip, 1554-1586; Bellings, Richard, 1613-1677 [Contributor]; Stirling, William Alexander, Earl of, 1568?-1640 [Contributor]; Baker, Ernest A. (Ernest Albert), 1869-1941 [Editor]"
+ },
+ {
+  "id": 1184,
+  "rank": 55,
+  "tur": "macera",
+  "title": "The Count of Monte Cristo",
+  "authors": "Dumas, Alexandre, 1802-1870; Maquet, Auguste, 1813-1888"
+ },
+ {
+  "id": 40284,
+  "rank": 56,
+  "tur": "polisiye",
+  "title": "The Sex Life of the Gods",
+  "authors": "Knerr, M. E. (Michael E.), 1936-1999"
+ },
+ {
+  "id": 24793,
+  "rank": 57,
+  "tur": "romantik",
+  "title": "Blow The Man Down: A Romance Of The Coast",
+  "authors": "Day, Holman, 1865-1935"
+ },
+ {
+  "id": 2852,
+  "rank": 58,
+  "tur": "polisiye",
+  "title": "The Hound of the Baskervilles",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 1259,
+  "rank": 60,
+  "tur": "macera",
+  "title": "Twenty years after",
+  "authors": "Dumas, Alexandre, 1802-1870; Maquet, Auguste, 1813-1888"
+ },
+ {
+  "id": 1212,
+  "rank": 61,
+  "tur": "mizah",
+  "title": "Love and Freindship [sic]",
+  "authors": "Austen, Jane, 1775-1817"
+ },
+ {
+  "id": 1608,
+  "rank": 62,
+  "tur": "romantik",
+  "title": "Camille (La Dame aux Camilias)",
+  "authors": "Dumas, Alexandre, 1824-1895"
+ },
+ {
+  "id": 245,
+  "rank": 63,
+  "tur": "gezi",
+  "title": "Life on the Mississippi",
+  "authors": "Twain, Mark, 1835-1910"
+ },
+ {
+  "id": 2148,
+  "rank": 64,
+  "tur": "polisiye",
+  "title": "The Works of Edgar Allan Poe — Volume 2",
+  "authors": "Poe, Edgar Allan, 1809-1849"
+ },
+ {
+  "id": 1523,
+  "rank": 65,
+  "tur": "romantik",
+  "title": "As You Like It",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 76178,
+  "rank": 66,
+  "tur": "romantik",
+  "title": "I am a woman",
+  "authors": "Bannon, Ann, 1932-"
+ },
+ {
+  "id": 204,
+  "rank": 67,
+  "tur": "polisiye",
+  "title": "The innocence of Father Brown",
+  "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936"
+ },
+ {
+  "id": 161,
+  "rank": 68,
+  "tur": "romantik",
+  "title": "Sense and Sensibility",
+  "authors": "Austen, Jane, 1775-1817"
+ },
+ {
+  "id": 2147,
+  "rank": 69,
+  "tur": "polisiye",
+  "title": "The Works of Edgar Allan Poe — Volume 1",
+  "authors": "Poe, Edgar Allan, 1809-1849; Lowell, James Russell, 1819-1891 [Contributor]; Willis, Nathaniel Parker, 1806-1867 [Contributor]"
+ },
+ {
+  "id": 2002,
+  "rank": 70,
+  "tur": "romantik",
+  "title": "Sonnets from the Portuguese",
+  "authors": "Browning, Elizabeth Barrett, 1806-1861"
+ },
+ {
+  "id": 223,
+  "rank": 71,
+  "tur": "polisiye",
+  "title": "The wisdom of Father Brown",
+  "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936"
+ },
+ {
+  "id": 209,
+  "rank": 72,
+  "tur": "polisiye",
+  "title": "The Turn of the Screw",
+  "authors": "James, Henry, 1843-1916"
+ },
+ {
+  "id": 224,
+  "rank": 73,
+  "tur": "romantik",
+  "title": "A pair of blue eyes",
+  "authors": "Hardy, Thomas, 1840-1928"
+ },
+ {
+  "id": 108,
+  "rank": 74,
+  "tur": "polisiye",
+  "title": "The Return of Sherlock Holmes",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 27827,
+  "rank": 75,
+  "tur": "masal",
+  "title": "The Kama Sutra of Vatsyayana",
+  "authors": "Vatsyayana; Bhide, Shivaram Parashuram [Translator]; Burton, Richard Francis, Sir, 1821-1890 [Translator]; Indrajit, Bhagavanlal [Translator]"
+ },
+ {
+  "id": 834,
+  "rank": 76,
+  "tur": "polisiye",
+  "title": "The Memoirs of Sherlock Holmes",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 2825,
+  "rank": 77,
+  "tur": "bilimkurgu",
+  "title": "Undine",
+  "authors": "La Motte-Fouqué, Friedrich Heinrich Karl, Freiherr de, 1777-1843; Yonge, Charlotte M. (Charlotte Mary), 1823-1901 [Author of introduction, etc.]"
+ },
+ {
+  "id": 4499,
+  "rank": 78,
+  "tur": "macera",
+  "title": "Complete Short Works of George Meredith",
+  "authors": "Meredith, George, 1828-1909"
+ },
+ {
+  "id": 48296,
+  "rank": 80,
+  "tur": "romantik",
+  "title": "Linnet: A Romance",
+  "authors": "Allen, Grant, 1848-1899"
+ },
+ {
+  "id": 2620,
+  "rank": 81,
+  "tur": "romantik",
+  "title": "The Home Book of Verse — Volume 2",
+  "authors": "Stevenson, Burton Egbert, 1872-1962"
+ },
+ {
+  "id": 31472,
+  "rank": 82,
+  "tur": "macera",
+  "title": "Cynthia's Chauffeur",
+  "authors": "Tracy, Louis, 1863-1928; Christy, Howard Chandler, 1873-1952 [Illustrator]"
+ },
+ {
+  "id": 3922,
+  "rank": 83,
+  "tur": "romantik",
+  "title": "The Red Lily — Complete",
+  "authors": "France, Anatole, 1844-1924"
+ },
+ {
+  "id": 1063,
+  "rank": 84,
+  "tur": "polisiye",
+  "title": "The Cask of Amontillado",
+  "authors": "Poe, Edgar Allan, 1809-1849"
+ },
+ {
+  "id": 69087,
+  "rank": 85,
+  "tur": "polisiye",
+  "title": "The murder of Roger Ackroyd",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 55179,
+  "rank": 86,
+  "tur": "macera",
+  "title": "One of the Six Hundred: A Novel",
+  "authors": "Grant, James, 1822-1887"
+ },
+ {
+  "id": 863,
+  "rank": 88,
+  "tur": "polisiye",
+  "title": "The Mysterious Affair at Styles",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 175,
+  "rank": 89,
+  "tur": "polisiye",
+  "title": "The Phantom of the Opera",
+  "authors": "Leroux, Gaston, 1868-1927"
+ },
+ {
+  "id": 68283,
+  "rank": 90,
+  "tur": "polisiye",
+  "title": "The call of Cthulhu",
+  "authors": "Lovecraft, H. P. (Howard Phillips), 1890-1937"
+ },
+ {
+  "id": 38177,
+  "rank": 91,
+  "tur": "mizah",
+  "title": "The Passionate Elopement",
+  "authors": "MacKenzie, Compton, 1883-1972"
+ },
+ {
+  "id": 38311,
+  "rank": 92,
+  "tur": "romantik",
+  "title": "What Will People Say? A Novel",
+  "authors": "Hughes, Rupert, 1872-1956"
+ },
+ {
+  "id": 2097,
+  "rank": 93,
+  "tur": "polisiye",
+  "title": "The Sign of the Four",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 921,
+  "rank": 94,
+  "tur": "klasik",
+  "title": "De Profundis",
+  "authors": "Wilde, Oscar, 1854-1900"
+ },
+ {
+  "id": 76668,
+  "rank": 95,
+  "tur": "macera",
+  "title": "Trial by water",
+  "authors": "Wright, Sewell Peaslee, 1897-1970; Humphrey, Walter Beach, 1892-1966 [Illustrator]"
+ },
+ {
+  "id": 20203,
+  "rank": 96,
+  "tur": "klasik",
+  "title": "Autobiography of Benjamin Franklin",
+  "authors": "Franklin, Benjamin, 1706-1790; Pine, Frank Woodworth, 1869- [Editor]; Smith, E. Boyd (Elmer Boyd), 1860-1943 [Illustrator]"
+ },
+ {
+  "id": 4712,
+  "rank": 100,
+  "tur": "macera",
+  "title": "The Landloper: The Romance of a Man on Foot",
+  "authors": "Day, Holman, 1865-1935"
+ },
+ {
+  "id": 42389,
+  "rank": 103,
+  "tur": "macera",
+  "title": "The Pirate",
+  "authors": "Scott, Walter, 1771-1832; Lang, Andrew, 1844-1912 [Editor]"
+ },
+ {
+  "id": 18459,
+  "rank": 108,
+  "tur": "masal",
+  "title": "Hypnerotomachia: The Strife of Loue in a Dreame",
+  "authors": "Colonna, Francesco, -1527; Dallington, Robert, 1561-1637 [Translator]"
+ },
+ {
+  "id": 46276,
+  "rank": 118,
+  "tur": "macera",
+  "title": "The Treasure of Pearls: A Romance of Adventures in California",
+  "authors": "Aimard, Gustave, 1818-1883; Wraxall, Lascelles, Sir, 1828-1865 [Translator]"
+ },
+ {
+  "id": 10441,
+  "rank": 120,
+  "tur": "mizah",
+  "title": "The Green Mouse",
+  "authors": "Chambers, Robert W. (Robert William), 1865-1933; Frederick, Edmund, 1870-1949 [Illustrator]"
+ },
+ {
+  "id": 33823,
+  "rank": 128,
+  "tur": "mizah",
+  "title": "The Gay Adventure: A Romance",
+  "authors": "Bird, Richard, 1881-1965; Wilson, F. Vaux (Francis Vaux), 1874-1938 [Illustrator]"
+ },
+ {
+  "id": 36223,
+  "rank": 129,
+  "tur": "macera",
+  "title": "The Boy with Wings",
+  "authors": "Ruck, Berta, 1878-1978"
+ },
+ {
+  "id": 18857,
+  "rank": 132,
+  "tur": "bilimkurgu",
+  "title": "A Journey to the Centre of the Earth",
+  "authors": "Verne, Jules, 1828-1905"
+ },
+ {
+  "id": 3530,
+  "rank": 140,
+  "tur": "macera",
+  "title": "Love-at-arms",
+  "authors": "Sabatini, Rafael, 1875-1950"
+ },
+ {
+  "id": 31635,
+  "rank": 142,
+  "tur": "macera",
+  "title": "The Silent Barrier",
+  "authors": "Tracy, Louis, 1863-1928; McFall, J. V. [Illustrator]; Parsons, A. W. [Illustrator]"
+ },
+ {
+  "id": 14244,
+  "rank": 145,
+  "tur": "masal",
+  "title": "The Romance of Tristan and Iseult",
+  "authors": "Bédier, Joseph, 1864-1938; Belloc, Hilaire, 1870-1953 [Translator]"
+ },
+ {
+  "id": 2162,
+  "rank": 165,
+  "tur": "klasik",
+  "title": "Anarchism and Other Essays",
+  "authors": "Goldman, Emma, 1869-1940; Havel, Hippolyte, 1871-1950 [Contributor]"
+ },
+ {
+  "id": 1514,
+  "rank": 169,
+  "tur": "bilimkurgu",
+  "title": "A Midsummer Night's Dream",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 11030,
+  "rank": 178,
+  "tur": "klasik",
+  "title": "Incidents in the Life of a Slave Girl, Written by Herself",
+  "authors": "Jacobs, Harriet A. (Harriet Ann), 1813-1897; Child, Lydia Maria, 1802-1880 [Editor]"
+ },
+ {
+  "id": 1510,
+  "rank": 185,
+  "tur": "mizah",
+  "title": "Love's Labour's Lost",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 26563,
+  "rank": 189,
+  "tur": "bilimkurgu",
+  "title": "The Crack of Doom",
+  "authors": "Cromie, Robert, 1856-1907"
+ },
+ {
+  "id": 10148,
+  "rank": 193,
+  "tur": "macera",
+  "title": "The Merry Adventures of Robin Hood",
+  "authors": "Pyle, Howard, 1853-1911"
+ },
+ {
+  "id": 43453,
+  "rank": 205,
+  "tur": "mizah",
+  "title": "A Pickle for the Knowing Ones",
+  "authors": "Dexter, Timothy, 1747-1806"
+ },
+ {
+  "id": 11982,
+  "rank": 213,
+  "tur": "klasik",
+  "title": "Eighty Years and More; Reminiscences 1815-1897",
+  "authors": "Stanton, Elizabeth Cady, 1815-1902"
+ },
+ {
+  "id": 6081,
+  "rank": 231,
+  "tur": "klasik",
+  "title": "Biographia Literaria",
+  "authors": "Coleridge, Samuel Taylor, 1772-1834"
+ },
+ {
+  "id": 54219,
+  "rank": 240,
+  "tur": "klasik",
+  "title": "A Little English Gallery",
+  "authors": "Guiney, Louise Imogen, 1861-1920"
+ },
+ {
+  "id": 55059,
+  "rank": 241,
+  "tur": "klasik",
+  "title": "Modern English biography, volume 1 (of 4), A-H",
+  "authors": "Boase, Frederic, 1843-1916"
+ },
+ {
+  "id": 17157,
+  "rank": 243,
+  "tur": "bilimkurgu",
+  "title": "Gulliver's Travels into Several Remote Regions of the World",
+  "authors": "Swift, Jonathan, 1667-1745; Balliet, Thomas M. (Thomas Minard), 1852-1942 [Editor]"
+ },
+ {
+  "id": 70200,
+  "rank": 246,
+  "tur": "klasik",
+  "title": "Pen-portraits of literary women",
+  "authors": "Cone, Helen Gray, 1859-1934 [Editor]; Gilder, Jeannette L. (Jeannette Leonard), 1849-1916 [Editor]"
+ },
+ {
+  "id": 84,
+  "rank": 256,
+  "tur": "bilimkurgu",
+  "title": "Frankenstein; or, the modern prometheus",
+  "authors": "Shelley, Mary Wollstonecraft, 1797-1851"
+ },
+ {
+  "id": 1170,
+  "rank": 260,
+  "tur": "macera",
+  "title": "Anabasis",
+  "authors": "Xenophon, 432 BCE-351? BCE; Dakyns, Henry Graham, 1838-1911 [Translator]"
+ },
+ {
+  "id": 23184,
+  "rank": 268,
+  "tur": "macera",
+  "title": "Monte-Cristo's Daughter",
+  "authors": "Flagg, Edmund, 1815-1890"
+ },
+ {
+  "id": 55,
+  "rank": 269,
+  "tur": "bilimkurgu",
+  "title": "The Wonderful Wizard of Oz",
+  "authors": "Baum, L. Frank (Lyman Frank), 1856-1919"
+ },
+ {
+  "id": 74,
+  "rank": 271,
+  "tur": "macera",
+  "title": "The Adventures of Tom Sawyer, Complete",
+  "authors": "Twain, Mark, 1835-1910"
+ },
+ {
+  "id": 6768,
+  "rank": 275,
+  "tur": "mizah",
+  "title": "The Man Upstairs and Other Stories",
+  "authors": "Wodehouse, P. G. (Pelham Grenville), 1881-1975"
+ },
+ {
+  "id": 9473,
+  "rank": 276,
+  "tur": "macera",
+  "title": "The Knights of the Cross, or, Krzyzacy: Historical Romance",
+  "authors": "Sienkiewicz, Henryk, 1846-1916; Binion, Samuel Augustus, 1853-1914 [Translator]"
+ },
+ {
+  "id": 60316,
+  "rank": 280,
+  "tur": "masal",
+  "title": "The Bakhtyār Nāma: A Persian Romance",
+  "authors": "Ouseley, William, 1767-1842 [Translator]; Clouston, W. A. (William Alexander), 1843-1896 [Editor]"
+ },
+ {
+  "id": 19412,
+  "rank": 281,
+  "tur": "macera",
+  "title": "Set in Silver",
+  "authors": "Williamson, C. N. (Charles Norris), 1859-1920; Williamson, A. M. (Alice Muriel), 1869-1933"
+ },
+ {
+  "id": 47221,
+  "rank": 284,
+  "tur": "macera",
+  "title": "Quintus Claudius: A Romance of Imperial Rome. Volume 1",
+  "authors": "Eckstein, Ernst, 1845-1900; Bell, Clara, 1834-1927 [Translator]"
+ },
+ {
+  "id": 120,
+  "rank": 286,
+  "tur": "macera",
+  "title": "Treasure Island",
+  "authors": "Stevenson, Robert Louis, 1850-1894; Rhead, Louis, 1857-1926 [Illustrator]"
+ },
+ {
+  "id": 23500,
+  "rank": 287,
+  "tur": "macera",
+  "title": "The Car of Destiny",
+  "authors": "Williamson, C. N. (Charles Norris), 1859-1920; Williamson, A. M. (Alice Muriel), 1869-1933; Both, Armand, 1881-1922 [Illustrator]"
+ },
+ {
+  "id": 29391,
+  "rank": 288,
+  "tur": "macera",
+  "title": "Blue-grass and Broadway",
+  "authors": "Daviess, Maria Thompson, 1872-1924"
+ },
+ {
+  "id": 64317,
+  "rank": 292,
+  "tur": "klasik",
+  "title": "The Great Gatsby",
+  "authors": "Fitzgerald, F. Scott (Francis Scott), 1896-1940"
+ },
+ {
+  "id": 6130,
+  "rank": 293,
+  "tur": "masal",
+  "title": "The Iliad",
+  "authors": "Homer, 751? BCE-651? BCE; Buckley, Theodore Alois, 1825-1856 [Annotator]; Pope, Alexander, 1688-1744 [Translator]"
+ },
+ {
+  "id": 16,
+  "rank": 294,
+  "tur": "macera",
+  "title": "Peter Pan",
+  "authors": "Barrie, J. M. (James Matthew), 1860-1937"
+ },
+ {
+  "id": 76,
+  "rank": 295,
+  "tur": "macera",
+  "title": "Adventures of Huckleberry Finn",
+  "authors": "Twain, Mark, 1835-1910; Kemble, E. W. (Edward Windsor), 1861-1933 [Illustrator]"
+ },
+ {
+  "id": 768,
+  "rank": 296,
+  "tur": "korku",
+  "title": "Wuthering Heights",
+  "authors": "Brontë, Emily, 1818-1848"
+ },
+ {
+  "id": 2591,
+  "rank": 297,
+  "tur": "cocuk",
+  "title": "Grimms' Fairy Tales",
+  "authors": "Grimm, Jacob, 1785-1863; Grimm, Wilhelm, 1786-1859"
+ },
+ {
+  "id": 16389,
+  "rank": 299,
+  "tur": "klasik",
+  "title": "The Enchanted April",
+  "authors": "Von Arnim, Elizabeth, 1866-1941"
+ },
+ {
+  "id": 1874,
+  "rank": 303,
+  "tur": "macera",
+  "title": "The Railway Children",
+  "authors": "Nesbit, E. (Edith), 1858-1924"
+ },
+ {
+  "id": 28054,
+  "rank": 305,
+  "tur": "klasik",
+  "title": "The Brothers Karamazov",
+  "authors": "Dostoyevsky, Fyodor, 1821-1881; Garnett, Constance, 1861-1946 [Translator]"
+ },
+ {
+  "id": 236,
+  "rank": 306,
+  "tur": "macera",
+  "title": "The Jungle Book",
+  "authors": "Kipling, Rudyard, 1865-1936"
+ },
+ {
+  "id": 394,
+  "rank": 309,
+  "tur": "klasik",
+  "title": "Cranford",
+  "authors": "Gaskell, Elizabeth Cleghorn, 1810-1865; Brock, C. E. (Charles Edmund), 1870-1938 [Illustrator]"
+ },
+ {
+  "id": 6761,
+  "rank": 311,
+  "tur": "klasik",
+  "title": "The Adventures of Ferdinand Count Fathom — Complete",
+  "authors": "Smollett, T. (Tobias), 1721-1771"
+ },
+ {
+  "id": 829,
+  "rank": 312,
+  "tur": "bilimkurgu",
+  "title": "Gulliver's Travels into Several Remote Nations of the World",
+  "authors": "Swift, Jonathan, 1667-1745"
+ },
+ {
+  "id": 2160,
+  "rank": 313,
+  "tur": "mizah",
+  "title": "The Expedition of Humphry Clinker",
+  "authors": "Smollett, T. (Tobias), 1721-1771"
+ },
+ {
+  "id": 164,
+  "rank": 315,
+  "tur": "bilimkurgu",
+  "title": "Twenty Thousand Leagues under the Sea",
+  "authors": "Verne, Jules, 1828-1905"
+ },
+ {
+  "id": 16328,
+  "rank": 316,
+  "tur": "masal",
+  "title": "Beowulf: An Anglo-Saxon Epic Poem",
+  "authors": "Hall, J. Lesslie (John Lesslie), 1856-1928 [Translator]"
+ },
+ {
+  "id": 2199,
+  "rank": 318,
+  "tur": "masal",
+  "title": "The Iliad",
+  "authors": "Homer, 751? BCE-651? BCE; Butler, Samuel, 1835-1902 [Translator]"
+ },
+ {
+  "id": 4085,
+  "rank": 319,
+  "tur": "klasik",
+  "title": "The Adventures of Roderick Random",
+  "authors": "Smollett, T. (Tobias), 1721-1771"
+ },
+ {
+  "id": 6593,
+  "rank": 320,
+  "tur": "klasik",
+  "title": "History of Tom Jones, a Foundling",
+  "authors": "Fielding, Henry, 1707-1754"
+ },
+ {
+  "id": 1837,
+  "rank": 322,
+  "tur": "cocuk",
+  "title": "The Prince and the Pauper",
+  "authors": "Twain, Mark, 1835-1910"
+ },
+ {
+  "id": 62,
+  "rank": 324,
+  "tur": "bilimkurgu",
+  "title": "A princess of Mars",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 41,
+  "rank": 325,
+  "tur": "masal",
+  "title": "The Legend of Sleepy Hollow",
+  "authors": "Irving, Washington, 1783-1859"
+ },
+ {
+  "id": 1268,
+  "rank": 333,
+  "tur": "bilimkurgu",
+  "title": "The Mysterious Island",
+  "authors": "Verne, Jules, 1828-1905; Kingston, Agnes Kinloch, 1823-1913 [Translator]"
+ },
+ {
+  "id": 20,
+  "rank": 336,
+  "tur": "siir",
+  "title": "Paradise Lost",
+  "authors": "Milton, John, 1608-1674"
+ },
+ {
+  "id": 2488,
+  "rank": 337,
+  "tur": "bilimkurgu",
+  "title": "Twenty Thousand Leagues Under the Seas: An Underwater Tour of the World",
+  "authors": "Verne, Jules, 1828-1905; Walter, Frederick Paul, 1943-2024 [Translator]; Winter, Milo, 1888-1956 [Illustrator]"
+ },
+ {
+  "id": 64,
+  "rank": 339,
+  "tur": "bilimkurgu",
+  "title": "The gods of Mars",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 113,
+  "rank": 341,
+  "tur": "cocuk",
+  "title": "The Secret Garden",
+  "authors": "Burnett, Frances Hodgson, 1849-1924"
+ },
+ {
+  "id": 766,
+  "rank": 342,
+  "tur": "klasik",
+  "title": "David Copperfield",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 1597,
+  "rank": 343,
+  "tur": "cocuk",
+  "title": "Andersen's Fairy Tales",
+  "authors": "Andersen, H. C. (Hans Christian), 1805-1875"
+ },
+ {
+  "id": 228,
+  "rank": 346,
+  "tur": "masal",
+  "title": "The Aeneid",
+  "authors": "Virgil, 71 BCE-20 BCE; Dryden, John, 1631-1700 [Translator]"
+ },
+ {
+  "id": 1353,
+  "rank": 352,
+  "tur": "bilimkurgu",
+  "title": "Off on a Comet! a Journey through Planetary Space",
+  "authors": "Verne, Jules, 1828-1905"
+ },
+ {
+  "id": 1251,
+  "rank": 353,
+  "tur": "masal",
+  "title": "Le Morte d'Arthur: Volume 1",
+  "authors": "Malory, Thomas, Sir, -1471"
+ },
+ {
+  "id": 139,
+  "rank": 354,
+  "tur": "bilimkurgu",
+  "title": "The Lost World",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 41481,
+  "rank": 356,
+  "tur": "bilimkurgu",
+  "title": "Astounding Stories of Super-Science January 1930",
+  "authors": "Bates, Harry, 1900-1981 [Editor]; Cummings, Ray, 1887-1957 [Contributor]; Emanuel, V. R. (Victor Rousseau), 1879-1960 [Contributor]; Leinster, Murray, 1896-1975 [Contributor]; Meek, S. P. (Sterner St. Paul), 1894-1972 [Contributor]; Pelcher, Anthony, 1897-1981 [Contributor]; Staley, M. L. [Contributor]; Tench, C. V., 1892-1963 [Contributor]"
+ },
+ {
+  "id": 1153,
+  "rank": 357,
+  "tur": "bilimkurgu",
+  "title": "The Chessmen of Mars",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 57426,
+  "rank": 359,
+  "tur": "bilimkurgu",
+  "title": "Baron Trump's Marvellous Underground Journey",
+  "authors": "Lockwood, Ingersoll, 1841-1918; Johnson, Charles Howard, 1868?-1896 [Illustrator]"
+ },
+ {
+  "id": 551,
+  "rank": 361,
+  "tur": "bilimkurgu",
+  "title": "The Land That Time Forgot",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 27673,
+  "rank": 363,
+  "tur": "masal",
+  "title": "Oedipus King of Thebes",
+  "authors": "Sophocles, 496? BCE-407 BCE; Murray, Gilbert, 1866-1957 [Translator]"
+ },
+ {
+  "id": 553,
+  "rank": 364,
+  "tur": "bilimkurgu",
+  "title": "Out of Time's Abyss",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 68,
+  "rank": 367,
+  "tur": "bilimkurgu",
+  "title": "The warlord of Mars",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 21765,
+  "rank": 368,
+  "tur": "masal",
+  "title": "The Metamorphoses of Ovid, Books I-VII",
+  "authors": "Ovid, 44 BCE-18?; Riley, Henry T. (Henry Thomas), 1816-1878 [Translator]"
+ },
+ {
+  "id": 23731,
+  "rank": 369,
+  "tur": "bilimkurgu",
+  "title": "A Martian Odyssey",
+  "authors": "Weinbaum, Stanley G. (Stanley Grauman), 1902-1935"
+ },
+ {
+  "id": 23790,
+  "rank": 370,
+  "tur": "bilimkurgu",
+  "title": "The Ultimate Weapon",
+  "authors": "Campbell, John W., Jr. (John Wood), 1910-1971"
+ },
+ {
+  "id": 19027,
+  "rank": 373,
+  "tur": "bilimkurgu",
+  "title": "The Revolt on Venus",
+  "authors": "Rockwell, Carey; Ley, Willy, 1906-1969 [Contributor]; Glanzman, Louis [Illustrator]"
+ },
+ {
+  "id": 15474,
+  "rank": 374,
+  "tur": "masal",
+  "title": "The Mahabharata of Krishna-Dwaipayana Vyasa, Volume 1",
+  "authors": "Ganguli, Kisari Mohan [Translator]"
+ },
+ {
+  "id": 69566,
+  "rank": 375,
+  "tur": "masal",
+  "title": "The Egyptian Book of the dead",
+  "authors": "Renouf, P. Le Page (Peter Le Page), 1822-1897 [Translator]; Naville, Edouard, 1844-1926 [Translator]"
+ },
+ {
+  "id": 2383,
+  "rank": 376,
+  "tur": "siir",
+  "title": "The Canterbury Tales, and Other Poems",
+  "authors": "Chaucer, Geoffrey, 1343?-1400; Purves, David Laing, 1838-1873 [Editor]"
+ },
+ {
+  "id": 271,
+  "rank": 377,
+  "tur": "cocuk",
+  "title": "Black Beauty",
+  "authors": "Sewell, Anna, 1820-1878"
+ },
+ {
+  "id": 21638,
+  "rank": 378,
+  "tur": "bilimkurgu",
+  "title": "Tarrano the Conqueror",
+  "authors": "Cummings, Ray, 1887-1957"
+ },
+ {
+  "id": 21,
+  "rank": 379,
+  "tur": "masal",
+  "title": "Three hundred Aesop’s fables",
+  "authors": "Aesop, 621? BCE-565? BCE; Townsend, George Fyler, 1814-1900 [Translator]"
+ },
+ {
+  "id": 149,
+  "rank": 380,
+  "tur": "bilimkurgu",
+  "title": "The Lost Continent",
+  "authors": "Burroughs, Edgar Rice, 1875-1950"
+ },
+ {
+  "id": 11339,
+  "rank": 382,
+  "tur": "cocuk",
+  "title": "Aesop's Fables; a new translation",
+  "authors": "Aesop, 621? BCE-565? BCE; Chesterton, G. K. (Gilbert Keith), 1874-1936 [Commentator]; Rackham, Arthur, 1867-1939 [Illustrator]; Vernon Jones, V. S. (Vernon Stanley) [Translator]"
+ },
+ {
+  "id": 42243,
+  "rank": 383,
+  "tur": "bilimkurgu",
+  "title": "The Hour of the Dragon",
+  "authors": "Howard, Robert E. (Robert Ervin), 1906-1936"
+ },
+ {
+  "id": 20782,
+  "rank": 384,
+  "tur": "bilimkurgu",
+  "title": "Triplanetary",
+  "authors": "Smith, E. E. (Edward Elmer), 1890-1965"
+ },
+ {
+  "id": 3748,
+  "rank": 385,
+  "tur": "bilimkurgu",
+  "title": "A Journey into the Interior of the Earth",
+  "authors": "Verne, Jules, 1828-1905; Malleson, F. A. (Frederick Amadeus), 1819-1897 [Translator]"
+ },
+ {
+  "id": 1719,
+  "rank": 386,
+  "tur": "masal",
+  "title": "The Ballad of the White Horse",
+  "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936"
+ },
+ {
+  "id": 121,
+  "rank": 388,
+  "tur": "korku",
+  "title": "Northanger Abbey",
+  "authors": "Austen, Jane, 1775-1817"
+ },
+ {
+  "id": 33016,
+  "rank": 390,
+  "tur": "bilimkurgu",
+  "title": "Astounding Stories,  August, 1931",
+  "authors": "Various"
+ },
+ {
+  "id": 203,
+  "rank": 391,
+  "tur": "klasik",
+  "title": "Uncle Tom's Cabin",
+  "authors": "Stowe, Harriet Beecher, 1811-1896"
+ },
+ {
+  "id": 1934,
+  "rank": 394,
+  "tur": "siir",
+  "title": "Songs of Innocence and of Experience",
+  "authors": "Blake, William, 1757-1827"
+ },
+ {
+  "id": 348,
+  "rank": 401,
+  "tur": "masal",
+  "title": "Hesiod, the Homeric Hymns, and Homerica",
+  "authors": "Hesiod; Evelyn-White, Hugh G. (Hugh Gerard), 1884-1924 [Translator]"
+ },
+ {
+  "id": 2397,
+  "rank": 403,
+  "tur": "klasik",
+  "title": "The Story of My Life",
+  "authors": "Keller, Helen, 1880-1968; Macy, John Albert, 1877-1932 [Contributor]; Sullivan, Annie, 1866-1936 [Contributor]"
+ },
+ {
+  "id": 5131,
+  "rank": 406,
+  "tur": "siir",
+  "title": "Childe Harold's Pilgrimage",
+  "authors": "Byron, George Gordon Byron, Baron, 1788-1824"
+ },
+ {
+  "id": 14838,
+  "rank": 407,
+  "tur": "cocuk",
+  "title": "The Tale of Peter Rabbit",
+  "authors": "Potter, Beatrix, 1866-1943"
+ },
+ {
+  "id": 2610,
+  "rank": 410,
+  "tur": "tarihi",
+  "title": "Notre-Dame de Paris",
+  "authors": "Hugo, Victor, 1802-1885; Hapgood, Isabel Florence, 1850-1928 [Translator]"
+ },
+ {
+  "id": 21700,
+  "rank": 414,
+  "tur": "siir",
+  "title": "Don Juan",
+  "authors": "Byron, George Gordon Byron, Baron, 1788-1824"
+ },
+ {
+  "id": 5921,
+  "rank": 416,
+  "tur": "klasik",
+  "title": "The History of Don Quixote, Volume 1, Complete",
+  "authors": "Cervantes Saavedra, Miguel de, 1547-1616; Doré, Gustave, 1832-1883 [Illustrator]; Ormsby, John, 1829-1895 [Translator]"
+ },
+ {
+  "id": 1001,
+  "rank": 423,
+  "tur": "siir",
+  "title": "Divine Comedy, Longfellow's Translation, Hell",
+  "authors": "Dante Alighieri, 1265-1321; Longfellow, Henry Wadsworth, 1807-1882 [Translator]"
+ },
+ {
+  "id": 674,
+  "rank": 425,
+  "tur": "masal",
+  "title": "Plutarch: Lives of the noble Grecians and Romans",
+  "authors": "Plutarch, 46-120?; Clough, Arthur Hugh, 1819-1861 [Editor]"
+ },
+ {
+  "id": 15272,
+  "rank": 426,
+  "tur": "masal",
+  "title": "Spenser's The Faerie Queene, Book I",
+  "authors": "Spenser, Edmund, 1552?-1599; Wauchope, George Armstrong, 1862-1943 [Editor]"
+ },
+ {
+  "id": 1200,
+  "rank": 428,
+  "tur": "mizah",
+  "title": "Gargantua and Pantagruel",
+  "authors": "Rabelais, François, 1490?-1553?; Doré, Gustave, 1832-1883 [Illustrator]; Motteux, Peter Anthony, 1660-1718 [Translator]; Urquhart, Thomas, Sir, 1611-1660 [Translator]"
+ },
+ {
+  "id": 967,
+  "rank": 430,
+  "tur": "klasik",
+  "title": "Nicholas Nickleby",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 580,
+  "rank": 431,
+  "tur": "mizah",
+  "title": "The Pickwick Papers",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 56463,
+  "rank": 433,
+  "tur": "klasik",
+  "title": "Bacon's Essays, and Wisdom of the Ancients",
+  "authors": "Bacon, Francis, 1561-1626; Montagu, Basil, 1770-1851 [Contributor]; Spiers, A. (Alexander), 1807-1869 [Contributor]"
+ },
+ {
+  "id": 41537,
+  "rank": 434,
+  "tur": "siir",
+  "title": "The Divine Comedy of Dante Alighieri: The Inferno",
+  "authors": "Dante Alighieri, 1265-1321; Sibbald, James Romanes [Translator]"
+ },
+ {
+  "id": 25525,
+  "rank": 435,
+  "tur": "oyku",
+  "title": "The Works of Edgar Allan Poe, The Raven Edition",
+  "authors": "Poe, Edgar Allan, 1809-1849"
+ },
+ {
+  "id": 73,
+  "rank": 436,
+  "tur": "klasik",
+  "title": "The Red Badge of Courage: An Episode of the American Civil War",
+  "authors": "Crane, Stephen, 1871-1900"
+ },
+ {
+  "id": 1079,
+  "rank": 437,
+  "tur": "mizah",
+  "title": "The life and opinions of Tristram Shandy, gentleman",
+  "authors": "Sterne, Laurence, 1713-1768"
+ },
+ {
+  "id": 31036,
+  "rank": 438,
+  "tur": "mizah",
+  "title": "The Lovers Assistant; Or, New Art of Love",
+  "authors": "Fielding, Henry, 1707-1754; Ovid, 44 BCE-18?; Jones, Claude Edward, 1907- [Editor]"
+ },
+ {
+  "id": 14860,
+  "rank": 444,
+  "tur": "klasik",
+  "title": "The Journal of Sir Walter Scott",
+  "authors": "Scott, Walter, 1771-1832; Douglas, David, 1823-1916 [Editor]"
+ },
+ {
+  "id": 160,
+  "rank": 445,
+  "tur": "klasik",
+  "title": "The Awakening, and Selected Short Stories",
+  "authors": "Chopin, Kate, 1850-1904"
+ },
+ {
+  "id": 2130,
+  "rank": 447,
+  "tur": "klasik",
+  "title": "Utopia",
+  "authors": "More, Thomas, Saint, 1478-1535; Morley, Henry, 1822-1894 [Editor]"
+ },
+ {
+  "id": 71865,
+  "rank": 450,
+  "tur": "klasik",
+  "title": "Mrs. Dalloway",
+  "authors": "Woolf, Virginia, 1882-1941"
+ },
+ {
+  "id": 500,
+  "rank": 452,
+  "tur": "cocuk",
+  "title": "The Adventures of Pinocchio",
+  "authors": "Collodi, Carlo, 1826-1890; Della Chiesa, Carol, 1887-1972 [Translator]"
+ },
+ {
+  "id": 1279,
+  "rank": 455,
+  "tur": "siir",
+  "title": "Poems and Songs of Robert Burns",
+  "authors": "Burns, Robert, 1759-1796"
+ },
+ {
+  "id": 696,
+  "rank": 460,
+  "tur": "korku",
+  "title": "The Castle of Otranto",
+  "authors": "Walpole, Horace, 1717-1797; Morley, Henry, 1822-1894 [Editor]"
+ },
+ {
+  "id": 23700,
+  "rank": 461,
+  "tur": "oyku",
+  "title": "The Decameron of Giovanni Boccaccio",
+  "authors": "Boccaccio, Giovanni, 1313-1375; Payne, John, 1842-1916 [Translator]"
+ },
+ {
+  "id": 202,
+  "rank": 464,
+  "tur": "klasik",
+  "title": "My Bondage and My Freedom",
+  "authors": "Douglass, Frederick, 1818-1895"
+ },
+ {
+  "id": 7700,
+  "rank": 465,
+  "tur": "mizah",
+  "title": "Lysistrata",
+  "authors": "Aristophanes, 447? BCE-386? BCE; Lindsay, Norman, 1879-1969 [Illustrator]; Lindsay, Jack, 1900-1990 [Translator]"
+ },
+ {
+  "id": 2600,
+  "rank": 467,
+  "tur": "tarihi",
+  "title": "War and Peace",
+  "authors": "Tolstoy, Leo, graf, 1828-1910; Maude, Aylmer, 1858-1938 [Translator]; Maude, Louise, 1855-1939 [Translator]"
+ },
+ {
+  "id": 2040,
+  "rank": 468,
+  "tur": "korku",
+  "title": "Confessions of an English Opium-Eater",
+  "authors": "De Quincey, Thomas, 1785-1859"
+ },
+ {
+  "id": 599,
+  "rank": 470,
+  "tur": "klasik",
+  "title": "Vanity Fair",
+  "authors": "Thackeray, William Makepeace, 1811-1863"
+ },
+ {
+  "id": 27761,
+  "rank": 476,
+  "tur": "klasik",
+  "title": "Hamlet",
+  "authors": "Shakespeare, William, 1564-1616; Kean, Charles John, 1811?-1868 [Editor]"
+ },
+ {
+  "id": 2833,
+  "rank": 485,
+  "tur": "klasik",
+  "title": "The Portrait of a Lady — Volume 1",
+  "authors": "James, Henry, 1843-1916"
+ },
+ {
+  "id": 1041,
+  "rank": 490,
+  "tur": "siir",
+  "title": "Shakespeare's Sonnets",
+  "authors": "Shakespeare, William, 1564-1616"
+ },
+ {
+  "id": 5225,
+  "rank": 502,
+  "tur": "klasik",
+  "title": "The Satyricon — Complete",
+  "authors": "Petronius Arbiter, 20-66; Firebaugh, W. C. [Translator]"
+ },
+ {
+  "id": 50439,
+  "rank": 513,
+  "tur": "klasik",
+  "title": "English Eccentrics and Eccentricities",
+  "authors": "Timbs, John, 1801-1875"
+ },
+ {
+  "id": 5200,
+  "rank": 519,
+  "tur": "klasik",
+  "title": "Metamorphosis",
+  "authors": "Kafka, Franz, 1883-1924; Wyllie, David (Translator) [Translator]"
+ },
+ {
+  "id": 47960,
+  "rank": 522,
+  "tur": "klasik",
+  "title": "Romeo and Juliet",
+  "authors": "Shakespeare, William, 1564-1616; Rolfe, W. J. (William James), 1827-1910 [Editor]"
+ },
+ {
+  "id": 11618,
+  "rank": 524,
+  "tur": "klasik",
+  "title": "From Chaucer to Tennyson",
+  "authors": "Beers, Henry A. (Henry Augustin), 1847-1926"
+ },
+ {
+  "id": 9904,
+  "rank": 529,
+  "tur": "mizah",
+  "title": "The History of Pendennis, Volume 2",
+  "authors": "Thackeray, William Makepeace, 1811-1863"
+ },
+ {
+  "id": 47262,
+  "rank": 578,
+  "tur": "gezi",
+  "title": "Old Times on the Upper Mississippi",
+  "authors": "Merrick, George Byron"
+ },
+ {
+  "id": 50559,
+  "rank": 586,
+  "tur": "klasik",
+  "title": "The Works of William Shakespeare [Cambridge Edition] [Vol. 3 of 9]",
+  "authors": "Shakespeare, William, 1564-1616; Clark, William George, 1821-1878 [Editor]; Wright, William Aldis, 1831-1914 [Editor]"
+ },
+ {
+  "id": 55987,
+  "rank": 599,
+  "tur": "gezi",
+  "title": "Letters of Asa Gray; Vol. 2",
+  "authors": "Gray, Asa, 1810-1888; Gray, Jane Loring, 1821-1909 [Editor]"
+ },
+ {
+  "id": 1564,
+  "rank": 608,
+  "tur": "klasik",
+  "title": "Boswell's Life of Johnson",
+  "authors": "Boswell, James, 1740-1795; Osgood, Charles Grosvenor, 1871-1964 [Editor]"
+ },
+ {
+  "id": 4300,
+  "rank": 636,
+  "tur": "klasik",
+  "title": "Ulysses",
+  "authors": "Joyce, James, 1882-1941"
+ },
+ {
+  "id": 174,
+  "rank": 658,
+  "tur": "korku",
+  "title": "The Picture of Dorian Gray",
+  "authors": "Wilde, Oscar, 1854-1900"
+ },
+ {
+  "id": 30228,
+  "rank": 673,
+  "tur": "mizah",
+  "title": "Officer 666",
+  "authors": "Currie, Barton Wood, 1877-1962; McHugh, Augustin, 1877-1928"
+ },
+ {
+  "id": 15210,
+  "rank": 677,
+  "tur": "klasik",
+  "title": "Darkwater: Voices from Within the Veil",
+  "authors": "Du Bois, W. E. B. (William Edward Burghardt), 1868-1963"
+ },
+ {
+  "id": 20717,
+  "rank": 717,
+  "tur": "mizah",
+  "title": "The Girl on the Boat",
+  "authors": "Wodehouse, P. G. (Pelham Grenville), 1881-1975"
+ },
+ {
+  "id": 98,
+  "rank": 722,
+  "tur": "tarihi",
+  "title": "A Tale of Two Cities",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 1023,
+  "rank": 799,
+  "tur": "klasik",
+  "title": "Bleak House",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 21415,
+  "rank": 816,
+  "tur": "mizah",
+  "title": "The Young Visiters or, Mr. Salteena's Plan",
+  "authors": "Ashford, Daisy, 1881-1972; Barrie, J. M. (James Matthew), 1860-1937 [Commentator]"
+ },
+ {
+  "id": 45,
+  "rank": 837,
+  "tur": "cocuk",
+  "title": "Anne of Green Gables",
+  "authors": "Montgomery, L. M. (Lucy Maud), 1874-1942"
+ },
+ {
+  "id": 36034,
+  "rank": 838,
+  "tur": "oyku",
+  "title": "White nights, and other stories",
+  "authors": "Dostoyevsky, Fyodor, 1821-1881; Garnett, Constance, 1861-1946 [Translator]"
+ },
+ {
+  "id": 205,
+  "rank": 848,
+  "tur": "klasik",
+  "title": "Walden, and On The Duty Of Civil Disobedience",
+  "authors": "Thoreau, Henry David, 1817-1862"
+ },
+ {
+  "id": 1952,
+  "rank": 855,
+  "tur": "korku",
+  "title": "The Yellow Wallpaper",
+  "authors": "Gilman, Charlotte Perkins, 1860-1935"
+ },
+ {
+  "id": 1400,
+  "rank": 856,
+  "tur": "klasik",
+  "title": "Great Expectations",
+  "authors": "Dickens, Charles, 1812-1870"
+ },
+ {
+  "id": 135,
+  "rank": 867,
+  "tur": "tarihi",
+  "title": "Les Misérables",
+  "authors": "Hugo, Victor, 1802-1885; Hapgood, Isabel Florence, 1850-1928 [Translator]"
+ },
+ {
+  "id": 10676,
+  "rank": 873,
+  "tur": "tarihi",
+  "title": "The Reign of Greed",
+  "authors": "Rizal, José, 1861-1896; Derbyshire, Charles E. (Charles Edward), 1880-1933 [Translator]"
+ },
+ {
+  "id": 12,
+  "rank": 888,
+  "tur": "cocuk",
+  "title": "Through the Looking-Glass",
+  "authors": "Carroll, Lewis, 1832-1898"
+ },
+ {
+  "id": 308,
+  "rank": 890,
+  "tur": "mizah",
+  "title": "Three men in a boat (to say nothing of the dog)",
+  "authors": "Jerome, Jerome K. (Jerome Klapka), 1859-1927"
+ },
+ {
+  "id": 67098,
+  "rank": 901,
+  "tur": "cocuk",
+  "title": "Winnie-the-Pooh",
+  "authors": "Milne, A. A. (Alan Alexander), 1882-1956; Shepard, Ernest H. (Ernest Howard), 1879-1976 [Illustrator]"
+ },
+ {
+  "id": 146,
+  "rank": 968,
+  "tur": "cocuk",
+  "title": "A Little Princess",
+  "authors": "Burnett, Frances Hodgson, 1849-1924"
+ },
+ {
+  "id": 37308,
+  "rank": 986,
+  "tur": "tarihi",
+  "title": "The Deluge: An Historical Novel of Poland, Sweden, and Russia. Vol. 2",
+  "authors": "Sienkiewicz, Henryk, 1846-1916; Curtin, Jeremiah, 1835-1906 [Translator]"
+ },
+ {
+  "id": 2814,
+  "rank": 999,
+  "tur": "oyku",
+  "title": "Dubliners",
+  "authors": "Joyce, James, 1882-1941"
+ },
+ {
+  "id": 17396,
+  "rank": 1004,
+  "tur": "cocuk",
+  "title": "The Secret Garden",
+  "authors": "Burnett, Frances Hodgson, 1849-1924"
+ },
+ {
+  "id": 57333,
+  "rank": 1023,
+  "tur": "oyku",
+  "title": "Project Gutenberg Compilation of Short Stories by Chekhov",
+  "authors": "Chekhov, Anton Pavlovich, 1860-1904; Widger, David, 1932-2021 [Editor]"
+ },
+ {
+  "id": 22298,
+  "rank": 1028,
+  "tur": "cocuk",
+  "title": "Practical Mechanics for Boys",
+  "authors": "Zerbe, James Slough, 1849-1921"
+ },
+ {
+  "id": 25359,
+  "rank": 1046,
+  "tur": "cocuk",
+  "title": "Boys and Girls Bookshelf; a Practical Plan of Character Building, Volume I (of 17)",
+  "authors": "Various; Baltzell, W. J. (Winton James), 1864-1928 [Editor]; Forbush, William Byron, 1868-1927 [Editor]; Johnson, Rossiter, 1840-1931 [Editor]; Wade, Herbert T. (Herbert Treadwell), 1872- [Editor]; Wheeler, Daniel Edwin, 1880- [Editor]"
+ },
+ {
+  "id": 22091,
+  "rank": 1056,
+  "tur": "oyku",
+  "title": "The best short stories of 1920, and the yearbook of the American short story",
+  "authors": "O'Brien, Edward J. (Edward Joseph), 1890-1941 [Editor]"
+ },
+ {
+  "id": 3177,
+  "rank": 1067,
+  "tur": "mizah",
+  "title": "Roughing It",
+  "authors": "Twain, Mark, 1835-1910"
+ },
+ {
+  "id": 18575,
+  "rank": 1070,
+  "tur": "mizah",
+  "title": "One Hundred Merrie And Delightsome Stories",
+  "authors": "Douglas, Robert B. (Robert Bruce), 1848-1927 [Translator]; La Sale, Antoine de, 1385?-1461? [Editor]; Lebèque, Léon, 1863-1930 [Illustrator]"
+ },
+ {
+  "id": 22210,
+  "rank": 1078,
+  "tur": "gezi",
+  "title": "In the forbidden land",
+  "authors": "Landor, Arnold Henry Savage, 1865-1924"
+ },
+ {
+  "id": 22066,
+  "rank": 1079,
+  "tur": "tarihi",
+  "title": "The Long Roll",
+  "authors": "Johnston, Mary, 1870-1936; Wyeth, N. C. (Newell Convers), 1882-1945 [Illustrator]"
+ },
+ {
+  "id": 22815,
+  "rank": 1103,
+  "tur": "gezi",
+  "title": "The Philippine Islands",
+  "authors": "Foreman, John, F.R.G.S."
+ },
+ {
+  "id": 28329,
+  "rank": 1106,
+  "tur": "gezi",
+  "title": "The Land of Thor",
+  "authors": "Browne, J. Ross (John Ross), 1821-1875"
+ },
+ {
+  "id": 221,
+  "rank": 97,
+  "tur": "polisiye",
+  "title": "The Return of Sherlock Holmes",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 51428,
+  "rank": 98,
+  "tur": "romantik",
+  "title": "That Which Hath Wings: A Novel of the Day",
+  "authors": "Dehan, Richard, 1863-1932"
+ },
+ {
+  "id": 7889,
+  "rank": 99,
+  "tur": "romantik",
+  "title": "Erotica Romana",
+  "authors": "Goethe, Johann Wolfgang von, 1749-1832"
+ },
+ {
+  "id": 53154,
+  "rank": 101,
+  "tur": "romantik",
+  "title": "Cameron of Lochiel",
+  "authors": "Aubert de Gaspé, Philippe, 1786-1871; Edwards, H. C. (Harry C.), 1868-1922 [Illustrator]; Roberts, Charles G. D., Sir, 1860-1943 [Translator]"
+ },
+ {
+  "id": 583,
+  "rank": 102,
+  "tur": "polisiye",
+  "title": "The Woman in White",
+  "authors": "Collins, Wilkie, 1824-1889"
+ },
+ {
+  "id": 28203,
+  "rank": 104,
+  "tur": "romantik",
+  "title": "Moods",
+  "authors": "Alcott, Louisa May, 1832-1888"
+ },
+ {
+  "id": 61262,
+  "rank": 105,
+  "tur": "polisiye",
+  "title": "Poirot Investigates",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 8197,
+  "rank": 106,
+  "tur": "romantik",
+  "title": "India's Love Lyrics",
+  "authors": "Hope, Laurence, 1865-1904"
+ },
+ {
+  "id": 2350,
+  "rank": 107,
+  "tur": "polisiye",
+  "title": "His last bow",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 49987,
+  "rank": 109,
+  "tur": "romantik",
+  "title": "Forest Days: A Romance of Old Times",
+  "authors": "James, G. P. R. (George Payne Rainsford), 1801?-1860"
+ },
+ {
+  "id": 2038,
+  "rank": 110,
+  "tur": "polisiye",
+  "title": "The Lock and Key Library: Classic Mystery and Detective Stories: Modern English",
+  "authors": "Hawthorne, Julian, 1846-1934 [Editor]; Castle, Egerton, 1858-1920 [Contributor]; Collins, Wilkie, 1824-1889 [Contributor]; Doyle, Arthur Conan, 1859-1930 [Contributor]; Kipling, Rudyard, 1865-1936 [Contributor]; Stevenson, Robert Louis, 1850-1894 [Contributor]; Weyman, Stanley John, 1855-1928 [Contributor]"
+ },
+ {
+  "id": 53416,
+  "rank": 111,
+  "tur": "romantik",
+  "title": "Only a girl's love",
+  "authors": "Garvice, Charles, 1850-1920"
+ },
+ {
+  "id": 70175,
+  "rank": 113,
+  "tur": "polisiye",
+  "title": "The secret of Father Brown",
+  "authors": "Chesterton, G. K. (Gilbert Keith), 1874-1936"
+ },
+ {
+  "id": 72824,
+  "rank": 114,
+  "tur": "polisiye",
+  "title": "The mystery of the Blue Train",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 57641,
+  "rank": 115,
+  "tur": "romantik",
+  "title": "One Woman: Being the Second Part of a Romance of Sussex",
+  "authors": "Ollivant, Alfred, 1874-1927"
+ },
+ {
+  "id": 155,
+  "rank": 116,
+  "tur": "polisiye",
+  "title": "The Moonstone",
+  "authors": "Collins, Wilkie, 1824-1889"
+ },
+ {
+  "id": 558,
+  "rank": 117,
+  "tur": "polisiye",
+  "title": "The Thirty-Nine Steps",
+  "authors": "Buchan, John, 1875-1940"
+ },
+ {
+  "id": 17460,
+  "rank": 121,
+  "tur": "romantik",
+  "title": "Lorna Doone: A Romance of Exmoor",
+  "authors": "Blackmore, R. D. (Richard Doddridge), 1825-1900"
+ },
+ {
+  "id": 61168,
+  "rank": 122,
+  "tur": "polisiye",
+  "title": "The Man in the Brown Suit",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 36725,
+  "rank": 123,
+  "tur": "romantik",
+  "title": "On the Cross: A Romance of the Passion Play at Oberammergau",
+  "authors": "Hillern, Wilhelmine von, 1836-1916; Safford, Mary J. (Mary Joanna), 1842-1916 [Translator]"
+ },
+ {
+  "id": 15381,
+  "rank": 124,
+  "tur": "romantik",
+  "title": "Victorian Short Stories: Stories of Courtship",
+  "authors": "Gilbert, W. S. (William Schwenck), 1836-1911 [Contributor]; Crackanthorpe, Hubert, 1870-1896 [Contributor]; Egerton, George, 1859-1945 [Contributor]; Trollope, Anthony, 1815-1882 [Contributor]; Zangwill, Israel, 1864-1926 [Contributor]"
+ },
+ {
+  "id": 6635,
+  "rank": 125,
+  "tur": "romantik",
+  "title": "A Romance of Billy-Goat Hill",
+  "authors": "Rice, Alice Caldwell Hegan, 1870-1942"
+ },
+ {
+  "id": 18875,
+  "rank": 126,
+  "tur": "romantik",
+  "title": "The Prairie Wife",
+  "authors": "Stringer, Arthur, 1874-1950; Dunn, Harvey, 1884-1952 [Illustrator]"
+ },
+ {
+  "id": 3289,
+  "rank": 127,
+  "tur": "polisiye",
+  "title": "The Valley of Fear",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ },
+ {
+  "id": 42681,
+  "rank": 131,
+  "tur": "romantik",
+  "title": "The Hero of the People: A Historical Romance of Love, Liberty and Loyalty",
+  "authors": "Dumas, Alexandre, 1802-1870; Williams, Henry Llewellyn, 1842- [Translator]"
+ },
+ {
+  "id": 2760,
+  "rank": 133,
+  "tur": "polisiye",
+  "title": "Celebrated Crimes (Complete)",
+  "authors": "Dumas, Alexandre, 1802-1870"
+ },
+ {
+  "id": 53419,
+  "rank": 134,
+  "tur": "polisiye",
+  "title": "Twenty-Five Ghost Stories",
+  "authors": "Holland, W. Bob (West Bob), 1868-1932 [Editor]"
+ },
+ {
+  "id": 31257,
+  "rank": 135,
+  "tur": "romantik",
+  "title": "Dainty's Cruel Rivals; Or, The Fatal Birthday",
+  "authors": "Miller, Alex. McVeigh, Mrs., 1850-1937"
+ },
+ {
+  "id": 32155,
+  "rank": 136,
+  "tur": "romantik",
+  "title": "The Love Letters of Henry VIII to Anne Boleyn; With Notes",
+  "authors": "Henry VIII, King of England, 1491-1547"
+ },
+ {
+  "id": 389,
+  "rank": 137,
+  "tur": "polisiye",
+  "title": "The Great God Pan",
+  "authors": "Machen, Arthur, 1863-1947"
+ },
+ {
+  "id": 58866,
+  "rank": 138,
+  "tur": "polisiye",
+  "title": "The Murder on the Links",
+  "authors": "Christie, Agatha, 1890-1976"
+ },
+ {
+  "id": 35548,
+  "rank": 139,
+  "tur": "romantik",
+  "title": "Doctor Cupid: A Novel",
+  "authors": "Broughton, Rhoda, 1840-1920"
+ },
+ {
+  "id": 974,
+  "rank": 141,
+  "tur": "polisiye",
+  "title": "The Secret Agent: A Simple Tale",
+  "authors": "Conrad, Joseph, 1857-1924"
+ },
+ {
+  "id": 22187,
+  "rank": 144,
+  "tur": "romantik",
+  "title": "Chambers's Edinburgh Journal, No. 452",
+  "authors": "Various; Chambers, Robert, 1802-1871 [Editor]; Chambers, William, 1800-1883 [Editor]"
+ },
+ {
+  "id": 2806,
+  "rank": 146,
+  "tur": "polisiye",
+  "title": "The Phantom 'Rickshaw, and Other Ghost Stories",
+  "authors": "Kipling, Rudyard, 1865-1936"
+ },
+ {
+  "id": 560,
+  "rank": 147,
+  "tur": "polisiye",
+  "title": "Mr. Standfast",
+  "authors": "Buchan, John, 1875-1940"
+ },
+ {
+  "id": 537,
+  "rank": 148,
+  "tur": "polisiye",
+  "title": "Tales of Terror and Mystery",
+  "authors": "Doyle, Arthur Conan, 1859-1930"
+ }
+]
