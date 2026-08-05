@@ -44,7 +44,7 @@
  {
   "id": 3268,
   "rank": 6,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The Mysteries of Udolpho",
   "authors": "Radcliffe, Ann Ward, 1764-1823"
  },
@@ -100,7 +100,7 @@
  {
   "id": 59828,
   "rank": 14,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The String of Pearls; Or, The Barber of Fleet Street. A Domestic Romance.",
   "authors": "Rymer, James Malcolm, 1814?-1884; Prest, Thomas Peckett, 1810-1859"
  },
@@ -114,7 +114,7 @@
  {
   "id": 345,
   "rank": 17,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "Dracula",
   "authors": "Stoker, Bram, 1847-1912"
  },
@@ -142,7 +142,7 @@
  {
   "id": 43,
   "rank": 22,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The strange case of Dr. Jekyll and Mr. Hyde",
   "authors": "Stevenson, Robert Louis, 1850-1894"
  },
@@ -163,7 +163,7 @@
  {
   "id": 42,
   "rank": 25,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The strange case of Dr. Jekyll and Mr. Hyde",
   "authors": "Stevenson, Robert Louis, 1850-1894"
  },
@@ -219,7 +219,7 @@
  {
   "id": 22541,
   "rank": 34,
-  "tur": "polisiye",
+  "tur": "bilimkurgu",
   "title": "The Misplaced Battleship",
   "authors": "Harrison, Harry, 1925-2012; Schoenherr, John, 1935-2010 [Illustrator]"
  },
@@ -233,7 +233,7 @@
  {
   "id": 45839,
   "rank": 36,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "Dracula",
   "authors": "Stoker, Bram, 1847-1912"
  },
@@ -275,7 +275,7 @@
  {
   "id": 8492,
   "rank": 44,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The King in Yellow",
   "authors": "Chambers, Robert W. (Robert William), 1865-1933"
  },
@@ -359,7 +359,7 @@
  {
   "id": 40284,
   "rank": 56,
-  "tur": "polisiye",
+  "tur": "bilimkurgu",
   "title": "The Sex Life of the Gods",
   "authors": "Knerr, M. E. (Michael E.), 1936-1999"
  },
@@ -464,7 +464,7 @@
  {
   "id": 209,
   "rank": 72,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The Turn of the Screw",
   "authors": "James, Henry, 1843-1916"
  },
@@ -569,14 +569,14 @@
  {
   "id": 175,
   "rank": 89,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The Phantom of the Opera",
   "authors": "Leroux, Gaston, 1868-1927"
  },
  {
   "id": 68283,
   "rank": 90,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The call of Cthulhu",
   "authors": "Lovecraft, H. P. (Howard Phillips), 1890-1937"
  },
@@ -2025,7 +2025,7 @@
  {
   "id": 53419,
   "rank": 134,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "Twenty-Five Ghost Stories",
   "authors": "Holland, W. Bob (West Bob), 1868-1932 [Editor]"
  },
@@ -2046,7 +2046,7 @@
  {
   "id": 389,
   "rank": 137,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The Great God Pan",
   "authors": "Machen, Arthur, 1863-1947"
  },
@@ -2081,7 +2081,7 @@
  {
   "id": 2806,
   "rank": 146,
-  "tur": "polisiye",
+  "tur": "korku",
   "title": "The Phantom 'Rickshaw, and Other Ghost Stories",
   "authors": "Kipling, Rudyard, 1865-1936"
  },

@@ -387,11 +387,6 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "jekyll-hyde",
-  "file": "jekyll-hyde.js",
-  "group": "Polisiye"
- },
- {
   "id": "g1063",
   "file": "g1063.js",
   "group": "Polisiye"
@@ -412,18 +407,8 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "g175",
-  "file": "g175.js",
-  "group": "Polisiye"
- },
- {
   "id": "g204",
   "file": "g204.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g209",
-  "file": "g209.js",
   "group": "Polisiye"
  },
  {
@@ -444,11 +429,6 @@ window.MANIFEST_FULL = [
  {
   "id": "g223",
   "file": "g223.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g22541",
-  "file": "g22541.js",
   "group": "Polisiye"
  },
  {
@@ -482,11 +462,6 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "g2806",
-  "file": "g2806.js",
-  "group": "Polisiye"
- },
- {
   "id": "g2852",
   "file": "g2852.js",
   "group": "Polisiye"
@@ -497,38 +472,13 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "g3268",
-  "file": "g3268.js",
-  "group": "Polisiye"
- },
- {
   "id": "g3289",
   "file": "g3289.js",
   "group": "Polisiye"
  },
  {
-  "id": "g345",
-  "file": "g345.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g389",
-  "file": "g389.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g40284",
-  "file": "g40284.js",
-  "group": "Polisiye"
- },
- {
   "id": "g47530",
   "file": "g47530.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g53419",
-  "file": "g53419.js",
   "group": "Polisiye"
  },
  {
@@ -562,11 +512,6 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "g59828",
-  "file": "g59828.js",
-  "group": "Polisiye"
- },
- {
   "id": "g61168",
   "file": "g61168.js",
   "group": "Polisiye"
@@ -587,11 +532,6 @@ window.MANIFEST_FULL = [
   "group": "Polisiye"
  },
  {
-  "id": "g68283",
-  "file": "g68283.js",
-  "group": "Polisiye"
- },
- {
   "id": "g69087",
   "file": "g69087.js",
   "group": "Polisiye"
@@ -609,11 +549,6 @@ window.MANIFEST_FULL = [
  {
   "id": "g834",
   "file": "g834.js",
-  "group": "Polisiye"
- },
- {
-  "id": "g8492",
-  "file": "g8492.js",
   "group": "Polisiye"
  },
  {
@@ -697,6 +632,11 @@ window.MANIFEST_FULL = [
   "group": "Bilimkurgu"
  },
  {
+  "id": "g22541",
+  "file": "g22541.js",
+  "group": "Bilimkurgu"
+ },
+ {
   "id": "g23731",
   "file": "g23731.js",
   "group": "Bilimkurgu"
@@ -724,6 +664,11 @@ window.MANIFEST_FULL = [
  {
   "id": "g3748",
   "file": "g3748.js",
+  "group": "Bilimkurgu"
+ },
+ {
+  "id": "g40284",
+  "file": "g40284.js",
   "group": "Bilimkurgu"
  },
  {
@@ -782,6 +727,11 @@ window.MANIFEST_FULL = [
   "group": "Bilimkurgu"
  },
  {
+  "id": "jekyll-hyde",
+  "file": "jekyll-hyde.js",
+  "group": "Korku"
+ },
+ {
   "id": "g121",
   "file": "g121.js",
   "group": "Korku"
@@ -789,6 +739,11 @@ window.MANIFEST_FULL = [
  {
   "id": "g174",
   "file": "g174.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g175",
+  "file": "g175.js",
   "group": "Korku"
  },
  {
@@ -802,8 +757,48 @@ window.MANIFEST_FULL = [
   "group": "Korku"
  },
  {
+  "id": "g209",
+  "file": "g209.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g2806",
+  "file": "g2806.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g3268",
+  "file": "g3268.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g345",
+  "file": "g345.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g389",
+  "file": "g389.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g53419",
+  "file": "g53419.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g59828",
+  "file": "g59828.js",
+  "group": "Korku"
+ },
+ {
   "id": "g601",
   "file": "g601.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g68283",
+  "file": "g68283.js",
   "group": "Korku"
  },
  {
@@ -814,6 +809,11 @@ window.MANIFEST_FULL = [
  {
   "id": "g768",
   "file": "g768.js",
+  "group": "Korku"
+ },
+ {
+  "id": "g8492",
+  "file": "g8492.js",
   "group": "Korku"
  },
  {
