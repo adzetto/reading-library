@@ -58,6 +58,8 @@ const DENETLE = () => {
      kompozisyon) — o hariç. */
   for (const el of gorunur) {
     if (el.id === "globe" || el.id === "heroOrb" || el.closest("#heroOrb")) continue;
+    /* Yana kayan kaplar: sığmayan öge kaydırınca geliyor, taşma değil. */
+    if (el.closest(".shelf, .decks")) continue;
     const r = el.getBoundingClientRect();
     if (r.right > W + 1.5 && r.width < W * 1.5) {
       sorunlar.push("sağdan taşıyor: " + (el.id ? "#" + el.id : el.className || el.tagName) +
@@ -72,6 +74,7 @@ const DENETLE = () => {
   let enKucuk = { n: "", h: 999, w: 999 };
   for (const el of gorunur) {
     if (!el.matches("button, a.btn, .spine, .deck, .hb-seg, #topbar a")) continue;
+    if (el.classList.contains("spine")) continue;   // sırt bilerek dar
     const r = el.getBoundingClientRect();
     if (r.height < enKucuk.h) enKucuk = { n: el.id || el.className, h: r.height, w: r.width };
   }

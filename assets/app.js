@@ -229,11 +229,12 @@
       '<span><b>' + (window.Lookup ? Lookup.size : 0).toLocaleString("tr") +
       "</b> sözlük maddesi</span>";
 
-    /* ---------------- türe göre desteler ----------------
-       300'e yakın kitapla düz bir kart listesi okunmaz hâle geliyor.
-       Kütüphane önce RAFLARI gösteriyor: her tür bir deste, üstünde
-       kaç kitap olduğu ve o türün ilk kitaplarının sırtları. Desteye
-       tıklayınca yalnız o türün kartları açılıyor. */
+    /* ---------------- raflar ----------------
+       Kütüphanede HER ZAMAN tam bir raf açık. Önce "hepsi" diye bir
+       durum vardı ve 278 sırt tek satıra dizilince on bir bin piksellik
+       bir şerit çıkıyordu — kimsenin sonuna kadar kaydırmayacağı bir
+       şey. Raf sekmeleri zaten gezinmenin kendisi; "Tüm raflar"
+       düğmesi fazlalıktı, kaldırıldı. */
     var gruplar = [];
     docs.forEach(function (d) {
       var g = gruplar.filter(function (x) { return x.ad === d.__group; })[0];
@@ -241,17 +242,21 @@
       g.n++; g.docs.push(d);
     });
 
-    var secili = null;                      // null = tüm desteler görünür
+    /* Sekme sırası: önce kitap rafları, sonra makaleler ve kısa metinler.
+       Manifest sırasında "Makaleler" başta geliyordu ve kütüphanenin
+       yüzü dört akademik makale oluyordu. */
+    var SON = { "Makaleler": 1, "Kısa metinler": 2, "Yüklediklerim": 3 };
+    gruplar.sort(function (x, y) {
+      return (SON[x.ad] || 0) - (SON[y.ad] || 0);
+    });
+
     var destelerEl = $("#libDecks");
-    var N = docs.length;
-    var sira = {};                          // belge → genel sıra (renk için)
-    docs.forEach(function (d, i) { sira[d.id] = i; });
+    var secili = gruplar.length ? gruplar[0].ad : null;
 
     function desteCiz() {
       destelerEl.innerHTML = gruplar.map(function (g) {
-        /* Çubuk kümesi kaldırıldı: raf ne kadar dolu olursa olsun aynı
-           beş çubuğu gösteriyordu, yani hiçbir şey anlatmıyordu. */
-        return '<button type="button" class="deck" data-deck="' + esc(g.ad) + '">' +
+        return '<button type="button" class="deck" data-deck="' + esc(g.ad) + '"' +
+          ' aria-pressed="false">' +
           '<span class="deck-name">' + esc(g.ad) + "</span>" +
           '<span class="deck-n"><b>' + g.n + "</b></span></button>";
       }).join("");
@@ -260,35 +265,37 @@
     function uygula() {
       $$(".spine", $("#cards")).forEach(function (c) {
         if (c.classList.contains("spine-add")) return;
-        c.hidden = !!secili && c.dataset.group !== secili;
+        c.hidden = c.dataset.group !== secili;
       });
-      /* PDF sırtı her rafta durur: kendi belgen hangi rafa aitse oraya. */
       $$("[data-deck]", destelerEl).forEach(function (b) {
-        b.classList.toggle("on", b.dataset.deck === secili);
+        var on = b.dataset.deck === secili;
+        b.classList.toggle("on", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
       });
-      var geri = $("#deckBack");
-      if (geri) geri.hidden = !secili;
       var kutu = $("#cards");
       if (kutu && kutu.__tazele) kutu.__tazele();
       var bas = $(".lib-head h2");
       if (bas) bas.textContent = secili || "Kütüphane";
+      var shelf = $("#shelf");
+      if (shelf) {
+        shelf.scrollLeft = 0;
+        /* Kenar yumuşaması yalnızca gerçekten kayan rafta. */
+        requestAnimationFrame(function () {
+          shelf.classList.toggle("kayar",
+            shelf.scrollWidth > shelf.clientWidth + 4);
+        });
+      }
     }
 
     desteCiz();
     destelerEl.addEventListener("click", function (e) {
       var b = e.target.closest("[data-deck]"); if (!b) return;
-      secili = (secili === b.dataset.deck) ? null : b.dataset.deck;
+      secili = b.dataset.deck;
       uygula();
-      var k = $("#cards");
-      if (k && secili) k.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth",
-                                          block: "start" });
     });
-    var geriBtn = $("#deckBack");
-    if (geriBtn) {
-      geriBtn.addEventListener("click", function () { secili = null; uygula(); });
-    }
 
     drawCards(docs);
+    uygula();
     heroRead();
     heroGlobe();
     heroMotion();
@@ -356,10 +363,18 @@
       }).join("") + "</span><span>ZOR</span>" +
       '<span class="lk-n">· sırtın kalınlığı kitabın uzunluğu</span></p>';
 
+    /* Künye rafın SOLUNDA duruyor. Önce rafın ALTINDAYDI: sırta değince
+       açıklama ekranın dışında kalıyor, kullanıcı hiç görmüyordu. Yan
+       yana durunca elini gezdirdikçe kitap değişiyor — vitrin gibi. */
     wrap.innerHTML =
-      '<div class="shelf" id="shelf" role="list">' + raf + "</div>" +
-      anahtar +
-      '<div class="pick" id="pick" aria-live="polite"></div>';
+      '<div class="lib-view">' +
+        '<div class="pick" id="pick" aria-live="polite"></div>' +
+        '<div class="shelf-wrap">' +
+          '<div class="shelf" id="shelf" role="listbox" tabindex="0" ' +
+            'aria-label="Raftaki kitaplar">' + raf + "</div>" +
+          anahtar +
+        "</div>" +
+      "</div>";
 
     /* Rafın önündeki künye: sırta değince kitap "çekilip" bakılıyor. */
     var pick = $("#pick");
@@ -408,6 +423,25 @@
       location.hash = "#/read/" + encodeURIComponent(b.dataset.id);
     });
     /* Dışarıdan (raf sekmesi) çağrılabilsin: raf değişince seçim de değişmeli. */
+    /* Ok tuşlarıyla raf boyunca gezinme: raf tek bir durak, içinde
+       oklarla dolaşılıyor (ARIA listbox kalıbı). */
+    shelf.addEventListener("keydown", function (e) {
+      var yon = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1
+              : e.key === "Home" ? -9999 : e.key === "End" ? 9999 : 0;
+      if (!yon) return;
+      e.preventDefault();
+      var acik = $$(".spine:not([hidden])", shelf).filter(function (x) {
+        return !x.classList.contains("spine-add");
+      });
+      if (!acik.length) return;
+      var su = acik.indexOf(shelf.querySelector(".spine.on"));
+      if (su < 0) su = 0;
+      var yeni = Math.max(0, Math.min(acik.length - 1, su + yon));
+      isaretle(acik[yeni]);
+      acik[yeni].scrollIntoView({ block: "nearest", inline: "center",
+                                 behavior: REDUCED ? "auto" : "smooth" });
+    });
+
     wrap.__tazele = function () {
       var id = ilkGorunen();
       var sp = id && shelfEl().querySelector('.spine[data-id="' + id + '"]');

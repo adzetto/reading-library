@@ -290,44 +290,51 @@ body.reading #topbar{display:none}
 #deckBack[hidden]{display:none}
 
 /* ============================== RAF ==============================
-   Kitabın kendi biçimi SIRT. Genişlik sözcük sayısından geliyor
-   (app.js spineW): rafta Sherlock kalın, Amontillado Fıçısı ince —
-   süs değil, doğru bilgi. Yükseklik hepsinde aynı: tek bir değişken
-   dürüstçe kodlanıyor, ikincisi süs olurdu. */
-.shelf{display:flex;flex-wrap:wrap;align-items:flex-end;gap:3px;
-  padding:1.4rem 0 0;margin-bottom:1.2rem;
-  border-bottom:2px solid var(--rule);           /* rafın tahtası */
+   Kitabın kendi biçimi SIRT. Genişlik sözcük sayısından (app.js
+   spineW), renk CEFR düzeyinden geliyor — ikisi de süs değil, doğru
+   bilgi. Yükseklik hepsinde aynı: üçüncü bir değişken süs olurdu.
+
+   Raf TEK SATIR ve yana kaydırılıyor. Önce satır sarıyordu; elli kitap
+   yedi sıralık bir duvara dönüyordu — raf değil depo. Gerçek raf da tek
+   sıradır, sığmayan yana kayar.                                      */
+.lib-view{display:grid;gap:1.6rem 2rem;
+  grid-template-columns:minmax(0,19rem) minmax(0,1fr);align-items:start}
+.shelf-wrap{min-width:0}
+.shelf{display:flex;flex-wrap:nowrap;align-items:flex-end;gap:3px;
+  padding:1.4rem .25rem 0;margin-bottom:.9rem;
+  overflow-x:auto;overflow-y:hidden;
+  scrollbar-width:thin;overscroll-behavior-x:contain;
+  border-bottom:2px solid var(--rule);
   box-shadow:0 3px 0 -1px color-mix(in srgb,var(--ink) 8%,transparent)}
+/* Sağ kenarda yumuşama rafın DEVAMI olduğunu söyler; devamı yokken
+   söylemesi yalan olur. Sınıfı app.js ölçerek koyuyor. */
+.shelf.kayar{
+  -webkit-mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 3rem),transparent 100%);
+  mask-image:linear-gradient(90deg,#000 0,#000 calc(100% - 3rem),transparent 100%)}
+.shelf:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
 .spine{position:relative;flex:none;width:var(--w,34px);height:12rem;
   padding:.7rem 0 .5rem;border:none;border-radius:2px 2px 0 0;cursor:pointer;
   background:color-mix(in oklab,var(--accent),var(--warm) calc(var(--t,0) * 100%));
   color:var(--paper);font:inherit;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;gap:.4rem;
-  transition:transform .2s cubic-bezier(.22,1,.36,1),filter .2s,
-             box-shadow .2s}
-/* Sırt yazısı aşağıdan yukarı: raftaki kitabın okunuşu. */
+  scroll-margin-inline:2rem;
+  transition:transform .2s cubic-bezier(.22,1,.36,1),filter .2s,box-shadow .2s}
 /* [hidden] TEK BAŞINA display:flex'i yenemez. Bu proje bu tuzağa üç kez
-   düştü: .hero-cta .btn, .card, şimdi .spine. Süzgeç hidden'ı koyuyor,
-   öge yerinde duruyordu — "Çocuk" rafı seçiliyken 278 sırtın hepsi
-   görünüyordu. Kural artık seçicinin yanında duruyor ki bir dahakine
-   gözden kaçmasın. */
+   düştü: .hero-cta .btn, .card, şimdi .spine. Kural artık seçicinin
+   yanında duruyor ki bir dahakine gözden kaçmasın. */
 .spine[hidden]{display:none}
 .spine .sp-t,.spine .sp-a{writing-mode:vertical-rl;transform:rotate(180deg);
   white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:100%}
 .spine .sp-t{font-family:var(--serif);font-size:.83rem;font-weight:700;
   letter-spacing:.005em}
-.spine .sp-a{font-family:var(--sans);font-size:.66rem;opacity:.72;
-  max-height:38%}
-/* Okunan kitap: sırtın dibinde ince bir şerit. */
+.spine .sp-a{font-family:var(--sans);font-size:.66rem;opacity:.72;max-height:38%}
 .spine .sp-p{position:absolute;left:0;right:0;bottom:0;height:0;
   background:color-mix(in srgb,var(--paper) 82%,transparent)}
 .spine:hover,.spine.on{transform:translateY(-12px);
   box-shadow:0 10px 22px -8px color-mix(in srgb,var(--ink) 45%,transparent)}
 .spine:hover{filter:brightness(1.08)}
-.spine:focus-visible{outline:2px solid var(--ink);outline-offset:3px;
-  transform:translateY(-12px)}
-.spine.on{filter:brightness(1.12)}
-/* Rafın sonundaki boşluk: kendi kitabını koyacağın yer. */
+.spine.on{filter:brightness(1.14)}
+.spine:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
 .spine-add{background:transparent;border:1px dashed var(--rule);
   color:var(--ink-2);width:34px}
 .spine-add:hover{border-color:var(--accent);color:var(--accent);
@@ -335,29 +342,158 @@ body.reading #topbar{display:none}
 .spine-add .sp-t{font-family:var(--sans);font-size:.7rem;font-weight:600}
 .spine-add .sp-plus{font-family:var(--mono);font-size:1rem;line-height:1}
 
-/* Rafın önü: sırta değince kitap çekilip bakılıyor. */
 /* Renk düzeyi anlatıyor; anahtarı olmayan renk yalnızca renktir. */
-.lvl-key{display:flex;align-items:center;gap:.5rem;margin:0 0 1.1rem;
+.lvl-key{display:flex;align-items:center;gap:.5rem;margin:0;flex-wrap:wrap;
   font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;
   color:var(--ink-2)}
 .lvl-key i{display:block;width:1.6rem;height:.55rem;border-radius:2px;
   background:color-mix(in oklab,var(--accent),var(--warm) calc(var(--t) * 100%))}
 .lvl-key .k{display:flex;gap:2px}
-.pick{min-height:11.5rem}
-.pick-in{display:flex;flex-direction:column;gap:.4rem;max-width:38rem}
+.lvl-key .lk-n{color:var(--ink-3)}
+
+/* Vitrin: rafta gezdikçe burası değişir; raf kaydırılırken de ekranda
+   kalsın diye yapışkan. */
+.pick{position:sticky;top:5rem;min-height:20rem}
+.pick-in{display:flex;flex-direction:column;gap:.4rem}
 .pick-lvl{font-family:var(--mono);font-size:var(--ui-sm);color:var(--ink-2);
   margin:0;letter-spacing:.02em}
 .pick-lvl b{color:var(--ink);font-weight:600}
-.pick h3{font-family:var(--serif);font-size:1.35rem;line-height:1.25;
+.pick h3{font-family:var(--serif);font-size:1.3rem;line-height:1.25;
   margin:.1rem 0 0;font-weight:700}
 .pick-tr{font-family:var(--sans);font-size:var(--ui);color:var(--ink-2);margin:0}
 .pick-b{font-family:var(--sans);font-size:var(--ui);color:var(--ink-2);
-  line-height:1.55;margin:.25rem 0 .5rem}
+  line-height:1.55;margin:.25rem 0 .6rem}
 .pick .btn{align-self:flex-start;text-decoration:none}
 
+/* --------------------------- okuyucu ek --------------------------- */
+.side-back{display:inline-flex;margin-bottom:1rem;text-decoration:none}
+.doc-head{margin-bottom:2rem;padding-bottom:1.2rem;
+  border-bottom:1px solid var(--rule-2)}
+.doc-head .kicker{font-family:var(--sans);font-size:var(--ui-sm);
+  color:var(--ink-2);margin:0 0 .5rem}
+.doc-head h1{font-family:var(--serif);font-size:1.5em;line-height:1.22;margin:0 0 .6rem;
+  font-weight:700;text-indent:0}
+.doc-head .tr{font-family:var(--sans);font-size:var(--ui);color:var(--accent-2);
+  line-height:1.45;margin:0 0 .7rem}
+:root[data-theme="dark"] .doc-head .tr{color:var(--accent)}
+.doc-head .who{font-family:var(--sans);font-size:var(--ui-sm);color:var(--ink-2);
+  margin:0}
+
+/* --------------------------- sınav sayfası --------------------------- */
+.quiz-page{max-width:44rem;margin:0 auto;padding:2rem 5vw 6rem}
+.quiz-page .qp-head{margin-bottom:1.5rem}
+.quiz-page .qp-head h1{font-family:var(--sans);font-size:1.6rem;margin:0 0 .4rem;
+  font-weight:600;letter-spacing:-.02em}
+.quiz-page .qp-head p{font-family:var(--sans);font-size:var(--ui);
+  color:var(--ink-2);margin:0}
+
+/* ----------------------------- responsive ----------------------------- */
+@media (max-width:760px){
+  .lib{padding:1rem 6vw 5rem}
+}
 @media (max-width:560px){
-  /* Telefonda raf daha alçak; sırt adları yine okunuyor. */
+  #topbar .brand .name{display:none}
+  .cards{grid-template-columns:1fr}
+  .lib-head{gap:.6rem}
+  .lib-filters{margin-left:0;width:100%}
+}
+
+/* ==================================================================
+   KÜTÜPHANECİ DOKUNUŞLARI + PDF İÇE AKTARMA
+   Kartlar bir fiş kataloğu kartına benzetildi: üstte künye satırı
+   (tasnif numarası + düzey), altta cetvel çizgisi. Amaç süs değil —
+   okur kütüphanede gezindiğini hissetsin.
+   ================================================================== */
+
+/* Künye: tasnif numarası gibi okunan monospace bir satır. Sıra
+   numarası app.js'te --no ile veriliyor (counter kullanılmadı: kartlar
+   süzgeçle gizlenince counter atlıyor ve numaralar zıplıyor). */
+.card .card-badges{align-items:center}
+.badge.lvl::before{content:"№ ";opacity:.55;letter-spacing:.02em}
+
+/* Kartın alt künye çizgisi: kataloğun cetvelli kâğıdı */
+.card .meta{position:relative}
+.card .meta::before{content:"";position:absolute;left:0;right:0;top:0;
+  border-top:1px solid var(--rule-2)}
+
+/* Bölüm başlığı = raf etiketi */
+.lib-head h2{position:relative;padding-left:.85rem}
+.lib-head h2::before{content:"";position:absolute;left:0;top:.18em;bottom:.18em;
+  width:3px;border-radius:2px;background:var(--accent)}
+
+/* ---------------------- "PDF yükle" kartı ---------------------- */
+.card-add{align-items:flex-start;text-align:left;cursor:pointer;
+  border-style:dashed;border-color:var(--rule);background:transparent;
+  font:inherit;color:inherit;gap:.55rem}
+.card-add:hover{border-color:var(--accent);background:var(--paper-2)}
+.card-add::before{display:none}
+.card-add .ca-ic{display:grid;place-items:center;width:2.35rem;height:2.35rem;
+  border-radius:9px;flex:none;color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 11%,transparent)}
+.card-add h3{font-family:var(--sans);font-size:1.05rem;font-weight:600;
+  display:flex;align-items:center;gap:.5rem;margin:0}
+.beta{font-family:var(--mono);font-size:.62rem;font-weight:600;
+  letter-spacing:.06em;text-transform:uppercase;padding:.15em .45em;
+  border-radius:4px;color:var(--warm);
+  background:color-mix(in srgb,var(--warm) 14%,transparent)}
+
+/* ------------------------ yükleme paneli ------------------------ */
+#pdfWrap{position:fixed;inset:0;z-index:120;display:grid;place-items:center;
+  padding:1rem}
+.pdf-scrim{position:absolute;inset:0;
+  background:color-mix(in srgb,var(--ink) 42%,transparent);
+  backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px)}
+.pdf-box{position:relative;width:min(34rem,100%);max-height:88svh;overflow:auto;
+  background:var(--paper);border:1px solid var(--rule);border-radius:14px;
+  box-shadow:var(--shadow);font-family:var(--sans)}
+.pdf-hd{display:flex;align-items:center;gap:.75rem;padding:1rem 1.1rem .75rem;
+  border-bottom:1px solid var(--rule-2)}
+.pdf-hd h3{margin:0;font-size:1.1rem;font-weight:600;flex:1;
+  display:flex;align-items:center;gap:.5rem;font-family:var(--display,var(--sans))}
+.pdf-body{padding:1.1rem}
+.pdf-lead{margin:0 0 1rem;color:var(--ink-2);font-size:var(--ui);line-height:1.5}
+.pdf-drop{display:flex;flex-direction:column;align-items:center;gap:.3rem;
+  padding:1.8rem 1rem;border:2px dashed var(--rule);border-radius:12px;
+  cursor:pointer;text-align:center;transition:border-color .18s,background .18s}
+.pdf-drop:hover,.pdf-drop.over{border-color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 6%,transparent)}
+.pdf-drop.busy{opacity:.55;pointer-events:none}
+.pdf-drop b{font-size:var(--ui-lg);color:var(--ink)}
+.pdf-drop span{font-size:var(--ui-sm);color:var(--ink-2)}
+.pdf-prog{margin-top:1rem;display:flex;flex-direction:column;gap:.45rem;
+  font-family:var(--mono);font-size:var(--ui-sm);color:var(--ink-2)}
+.pdf-bar{height:6px;border-radius:99px;background:var(--rule-2);overflow:hidden}
+.pdf-bar i{display:block;height:100%;width:0;background:var(--accent);
+  border-radius:99px;transition:width .25s ease}
+.pdf-err{margin:1rem 0 0;padding:.7rem .85rem;border-radius:10px;
+  font-size:var(--ui-sm);line-height:1.5;
+  color:color-mix(in srgb,var(--bad) 72%,var(--ink));
+  background:color-mix(in srgb,var(--bad) 10%,transparent);
+  border:1px solid color-mix(in srgb,var(--bad) 26%,transparent)}
+.pdf-note{margin:1.1rem 0 0;padding-left:1.1rem;display:flex;
+  flex-direction:column;gap:.4rem;font-size:var(--ui-sm);color:var(--ink-2);
+  line-height:1.5}
+.pdf-note b{color:var(--ink)}
+@media (max-width:560px){
+  .pdf-box{width:100%;max-height:92svh}
+}
+
+@media (max-width:760px){
+  /* Sekmeler telefonda yedi sıraya yayılıp ekranın yarısını yiyordu.
+     Rafla aynı hareket: tek satır, yana kaydırma. */
+  .decks{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;
+    padding-bottom:.2rem;margin-bottom:1.1rem}
+  .decks::-webkit-scrollbar{display:none}
+  .deck{flex:none}
+}
+@media (max-width:1080px){
+  /* Tek sütun: önce RAF, sonra vitrin. Sticky kalkıyor — dar ekranda
+     yapışkan bir blok ekranın yarısını yiyor. */
+  .lib-view{grid-template-columns:minmax(0,1fr)}
+  .shelf-wrap{order:1}
+  .pick{position:static;min-height:0;order:2}
+}
+@media (max-width:560px){
   .spine{height:10.5rem}
   .spine .sp-t{font-size:.76rem}
-  .pick{min-height:13rem}
 }

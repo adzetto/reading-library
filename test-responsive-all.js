@@ -43,20 +43,35 @@ const VIEWS = [
         const before = scrollX; scrollTo(9999, scrollY);
         const can = scrollX; scrollTo(before, scrollY);
         // Kapalı çekmece ve kenar çubuğu kasıtlı olarak ekran dışındadır;
-        // içlerindeki düğmeler "dışarıda" sayılmamalı.
-        const OFFSCREEN = "#drawer, #side, #pop, #drawerLayer";
+        // içlerindeki düğmeler "dışarıda" sayılmamalı. Aynısı YANA KAYAN
+        // kaplar için de geçerli: raf ve raf sekmeleri tek satır olup
+        // overflow-x ile kayıyor, sığmayan öge kaydırınca geliyor.
+        const OFFSCREEN = "#drawer, #side, #pop, #drawerLayer, .shelf, .decks";
         const btns = Array.from(document.querySelectorAll("button, .btn, .qz-opt, .sv-btn"))
           .filter((b) => {
             const q = b.getBoundingClientRect();
             if (q.width <= 0 || q.height <= 0) return false;
             const host = b.closest(OFFSCREEN);
+            if (host && (host.classList.contains("shelf") ||
+                         host.classList.contains("decks"))) {
+              // kayan kapta yalnızca ölçü denetlenir, konum değil
+              return q.height > 0;
+            }
             if (host && !host.classList.contains("show")) return false;
             return true;
           });
         const rs = btns.map((b) => b.getBoundingClientRect());
         const minH = rs.length ? Math.round(Math.min(...rs.map((x) => x.height))) : 99;
-        const minW = rs.length ? Math.round(Math.min(...rs.map((x) => x.width))) : 99;
-        const off = rs.filter((x) => x.right > de.clientWidth + 1 || x.left < -1).length;
+        /* Sırtın DAR olması tasarımın kendisi (kitap sırtı); genişlik
+           alt sınırı yalnızca normal düğmelere uygulanır. */
+        const rsW = btns.filter((b) => !b.closest(".shelf"))
+          .map((b) => b.getBoundingClientRect());
+        const minW = rsW.length ? Math.round(Math.min(...rsW.map((x) => x.width))) : 99;
+        /* Kayan kaptaki ögeler konum denetiminden muaf: sığmayanı
+           kaydırarak getiriyorsun. */
+        const off = btns.filter((b) => !b.closest(".shelf, .decks"))
+          .map((b) => b.getBoundingClientRect())
+          .filter((x) => x.right > de.clientWidth + 1 || x.left < -1).length;
         return { can, minH, minW, off };
       });
       const ok = r.can === 0 && r.minH >= 30 && r.off === 0 && errs.length === 0;
