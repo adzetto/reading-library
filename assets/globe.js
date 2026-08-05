@@ -103,8 +103,15 @@
      gevşek ve karaktersiz duruyordu. Mona Sans (GitHub, OFL) sıkı
      tracking'i ve dolgun gövdesiyle burada belirgin biçimde daha iyi.
      Sıra önemli: Mona yüklenmemişse Geist'e, o da yoksa sisteme düşer. */
-  var FONT = '"Mona Sans","Geist",ui-sans-serif,system-ui,"Segoe UI",sans-serif';
-  var FONT_W = 700;                 // değişken eksende manşet kalınlığı
+  /* Küredeki sözcükler KİTAPLARDAN geliyor; kitapların dizildiği yazı
+     tipiyle diziliyorlar. Sayfanın geri kalanı zaten bu ailede: marka
+     LM Caps, manşet ve kitap sırtları LM Roman. Mona Sans buradayken
+     küre sistemin dışında duruyordu — sözcükler "kitaptan bir sözcük"
+     değil "arayüz etiketi" gibi okunuyordu.
+     Kalın kesim seçildi: ince tırnaklar küçük punto ve dönen yüzeyde
+     titriyor. */
+  var FONT = '"LM Roman","Latin Modern Roman",Georgia,serif';
+  var FONT_W = 700;
 
   /* ================================================================
      yerleşim — her belge kürede bir "kıta", sözcükler çevresine serpilir
@@ -275,7 +282,10 @@
     var lmin = Math.log(minN + 1), lmax = Math.log(maxN + 1);
     var size = nodes.map(function (nd) {
       var t = lmax > lmin ? (Math.log(nd.n + 1) - lmin) / (lmax - lmin) : 0.5;
-      var h = (0.032 + 0.036 * Math.pow(t, 0.8)) * wordK;        // dünya birimi
+      /* 1.12 katsayısı yazı tipi değişiminin telafisi: LM Roman'ın
+         x-yüksekliği Mona Sans'ınkinden yaklaşık beşte bir küçük,
+         aynı em değerinde sözcükler optik olarak küçülüyordu. */
+      var h = (0.032 + 0.036 * Math.pow(t, 0.8)) * wordK * 1.12;   // dünya birimi
       var ar = (0.60 * nd.w.length + 0.70) / 1.4;                // kaba en/boy
       return { t: t, h: h, w: h * ar };
     });
@@ -946,15 +956,20 @@
         var yer = [];
         for (var q = 0; q < onem.length; q++) {
           var si = onem[q], sq = sprites[si];
-          if (sq.material.opacity < 0.06) continue;
+          /* Eşik 0.06'ydı: silik bir sözcük hem yerleştirilmiyor hem de
+             DENETLENMİYORDU, yani hâlâ görünürken komşusunun üstüne
+             binebiliyordu ("strongcase"). Artık görünür olan her sözcük
+             denetime giriyor. */
+          if (sq.material.opacity < 0.02) continue;
           pv.copy(sq.position).applyQuaternion(root.quaternion).project(cam);
           var cxp = (pv.x * 0.5 + 0.5) * W, cyp = (-pv.y * 0.5 + 0.5) * H;
           var hw = (sq.scale.x * 0.5) / unit, hh = (sq.scale.y * 0.5) / unit;
           var carp = false;
           for (var z = 0; z < yer.length; z++) {
             var b = yer[z];
-            if (Math.abs(cxp - b.x) < (hw + b.hw) * 0.92 &&
-                Math.abs(cyp - b.y) < (hh + b.hh) * 0.80) { carp = true; break; }
+            /* Yazı tipi değişince sözcükler büyüdü; pay da sıkılaştı. */
+            if (Math.abs(cxp - b.x) < (hw + b.hw) * 1.02 &&
+                Math.abs(cyp - b.y) < (hh + b.hh) * 0.86) { carp = true; break; }
           }
           if (carp) {
             // Tamamen kaybolmasın: çok soluk kalıp derinlik hissini taşısın.
@@ -1081,7 +1096,7 @@
          anda indiriliyor ve hero'da @font-face henüz tetiklenmemiş
          olabiliyor. Açıkça yükletiyoruz, yoksa küre Geist'le kuruluyor. */
       var hazir = document.fonts.load
-        ? document.fonts.load(FONT_W + ' 64px "Mona Sans"')
+        ? document.fonts.load(FONT_W + ' 64px "LM Roman"')
             .catch(function () {})
             .then(function () { return document.fonts.ready; })
         : document.fonts.ready;
