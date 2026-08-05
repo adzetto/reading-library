@@ -586,6 +586,11 @@
       placeTip(i);
     }
     var pv = new T.Vector3();
+    /* Çakışma ayıklamada kim kalacak: en sık geçen sözcük. Sıra sabit
+       olmalı — her karede yeniden sıralanırsa küre döndükçe sözcükler
+       yanıp söner. */
+    var onem = nodes.map(function (n, i) { return i; })
+      .sort(function (a, b) { return size[b].t - size[a].t; });
     function placeTip(i) {
       pv.copy(sprites[i].position).applyQuaternion(root.quaternion).project(cam);
       var x = (pv.x * 0.5 + 0.5) * W, y = (-pv.y * 0.5 + 0.5) * H;
@@ -904,7 +909,11 @@
           var f = wv.dot(camDir);
           sp.userData.front = f;
           // solma ufka oturuyor: silüetin ötesindeki sözcük tamamen gider
-          var a = smooth(f, horizon - 0.03, horizon + 0.34);
+          /* Sönme başlangıcı ufkun 0.03 gerisindeydi: kenarda sözcükler
+             yan yana eziliyor, sonra da birbirine giriyordu. Ufkun
+             ÖNÜNDEN başlatınca silüete yakın olanlar çarpışmaya
+             fırsat bulmadan gidiyor. */
+          var a = smooth(f, horizon + 0.05, horizon + 0.42);
           var on = i === hover;
           var o = P.dimA + (1 - P.dimA) * Math.pow(a, 1.6);
           if (hover >= 0) o *= on ? 1 : (near[i] ? 1.1 : 0.45);
@@ -927,6 +936,34 @@
           var k = (0.86 + 0.14 * a) * (on ? 1.32 : 1) * (1 + 0.62 * g);
           sp.scale.set(size[i].h * sp.userData.ar * k, size[i].h * k, 1);
         }
+        /* ---- ekran uzayında çakışma ayıklama ----
+           Yerleşim küre YÜZEYİNDE çakışmayı çözüyor (açısal itme), ama
+           kenara doğru perspektif sözcükleri yatayda eziyor: yüzeyde
+           ayrı duran "strong" ile "case" ekranda üst üste biniyordu.
+           Harita etiketlemesinin standart çözümü: ÖNEM SIRASINA göre
+           yerleştir, yerleşmiş bir kutuyla çakışanı gizle. Sıra sabit
+           (sıklık), yoksa küre döndükçe sözcükler yanıp sönerdi. */
+        var yer = [];
+        for (var q = 0; q < onem.length; q++) {
+          var si = onem[q], sq = sprites[si];
+          if (sq.material.opacity < 0.06) continue;
+          pv.copy(sq.position).applyQuaternion(root.quaternion).project(cam);
+          var cxp = (pv.x * 0.5 + 0.5) * W, cyp = (-pv.y * 0.5 + 0.5) * H;
+          var hw = (sq.scale.x * 0.5) / unit, hh = (sq.scale.y * 0.5) / unit;
+          var carp = false;
+          for (var z = 0; z < yer.length; z++) {
+            var b = yer[z];
+            if (Math.abs(cxp - b.x) < (hw + b.hw) * 0.92 &&
+                Math.abs(cyp - b.y) < (hh + b.hh) * 0.80) { carp = true; break; }
+          }
+          if (carp) {
+            // Tamamen kaybolmasın: çok soluk kalıp derinlik hissini taşısın.
+            sq.material.opacity = Math.min(sq.material.opacity, 0.07);
+          } else {
+            yer.push({ x: cxp, y: cyp, hw: hw, hh: hh });
+          }
+        }
+
         if (hover >= 0) placeTip(hover);
         if (lensOn) inst.dirty = true;
       }

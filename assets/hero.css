@@ -101,13 +101,22 @@
   line-height:1;vertical-align:baseline}
 /* Karşılığı olan sözcük: ince bir alt çizgi — altı çizili bağlantı değil,
    sözlükte karşılığı VAR işareti. */
-.hero-read .has-gloss{cursor:default}
-.hero-read .has-gloss .hr-en{
-  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--accent) 38%,transparent);
-  transition:box-shadow .2s}
+/* Her sözcük tıklanabilir: manşet, kitap sayfasının kendisi gibi çalışır. */
+.hero-read .hr-w{cursor:pointer}
+.hero-read .hr-w:focus-visible{outline:2px solid var(--accent);
+  outline-offset:2px;border-radius:3px}
+/* Cetvel sözcüğün ALTINDA ayrı bir çizgi; box-shadow taban çizgisine
+   oturuyordu ve "g/y/q" iniş kuyruklarını kesiyordu. Ayrı bir ::after
+   hem kuyruklara değmiyor hem karşılıkla hizalı duruyor. */
+.hero-read .has-gloss::after{content:"";position:absolute;
+  left:0;right:0;top:100%;margin-top:.07em;height:1px;
+  background:color-mix(in srgb,var(--accent) 42%,transparent);
+  transition:background .2s,height .2s}
+.hero-read .has-gloss.hot::after{height:2px;
+  background:color-mix(in srgb,var(--accent) 85%,transparent)}
 /* Türkçe karşılık sözcüğün altında asılı durur: interlinear dizgi.
    Monospace, çünkü bu şerh — metnin kendisi değil. */
-.hero-read .hr-tr{position:absolute;left:50%;top:100%;margin-top:.16em;
+.hero-read .hr-tr{position:absolute;left:50%;top:100%;margin-top:.30em;
   transform:translateX(-50%);
   font-family:var(--mono);font-size:.335em;font-weight:500;line-height:1.2;
   letter-spacing:0;color:var(--accent-2);white-space:nowrap;
@@ -115,8 +124,6 @@
   transition:opacity .5s ease var(--d,0ms),translate .5s cubic-bezier(.22,1,.36,1) var(--d,0ms)}
 :root[data-theme="dark"] .hero-read .hr-tr{color:var(--accent)}
 .hero-read .has-gloss.on .hr-tr{opacity:1;translate:0 0}
-.hero-read .has-gloss.hot .hr-en{
-  box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--accent) 72%,transparent)}
 .hero-read .has-gloss.hot .hr-tr{color:var(--accent-2);font-weight:600}
 .hero-read .has-gloss:focus-visible{outline:2px solid var(--accent);
   outline-offset:3px;border-radius:3px}

@@ -48,9 +48,14 @@
   border-bottom:1px solid var(--rule-2)}
 /* Marka adı: sıkı harf aralığı ve orta kalınlık — kalın+geniş "yazılım
    demosu" gibi duruyordu. */
-#topbar .brand{display:flex;align-items:center;gap:.55rem;text-decoration:none;
-  color:var(--ink);font-family:var(--nav);font-size:.9375rem;font-weight:600;
-  letter-spacing:-.022em;min-height:var(--tap)}
+/* MARKA: kütüphanenin adı, kitapların dizildiği yazı tipinin kapital
+   kesimiyle (LM Caps) — bir kitabın iç kapağındaki ex libris damgası
+   gibi. Gezinme düğmeleri arayüz yazı tipinde kalıyor: marka bir
+   kimlik, düğme bir araç; ikisi aynı sesle konuşmamalı.
+   Kapitaller optik olarak sıkışık durur, o yüzden aralık artı. */
+#topbar .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;
+  color:var(--ink);font-family:var(--caps);font-size:1.06rem;font-weight:400;
+  letter-spacing:.07em;min-height:var(--tap)}
 /* gezinme düğmeleri de marka ile aynı yazı tipinde */
 #topbar .topnav .btn{font-family:var(--nav);font-weight:500;
   letter-spacing:-.004em}

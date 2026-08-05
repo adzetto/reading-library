@@ -26,13 +26,16 @@
   var SATIRLAR = [
     { doc: "call-of-the-wild",
       t: "They were not half living, or quarter living.",
-      gloss: { half: "yarım", quarter: "çeyrek", living: "yaşam" } },
+      gloss: { half: "yarım", quarter: "çeyrek" } },
     { doc: "black-beauty",
       t: "This is not the first time, nor the second, but it shall be the last.",
       gloss: { second: "ikinci", last: "son" } },
     { doc: "secret-garden",
       t: "He thought that the whole world belonged to him.",
-      gloss: { whole: "bütün", world: "dünya" } }
+      gloss: { world: "dünya" } },
+    { doc: "time-machine",
+      t: "We are always getting away from the present moment.",
+      gloss: { away: "uzağa", moment: "an" } }
   ];
 
   var st = null;
@@ -92,7 +95,28 @@
     }
 
     var kelimeler = [].slice.call(el.querySelectorAll(".has-gloss"));
+    var tumSozcukler = [].slice.call(el.querySelectorAll(".hr-w"));
     var timer = 0, offs = [];
+
+    /* Asılı karşılıklar sözcükten geniş olabiliyor; yan yana iki işaretli
+       sözcükte üst üste biniyorlardı. Cümleler bitişik işaretlenmeyecek
+       biçimde seçildi, ama satır kırılımı ölçüye göre değişiyor —
+       ÖLÇEREK de bakıyoruz ve çakışanı gizliyoruz. Gizlenen sözcük
+       tıklanabilir kalıyor, yalnızca asılı karşılığı gitmiş oluyor. */
+    function cakismalariAyikla() {
+      var son = null;
+      kelimeler.forEach(function (w) {
+        var g = w.querySelector(".hr-tr");
+        if (!g) return;
+        g.style.visibility = "";
+        var r = g.getBoundingClientRect();
+        if (son && r.left < son.right + 8 && Math.abs(r.top - son.top) < 4) {
+          g.style.visibility = "hidden";
+          return;
+        }
+        son = r;
+      });
+    }
 
     /* Karşılıklar sırayla belirir: gözü soldan sağa, okuma yönünde
        götürür. Hepsi birden açılırsa satır bir sözlük sayfasına dönüyor. */
@@ -104,9 +128,21 @@
     }
     if (reduced) {
       kelimeler.forEach(function (w) { w.style.setProperty("--d", "0ms"); w.classList.add("on"); });
+      cakismalariAyikla();
     } else {
-      timer = setTimeout(sirala, 260);
+      timer = setTimeout(function () { sirala(); cakismalariAyikla(); }, 260);
     }
+    /* Yazı tipi geç gelirse satır yeniden kırılıyor; ölçüm tazelenmeli. */
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(cakismalariAyikla, function () {});
+    }
+    var olcTimer = 0;
+    function yenidenOlc() {
+      clearTimeout(olcTimer);
+      olcTimer = setTimeout(cakismalariAyikla, 160);
+    }
+    global.addEventListener("resize", yenidenOlc);
+    offs.push(function () { global.removeEventListener("resize", yenidenOlc); clearTimeout(olcTimer); });
 
     /* Üstüne gelince o sözcük öne çıkar; dokunmatikte de çalışsın diye
        odak olayları da bağlı. */
@@ -115,6 +151,45 @@
       kelimeler.forEach(function (x) { x.classList.toggle("hot", x === w); });
     }
     function birak() { kelimeler.forEach(function (x) { x.classList.remove("hot"); }); }
+    /* Manşetteki HER sözcük, kitap sayfasındakiyle aynı sözlük
+       baloncuğunu açar — hero sadece anlatmıyor, ürünün kendisini
+       çalıştırıyor. Baloncuk app.js'te; iki ayrı kopya iki ayrı
+       davranış demekti. */
+    function dokun(e) {
+      var w = e.target.closest && e.target.closest(".hr-w");
+      if (!w) return;
+      var kelime = (w.querySelector(".hr-en") || w).textContent
+        .replace(/[^A-Za-z'’]/g, "");
+      if (!kelime || !global.__wordPop) return;
+      e.preventDefault();
+      e.stopPropagation();
+      /* Baloncuk ögenin metnini okuyor; noktalamasız bir vekil veriyoruz. */
+      var vekil = { textContent: kelime,
+                    nodeType: 1,
+                    getBoundingClientRect: function () {
+                      return w.getBoundingClientRect();
+                    } };
+      global.__wordPop(vekil, s.doc);
+    }
+    el.addEventListener("click", dokun);
+    offs.push(function () { el.removeEventListener("click", dokun); });
+    tumSozcukler.forEach(function (w) {
+      w.tabIndex = 0;
+      w.setAttribute("role", "button");
+      w.setAttribute("aria-label",
+        (w.querySelector(".hr-en") || w).textContent.trim() + " — Türkçesi");
+    });
+    function tus(e) {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      var w = e.target.closest && e.target.closest(".hr-w");
+      if (!w) return;
+      e.preventDefault();
+      dokun({ target: w, preventDefault: function () {},
+              stopPropagation: function () {} });
+    }
+    el.addEventListener("keydown", tus);
+    offs.push(function () { el.removeEventListener("keydown", tus); });
+
     el.addEventListener("pointerover", isaret);
     el.addEventListener("pointerleave", birak);
     el.addEventListener("focusin", isaret);

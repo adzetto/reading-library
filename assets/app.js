@@ -635,6 +635,7 @@
 
   /* ====================== SÖZLÜK BALONCUĞU ====================== */
   var popOpen = false, popCleanup = null;
+  var global_showWordPop = null;
   function hidePop() {
     var pop = $("#pop"); if (!pop) return;
     pop.classList.remove("show"); popOpen = false;
@@ -674,10 +675,11 @@
     return s === "dict" ? "yerel sözlük" : s === "error" ? "bağlantı yok" : s;
   }
 
-  function setupLookupUI(doc) {
-    var article = $("#article"), pop = $("#pop");
-
-    function showWord(el) {
+  /* Sözcük baloncuğu okuyucuya değil SİTEYE ait: hero'daki manşet de
+     aynı baloncuğu açıyor (assets/hero-read.js). Bu yüzden setupLookupUI
+     içinden çıkarıldı — iki ayrı kopya iki ayrı davranış demekti. */
+  function showWordPop(el, docId) {
+      var pop = $("#pop");
       var raw = el.textContent;
       pop.innerHTML = '<div class="arrow"></div><div class="pop-hd">' +
         '<span class="pop-word">' + esc(raw) + "</span></div>" +
@@ -686,7 +688,7 @@
       Lookup.word(raw).then(function (r) {
         if (!popOpen) return;
         if (!r) { pop.innerHTML = '<div class="arrow"></div><p class="pop-def">Karşılık bulunamadı.</p>'; return; }
-        if (DB && DB.logLookup) DB.logLookup(r.key || raw, doc.id, r.source);
+        if (DB && DB.logLookup) DB.logLookup(r.key || raw, docId, r.source);
         var saved = vocabKeys.has(r.key);
         var h = '<div class="arrow"></div><div class="pop-hd">' +
           '<span class="pop-word">' + esc(r.key) + "</span>" +
@@ -706,12 +708,17 @@
           (r.cached ? " · önbellek" : "") + "</span>" +
           '<button class="btn mini" data-save=\'' +
           esc(JSON.stringify({ key: r.key, tr: r.tr, def: r.def || "",
-                               pos: r.pos || "", docId: doc.id })) + "'>" +
+                               pos: r.pos || "", docId: docId })) + "'>" +
           (saved ? "✓ kayıtlı" : "+ deftere ekle") + "</button></div>";
         pop.innerHTML = h;
         placePop(el);
       });
-    }
+  }
+  global_showWordPop = showWordPop;
+
+  function setupLookupUI(doc) {
+    var article = $("#article"), pop = $("#pop");
+    function showWord(el) { showWordPop(el, doc.id); }
 
     function showPhrase(sel) {
       var txt = sel.toString().replace(/\s+/g, " ").replace(/\s*\btr\b\s*$/, "").trim();
@@ -1079,6 +1086,12 @@
     try { HeroMotion.mount(); } catch (e) { return; }
     cleanups.push(function () { try { HeroMotion.destroy(); } catch (e) {} });
   }
+
+  /* Hero manşeti aynı sözcük baloncuğunu kullanıyor. */
+  window.__wordPop = function (el, docId) {
+    if (global_showWordPop) global_showWordPop(el, docId || null);
+  };
+  window.__hidePop = function () { hidePop(); };
 
   /* ============================ AÇILIŞ ============================ */
   function boot() {
