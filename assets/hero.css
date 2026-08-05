@@ -74,20 +74,68 @@
    manşeti "tasarlanmış" gösteren şey punto değil, punto ile kalınlığın
    ve harf aralığının birlikte sıkışması. Büyük puntoda harfler optik
    olarak açılır, o yüzden tracking eksiye iner. */
-.hero-kicker{font-family:var(--display);font-size:.8125rem;font-weight:600;
-  letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);
-  margin:0 0 1rem;display:flex;align-items:center;gap:.6rem}
-/* Kısa vurgu çizgisi: katalog fişi hissi, tek sözde bile hiyerarşi. */
-.hero-kicker::before{content:"";width:1.65rem;height:2px;flex:none;
-  border-radius:2px;background:var(--accent)}
-.hero-h1{font-family:var(--display);font-size:clamp(2.4rem,5.2vw,4rem);
-  line-height:1.03;margin:0 0 1.25rem;font-weight:800;letter-spacing:-.035em;
-  text-wrap:balance}
+/* Künye satırı: monospace, çünkü bu bir etiket — cümlenin kendisi değil.
+   Eskiden başında bir vurgu çizgisi vardı; manşet artık kendisi bir
+   gösteri olduğu için çizgi fazlalıktı, kaldırıldı. */
+.hero-kicker{font-family:var(--mono);font-size:.6875rem;font-weight:500;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);
+  margin:0 0 1.15rem}
+/* ------------------------- manşet = kitap satırı -------------------------
+   ALINAN RİSK: manşet arayüz yazı tipiyle (Mona Sans) değil, KİTAPLARIN
+   dizildiği yazı tipiyle (Latin Modern) diziliyor. Gerekçe: sayfanın işi,
+   İngilizce okuyamadığını sanan birini okuyabileceğine ikna etmek. Bir
+   iddia bunu yapamaz, bir gösteri yapar — o yüzden manşet bir kitap
+   sayfası gibi görünmeli, bir açılış sayfası gibi değil.
+   Satır yüksekliği 1.9: karşılıklar sözcüklerin ALTINA asılıyor, yer
+   gerekiyor. text-wrap:balance kapalı — satır kırılımı karşılıkların
+   yerini oynatıyordu. */
+.hero-h1{font-family:var(--serif);font-size:clamp(1.7rem,3.1vw,2.5rem);
+  line-height:1.9;margin:0 0 1.45rem;font-weight:400;letter-spacing:-.005em;
+  color:var(--ink)}
+/* line-height:1 ŞART: inline-block kutunun yüksekliği satır yüksekliği
+   kadar (1.9em) olunca top:100% karşılığı bir sonraki satıra atıyor,
+   yüzde küçültülünce de sözcüğün ÜSTÜNE çıkıyordu — okurken karşılığın
+   hangi sözcüğe ait olduğu belirsizleşiyordu. Kutu 1em olunca top:100%
+   tam sözcüğün altı; nefes payını dıştaki 1.9 satır yüksekliği veriyor. */
+.hero-read .hr-w{position:relative;display:inline-block;white-space:nowrap;
+  line-height:1;vertical-align:baseline}
+/* Karşılığı olan sözcük: ince bir alt çizgi — altı çizili bağlantı değil,
+   sözlükte karşılığı VAR işareti. */
+.hero-read .has-gloss{cursor:default}
+.hero-read .has-gloss .hr-en{
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--accent) 38%,transparent);
+  transition:box-shadow .2s}
+/* Türkçe karşılık sözcüğün altında asılı durur: interlinear dizgi.
+   Monospace, çünkü bu şerh — metnin kendisi değil. */
+.hero-read .hr-tr{position:absolute;left:50%;top:100%;margin-top:.16em;
+  transform:translateX(-50%);
+  font-family:var(--mono);font-size:.335em;font-weight:500;line-height:1.2;
+  letter-spacing:0;color:var(--accent-2);white-space:nowrap;
+  opacity:0;translate:0 -.25em;
+  transition:opacity .5s ease var(--d,0ms),translate .5s cubic-bezier(.22,1,.36,1) var(--d,0ms)}
+:root[data-theme="dark"] .hero-read .hr-tr{color:var(--accent)}
+.hero-read .has-gloss.on .hr-tr{opacity:1;translate:0 0}
+.hero-read .has-gloss.hot .hr-en{
+  box-shadow:inset 0 -2px 0 color-mix(in srgb,var(--accent) 72%,transparent)}
+.hero-read .has-gloss.hot .hr-tr{color:var(--accent-2);font-weight:600}
+.hero-read .has-gloss:focus-visible{outline:2px solid var(--accent);
+  outline-offset:3px;border-radius:3px}
+/* Satırın geldiği kitap. Küçük, ama gerçek bir bağlantı. */
+/* Karşılıklar son satırın altına sarkıyor; künye o sarkmanın altından
+   başlamalı, yoksa 'çeyrek' ile kitap adı üst üste biniyor. */
+.hero-source{font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--ink-2);margin:0 0 1.6rem}
+.hero-source[hidden]{display:none}
+.hero-source a{color:var(--ink-2);text-decoration:none;
+  box-shadow:inset 0 -1px 0 var(--rule)}
+.hero-source a:hover{color:var(--accent);box-shadow:inset 0 -1px 0 var(--accent)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;
+  overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
 /* Ara metin gövdeden belirgin biçimde iri: GitHub'da manşet/ara metin
    oranı ~3:1. Bizde eskiden 1.15rem ile gövdeye çok yakındı, bu yüzden
    hiyerarşi düzleşiyordu. Ölçü 32rem ≈ 60-70 karakter. */
-.hero-sub{font-family:var(--sans);font-size:clamp(1.05rem,1.7vw,1.3rem);
-  line-height:1.5;color:var(--ink-2);margin:0 0 1.75rem;max-width:32rem}
+.hero-sub{font-family:var(--sans);font-size:clamp(1rem,1.45vw,1.15rem);
+  line-height:1.55;color:var(--ink-2);margin:0 0 1.75rem;max-width:30rem}
 .hero-stats{display:flex;flex-wrap:wrap;justify-content:flex-start;
   gap:.5rem 1.6rem;font-family:var(--sans);font-size:var(--ui-sm);
   color:var(--ink-2);margin-bottom:1.75rem}
@@ -215,7 +263,8 @@
   .hero-orb{width:min(20rem,86vw)}
   /* clamp'in alt sınırı (2.4rem) telefonda manşeti üç satıra bölüyor;
      dar sütunda 2.05rem hem iri kalıyor hem iki satırda duruyor. */
-  .hero-h1{font-size:clamp(2.05rem,8.4vw,2.6rem);letter-spacing:-.03em}
+  /* Telefonda karşılıklar için satır arası daha da açılıyor. */
+  .hero-h1{font-size:clamp(1.45rem,5.6vw,1.9rem);line-height:2.05}
   .hero-sub{font-size:1.0625rem}
 }
 @media (max-width:380px){

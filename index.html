@@ -35,10 +35,15 @@
   <section class="hero">
     <div class="hero-grid">
       <div class="hero-in">
-        <p class="hero-kicker">Türkçe destekle okuma</p>
-        <h1 class="hero-h1">Ne okumak istersiniz?</h1>
+        <p class="hero-kicker">Kütüphaneden bir satır</p>
+        <!-- Manşet bir iddia değil, GÖSTERİ: kütüphanedeki gerçek bir
+             kitaptan gerçek bir cümle, altında bilinmeyen sözcüklerin
+             Türkçesi. hero-read.js dolduruyor; JS çalışmazsa buradaki
+             yedek metin okunur kalır. -->
+        <h1 class="hero-h1 hero-read" id="heroRead">They were not half living, or quarter living.</h1>
+        <p class="hero-source" id="heroSource" hidden></p>
         <p class="hero-sub">
-          Sözcüklere tıklayabilir, istediğiniz kısmı seçebilirsiniz.
+          Bilmediğiniz sözcüğe dokunun, karşılığı gelsin.
         </p>
         <div class="hero-stats" id="heroStats"></div>
         <!-- İki kademeli CTA: birincil dolu, ikincil çerçeveli. "Kaldığım
@@ -144,6 +149,7 @@
 <script src="assets/wordgraph.js"></script>
 <script src="assets/globe.js"></script>
 <script src="assets/hero-motion.js"></script>
+<script src="assets/hero-read.js"></script>
 
 <script src="assets/icons.js"></script>
 <script src="assets/audio/index.js"></script>

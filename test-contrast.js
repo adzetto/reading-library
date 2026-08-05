@@ -18,6 +18,10 @@ const AA = 4.5;                      // normal punto gövde metni eşiği
 
 // Denetlenecek ögeler ve hangi görünümde bulunacakları.
 const HEDEFLER = [
+  { ad: "manşet satırı", sel: ".hero-h1", yol: "#/" },
+  { ad: "karşılık", sel: ".hero-read .hr-tr", yol: "#/" },
+  { ad: "satır künyesi", sel: ".hero-source a", yol: "#/" },
+  { ad: "hero etiketi", sel: ".hero-kicker", yol: "#/" },
   { sel: ".btn",         yol: "#/",                 ad: "düğme" },
   { sel: ".card h3",     yol: "#/",                 ad: "kart başlığı" },
   { sel: ".card .blurb", yol: "#/",                 ad: "kart tanıtımı" },

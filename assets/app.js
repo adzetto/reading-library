@@ -225,7 +225,7 @@
     $("#heroStats").innerHTML =
       '<span><b>' + docs.length + "</b> metin</span>" +
       '<span><b>' + totalWords.toLocaleString("tr") + "</b> sözcük</span>" +
-      '<span><b>' + Math.round(totalMin / 60) + "</b> saatlik okuma</span>" +
+      '<span><b>' + Math.round(totalMin / 60).toLocaleString("tr") + "</b> saatlik okuma</span>" +
       '<span><b>' + (window.Lookup ? Lookup.size : 0).toLocaleString("tr") +
       "</b> sözlük maddesi</span>";
 
@@ -290,6 +290,7 @@
     }
 
     drawCards(docs);
+    heroRead();
     heroGlobe();
     heroMotion();
   }
@@ -1041,6 +1042,13 @@
   /* ================= HERO — kelime takımyıldızı küresi =================
      Küreyi assets/globe.js çizer; buradaki iş yalnızca bağlamak ve
      görünüm kapanırken temizletmek. */
+  /* Manşet: kütüphaneden gerçek bir satır (assets/hero-read.js). */
+  function heroRead() {
+    if (!window.HeroRead) return;
+    try { HeroRead.mount({ reduced: REDUCED }); } catch (e) { return; }
+    cleanups.push(function () { try { HeroRead.destroy(); } catch (e) {} });
+  }
+
   function heroGlobe() {
     var cv = $("#globe");
     if (!cv) return;
