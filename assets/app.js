@@ -350,7 +350,7 @@
       return '<button type="button" class="spine" data-id="' + esc(d.id) + '" ' +
         'data-group="' + esc(d.__group) + '" data-lvl="' + esc(d.level || "") + '" ' +
         'style="--w:' + w + 'px;--t:' + lvlT(d.level) + '" ' +
-        'aria-label="' + esc(d.title.tr || d.title.en) + " — " +
+        'aria-label="' + esc(d.title.tr || d.title.en) + ", " +
         esc(d.level || "") + ", " + (d.minutes || 0) + ' dakika">' +
         '<span class="sp-t">' + esc(d.title.en) + "</span>" +
         (w >= 44 && yazar ? '<span class="sp-a">' + esc(yazar) + "</span>" : "") +
@@ -423,6 +423,72 @@
       location.hash = "#/read/" + encodeURIComponent(b.dataset.id);
     });
     /* Dışarıdan (raf sekmesi) çağrılabilsin: raf değişince seçim de değişmeli. */
+    /* ---- rafı elle sürükleme ----
+       Kaydırma çubuğu tek yol olamaz: raf bir nesne, tutup itebilmelisin.
+       Sürükleme sırasında tıklama iptal ediliyor (8 px eşiği), yoksa her
+       itme bir kitap açıyordu — küredeki çevirmeyle aynı sorun. */
+    var suruk = false, sBas = 0, sSol = 0, sYol = 0, sId = -1;
+    shelf.addEventListener("pointerdown", function (e) {
+      if (e.button != null && e.button > 0) return;
+      suruk = true; sId = e.pointerId;
+      sBas = e.clientX; sSol = shelf.scrollLeft; sYol = 0;
+      shelf.classList.add("suruklinuyor");
+      try { shelf.setPointerCapture(e.pointerId); } catch (err) {}
+    });
+    shelf.addEventListener("pointermove", function (e) {
+      if (!suruk || e.pointerId !== sId) return;
+      var d = e.clientX - sBas;
+      sYol = Math.max(sYol, Math.abs(d));
+      shelf.scrollLeft = sSol - d;
+      if (sYol > 4) durdur();          // elle dokunan sürüklemeyi durdurur
+    });
+    function surukBitir(e) {
+      if (!suruk) return;
+      suruk = false;
+      try { shelf.releasePointerCapture(sId); } catch (err) {}
+      sId = -1;
+      shelf.classList.remove("suruklinuyor");
+    }
+    shelf.addEventListener("pointerup", surukBitir);
+    shelf.addEventListener("pointercancel", surukBitir);
+    shelf.addEventListener("click", function (e) {
+      if (sYol > 8) { e.stopPropagation(); sYol = 0; }
+    }, true);
+
+    /* ---- kendiliğinden süzülme ----
+       Rafta ekrana sığandan fazlası varsa yavaşça akıyor: okur elini
+       sürmeden de nelerin durduğunu görüyor. Fareyle değince, odak
+       girince, sürüklerken ve hareket azaltıldığında duruyor; sona
+       varınca başa dönmüyor, sadece duruyor — geri sarmak baş döndürür. */
+    var akis = 0, akisDur = false, akisArtik = 0;
+    function durdur() { akisDur = true; }
+    function akisBasla() {
+      if (REDUCED) return;
+      cancelAnimationFrame(akis);
+      var son = performance.now();
+      (function adim(t) {
+        akis = requestAnimationFrame(adim);
+        var dt = Math.min(50, t - son); son = t;
+        if (akisDur || document.hidden) return;
+        var enCok = shelf.scrollWidth - shelf.clientWidth;
+        if (enCok < 8) return;
+        if (shelf.scrollLeft >= enCok - 1) return;
+        /* scrollLeft TAM SAYIYA yuvarlanıyor: kare başına 0.3 px eklemek
+           her seferinde aynı değere geri dönüyor ve raf hiç kımıldamıyordu.
+           Kesir ayrı biriktirilip tam piksel olunca uygulanıyor. */
+        akisArtik += dt * 0.026;             // ~26 px/sn
+        var adimPx = Math.floor(akisArtik);
+        if (adimPx >= 1) {
+          akisArtik -= adimPx;
+          shelf.scrollLeft = Math.min(enCok, shelf.scrollLeft + adimPx);
+        }
+      })(son);
+    }
+    ["pointerenter", "pointerdown", "focusin", "wheel", "touchstart"]
+      .forEach(function (t) { shelf.addEventListener(t, durdur, { passive: true }); });
+    akisBasla();
+    cleanups.push(function () { cancelAnimationFrame(akis); });
+
     /* Ok tuşlarıyla raf boyunca gezinme: raf tek bir durak, içinde
        oklarla dolaşılıyor (ARIA listbox kalıbı). */
     shelf.addEventListener("keydown", function (e) {

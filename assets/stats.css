@@ -24,19 +24,28 @@
 /* --------------------------- ortak parçalar ---------------------------
    Arayüzün tamamı Geist. Serif yalnızca okunan METİN içindir; başlıkta
    kullanmak iki yazı tipini yan yana getirip amatör bir görüntü veriyor. */
-.sv-h,.qz-head h2{font-family:var(--sans);font-size:1.5rem;margin:0 0 .3rem;
+/* Bölüm başlıkları arayüzün YAPISI: Mona Sans (--display). Sitenin üç
+   katmanlı tipografisi böyle tamamlanıyor — LM Caps kimlik (marka),
+   LM Roman içerik (kitap metni), Mona Sans yapı (başlık ve düğme).
+   Geist gövde metninde kalıyor. */
+.sv-h,.qz-head h2{font-family:var(--display);font-size:1.55rem;
+  letter-spacing:-.022em;margin:0 0 .3rem;
   font-weight:600;letter-spacing:-.015em}
 .sv-sub{color:var(--ink-2);margin:0 0 2rem;font-size:var(--ui)}
 .sv-sec{margin:0 0 2.6rem}
 .sv-sec-h,.sv-head{display:flex;align-items:baseline;gap:.8rem;flex-wrap:wrap;
   margin:0 0 1rem;padding-bottom:.5rem;border-bottom:1px solid var(--rule-2)}
-.sv-sec-h h3,.sv-head h3{font-family:var(--sans);font-size:1.05rem;margin:0;
+.sv-sec-h h3,.sv-head h3{font-family:var(--display);font-size:1.08rem;
+  letter-spacing:-.015em;margin:0;
   font-weight:600;letter-spacing:-.01em}
 /* Açıklama cümleleri --ink-2 ile yazılır: --ink-3 açık temada 3.2:1'de
    kalıyor ve WCAG AA (4.5:1) sınırının altına düşüyordu. */
 .sv-hint,.sv-muted,.sv-note-info{color:var(--ink-2);font-size:var(--ui-sm);
   line-height:1.5}
-.sv-title{font-weight:700}
+/* Sayfa başlığı da yapı katmanında: Mona Sans. Yalnızca kalınlık
+   veriliyordu, yazı tipi .stats-page'ten (Geist) geliyordu. */
+.sv-title{font-family:var(--display);font-size:1.9rem;font-weight:700;
+  letter-spacing:-.032em}
 .sv-tag{font-size:.75rem;padding:.15em .55em;border-radius:99px;
   background:var(--paper-2);border:1px solid var(--rule-2);color:var(--ink-2)}
 .sv-empty{text-align:center;padding:2.4rem 1rem;color:var(--ink-2);
@@ -203,7 +212,13 @@
 .sv-fig-mean{position:absolute;top:0;bottom:0;left:var(--p);width:0;
   border-left:1px dashed var(--ink-3);opacity:.4}
 
-.sv-words{list-style:none;margin:0;padding:0;position:relative;z-index:1}
+/* Sözcük listesi iki sütuna giriyor: yirmi beş sözcük tek sütunda
+   sayfayı metrelerce uzatıyordu. Çubuklar sütun içinde kendi
+   genişliklerine göre ölçekleniyor. */
+.sv-words{list-style:none;margin:0;padding:0;position:relative;z-index:1;
+  columns:2;column-gap:2.4rem}
+.sv-words > li{break-inside:avoid}
+@media (max-width:760px){ .sv-words{columns:1} }
 .sv-word{margin:0}
 .sv-word-b{display:grid;width:100%;
   grid-template-columns:var(--c-rank) var(--c-lab) minmax(0,1fr) var(--c-num);
@@ -221,6 +236,9 @@
 .sv-word-lab{min-width:0}
 .sv-word-en{display:block;font-family:var(--serif);font-size:1rem;font-weight:700;
   line-height:1.2;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* Karşılığı olmayan sözcük: soluk ve eğik, çünkü bu bir karşılık değil
+   bir durum bildirimi. */
+.sv-word-tr.yok{color:var(--ink-3);font-style:italic}
 .sv-word-tr{display:block;color:var(--ink-2);font-size:.72rem;line-height:1.3;
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .sv-word-plot{position:relative;display:block;height:1.4rem}

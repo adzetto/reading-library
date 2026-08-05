@@ -316,7 +316,7 @@
     if (!read && !lk.total && !t.minutes) {
       var f = frag();
       f.appendChild(g);
-      f.appendChild(empty("Henüz okuma yok — kütüphaneden bir metin seçin."));
+      f.appendChild(empty("Henüz okuma yok. Kütüphaneden bir metin seçin."));
       return f;
     }
     return g;
@@ -373,7 +373,7 @@
         cell.setAttribute("data-date", key);
         cell.setAttribute("data-min", String(min));
         cell.setAttribute("role", "img");
-        var txt = trDate(key) + " — " + (future ? "henüz gelmedi" : dk(min));
+        var txt = trDate(key) + ": " + (future ? "henüz gelmedi" : dk(min));
         cell.setAttribute("title", txt);
         cell.setAttribute("aria-label", txt);
         if (!future) { total84 += min; if (min > best.min) best = { min: min, key: key }; }
@@ -428,7 +428,7 @@
     f.appendChild(wrap);
     f.appendChild(foot);
     if (total84 === 0) {
-      f.appendChild(empty("Son 12 haftada kayıtlı okuma yok — bir metin açtığında burası dolmaya başlar."));
+      f.appendChild(empty("Son 12 haftada kayıtlı okuma yok. Bir metin açtığında burası dolmaya başlar."));
     }
     return f;
   }
@@ -438,7 +438,7 @@
   function buildWords(ctx) {
     var top = ctx.top, vocab = ctx.vocabMap;
     if (!top.length) {
-      return empty("Henüz sözcüğe bakmadın — okurken bir sözcüğe dokununca anlamı burada birikir.");
+      return empty("Henüz sözcüğe bakmadın. Okurken bir sözcüğe dokununca anlamı burada birikir.");
     }
     /* --------------------------------------------------------------
        LaTeX/TikZ figür üslubu (örnek: latex figürlerindeki fig-bystudy):
@@ -488,7 +488,8 @@
       var lab = el("span", "sv-word-lab");
       lab.appendChild(el("span", "sv-word-en", w.word));
       var hit = vocab[w.word] || peekTr(w.word);
-      lab.appendChild(el("span", "sv-word-tr", (hit && hit.tr) ? hit.tr : "—"));
+      lab.appendChild(el("span", "sv-word-tr" + ((hit && hit.tr) ? "" : " yok"),
+        (hit && hit.tr) ? hit.tr : "sözlükte yok"));
       btn.appendChild(lab);
 
       /* Genişlik sayaçla tam orantılı; asgari genişlik uygulanmaz ki
@@ -557,7 +558,7 @@
     if (d) {
       var line = el("p", "sv-wd-tr");
       if (d.pos) line.appendChild(el("span", "sv-wd-pos", d.pos));
-      line.appendChild(el("span", "", d.tr || "—"));
+      line.appendChild(el("span", "", d.tr || "sözlükte yok"));
       box.appendChild(line);
       if (d.def) box.appendChild(el("p", "sv-wd-def", d.def));
     } else {
@@ -680,12 +681,23 @@
     var byId = {};
     ctx.progress.forEach(function (p) { byId[p.docId] = p; });
 
-    /* manifest sırası esas; manifestte olmayıp ilerlemesi olanlar sona eklenir */
-    var ids = (global.MANIFEST || []).map(function (m) { return m.id; });
-    Object.keys(byId).forEach(function (id) { if (ids.indexOf(id) < 0) ids.push(id); });
+    /* Yalnızca AÇILMIŞ belgeler. Önce manifestin tamamı diziliyordu:
+       278 kitapla bölüm sayfanın metrelerce aşağısına iniyor ve okurun
+       hiç açmadığı kitaplar "ilerleme" başlığı altında yer kaplıyordu.
+       İlerleme, ilerlediğin şeydir. Sıra da en son okunandan başlar. */
+    var ids = Object.keys(byId).filter(function (id) {
+      var p = byId[id] || {};
+      return (p.pct || 0) > 0 || (p.seconds || 0) > 0 || p.finishedAt;
+    }).sort(function (a, b) {
+      return (byId[b].updatedAt || 0) - (byId[a].updatedAt || 0);
+    });
     if (!ids.length) {
-      return empty("Henüz okuma yok — kütüphaneden bir metin seçin.");
+      return empty("Henüz bir metin açmadın. Kütüphaneden birini seçtiğinde ilerlemen burada birikir.");
     }
+    /* Uzun listede ilk on iki yeter; gerisi istenirse açılır. */
+    var LIMIT = 12;
+    var fazlasi = Math.max(0, ids.length - LIMIT);
+    var gosterilen = ids.slice(0, LIMIT);
 
     var best = {};
     ctx.runs.forEach(function (r) {
@@ -694,7 +706,8 @@
     });
 
     var grid = el("div", "sv-docs");
-    ids.forEach(function (id, i) {
+
+    function docCard(id, i, toplam) {
       var p = byId[id] || { pct: 0, seconds: 0, finishedAt: null };
       var rawPct = p.pct || 0;
       // Store ilerlemeyi 0-1 arası tutar; eski kayıtlar 0-100 olabilir.
@@ -710,7 +723,7 @@
          gelir; doygunluk ve açıklık tek formülle sabitlendiği için on bir
          belge yan yana dizildiğinde ton karmaşası olmuyor
          (bkz. stats.css → .sv-doc --tint). */
-      cardEl.style.setProperty("--hue", String(bandHue(i, ids.length)));
+      cardEl.style.setProperty("--hue", String(bandHue(i, toplam)));
       cardEl.setAttribute("data-pct", String(pct));
 
       var r = ring(pct, fin, i);
@@ -768,8 +781,29 @@
       /* Görünürlükte: yay dolar, sınav ölçeği uzar. */
       onVisible(cardEl, function () { cardEl.classList.add("is-in"); r.reveal(); });
 
-      grid.appendChild(cardEl);
+      return cardEl;
+    }
+
+    gosterilen.forEach(function (id, i) {
+      grid.appendChild(docCard(id, i, gosterilen.length));
     });
+    if (fazlasi) {
+      var sar = el("div", "sv-more-wrap");
+      sar.appendChild(grid);
+      var b = el("button", "sv-btn sv-more",
+        fazlasi + " kitap daha göster");
+      b.type = "button";
+      b.addEventListener("click", function () {
+        /* Kalanlar istendiğinde ekleniyor: baştan çizmek 278 halkayı
+           boşuna canlandırıyordu. */
+        ids.slice(LIMIT).forEach(function (id, k) {
+          grid.appendChild(docCard(id, LIMIT + k, ids.length));
+        });
+        b.remove();
+      });
+      sar.appendChild(b);
+      return sar;
+    }
     return grid;
   }
 
@@ -800,7 +834,7 @@
     box.appendChild(host);
 
     if (!vocab.length) {
-      box.appendChild(empty("Defter boş — okurken bir sözcüğün anlamına bakıp \u201eDeftere ekle\u201c dediğinde burada birikir."));
+      box.appendChild(empty("Defter boş. Okurken bir sözcüğün anlamına bakıp \u201eDeftere ekle\u201c dediğinde burada birikir."));
       return box;
     }
 
@@ -812,7 +846,7 @@
       var main = el("div", "sv-v-main");
       main.appendChild(el("span", "sv-v-en", v.key));
       if (v.pos) main.appendChild(el("span", "sv-v-pos", v.pos));
-      main.appendChild(el("span", "sv-v-tr", v.tr || "—"));
+      main.appendChild(el("span", "sv-v-tr", v.tr || "sözlükte yok"));
       li.appendChild(main);
 
       if (v.def) li.appendChild(el("div", "sv-v-def", v.def));
@@ -879,7 +913,7 @@
       function reveal() {
         acts.textContent = "";
         var ans = el("div", "sv-rev-ans");
-        ans.appendChild(el("div", "sv-rev-tr", v.tr || "—"));
+        ans.appendChild(el("div", "sv-rev-tr", v.tr || "sözlükte yok"));
         if (v.def) ans.appendChild(el("div", "sv-rev-def", v.def));
         card.insertBefore(ans, card.querySelector(".sv-rev-hint"));
         card.querySelector(".sv-rev-hint").textContent = "Hatırladın mı?";
@@ -923,7 +957,7 @@
   function buildNotes(ctx) {
     var notes = ctx.notes;
     if (!notes.length) {
-      return empty("Not yok — okurken bir cümleyi seçip not ekleyebilirsin.");
+      return empty("Not yok. Okurken bir cümleyi seçip not ekleyebilirsin.");
     }
     var groups = {}, order = [];
     notes.forEach(function (n) {
@@ -969,7 +1003,7 @@
     box.appendChild(el("p", "sv-note-info",
       "Okuma geçmişin, sözcük defterin ve notların yalnızca bu cihazın tarayıcısında " +
       "saklanır; hiçbir sunucuya gönderilmez. Tarayıcı verilerini temizlersen ya da " +
-      "başka bir cihaza geçersen kaybolur — bu yüzden ara sıra yedek indirmek iyi olur."));
+      "başka bir cihaza geçersen kaybolur. Bu yüzden ara sıra yedek indirmek iyi olur."));
 
     var acts = el("div", "sv-data-acts");
 
@@ -1136,7 +1170,7 @@
 
     /* Store yoksa hiç değilse anlaşılır bir uyarı göster */
     if (!S()) {
-      root.appendChild(empty("Veri katmanı yüklenemedi — sayfayı yenilemeyi dene."));
+      root.appendChild(empty("Veri katmanı yüklenemedi. Sayfayı yenilemeyi dene."));
       return Promise.resolve();
     }
 
