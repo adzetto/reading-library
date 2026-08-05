@@ -249,28 +249,27 @@
 
     function desteCiz() {
       destelerEl.innerHTML = gruplar.map(function (g) {
-        var sirt = g.docs.slice(0, 5).map(function (d) {
-          return '<i style="--t:' +
-            (N > 1 ? (sira[d.id] / (N - 1)).toFixed(3) : 0) + '"></i>';
-        }).join("");
+        /* Çubuk kümesi kaldırıldı: raf ne kadar dolu olursa olsun aynı
+           beş çubuğu gösteriyordu, yani hiçbir şey anlatmıyordu. */
         return '<button type="button" class="deck" data-deck="' + esc(g.ad) + '">' +
-          '<span class="deck-spines">' + sirt + "</span>" +
           '<span class="deck-name">' + esc(g.ad) + "</span>" +
-          '<span class="deck-n"><b>' + g.n + "</b> kitap</span></button>";
+          '<span class="deck-n"><b>' + g.n + "</b></span></button>";
       }).join("");
     }
 
     function uygula() {
-      $$(".card", $("#cards")).forEach(function (c) {
+      $$(".spine", $("#cards")).forEach(function (c) {
+        if (c.classList.contains("spine-add")) return;
         c.hidden = !!secili && c.dataset.group !== secili;
       });
-      var add = document.getElementById("addPdfCard");
-      if (add) add.hidden = !!secili;
+      /* PDF sırtı her rafta durur: kendi belgen hangi rafa aitse oraya. */
       $$("[data-deck]", destelerEl).forEach(function (b) {
         b.classList.toggle("on", b.dataset.deck === secili);
       });
       var geri = $("#deckBack");
       if (geri) geri.hidden = !secili;
+      var kutu = $("#cards");
+      if (kutu && kutu.__tazele) kutu.__tazele();
       var bas = $(".lib-head h2");
       if (bas) bas.textContent = secili || "Kütüphane";
     }
@@ -305,41 +304,129 @@
     return Math.round(209 + (30 - 209) * t);
   }
 
+  /* ====================== RAF =========================================
+     278 kitap kart ızgarasında "özellik listesi" gibi duruyordu. Kitabın
+     kendi biçimi SIRT: rafta yan yana duran, kalınlığı uzunluğunu ele
+     veren nesneler. Sırtın genişliği sözcük sayısından geliyor —
+     süs değil, doğru bir bilgi: Sherlock 104 bin sözcük, Amontillado
+     Fıçısı 2.300. Rafta ikisi apayrı kalınlıkta.
+     Genişlik karekökle sıkıştırılıyor: ham oranda (45×) ince kitaplar
+     bir çizgiye iniyor, adları okunmuyordu. */
+  /* Sırt rengi DÜZEYDEN geliyor: A2 mürekkep mavisi → C2 sıcak kahve.
+     Önce sıra numarasından geliyordu ve tek bir rafta bütün kitaplar aynı
+     tonu alıyordu (raf üyeleri manifestte yan yana) — yani renk hiçbir şey
+     anlatmıyordu. Düzey, bu okurun kitap seçerken sorduğu ilk soru;
+     rafa bakınca hangi kitabın kolay olduğu görünüyor. */
+  var LVL_T = { A2: 0, B1: 0.25, B2: 0.5, C1: 0.75, C2: 1 };
+  function lvlT(l) {
+    var t = LVL_T[l];
+    return (t == null ? 0.5 : t).toFixed(3);
+  }
+
+  function spineW(words, enAz, enCok) {
+    var k = Math.sqrt(Math.max(1, words || 1));
+    var t = enCok > enAz ? (k - enAz) / (enCok - enAz) : 0.5;
+    return Math.round(26 + 40 * Math.max(0, Math.min(1, t)));
+  }
+
   function drawCards(docs) {
     var wrap = $("#cards");
     var N = docs.length;
-    wrap.innerHTML = docs.map(function (d, di) {
-      return '<a class="card" data-group="' + esc(d.__group) + '" ' +
-        'href="#/read/' + encodeURIComponent(d.id) + '" ' +
-        'style="--hue:' + docHue(di, N) +
-        ';--t:' + (N > 1 ? (di / (N - 1)).toFixed(4) : "0") + '">' +
-        '<div class="card-top"><span class="card-ic">' +
-        ic(d.kind === "book" ? "book" : "article", 20) + "</span>" +
-        '<span class="card-badges">' +
-        '<span class="badge lvl">' + esc(d.level || "") + "</span>" +
-        '<span class="badge">' + esc(d.__group) + "</span></span></div>" +
-        "<h3>" + esc(d.title.en) + "</h3>" +
-        '<p class="tr-title">' + esc(d.title.tr) + "</p>" +
-        '<p class="blurb">' + esc(d.blurb && d.blurb.tr || "") + "</p>" +
-        '<div class="meta">' + ic("scroll", 13) + "<b>" +
-        (d.words || 0).toLocaleString("tr") + "</b> sözcük" +
-        ic("clock", 13) + "<b>" + (d.minutes || 0) + "</b> dk" +
-        '<div class="card-prog" data-prog="' + esc(d.id) + '"><i style="width:0"></i></div>' +
-        '<span class="pct" data-pct="' + esc(d.id) + '"></span></div></a>';
+    var kokler = docs.map(function (d) { return Math.sqrt(Math.max(1, d.words || 1)); });
+    var enAz = Math.min.apply(null, kokler), enCok = Math.max.apply(null, kokler);
+
+    var raf = docs.map(function (d, di) {
+      var w = spineW(d.words, enAz, enCok);
+      /* Kalın sırtta yazar adı da sığıyor; incede yalnız başlık. Gerçek
+         rafta da öyle: ince kitabın sırtına yazar sığmaz. */
+      var yazar = (d.authors && d.authors[0]) || "";
+      return '<button type="button" class="spine" data-id="' + esc(d.id) + '" ' +
+        'data-group="' + esc(d.__group) + '" data-lvl="' + esc(d.level || "") + '" ' +
+        'style="--w:' + w + 'px;--t:' + lvlT(d.level) + '" ' +
+        'aria-label="' + esc(d.title.tr || d.title.en) + " — " +
+        esc(d.level || "") + ", " + (d.minutes || 0) + ' dakika">' +
+        '<span class="sp-t">' + esc(d.title.en) + "</span>" +
+        (w >= 44 && yazar ? '<span class="sp-a">' + esc(yazar) + "</span>" : "") +
+        '<i class="sp-p" data-prog="' + esc(d.id) + '"></i></button>';
     }).join("");
 
-    /* Kütüphanenin sonuna "kendi PDF'ini ekle" kartı. Ayrı bir düğme
-       yerine kart: kütüphaneye bir şey EKLEMEK, kütüphanenin içinde
-       anlatılır. */
-    wrap.insertAdjacentHTML("beforeend",
-      '<button type="button" class="card card-add" id="addPdfCard">' +
-      '<span class="ca-ic">' + ic("upload", 22) + "</span>" +
-      "<h3>PDF yükle<span class=\"beta\">beta</span></h3>" +
-      '<p class="blurb">Kendi belgenizi ekleyin; sözcüklere tıklayarak ' +
-      "Türkçe destekle okuyun. Dosya bu tarayıcıdan çıkmaz.</p></button>");
+    var anahtar = '<p class="lvl-key"><span>KOLAY</span><span class="k">' +
+      ["A2", "B1", "B2", "C1", "C2"].map(function (l) {
+        return '<i style="--t:' + lvlT(l) + '" title="' + l + '"></i>';
+      }).join("") + "</span><span>ZOR</span>" +
+      '<span class="lk-n">· sırtın kalınlığı kitabın uzunluğu</span></p>';
+
+    wrap.innerHTML =
+      '<div class="shelf" id="shelf" role="list">' + raf + "</div>" +
+      anahtar +
+      '<div class="pick" id="pick" aria-live="polite"></div>';
+
+    /* Rafın önündeki künye: sırta değince kitap "çekilip" bakılıyor. */
+    var pick = $("#pick");
+    var byId = {};
+    docs.forEach(function (d) { byId[d.id] = d; });
+
+    function goster(id) {
+      var d = byId[id];
+      if (!d) { pick.innerHTML = ""; return; }
+      pick.innerHTML =
+        '<div class="pick-in">' +
+          '<p class="pick-lvl"><b>' + esc(d.level || "—") + "</b> · " +
+            (d.words || 0).toLocaleString("tr") + " sözcük · " +
+            (d.minutes || 0) + " dk</p>" +
+          "<h3>" + esc(d.title.en) + "</h3>" +
+          '<p class="pick-tr">' + esc(d.title.tr) + "</p>" +
+          '<p class="pick-b">' + esc((d.blurb && d.blurb.tr) || "") + "</p>" +
+          '<a class="btn primary" href="#/read/' + encodeURIComponent(d.id) + '">' +
+            "Bu kitabı oku</a>" +
+        "</div>";
+    }
+
+    /* Varsayılan seçim: rafın İLK GÖRÜNEN kitabı. Önce docs[0] idi ve
+       hangi raf açık olursa olsun listenin başındaki makaleyi
+       gösteriyordu. */
+    function ilkGorunen() {
+      var sp = shelfEl().querySelector(".spine:not([hidden]):not(.spine-add)");
+      return sp ? sp.dataset.id : (docs[0] && docs[0].id);
+    }
+
+    function shelfEl() { return $("#shelf"); }
+    var shelf = shelfEl();
+    function isaretle(el) {
+      if (!el) return;
+      $$(".spine", shelf).forEach(function (x) { x.classList.toggle("on", x === el); });
+      goster(el.dataset.id);
+    }
+    shelf.addEventListener("pointerover", function (e) {
+      var b = e.target.closest(".spine"); if (b) isaretle(b);
+    });
+    shelf.addEventListener("focusin", function (e) {
+      var b = e.target.closest(".spine"); if (b) isaretle(b);
+    });
+    shelf.addEventListener("click", function (e) {
+      var b = e.target.closest(".spine"); if (!b) return;
+      location.hash = "#/read/" + encodeURIComponent(b.dataset.id);
+    });
+    /* Dışarıdan (raf sekmesi) çağrılabilsin: raf değişince seçim de değişmeli. */
+    wrap.__tazele = function () {
+      var id = ilkGorunen();
+      var sp = id && shelfEl().querySelector('.spine[data-id="' + id + '"]');
+      $$(".spine", shelfEl()).forEach(function (x) { x.classList.remove("on"); });
+      if (sp) sp.classList.add("on");
+      goster(id);
+    };
+    wrap.__tazele();
+
+    /* "Kendi PDF'ini ekle": rafın sonunda boş bir yer — kütüphaneye bir
+       şey EKLEMEK, kütüphanenin içinde anlatılır. */
+    shelf.insertAdjacentHTML("beforeend",
+      '<button type="button" class="spine spine-add" id="addPdfCard" ' +
+      'aria-label="Kendi PDF dosyanızı yükleyin"><span class="sp-t">PDF yükle</span>' +
+      '<span class="sp-plus">+</span></button>');
     var addBtn = document.getElementById("addPdfCard");
     if (addBtn) {
-      addBtn.addEventListener("click", function () {
+      addBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
         if (window.PdfImport) PdfImport.ac();
       });
     }
@@ -351,7 +438,7 @@
       docs.forEach(function (d) {
         var p = byId[d.id]; if (!p) return;
         var pct = Math.round((p.pct || 0) * 100);
-        var bar = wrap.querySelector('[data-prog="' + d.id + '"] i');
+        var bar = wrap.querySelector('[data-prog="' + d.id + '"]');
         var lab = wrap.querySelector('[data-pct="' + d.id + '"]');
         if (bar) bar.style.width = Math.min(100, pct) + "%";
         if (lab && pct > 0) lab.textContent = "%" + pct;

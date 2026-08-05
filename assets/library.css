@@ -77,8 +77,10 @@ body.reading #topbar{display:none}
   letter-spacing:-.02em}
 .lib-filters{margin-left:auto;display:flex;gap:var(--ui-gap);flex-wrap:wrap}
 
-.cards{display:grid;gap:1rem;
-  grid-template-columns:repeat(auto-fill,minmax(min(100%,20rem),1fr))}
+/* .cards artık ızgara DEĞİL: içinde raf ve rafın künyesi var, ikisi alt
+   alta. Izgara kalınca raf ile künye yan yana iki sütun oluyordu ve raf
+   ekranın üçte birine sıkışıyordu. */
+.cards{display:block}
 .card{position:relative;display:flex;flex-direction:column;gap:.6rem;
   padding:1.1rem 1.1rem 1rem;border:1px solid var(--rule-2);border-radius:12px;
   background:var(--paper-2);text-decoration:none;color:inherit;
@@ -264,35 +266,98 @@ body.reading #topbar{display:none}
   .pdf-box{width:100%;max-height:92svh}
 }
 
-/* ------------------------- tür desteleri -------------------------
-   Yüzlerce kitapla düz liste okunmaz oluyor. Önce raflar görünür;
-   deste = üst üste binmiş kitap sırtları + sayı. Tıklayınca o rafın
-   kartları açılır. */
-.decks{display:grid;gap:.7rem;margin-bottom:1.6rem;
-  grid-template-columns:repeat(auto-fill,minmax(min(100%,11rem),1fr))}
-.deck{display:flex;flex-direction:column;align-items:flex-start;gap:.5rem;
-  padding:.85rem .9rem;border:1px solid var(--rule-2);border-radius:12px;
-  background:var(--paper-2);cursor:pointer;font:inherit;color:inherit;
-  text-align:left;min-height:var(--tap);
-  transition:border-color .18s,transform .18s,box-shadow .18s}
-.deck:hover{border-color:var(--accent);transform:translateY(-2px);
-  box-shadow:var(--shadow)}
+/* --------------------------- raf sekmeleri ---------------------------
+   Önce on altı büyük kutu vardı, her birinde beş çubukluk bir küme.
+   Çubuklar hiçbir şey anlatmıyordu: "Gezi 3 kitap" da "Polisiye 49
+   kitap" da aynı beş çubuğu gösteriyordu ve seçim yapıldıktan sonra
+   kutular ekranın yarısını kaplamaya devam ediyordu. Raf adı bir
+   ETİKETTİR; etiket kadar yer kaplamalı. */
+.decks{display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:1.4rem}
+.deck{display:inline-flex;align-items:baseline;gap:.45rem;
+  padding:.42rem .7rem;border:1px solid var(--rule-2);border-radius:99px;
+  background:var(--paper-2);cursor:pointer;font:inherit;color:var(--ink-2);
+  font-family:var(--sans);font-size:var(--ui-sm);line-height:1;
+  min-height:calc(var(--tap) - 10px);
+  transition:border-color .18s,background .18s,color .18s}
+.deck:hover{border-color:var(--accent);color:var(--ink)}
 .deck:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
-.deck.on{border-color:var(--accent);background:var(--accent-soft)}
-/* sırtlar: her biri o kitabın belge rengi, hafifçe üst üste binmiş */
-.deck-spines{display:flex;align-items:flex-end;height:2.1rem;gap:2px}
-.deck-spines i{display:block;width:.42rem;border-radius:2px;
-  height:calc(1.15rem + var(--t,0) * .85rem);
-  background:color-mix(in oklab,var(--accent),var(--warm) calc(var(--t,0) * 100%))}
-.deck-name{font-family:var(--sans);font-weight:600;font-size:var(--ui);
-  letter-spacing:-.01em}
-.deck-n{font-family:var(--mono);font-size:var(--ui-sm);color:var(--ink-2);
-  font-variant-numeric:tabular-nums}
-.deck-n b{color:var(--ink);font-weight:600}
+.deck.on{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+.deck-name{font-weight:600;letter-spacing:-.01em}
+.deck-n{font-family:var(--mono);font-size:.75rem;font-variant-numeric:tabular-nums;
+  opacity:.75}
+.deck-n b{font-weight:500}
+.deck-spines{display:none}          /* anlamsız süs: kaldırıldı */
 #deckBack[hidden]{display:none}
+
+/* ============================== RAF ==============================
+   Kitabın kendi biçimi SIRT. Genişlik sözcük sayısından geliyor
+   (app.js spineW): rafta Sherlock kalın, Amontillado Fıçısı ince —
+   süs değil, doğru bilgi. Yükseklik hepsinde aynı: tek bir değişken
+   dürüstçe kodlanıyor, ikincisi süs olurdu. */
+.shelf{display:flex;flex-wrap:wrap;align-items:flex-end;gap:3px;
+  padding:1.4rem 0 0;margin-bottom:1.2rem;
+  border-bottom:2px solid var(--rule);           /* rafın tahtası */
+  box-shadow:0 3px 0 -1px color-mix(in srgb,var(--ink) 8%,transparent)}
+.spine{position:relative;flex:none;width:var(--w,34px);height:12rem;
+  padding:.7rem 0 .5rem;border:none;border-radius:2px 2px 0 0;cursor:pointer;
+  background:color-mix(in oklab,var(--accent),var(--warm) calc(var(--t,0) * 100%));
+  color:var(--paper);font:inherit;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;gap:.4rem;
+  transition:transform .2s cubic-bezier(.22,1,.36,1),filter .2s,
+             box-shadow .2s}
+/* Sırt yazısı aşağıdan yukarı: raftaki kitabın okunuşu. */
+/* [hidden] TEK BAŞINA display:flex'i yenemez. Bu proje bu tuzağa üç kez
+   düştü: .hero-cta .btn, .card, şimdi .spine. Süzgeç hidden'ı koyuyor,
+   öge yerinde duruyordu — "Çocuk" rafı seçiliyken 278 sırtın hepsi
+   görünüyordu. Kural artık seçicinin yanında duruyor ki bir dahakine
+   gözden kaçmasın. */
+.spine[hidden]{display:none}
+.spine .sp-t,.spine .sp-a{writing-mode:vertical-rl;transform:rotate(180deg);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-height:100%}
+.spine .sp-t{font-family:var(--serif);font-size:.83rem;font-weight:700;
+  letter-spacing:.005em}
+.spine .sp-a{font-family:var(--sans);font-size:.66rem;opacity:.72;
+  max-height:38%}
+/* Okunan kitap: sırtın dibinde ince bir şerit. */
+.spine .sp-p{position:absolute;left:0;right:0;bottom:0;height:0;
+  background:color-mix(in srgb,var(--paper) 82%,transparent)}
+.spine:hover,.spine.on{transform:translateY(-12px);
+  box-shadow:0 10px 22px -8px color-mix(in srgb,var(--ink) 45%,transparent)}
+.spine:hover{filter:brightness(1.08)}
+.spine:focus-visible{outline:2px solid var(--ink);outline-offset:3px;
+  transform:translateY(-12px)}
+.spine.on{filter:brightness(1.12)}
+/* Rafın sonundaki boşluk: kendi kitabını koyacağın yer. */
+.spine-add{background:transparent;border:1px dashed var(--rule);
+  color:var(--ink-2);width:34px}
+.spine-add:hover{border-color:var(--accent);color:var(--accent);
+  filter:none;box-shadow:none}
+.spine-add .sp-t{font-family:var(--sans);font-size:.7rem;font-weight:600}
+.spine-add .sp-plus{font-family:var(--mono);font-size:1rem;line-height:1}
+
+/* Rafın önü: sırta değince kitap çekilip bakılıyor. */
+/* Renk düzeyi anlatıyor; anahtarı olmayan renk yalnızca renktir. */
+.lvl-key{display:flex;align-items:center;gap:.5rem;margin:0 0 1.1rem;
+  font-family:var(--mono);font-size:.6875rem;letter-spacing:.06em;
+  color:var(--ink-2)}
+.lvl-key i{display:block;width:1.6rem;height:.55rem;border-radius:2px;
+  background:color-mix(in oklab,var(--accent),var(--warm) calc(var(--t) * 100%))}
+.lvl-key .k{display:flex;gap:2px}
+.pick{min-height:11.5rem}
+.pick-in{display:flex;flex-direction:column;gap:.4rem;max-width:38rem}
+.pick-lvl{font-family:var(--mono);font-size:var(--ui-sm);color:var(--ink-2);
+  margin:0;letter-spacing:.02em}
+.pick-lvl b{color:var(--ink);font-weight:600}
+.pick h3{font-family:var(--serif);font-size:1.35rem;line-height:1.25;
+  margin:.1rem 0 0;font-weight:700}
+.pick-tr{font-family:var(--sans);font-size:var(--ui);color:var(--ink-2);margin:0}
+.pick-b{font-family:var(--sans);font-size:var(--ui);color:var(--ink-2);
+  line-height:1.55;margin:.25rem 0 .5rem}
+.pick .btn{align-self:flex-start;text-decoration:none}
+
 @media (max-width:560px){
-  .decks{grid-template-columns:repeat(auto-fill,minmax(min(100%,8.5rem),1fr));
-    gap:.5rem}
-  .deck{padding:.7rem .75rem}
-  .deck-spines{height:1.6rem}
+  /* Telefonda raf daha alçak; sırt adları yine okunuyor. */
+  .spine{height:10.5rem}
+  .spine .sp-t{font-size:.76rem}
+  .pick{min-height:13rem}
 }

@@ -28,7 +28,7 @@ function check(name, ok, detail) {
   await page.waitForTimeout(1800);
 
   const lib = await page.evaluate(() => ({
-    cards: document.querySelectorAll("#cards .card:not(.card-add)").length,
+    cards: document.querySelectorAll("#cards .spine:not(.spine-add)").length,
     docs: Object.keys(window.DOCS || {}).length,
     manifest: (window.MANIFEST || []).length,
     engine: window.Store ? window.Store.engine : "yok",
@@ -37,7 +37,7 @@ function check(name, ok, detail) {
     hScroll: document.documentElement.scrollWidth - document.documentElement.clientWidth,
   }));
   check("belgeler yüklendi", lib.docs >= 4, lib.docs + " belge");
-  check("kartlar çizildi", lib.cards === lib.manifest, lib.cards + " kart");
+  check("raf çizildi", lib.cards === lib.manifest, lib.cards + " sırt");
   check("depo motoru", lib.engine === "idb" || lib.engine === "ls", lib.engine);
   check("hero sayıları", /metin/.test(lib.heroStats));
   check("yatay taşma yok", lib.hScroll === 0);

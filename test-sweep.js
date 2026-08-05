@@ -71,7 +71,7 @@ const DENETLE = () => {
     .getPropertyValue("--tap")) || 42;
   let enKucuk = { n: "", h: 999, w: 999 };
   for (const el of gorunur) {
-    if (!el.matches("button, a.btn, .card, .deck, .hb-seg, #topbar a")) continue;
+    if (!el.matches("button, a.btn, .spine, .deck, .hb-seg, #topbar a")) continue;
     const r = el.getBoundingClientRect();
     if (r.height < enKucuk.h) enKucuk = { n: el.id || el.className, h: r.height, w: r.width };
   }
