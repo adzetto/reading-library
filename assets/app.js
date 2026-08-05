@@ -418,8 +418,14 @@
     shelf.addEventListener("focusin", function (e) {
       var b = e.target.closest(".spine"); if (b) isaretle(b);
     });
+    /* Tıklanan sırt pointerdown'da saklanıyor. setPointerCapture rafı
+       yakaladığı için sonraki click olayının hedefi SIRT değil RAF
+       oluyordu; e.target.closest(".spine") null dönüyor ve kitap
+       açılmıyordu. Bu yüzden hedefi olaydan değil, basılan andan alıyoruz. */
     shelf.addEventListener("click", function (e) {
-      var b = e.target.closest(".spine"); if (!b) return;
+      if (sYol > 8) return;                    // sürüklemeydi, tıklama değil
+      var b = (e.target.closest && e.target.closest(".spine")) || basSpine;
+      if (!b || b.classList.contains("spine-add")) return;
       location.hash = "#/read/" + encodeURIComponent(b.dataset.id);
     });
     /* Dışarıdan (raf sekmesi) çağrılabilsin: raf değişince seçim de değişmeli. */
@@ -427,10 +433,11 @@
        Kaydırma çubuğu tek yol olamaz: raf bir nesne, tutup itebilmelisin.
        Sürükleme sırasında tıklama iptal ediliyor (8 px eşiği), yoksa her
        itme bir kitap açıyordu — küredeki çevirmeyle aynı sorun. */
-    var suruk = false, sBas = 0, sSol = 0, sYol = 0, sId = -1;
+    var suruk = false, sBas = 0, sSol = 0, sYol = 0, sId = -1, basSpine = null;
     shelf.addEventListener("pointerdown", function (e) {
       if (e.button != null && e.button > 0) return;
       suruk = true; sId = e.pointerId;
+      basSpine = e.target.closest && e.target.closest(".spine");
       sBas = e.clientX; sSol = shelf.scrollLeft; sYol = 0;
       shelf.classList.add("suruklinuyor");
       try { shelf.setPointerCapture(e.pointerId); } catch (err) {}
@@ -451,9 +458,6 @@
     }
     shelf.addEventListener("pointerup", surukBitir);
     shelf.addEventListener("pointercancel", surukBitir);
-    shelf.addEventListener("click", function (e) {
-      if (sYol > 8) { e.stopPropagation(); sYol = 0; }
-    }, true);
 
     /* ---- kendiliğinden süzülme ----
        Rafta ekrana sığandan fazlası varsa yavaşça akıyor: okur elini
@@ -582,9 +586,10 @@
 
     renderTables(article, doc);
     renderFigures(article, doc);
-    renderMath(article);
+    renderMath(article, doc);
     var count = wordize(article);
     addParaButtons(article);
+    bindXrefs(article);
     buildToc(doc);
     bindReaderControls(doc);
     setupLookupUI(doc);
@@ -647,17 +652,47 @@
     "\\CI": "\\operatorname{CI}", "\\SE": "\\operatorname{SE}",
     "\\Med": "\\operatorname{Med}", "\\pct": "#1\\,\\%"
   };
-  function renderMath(root) {
+  /* Belgenin kendi makrolari (ders notlarinda ~70 tane: \vek, \Lin, \Et...)
+     site geneli tabloyla birlestirilir; belgeninki oncelikli. */
+  function macroSet(doc) {
+    if (!doc || !doc.macros) return KM;
+    var m = {}, k;
+    for (k in KM) m[k] = KM[k];
+    for (k in doc.macros) m[k] = doc.macros[k];
+    return m;
+  }
+  function renderMath(root, doc) {
     if (!window.katex) return;
+    var M = macroSet(doc);
     $$(".math", root).forEach(function (el) {
-      try { katex.render(el.textContent, el, { throwOnError: false, macros: KM }); }
+      try { katex.render(el.textContent, el, { throwOnError: false, macros: M }); }
       catch (e) {}
     });
     $$(".eq-body", root).forEach(function (el) {
       try {
         katex.render(el.textContent, el,
-          { throwOnError: false, displayMode: true, macros: KM });
+          { throwOnError: false, displayMode: true, macros: M });
       } catch (e) {}
+    });
+  }
+
+  /* Capraz basvurular (denklem, sekil, teorem): tiklayinca hedefe gidilir
+     ve hedef kisa sure vurgulanir. Ders notlarinda 253 basvuru var; sayfa
+     ici zipladiktan sonra "nereye geldim" sorusu kaliyordu. */
+  function bindXrefs(root) {
+    if (!root) return;
+    root.addEventListener("click", function (e) {
+      var a = e.target.closest && e.target.closest("a.xref");
+      if (!a) return;
+      var id = (a.getAttribute("href") || "").slice(1);
+      var el = id && document.getElementById(id);
+      if (!el) return;
+      e.preventDefault();
+      el.scrollIntoView({ behavior: REDUCED ? "auto" : "smooth", block: "center" });
+      el.classList.remove("xref-hit");
+      void el.offsetWidth;                 // animasyonu yeniden baslat
+      el.classList.add("xref-hit");
+      setTimeout(function () { el.classList.remove("xref-hit"); }, 1800);
     });
   }
 
@@ -725,7 +760,7 @@
   }
 
   /* ---- içindekiler ---- */
-  var tocLinks = [], heads = [], TOC = [];
+  var tocLinks = [], heads = [], TOC = [], paras = [];
   function buildToc(doc) {
     TOC = doc.toc || [];
     var ul = $("#toc");
@@ -735,6 +770,9 @@
     }).join("");
     tocLinks = $$("#toc a");
     heads = TOC.map(function (t) { return document.getElementById(t.id); }).filter(Boolean);
+    /* Kaldigin yeri paragraf SIRASI ile sakliyoruz; punto ya da olcu
+       degisse bile ayni paragrafa donuluyor, piksel degeri donmuyor. */
+    paras = $$("#article p");
     tocLinks.forEach(function (a) {
       a.addEventListener("click", function (e) {
         var id = a.getAttribute("href");
@@ -750,6 +788,7 @@
   /* ---- kumanda düğmeleri ---- */
   function bindReaderControls(doc) {
     // sabit ikonlar
+    var ex = $("#exitBtn"); if (ex) ex.innerHTML = ic("arrowLeft", 16);
     $("#menuBtn").innerHTML = ic("menu", 16);
     $("#narrowBtn").innerHTML = ic("shrink", 15);
     $("#widerBtn").innerHTML = ic("expand", 15);
@@ -1087,8 +1126,20 @@
           if (t) posEl.innerHTML = (t.n ? "<b>§" + esc(t.n) + "</b> " : "") + esc(t.t.slice(0, 34));
         }
         if (DB && DB.setProgress) {
+          /* Bölüm kimliği tek başına yetmiyor: uzun bir bölümün ortasında
+             bırakınca dönüşte bölümün BAŞINA atıyordu, tek bölümlü
+             kitapta ise hep en başa. Ekranın üstündeki paragrafın sırası
+             da saklanıyor — punto ve ölçü değişse bile aynı paragrafa
+             döner, piksel değeri dönmez. */
+          var ilkP = null;
+          for (var q = 0; q < paras.length; q++) {
+            if (paras[q].getBoundingClientRect().bottom > innerHeight * 0.18) {
+              ilkP = q; break;
+            }
+          }
           DB.setProgress(doc.id, {
             pct: maxPct, sectionId: cur ? cur.id : null,
+            paraIndex: ilkP,
             finishedAt: maxPct > 0.93 ? Date.now() : undefined
           });
         }
@@ -1146,12 +1197,20 @@
     // kaldığı yere dön
     if (DB && DB.getProgress) {
       DB.getProgress(doc.id).then(function (p) {
-        if (!p || !p.sectionId) return;
-        var el = document.getElementById(p.sectionId);
-        if (el && (p.pct || 0) > 0.02) {
-          setTimeout(function () { el.scrollIntoView({ block: "start" }); }, 60);
-          toast("Kaldığınız yere dönüldü");
-        }
+        if (!p || (p.pct || 0) <= 0.02) return;
+        /* Önce paragraf sırası: tam bıraktığın satır. Yoksa (eski kayıt)
+           bölüm başlığına düşülür. */
+        var hedef = null;
+        var pp = $$("#article p");
+        if (p.paraIndex != null && pp[p.paraIndex]) hedef = pp[p.paraIndex];
+        else if (p.sectionId) hedef = document.getElementById(p.sectionId);
+        if (!hedef) return;
+        setTimeout(function () {
+          hedef.scrollIntoView({ block: "start" });
+          /* Paragrafın üstünde biraz nefes payı kalsın. */
+          if (p.paraIndex != null) scrollBy(0, -Math.round(innerHeight * 0.16));
+        }, 60);
+        toast("Kaldığınız yere dönüldü");
       }).catch(function () {});
     }
   }

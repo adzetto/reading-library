@@ -15,7 +15,8 @@ for (const f of fs.readdirSync(DOCS)) {
 
 // manifest.js sonunda MANIFEST_BOOKS'u kendisi ekliyor; ikinci kez
 // birleştirmek her kitabı iki kez sayar.
-const raw = (window.MANIFEST || []).concat(window.MANIFEST_BOOKS || []);
+const raw = (window.MANIFEST || []).concat(window.MANIFEST_BOOKS || [])
+  .concat(window.MANIFEST_NOTES || []);
 const man = raw.filter((m, i) => raw.findIndex((x) => x.id === m.id) === i);
 let fails = 0, totalWords = 0;
 const seen = new Set();

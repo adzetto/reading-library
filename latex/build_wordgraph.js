@@ -69,7 +69,7 @@ const DOCDIR = path.join(ASSETS, "docs");
 fs.readdirSync(DOCDIR)
   .filter((f) => f.endsWith(".js") && !/^manifest/.test(f) && f !== "meta.js")
   .forEach((f) => run(SB, path.join(DOCDIR, f)));
-["manifest-full.js", "manifest-books.js", "manifest.js"]
+["manifest-notes.js", "manifest-full.js", "manifest-books.js", "manifest.js"]
   .filter((f) => fs.existsSync(path.join(DOCDIR, f)))
   .forEach((f) => run(SB, path.join(DOCDIR, f)));
 

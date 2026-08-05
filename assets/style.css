@@ -611,6 +611,11 @@ a.btn,a.btn:hover{text-decoration:none}
   h3.subsection{font-size:1em;padding-left:2.2em;text-indent:-2.2em}
   #bar{gap:.4rem;padding:.4rem .5rem;padding-bottom:max(.4rem,env(safe-area-inset-bottom))}
   #bar .pos{display:none}
+  /* Dar barda dokuz denetim sigmiyor: sonuncusu ekran disina tasiyordu.
+     Cikis dugmesi burada dusuyor cunku ayni is icindekiler panelinin
+     basindaki “← Kutuphane” baglantisiyla da yapiliyor; digerlerinin
+     baska karsiligi yok. */
+  #exitBtn{display:none}
   /* dar barda sözcük etiketleri düşer, yerine simge gelir */
   .lbl-full{display:none}
   .lbl-icon{display:inline}
@@ -662,3 +667,28 @@ a.btn,a.btn:hover{text-decoration:none}
   color:var(--ink-2);margin:0}
 .doc-loading .dl-hint{font-size:var(--ui-sm);color:var(--ink-2);margin:.4rem 0 0;
   max-width:24rem;text-align:center;line-height:1.5;opacity:.85}
+
+/* Kitaptan cikis: alt barin en solunda, icindekiler dugmesinden once.
+   Okuma sirasinda ust cubuk gizli oldugu icin kutuphaneye donusun tek
+   gorunur yolu buydu. */
+#exitBtn{text-decoration:none;flex:none}
+#exitBtn:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ---- ders notu: denklem, kutu ve capraz basvuru ----
+   .eq/.eq-no dizgesi zaten vardi ama kullanilmiyordu; ders notlarinda
+   244 numarali denklem var. */
+.eq{margin:1.1em 0;scroll-margin-top:5rem}
+.eq-body{overflow-x:auto;overflow-y:hidden;padding:.1em 0}
+a.xref{color:var(--accent);text-decoration:none;
+  box-shadow:inset 0 -1px 0 color-mix(in srgb,var(--accent) 40%,transparent)}
+a.xref:hover{box-shadow:inset 0 -2px 0 var(--accent)}
+a.xref:focus-visible{outline:2px solid var(--accent);outline-offset:2px;
+  border-radius:2px}
+/* Basvuruyla gidilen hedef kisa sure isaretlenir: sayfa ici zipladiktan
+   sonra "nereye geldim" sorusu kaliyordu. */
+.xref-hit{animation:xrefHit 1.8s ease-out}
+@keyframes xrefHit{
+  0%{background:color-mix(in srgb,var(--mark) 90%,transparent)}
+  100%{background:transparent}}
+.box{scroll-margin-top:5rem}
+figure.fig{scroll-margin-top:5rem}
