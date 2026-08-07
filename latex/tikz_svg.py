@@ -140,13 +140,117 @@ def makrolari_al(metin):
     return "\n".join(tut)
 
 
-def sekilleri_bul(metin):
-    """tikzpicture bloklarini, varsa figure ustbilgisiyle birlikte dondurur."""
+def komut_sil(s, ad):
+    """\\ad{...} komutunu, ic ice suslu parantezleri sayarak siler."""
     out = []
+    i = 0
+    while True:
+        m = re.compile(r"\\" + ad + r"\s*(\[[^\]]*\])?\s*\{").search(s, i)
+        if not m:
+            out.append(s[i:])
+            return "".join(out)
+        out.append(s[i:m.start()])
+        d = 0
+        j = m.end() - 1
+        while j < len(s):
+            if s[j] == "\\":
+                j += 2
+                continue
+            if s[j] == "{":
+                d += 1
+            elif s[j] == "}":
+                d -= 1
+                if d == 0:
+                    j += 1
+                    break
+            j += 1
+        i = j
+
+
+def sekilleri_bul(metin):
+    """Derlenecek sekil birimlerini tex2doc ile AYNI sirada dondurur.
+
+    Onceden burada her tikzpicture ayri bir sekil sayiliyordu; tex2doc ise
+    once \\begin{figure} ortamlarini yakaliyor. 3. bolumde bir figure
+    ortaminda uc panel, bir baskasinda ise hic tikzpicture yoktu (PDF
+    gomulmus): iki numaralandirma 7. sekilden itibaren kayiyor ve okur
+    YANLIS sekli goruyordu. Artik birim = figure ortami; ortamin icindeki
+    kac panel varsa hepsi tek SVG'ye giriyor, tipki kitaptaki gibi.
+
+    Doner: (tur, govde) — tur "tikz" ya da "pdf".
+    """
+    # AYNI ON ISLEME: tex2doc once on sayfayi ve icindekiler komutlarini
+    # atiyor. Bu kozmetik degil — 2. bolumde on sayfa bolgesindeki bir
+    # \end{figure} kalintisi, atilmadan once kendinden onceki \begin ile
+    # eslesip iki gercek sekli tek eslesmeye indiriyor. Atinca 14 degil 15
+    # sekil cikiyor. Iki taraf ayni metni gormezse numaralar kayar.
+    metin = re.sub(r"\\begin\{titlepage\}.*?\\end\{titlepage\}", "", metin, flags=re.S)
+    metin = re.sub(r"\\(?:maketitle|tableofcontents|listoffigures|listoftables)\b",
+                   "", metin)
+
+    out = []
+
+    def figur(m):
+        g = m.group(0)
+        g = re.sub(r"\\begin\{figure\}\s*(\[[^\]]*\])?", "", g)
+        g = g.replace("\\end{figure}", "")
+        g = komut_sil(g, "caption")
+        g = komut_sil(g, "label")
+        g = re.sub(r"\\renewcommand\s*\{[^}]*\}\s*\{[^}]*\}", "", g)
+        g = re.sub(r"\\centering\b", "", g)
+        gi = re.search(r"\\includegraphics\s*(\[[^\]]*\])?\s*\{([^}]*)\}", g)
+        if "\\begin{tikzpicture}" in g:
+            out.append(("tikz", g.strip()))
+        elif gi:
+            out.append(("pdf", gi.group(2).strip()))
+        else:
+            out.append(("bos", ""))
+        return "\n\x00FIG\x00\n"
+
+    # AYNI ALGORITMA. tex2doc once figure ortamlarini yer tutucuyla
+    # DEGISTIRIYOR, sonra kalan metinde tikzpicture ariyor. Burada ayni
+    # metni maskeleyip aramak yeterli gorunuyordu ama sonuc farkli cikti
+    # (16'ya 15). Tahmin yurutmek yerine adimi birebir tekrarliyoruz:
+    # boylece iki numaralandirmanin ayrilmasi yapisal olarak imkansiz.
+    kalan = re.sub(r"\\begin\{figure\}.*?\\end\{figure\}", figur, metin, flags=re.S)
     for m in re.finditer(r"\\begin\{tikzpicture\}.*?\\end\{tikzpicture\}",
-                         metin, re.S):
-        out.append((m.start(), m.group(0)))
+                         kalan, re.S):
+        out.append(("tikz", m.group(0)))
     return out
+
+
+#  Vektore donusturulen PDF bu esigi asarsa raster'a duseriz. Sinir keyfi
+#  degil: cizgi cizimi bu boyuta cikmaz, cikiyorsa icerik nokta bulutudur
+#  ve orada vektorun bir faydasi yok. sphere_to_ellipsoid.pdf 3000 nokta
+#  tasiyor ve SVG'si 6.9 MB; ayni sekil 150 dpi PNG olarak 267 KB.
+PDF_SVG_SINIR = 400 * 1024
+
+
+def pdf_svg(ad, hedef):
+    """figure icindeki \\includegraphics PDF'ini SVG'ye, gerekirse PNG'ye cevirir."""
+    kaynak = os.path.join(KAYNAK, ad)
+    if not os.path.exists(kaynak) and not ad.lower().endswith(".pdf"):
+        kaynak += ".pdf"
+    if not os.path.exists(kaynak):
+        return False, "dosya yok: " + ad
+    try:
+        subprocess.run(["pdftocairo", "-svg", kaynak, hedef],
+                       capture_output=True, timeout=180)
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        return False, "pdftocairo: " + str(e)
+    if not os.path.exists(hedef):
+        return False, "pdftocairo cikti vermedi"
+    if os.path.getsize(hedef) <= PDF_SVG_SINIR:
+        return True, ""
+    # Cok buyuk: SVG'yi at, ayni sekli PNG olarak uret.
+    os.remove(hedef)
+    png = hedef[:-4] + ".png"
+    try:
+        subprocess.run(["pdftocairo", "-png", "-r", "150", "-singlefile",
+                        kaynak, png[:-4]], capture_output=True, timeout=180)
+    except (subprocess.TimeoutExpired, FileNotFoundError) as e:
+        return False, "pdftocairo png: " + str(e)
+    return os.path.exists(png), "png uretilemedi"
 
 
 def derle(govde, makro, hedef):
@@ -189,19 +293,31 @@ def main():
         makro = makrolari_al(metin)
         sekiller = sekilleri_bul(metin)
         print("=== " + kisa + " === " + str(len(sekiller)) + " sekil")
-        for i, (_, gov) in enumerate(sekiller, 1):
+        for i, (tur, gov) in enumerate(sekiller, 1):
             ad = "cont-" + kisa + "-" + str(i) + ".svg"
             hedef = os.path.join(CIKTI, ad)
             toplam += 1
-            if os.path.exists(hedef) and os.path.getsize(hedef) > 400:
+            if tur == "bos":
+                print("  " + str(i) + " atlandi (cizim yok)")
+                continue
+            # Buyuk PDF'ler PNG'ye dusuyor; onbellek denetimi ikisine de baksin.
+            png = hedef[:-4] + ".png"
+            var = next((y for y in (hedef, png)
+                        if os.path.exists(y) and os.path.getsize(y) > 400), None)
+            if var:
                 basarili += 1
                 print("  " + str(i) + " zaten var")
                 continue
-            ok, neden = derle(gov, makro, hedef)
+            if tur == "pdf":
+                ok, neden = pdf_svg(gov, hedef)
+            else:
+                ok, neden = derle(gov, makro, hedef)
             if ok:
                 basarili += 1
-                kb = os.path.getsize(hedef) / 1024
-                print("  " + str(i) + " tamam (" + str(round(kb, 1)) + " KB)")
+                cikti = hedef if os.path.exists(hedef) else png
+                kb = os.path.getsize(cikti) / 1024
+                print("  " + str(i) + " tamam (" + str(round(kb, 1)) + " KB, " +
+                      os.path.splitext(cikti)[1][1:] + ")")
             else:
                 print("  " + str(i) + " BASARISIZ: " + neden)
     print("-" * 46)

@@ -36,3 +36,6 @@ source/gutenberg/meta/*
 !source/gutenberg/meta/in-*.json
 !source/gutenberg/meta/out-*.json
 assets/vendor/kokoro.bundle.js
+
+# python ara ciktisi
+latex/__pycache__/

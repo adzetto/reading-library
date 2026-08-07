@@ -134,19 +134,47 @@ class Cevirici(object):
         return re.sub(r"[ \t]{2,}", " ", h)
 
     # ------------------------------------------------------------ referans
+    # Kaynak "Theorem~\ref{thm:cs}" yaziyor, etiketin gorunen adi ise zaten
+    # "Teorem 2". Ikisi yan yana gelince okur "Theorem Teorem 2" goruyordu
+    # (yalnizca 1. bolumde 58 kez). Ustelik Ingilizce bilmeyen bir okur icin
+    # o bas sozcuk zaten okunmuyor. Kural: gorunen ad kendi tur adini
+    # tasiyorsa (harfle basliyorsa) Ingilizcesi atilir; tasimiyorsa
+    # (denklemlerde oldugu gibi sadece numara) Turkcesi konur.
+    ING_TIP = ("Theorem|Definition|Proposition|Lemma|Corollary|Figure|Equation"
+               "|Section|Chapter|Remark|Example|Table|Problem|Exercise"
+               "|Appendix|Part")
+    TR_TIP = {
+        "theorem": "Teorem", "definition": "Tanım", "proposition": "Önerme",
+        "lemma": "Lemma", "corollary": "Sonuç", "figure": "Şekil",
+        "equation": "Denklem", "section": "Kısım", "chapter": "Bölüm",
+        "remark": "Not", "example": "Örnek", "table": "Çizelge",
+        "problem": "Problem", "exercise": "Alıştırma", "appendix": "Ek",
+        "part": "Kısım",
+    }
+
     def ref_cevir(self, h):
         """\\ref ve \\eqref'i gercek baglantiya cevirir."""
         def dg(m):
-            ad = m.group(2)
+            on = m.group(1) or ""
+            ad = m.group(3)
             hedef, gor = self.etiket.get(ad, (None, ""))
-            paren = m.group(1) == "eqref"
+            paren = m.group(2) == "eqref"
+            if not hedef and not gor:
+                # Hedefi de gorunen adi da yok: bari cumle bozulmasin,
+                # kaynaktaki bas sozcuk yerinde kalsin.
+                return on
+            # Bas sozcuk: gorunen ad turunu zaten soyluyorsa gereksiz.
+            bas = ""
+            if on and not (gor[:1].isalpha()):
+                bas = self.TR_TIP.get(on.strip().lower(), on.strip()) + " "
+            metin = bas + (("(" + gor + ")") if paren else gor)
             if not hedef:
                 # Hedefi olmayan basvuru: link yerine sade metin. "?" yazmak
                 # okura yanlis bir sey oldugunu dusundururdu.
-                return ("(" + gor + ")") if (paren and gor) else gor
-            metin = ("(" + gor + ")") if paren else gor
+                return metin
             return ('<a class="xref" href="#' + hedef + '">' + metin + "</a>")
-        return re.sub("\x01(ref|eqref)\x02([^\x03]*)\x03", dg, h)
+        return re.sub(r"(?:\b(" + self.ING_TIP + r")\b[ \t ]*)?"
+                      "\x01(ref|eqref)\x02([^\x03]*)\x03", dg, h)
 
 
 def cevir(gov, did, kisa, en, tr, blurb, mak):
@@ -186,13 +214,30 @@ def cevir(gov, did, kisa, en, tr, blurb, mak):
     # 2) DENKLEMLER: numara ver, etiketi kaydet
     denk = []
 
+    def eq_no_html(no):
+        """Denklem numarasinin HTML'i.
+
+        Cogu numara sade bir sayi ama kaynak \\tag{$\\star_3$} da yaziyor;
+        onu duz metin olarak basmak sagda "($\\star_3$)" diye dolar
+        isaretli bir kalinti birakiyordu. Dolar varsa matematik olarak
+        isaretlenir, KaTeX gerisini yapar.
+        """
+        return C.math_ayir(no) if "$" in no else esc(no)
+
     def eq_yakala(m):
         ic = m.group(2)
         yildiz = m.group(1) and m.group(1).endswith("*")
-        tm = re.search(r"\\tag\s*\{([^}]*)\}", ic)
+        # \tag'in icerigi ic ice suslu parantez tasiyabilir: kaynakta
+        # \tag{$\ast_{1}$} var ve [^}]* kalibi {1} kapanisinda duruyordu.
+        # Sonuc: numara "$\ast_{1" olarak okunuyor, govdede "$}" artigi
+        # kaliyor ve KaTeX o denklemi kirmizi basiyordu. Dengeli okuma sart.
+        tag_ara = re.search(r"\\tag\s*\{", ic)
+        no_ham, tag_son = ("", 0)
+        if tag_ara:
+            no_ham, tag_son = grup_al(ic, tag_ara.end() - 1)
         lm = re.search(r"\\label\s*\{([^}]*)\}", ic)
-        if tm:
-            no = tm.group(1)
+        if tag_ara:
+            no = no_ham
         elif yildiz:
             no = ""
         else:
@@ -201,7 +246,19 @@ def cevir(gov, did, kisa, en, tr, blurb, mak):
         eid = "eq-" + kisa + "-" + re.sub(r"[^0-9a-zA-Z.]", "", no or str(len(denk) + 1))
         if lm:
             C.etiket[lm.group(1)] = (eid, no or "?")
-        ic = re.sub(r"\\(?:tag|label)\s*\{[^}]*\}", "", ic)
+        if tag_ara:
+            ic = ic[:tag_ara.start()] + ic[tag_son:]
+        ic = re.sub(r"\\label\s*\{[^}]*\}", "", ic)
+        # KaTeX \notag bilmiyor; numarayi biz veriyoruz, komut gereksiz.
+        ic = re.sub(r"\\notag\b", "", ic)
+        # align/gather'in govdesi hizalama isaretleri (& ve \\) tasiyor ama
+        # ortamin kendisi soyuldu. Ciplak haliyle KaTeX "displaymode'da &
+        # olmaz" deyip denklemi kirmizi basiyordu. Icerideki karsiligina
+        # sariyoruz: align -> aligned, gather -> gathered.
+        ort = (m.group(1) or "").rstrip("*")
+        if ort in ("align", "gather"):
+            ic = ("\\begin{" + ort + "ed}\n" + ic.strip() +
+                  "\n\\end{" + ort + "ed}")
         denk.append((eid, no, ic.strip()))
         return "\n\x00EQ" + str(len(denk) - 1) + "\x00\n"
 
@@ -297,6 +354,47 @@ def cevir(gov, did, kisa, en, tr, blurb, mak):
             i += 1
 
     # 5) HTML kur
+    #
+    # Yer tutucu uretimi TEK yerde. Onceden kutu govdesi kendi kucuk
+    # dongusunu isletiyor ve yalnizca EQ'yu taniyordu; kutu icindeki sekil
+    # ve ic ice kutu okura "\x00FIG0\x00" diye duz metin gidiyordu (1.
+    # bolumdeki bes sekil boyle kayboldu, cunku hepsi \begin{solution}
+    # icinde). Ozyinelemeli tek fonksiyon o hata sinifini kapatiyor.
+    def yer_html(a, b):
+        if a == "EQ":
+            eid, no, ic = denk[b]
+            return ('<div class="eq" id="' + eid + '">'
+                    '<div class="eq-body">' + esc(ic) + "</div>" +
+                    ('<span class="eq-no">(' + eq_no_html(no) + ")</span>"
+                     if no else "") + "</div>")
+        if a == "FIG":
+            fid, ad, cap, n = sekiller[b]
+            return ('<figure class="fig" id="' + fid + '" data-fig="' + str(n) + '">'
+                    '<div class="fig-frame" data-svg="' + FIGDIR + ad + '"></div>'
+                    "<figcaption><span class=\"fig-no\">Şekil " + str(n) + ".</span> " +
+                    C.math_ayir(cap) + "</figcaption></figure>")
+        bid, sinif, etiket, n, bas, ic = kutular[b]
+        govde = []
+        for pr in re.split(r"\n\s*\n", ic):
+            pr = pr.strip()
+            if not pr:
+                continue
+            for parca in re.split(r"(\x00(?:FIG|EQ|BOX)\d+\x00)", pr):
+                mm = re.match(r"^\x00(FIG|EQ|BOX)(\d+)\x00$", parca.strip())
+                if mm:
+                    govde.append(yer_html(mm.group(1), int(mm.group(2))))
+                elif parca.strip():
+                    s = C.math_ayir(parca)
+                    if s.strip():
+                        govde.append("<p>" + s + "</p>")
+        # Kutu basligi da matematik tasiyabilir: kaynak
+        # \begin{theorem}[$\eps$–$\dd$ identity] yaziyor ve duz metin gibi
+        # temizleyince geriye "$$–$$" kaliyordu.
+        return ('<div class="box box-' + sinif + '" id="' + bid + '">'
+                '<p class="box-h">' + esc(etiket) + " " + str(n) +
+                (" · " + C.math_ayir(bas) if bas else "") + "</p>" +
+                "".join(govde) + "</div>")
+
     out = []
     for tur, a, b in html:
         if tur == "H":
@@ -308,40 +406,7 @@ def cevir(gov, did, kisa, en, tr, blurb, mak):
             if a.strip():
                 out.append("<p>" + a + "</p>")
         elif tur == "YER":
-            if a == "EQ":
-                eid, no, ic = denk[b]
-                out.append('<div class="eq" id="' + eid + '">'
-                           '<div class="eq-body">' + esc(ic) + "</div>" +
-                           ('<span class="eq-no">(' + esc(no) + ")</span>"
-                            if no else "") + "</div>")
-            elif a == "FIG":
-                fid, ad, cap, n = sekiller[b]
-                out.append('<figure class="fig" id="' + fid + '" data-fig="' + str(n) + '">'
-                           '<div class="fig-frame" data-svg="' + FIGDIR + ad + '"></div>'
-                           "<figcaption><span class=\"fig-no\">Şekil " + str(n) + ".</span> " +
-                           C.math_ayir(cap) + "</figcaption></figure>")
-            else:
-                bid, sinif, etiket, n, bas, ic = kutular[b]
-                govde = []
-                for pr in re.split(r"\n\s*\n", ic):
-                    pr = pr.strip()
-                    if not pr:
-                        continue
-                    mm = re.match(r"^\x00(FIG|EQ|BOX)(\d+)\x00$", pr)
-                    if mm and mm.group(1) == "EQ":
-                        eid, no, eic = denk[int(mm.group(2))]
-                        govde.append('<div class="eq" id="' + eid + '">'
-                                     '<div class="eq-body">' + esc(eic) + "</div>" +
-                                     ('<span class="eq-no">(' + esc(no) + ")</span>"
-                                      if no else "") + "</div>")
-                    else:
-                        s = C.math_ayir(pr)
-                        if s.strip():
-                            govde.append("<p>" + s + "</p>")
-                out.append('<div class="box box-' + sinif + '" id="' + bid + '">'
-                           '<p class="box-h">' + esc(etiket) + " " + str(n) +
-                           (" · " + esc(metin_temizle(bas)) if bas else "") + "</p>" +
-                           "".join(govde) + "</div>")
+            out.append(yer_html(a, b))
 
     gövde = C.ref_cevir("\n".join(out))
     duz = re.sub(r"<[^>]+>", " ", gövde)
@@ -357,6 +422,22 @@ def cevir(gov, did, kisa, en, tr, blurb, mak):
     for fid, ad, cap, n in sekiller:
         yol = os.path.join(figdizin, ad)
         if not os.path.exists(yol):
+            # Nokta bulutu gibi agir cizimler SVG yerine PNG olarak
+            # uretiliyor (bkz. tikz_svg.PDF_SVG_SINIR). Gomulmuyor,
+            # dosyaya baglaniyor: tarayici ayrica onbellege alsin ve
+            # belge dosyasi sismesin.
+            png = ad[:-4] + ".png"
+            if os.path.exists(os.path.join(figdizin, png)):
+                figs[ad.replace(".svg", "")] = (
+                    '<img class="tikz" src="assets/' + FIGDIR + png +
+                    '" alt="' + esc(metin_temizle(cap))[:120] + '">')
+            else:
+                # SESSIZ KALMA. Eksik cizim demek, ya derleme basarisiz
+                # olmus ya da tikz_svg ile buradaki numaralandirma ayrilmis
+                # demektir. Ikincisi daha kotu: okur bos degil YANLIS sekil
+                # gorur. Once bunu 3. bolumde 7. sekilden itibaren yasadik.
+                print("  ! " + ad + " yok — " + did + " sekil " + str(n) +
+                      " bos kalacak (python latex/tikz_svg.py " + kisa + ")")
             continue
         svg = io.open(yol, encoding="utf-8").read()
         svg = re.sub(r"<\?xml[^>]*\?>", "", svg)

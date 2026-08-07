@@ -13,6 +13,14 @@ Ne yapiyor
   · theorem/definition/proposition/... ortamlarini .box olarak dizer.
   · tikzpicture'lari onceden derlenmis SVG'ye baglar (latex/tikz_svg.py).
 
+DIKKAT — SIRA: bu betik belge dosyalarini SIFIRDAN yazar, yani icindeki
+sinav (doc.quiz) silinir. Calistirdiktan sonra mutlaka
+
+    node latex/build_bookquiz.js
+
+de calistirin; yoksa validate-docs "soru < 8" der ve okur bolumu bitirince
+bos bir sinav bulur.
+
 Neden matematigi cevirmiyoruz
   KaTeX zaten sitede yuklu ve LaTeX sozdizimini okuyor. Formulu HTML'e
   cevirmeye calismak hem kayipli hem gereksiz; kaynak metni oldugu gibi

@@ -64,9 +64,15 @@ const belgeSayisi = new Map();    // kök → kaç belgede
 let toplamBelirtec = 0, kapsanan = 0;
 const belgeKapsam = [];
 
+/* Formül metnini at: KaTeX kaynagi sozcuk degil. Denklem kabugu
+   <div class="eq"><div class="eq-body">…</div><span class="eq-no">…</span></div>
+   biçiminde; dış kabuğu tek kalıpla eşlemeye çalışmak (iki kapanış </div>
+   arayan eski kural) erken duruyor ve \otimes, \qquad gibi makro adları
+   sözcük sayılıp eksik listesini kirletiyordu. Doğrudan iç kutuları al. */
 function duz(html) {
   return html.replace(/<span class="math">[\s\S]*?<\/span>/g, " ")
-             .replace(/<div class="eq"[\s\S]*?<\/div>\s*<\/div>/g, " ")
+             .replace(/<div class="eq-body">[\s\S]*?<\/div>/g, " ")
+             .replace(/<span class="eq-no">[\s\S]*?<\/span>/g, " ")
              .replace(/<[^>]+>/g, " ");
 }
 
