@@ -17,6 +17,39 @@
     for (const k in part) DICT[k] = part[k];
   });
 
+  /* ---- uzun açıklamalar: istek üzerine -------------------------------
+     dict-ext.js'teki 2000 madde açılışta yalnızca [tür, karşılık] olarak
+     geliyor; uzun Türkçe açıklama gzip'li boyutun %79'uydu ve ancak biri
+     bir sözcüğe dokunduğunda okunuyor. Açılır pencere zaten eşzamansız,
+     bu yüzden ilk aramada getirmek görünür bir gecikme yaratmıyor.
+     fetch değil <script> enjeksiyonu: site file:// ile de açılabilmeli. */
+  let DEFS = global.__DICT_DEFS__ || null;
+  let defsSoz = DEFS ? Promise.resolve() : null;
+  let defsCoz = null;
+
+  /** dict-ext-def.js yüklendiğinde kendisi çağırır. */
+  function defsReady() {
+    DEFS = global.__DICT_DEFS__ || {};
+    if (defsCoz) { defsCoz(); defsCoz = null; }
+  }
+
+  /** Açıklamalar gelene kadar bekleyen söz; yüklenemezse yine çözülür. */
+  function ensureDefs() {
+    if (defsSoz) return defsSoz;
+    const d = global.document;
+    if (!d || !d.head) { DEFS = DEFS || {}; return (defsSoz = Promise.resolve()); }
+    defsSoz = new Promise((cz) => {
+      defsCoz = cz;
+      const s = d.createElement("script");
+      s.src = "assets/dict-ext-def.js";
+      /* Ağ hatası ya da eksik dosya aramayı kilitlemesin: karşılık zaten
+         elimizde, kaybedilen yalnızca açıklama satırı. */
+      s.onerror = function () { DEFS = DEFS || {}; defsReady(); };
+      d.head.appendChild(s);
+    });
+    return defsSoz;
+  }
+
   /* ---------------- 2. biçimbirim çözümleyici ---------------- */
   const IRREG = {
     was: "be", were: "be", been: "be", being: "be", is: "be", are: "be",
@@ -101,7 +134,10 @@
     for (const cand of candidates(w)) {
       const e = DICT[cand];
       if (e) {
-        return { key: cand, pos: e[0], tr: e[1], def: e[2],
+        /* Açıklama ya maddenin kendisinde (elle yazılan sözlük) ya da
+           sonradan gelen DEFS'te (dict-ext). Henüz gelmediyse boş. */
+        const def = e[2] || (DEFS && DEFS[cand]) || "";
+        return { key: cand, pos: e[0], tr: e[1], def: def,
                  inflected: cand !== w ? w : null, source: "dict" };
       }
     }
@@ -167,9 +203,15 @@
     size: Object.keys(DICT).length,
     candidates,
 
+    ensureDefs,
+    defsReady,
+
     /** Tek sözcük: önce yerel sözlük, yoksa canlı servis. */
     async word(w) {
-      const hit = localLookup(w);
+      let hit = localLookup(w);
+      /* Karşılık var ama açıklama yok: dosya henüz gelmemiş olabilir.
+         Bekleyip bir kez daha bak — kullanıcı zaten dönen çarkı görüyor. */
+      if (hit && !hit.def && !DEFS) { await ensureDefs(); hit = localLookup(w); }
       if (hit) return hit;
       const raw = w.toLowerCase().replace(/[^a-z’'-]/g, "");
       if (!raw) return null;

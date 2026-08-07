@@ -116,7 +116,14 @@ function kisa(l) { return l.trim().length > 0 && l.trim().length <= 72; }
 
 const ROMEN = "[IVXLCDM]+";
 const RE_BOLUM = new RegExp(
-  "^\\s*(CHAPTER|Chapter|LETTER|Letter|PART|Part|BOOK|Book|ACT|Act|STAVE|Stave)" +
+  /* CANTO manzum eserlerde bölüm adıdır ve kalıpta yoktu: İlahi Komedya
+     otuz dört kantoya rağmen tek parça kalıyordu. SCENE/SECTION da aynı
+     nedenle eklendi. */
+  /* İsteğe bağlı önek: İlahi Komedya'da başlık "Inferno: Canto I"
+     biçiminde; anahtar sözcük satır başında değil. */
+  "^\\s*(?:[A-Z][A-Za-z]{2,12}:\\s*)?" +
+  "(CHAPTER|Chapter|LETTER|Letter|PART|Part|BOOK|Book|ACT|Act|STAVE|Stave" +
+  "|CANTO|Canto|SCENE|Scene|SECTION|Section)" +
   "\\s+(" + ROMEN + "|\\d+)\\s*[.:—-]?\\s*(.*)$");
 const RE_ROMEN = new RegExp("^\\s*(" + ROMEN + ")\\s*\\.?\\s*$");
 const RE_SAYI  = /^\s*(\d{1,3})\s*\.?\s*$/;
@@ -179,7 +186,10 @@ function bolumleriBul(L) {
     if (!m || !bos(i - 1)) continue;
     let t = (m[3] || "").trim(), atla = 1;
     if (!t && altBaslik(i + 1)) { t = L[i + 1].trim(); atla = 2; }
-    a1.push({ i, n: m[2], t, atla, y: 1 });
+    /* Yakalanan anahtar sozcuk saklanir: Frankenstein'in MEKTUPLARI ve
+       Dante'nin KANTOLARI "Chapter" diye etiketleniyordu. */
+    const kw = m[1].charAt(0).toUpperCase() + m[1].slice(1).toLowerCase();
+    a1.push({ i, n: m[2], t, atla, y: 1, kw: kw });
   }
   dene.push({ a: a1, ad: "CHAPTER/PART" });
 
@@ -196,6 +206,59 @@ function bolumleriBul(L) {
     a2.push({ i, n: m[1], t, atla, y: 2 });
   }
   dene.push({ a: a2, ad: "romen/sayı" });
+
+  /* --- 2b. yöntem: KİTABIN KENDİ İÇİNDEKİLER LİSTESİ ---
+     Öykü derlemelerinde bölüm adı "Chapter N" değil öykünün adı:
+     "The Flying Stars", "Silver Blaze". Bunlar gövdede diyalog
+     satırlarıyla aynı biçimde duruyor, kalıpla ayırt edilemiyor —
+     Sherlock, Peder Brown ve benzeri on dört kitap bu yüzden
+     içindekiler listesi olmadan kalıyordu.
+     Güvenilir tek işaret kitabın KENDİ içindekiler listesi: gövdedeki
+     tek başına duran bir satır o listedeki bir başlıkla birebir
+     eşleşiyorsa başlıktır. Eşleşme normalleştirilmiş metinde tam
+     olmalı; "içeriyor" demek diyalogdan yanlış eşleşme getiriyordu. */
+  const norm = (s) => s.toLowerCase()
+    .replace(/^[ivxlcdm]+\.\s*/i, "")          // "I. Silver Blaze" → "silver blaze"
+    .replace(/^\d+\.\s*/, "")
+    .replace(/[^a-z0-9]+/g, " ").trim();
+
+  const icBaslik = new Map();
+  let icSatir = -1;
+  for (let i = 0; i < Math.min(L.length, 400); i++) {
+    if (/^\s*(CONTENTS?|Contents\.?)\s*$/.test(L[i] || "")) { icSatir = i; break; }
+  }
+  if (icSatir >= 0) {
+    /* Liste BİTİNCE durulur. Önce uzun satırda `continue` ediliyordu;
+       içindekiler bittikten sonra gövdenin düzyazısı da listeye
+       giriyor, sonra o cümleler gövdede "başlık" olarak eşleşiyordu
+       (Peder Brown'da beş düzyazı satırı bölüm sanılmıştı). */
+    let bosSeri = 0;
+    for (let i = icSatir + 1; i < Math.min(L.length, icSatir + 160); i++) {
+      const ham = (L[i] || "").trim();
+      if (!ham) {
+        bosSeri++;
+        if (icBaslik.size >= 3 && bosSeri >= 3) break;   // liste bitti
+        continue;
+      }
+      bosSeri = 0;
+      if (ham.length > 70) { if (icBaslik.size >= 3) break; else continue; }
+      const s = ham.replace(/\s*\.{2,}.*$/, "").replace(/\s+\d+\s*$/, "");
+      const k = norm(s);
+      if (k.length > 3 && !icBaslik.has(k)) icBaslik.set(k, s);
+    }
+  }
+  const a2b = [];
+  if (icBaslik.size >= 4) {
+    for (let i = 0; i < L.length; i++) {
+      const s = (L[i] || "").trim();
+      if (!s || s.length > 70 || !bos(i - 1)) continue;
+      const k = norm(s);
+      const asil = icBaslik.get(k);
+      if (!asil) continue;
+      a2b.push({ i, n: "", t: s.replace(/^[IVXLCDM]+\.\s*/i, ""), atla: 1, y: 3 });
+    }
+  }
+  dene.push({ a: a2b, ad: "içindekiler" });
 
   // --- 3. yöntem: "03 My Breaking In" (numara + başlık aynı satırda) ---
   const a3 = [];
@@ -278,9 +341,11 @@ function kur(b) {
       const bit = k + 1 < bolumler.length ? bolumler[k + 1].i : L.length;
       const gov = paragraflar(L, bas, bit);
       if (!gov.length) continue;                       // boş başlık, atla
-      const baslik = (c.n ? (c.y === 3 ? "" : "Chapter " + c.n +
+      const kw = c.kw || "Chapter";
+      const baslik = (c.n ? (c.y === 3 ? "" : kw + " " + c.n +
                      (c.t ? ". " : "")) : "") + (c.t || "");
-      const ad = baslik.trim() || ("Chapter " + c.n);
+      const ad = baslik.trim() || (kw + " " + c.n);
+
       const id = slug(ad, k + 1);
       html.push('<h1 class="chapter" id="' + id + '">' + g.esc(ad) + "</h1>");
       html.push(...gov);

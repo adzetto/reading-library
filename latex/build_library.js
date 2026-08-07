@@ -97,8 +97,11 @@ for (const s of sec) {
       const bit = k + 1 < bolumler.length ? bolumler[k + 1].i : L.length;
       const gov = B.paragraflar(L, bas, bit);
       if (!gov.length) continue;
-      const ad = ((c.n ? (c.y === 3 ? "" : "Chapter " + c.n + (c.t ? ". " : "")) : "") +
-                  (c.t || "")).trim() || ("Chapter " + c.n);
+      /* Anahtar sozcuk kaynaktan gelir: Letter / Canto / Part / Stave
+         hepsi "Chapter" diye etiketleniyordu. */
+      const kw = c.kw || "Chapter";
+      const ad = ((c.n ? (c.y === 3 ? "" : kw + " " + c.n + (c.t ? ". " : "")) : "") +
+                  (c.t || "")).trim() || (kw + " " + c.n);
       const id = B.slug(ad, k + 1);
       html.push('<h1 class="chapter" id="' + id + '">' + g.esc(ad) + "</h1>");
       html.push(...gov);

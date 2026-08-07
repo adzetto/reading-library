@@ -58,7 +58,8 @@ function run(sb, file) {
 }
 
 const SB = makeSandbox();
-["dict-core.js", "dict-a-c.js", "dict-d-h.js", "dict-i-p.js", "dict-q-z.js", "lookup.js"]
+["dict-core.js", "dict-a-c.js", "dict-d-h.js", "dict-i-p.js", "dict-q-z.js",
+ "dict-ext.js", "lookup.js"]
   .forEach((f) => run(SB, path.join(ASSETS, f)));
 
 const DOCDIR = path.join(ASSETS, "docs");

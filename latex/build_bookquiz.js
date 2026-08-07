@@ -30,7 +30,7 @@ const sb = { console, setInterval() {}, clearInterval() {},
 sb.window = sb; sb.self = sb; sb.globalThis = sb;
 vm.createContext(sb);
 for (const f of ["dict-core.js", "dict-a-c.js", "dict-d-h.js",
-                 "dict-i-p.js", "dict-q-z.js", "lookup.js"]) {
+                 "dict-i-p.js", "dict-q-z.js", "dict-ext.js", "lookup.js"]) {
   vm.runInContext(fs.readFileSync(path.join(ASSETS, f), "utf8"), sb);
 }
 const DICT = sb.Lookup.dict;
